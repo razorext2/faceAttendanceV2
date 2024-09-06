@@ -1,5 +1,6 @@
-<footer class="bg-white ring-1 ring-black">
-    <div class="w-full max-w-screen-xl mx-auto py-5">
-        <span class="block text-md text-black text-center ">© <?= date('Y') ?> <a href="https://indodacin.com/" class="hover:underline">Indodacin™</a>. All Rights Reserved.</span>
+<footer class="bg-white rounded-lg shadow mt-4 dark:bg-gray-800">
+    <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+        <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.
+        </span>
     </div>
 </footer>
