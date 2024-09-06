@@ -22,12 +22,21 @@
 <link href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet" />
 
 <style>
-    .hide-scroll-bar {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
+    ::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+        transition: width 0.3s ease;
+        scrollbar-width: thin;
     }
 
-    .hide-scroll-bar::-webkit-scrollbar {
-        display: none;
+    ::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        transition: opacity 0.5s ease;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: rgba(0, 0, 0, 0.2);
+        /* Darken the scrollbar thumb on hover */
     }
 </style>
