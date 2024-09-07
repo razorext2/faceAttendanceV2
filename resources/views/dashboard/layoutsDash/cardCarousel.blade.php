@@ -1,4 +1,3 @@
-<!-- Item 1 -->
 <div class="inline-block scroll-ml-6 snap-start">
     <div class="overflow-hidden rounded-xl shadow bg-gray-50">
         <div class="group relative flex cursor-pointer after:shadow-lg after:shadow-black">
