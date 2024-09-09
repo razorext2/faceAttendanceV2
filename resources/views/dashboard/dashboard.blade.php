@@ -195,17 +195,20 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ( $attendance_all as $aa )
-
-                @endforeach
+                @foreach($attendance_all as $index => $attendance)
                 <tr>
-                    <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $aa->pegawai->kode_pegawai }}</td>
-                    <td>{{ $aa->pegawai->full_name }}</td>
-                    <td>{{ $aa->pegawai->nick_name }}</td>
-                    <td>{{ $aa->pegawai->no_telp }}</td>
-                    <td>{{ $aa->pegawai->alamat }}</td>
-                    <td>{{ $aa->jam_masuk }} || {{ $aa->jam_keluar }} </td>
+                    <td class="py-2 px-4 border-b">{{ $index + 1 }}</td>
+                    <td class="py-2 px-4 border-b">{{ $attendance->kode_pegawai }}</td>
+                    <td class="py-2 px-4 border-b">{{ $attendance->pegawai->full_name ?? 'N/A' }}</td>
+                    <td class="py-2 px-4 border-b">{{ $attendance->pegawai->no_telp ?? 'N/A' }}</td>
+                    <td class="py-2 px-4 border-b">{{ $attendance->pegawai->alamat ?? 'N/A' }}</td>
+                    <td class="py-2 px-4 border-b">
+                        {{ $attendance->jam_masuk ? $attendance->jam_masuk->format('H:i:s') : 'N/A' }} ||
+                        {{ $attendance->jam_keluar ? $attendance->jam_keluar->format('H:i:s') : 'N/A' }}
+                    </td>
                 </tr>
+                @endforeach
+
             </tbody>
         </table>
     </div>
