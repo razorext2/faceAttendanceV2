@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\Attendance;
+use App\Models\AttendanceOut;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class AdminController extends Controller
 {
@@ -11,9 +14,24 @@ class AdminController extends Controller
      * Display a listing of the resource.
      */
     public function index()
+
     {
         //
-        return view('dashboard.dashboard');
+        $today = Carbon::today();
+
+        $attendance_out_today = AttendanceOut::whereDate('jam_keluar', $today)
+            ->with('pegawai')
+            ->orderBy('jam_keluar', 'desc')
+            ->get();
+
+        $attendance_today = Attendance::whereDate('jam_masuk', $today)
+            ->with('pegawai')
+            ->orderBy('jam_masuk', 'desc')
+            ->get();
+
+        $attendance_all = Attendance::all();
+
+        return view('dashboard.dashboard', compact('attendance_today', 'attendance_out_today', 'attendance_all'));
     }
 
     /**
