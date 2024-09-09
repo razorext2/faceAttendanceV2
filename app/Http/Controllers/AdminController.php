@@ -29,7 +29,10 @@ class AdminController extends Controller
             ->orderBy('jam_masuk', 'desc')
             ->get();
 
-        $attendance_all = Attendance::all();
+        $attendance_all = $attendance_today->map(function ($attendance) use ($attendance_out_today) {
+            $attendance->jam_keluar = $attendance_out_today->get($attendance->kode_pegawai)->jam_keluar ?? null;
+            return $attendance;
+        });
 
         return view('dashboard.dashboard', compact('attendance_today', 'attendance_out_today', 'attendance_all'));
     }
