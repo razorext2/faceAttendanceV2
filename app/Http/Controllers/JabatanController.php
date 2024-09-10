@@ -13,6 +13,7 @@ class JabatanController extends Controller
     public function index()
     {
         //
+        return view('dashboard.jabatan.index');
     }
 
     /**

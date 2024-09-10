@@ -4,7 +4,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\AttendanceOutController;
-use App\http\Controllers\AdminController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\JabatanController;
 use Illuminate\Support\Facades\Route;
 
 // breeze for regist, verif, login and logout
@@ -18,12 +19,14 @@ Route::get('/dashboard', [AdminController::class, 'index'])
     ->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/dashboard/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/dashboard/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/dashboard/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // menu di admin
     Route::get('dashboard/attendance', [AttendanceController::class, 'index'])->name('dashboard.attendance');
+    Route::get('dashboard/pegawai', [PegawaiController::class, 'index'])->name('dashboard.pegawai');
+    Route::get('dashboard/jabatan', [JabatanController::class, 'index'])->name('dashboard.jabatan');
 });
 
 require __DIR__ . '/auth.php';
