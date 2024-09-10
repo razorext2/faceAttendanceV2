@@ -9,16 +9,14 @@ use App\Http\Controllers\JabatanController;
 use Illuminate\Support\Facades\Route;
 
 // breeze for regist, verif, login and logout
+// landing page
 Route::get('/', function () {
     return view('home');
 })->name('landing.page');
 
-
-Route::get('/dashboard', [AdminController::class, 'index'])
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
-
+// route bisa diakses jika login
 Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
     Route::get('/dashboard/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/dashboard/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/dashboard/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
