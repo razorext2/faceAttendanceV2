@@ -148,12 +148,6 @@ class PegawaiController extends Controller
                 'storage' => $folderToDB,
             ]);
 
-        // Return a success response
-        // return response()->json([
-        //     'success' => true,
-        //     'message' => 'Photos uploaded and data updated successfully.'
-        // ]);
-
         return redirect()->route('photo.regist')->with('success', 'Data berhasil diperbarui!');
     }
 }
