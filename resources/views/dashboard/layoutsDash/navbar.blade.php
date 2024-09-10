@@ -24,10 +24,10 @@
                     <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow" id="dropdown-user">
                         <div class="px-4 py-3" role="none">
                             <p class="text-sm text-gray-900" role="none">
-                                Neil Sims
+                                {{ Auth::user()->name }}
                             </p>
                             <p class="text-sm font-medium text-gray-900 truncate" role="none">
-                                neil.sims@flowbite.com
+                                {{ Auth::user()->email }}
                             </p>
                         </div>
                         <ul class="py-1 border-t border-gray-200" role="none">
