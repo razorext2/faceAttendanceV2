@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\DB;
 class PegawaiController extends Controller
 {
 
+    public function index()
+    {
+        return view('dashboard.pegawai.index');
+    }
+
     public function getEmployeeByKodePegawai($kode_pegawai)
     {
         $pegawai = Pegawai::where('kode_pegawai', $kode_pegawai)->first();
