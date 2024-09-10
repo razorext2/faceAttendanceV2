@@ -22,8 +22,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/dashboard/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // menu di admin
-    Route::get('dashboard/attendance', [AttendanceController::class, 'index'])->name('dashboard.attendance');
-    Route::get('dashboard/pegawai', [PegawaiController::class, 'index'])->name('dashboard.pegawai');
+    Route::get('/dashboard/attendance', [AttendanceController::class, 'index'])->name('dashboard.attendance');
+
+    Route::get('/dashboard/pegawai', [PegawaiController::class, 'index'])->name('dashboard.pegawai');
+    Route::get('/dashboard/pegawai/edit/{pegawai}', [PegawaiController::class, 'edit'])->name('pegawai.edit');
+    Route::put('/dashboard/pegawai/update/{pegawai}', [PegawaiController::class, 'update'])->name('pegawai.update');
+
     Route::get('dashboard/jabatan', [JabatanController::class, 'index'])->name('dashboard.jabatan');
 });
 

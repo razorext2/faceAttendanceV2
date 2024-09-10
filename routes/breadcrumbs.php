@@ -18,6 +18,11 @@ Breadcrumbs::for('dashboard.pegawai', function (BreadcrumbTrail $trail) {
     $trail->push('Pegawai', route('dashboard.pegawai'));
 });
 
+Breadcrumbs::for('pegawai.edit', function (BreadcrumbTrail $trail, $pegawai) {
+    $trail->parent('dashboard.pegawai');
+    $trail->push('Pegawai Edit', route('pegawai.edit', $pegawai));
+});
+
 Breadcrumbs::for('dashboard.attendance', function (BreadcrumbTrail $trail) {
     $trail->parent('dashboard');
     $trail->push('Attendance', route('dashboard.attendance'));

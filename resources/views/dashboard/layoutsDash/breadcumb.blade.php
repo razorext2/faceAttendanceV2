@@ -1,4 +1,20 @@
 <div class="grid grid-cols-1 gap-4">
     {{ Breadcrumbs::render() }}
+    @if (Route::currentRouteName() == 'dashboard')
     <h2 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl">Dashboard</h2>
+    @elseif (Route::currentRouteName() == 'dashboard.pegawai')
+    <h2 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl">Pegawai</h2>
+    @elseif (Route::currentRouteName() == 'pegawai.edit')
+    <h2 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl">Edit Pegawai</h2>
+    @elseif (Route::currentRouteName() == 'dashboard.jabatan')
+    <h2 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl">Jabatan</h2>
+    @elseif (Route::currentRouteName() == 'dashboard.attendance')
+    <h2 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl">Attendance</h2>
+    @elseif (Route::currentRouteName() == 'profile.edit')
+    <h2 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl">
+        Profile -
+        <span class="text-lg font-bold md:text-xl" style="font-size: 24px !important;">{{ Auth::user()->name }}</span>
+    </h2>
+
+    @endif
 </div>

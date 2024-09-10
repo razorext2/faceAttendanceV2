@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Pegawai;
+use App\Models\Jabatan;
 use App\Models\Attendance;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
@@ -14,7 +15,28 @@ class PegawaiController extends Controller
 
     public function index()
     {
-        return view('dashboard.pegawai.index');
+        $pegawai = Pegawai::all();
+        return view('dashboard.pegawai.index', compact('pegawai'));
+    }
+
+    public function edit(Pegawai $pegawai)
+    {
+        $jabatan = Jabatan::all();
+        return view('dashboard.pegawai.edit', compact('pegawai', 'jabatan'));
+    }
+
+    public function update(Request $request, Pegawai $pegawai)
+    {
+        $pegawai->update([
+            'full_name' => $request->input('nama_lengkap'),
+            'nick_name' => $request->input('nick_name'),
+            'no_telp' => $request->input('no_telp'),
+            'alamat' => $request->input('alamat'),
+            'jabatan' => $request->input('jabatan'),
+            'tgl_lahir' => $request->input('tgl_lahir')
+        ]);
+
+        return redirect()->route('dashboard.pegawai');
     }
 
     public function getEmployeeByKodePegawai($kode_pegawai)
