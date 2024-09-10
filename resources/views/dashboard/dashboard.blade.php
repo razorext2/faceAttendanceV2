@@ -98,16 +98,26 @@
             </span>
             <ul class="max-h-48 overflow-y-auto text-gray-700" aria-labelledby="dropdownUsersButton">
 
+                @if(!empty($attendance_today))
                 @foreach ( $attendance_today as $at )
-
                 <li>
-                    <a href="#" class="flex items-center p-2 bg-[#7678ed] text-white hover:bg-[#5d5ece] my-2 rounded-lg">
+                    <p class="flex items-center p-2 bg-[#7678ed] text-white text-xs hover:bg-[#5d5ece] my-2 rounded-lg">
                         <img class="w-6 h-6 me-2 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="Jese image">
-                        {{ $at->pegawai->nick_name }}, melakukan absensi <span class="text-white bg-green-400 px-2 mx-1 rounded-lg font-semibold"> masuk </span> pada pukul {{ \Carbon\Carbon::parse($at->jam_masuk)->format('H:i') }}
-                    </a>
+                        {{ $at->pegawai->nick_name }}, melakukan absensi
+                        <span class="bg-green-100 text-green-800 text-xs font-medium mx-1 px-1 py-0.5 rounded dark:bg-green-900 dark:text-green-300">
+                            Masuk
+                        </span>
+                        pada pukul {{ \Carbon\Carbon::parse($at->jam_masuk)->format('H:i') }}
+                    </p>
                 </li>
-
                 @endforeach
+                @else
+                <li>
+                    <span class="flex items-center my-2 rounded-lg">
+                        Belum ada absensi hari ini
+                    </span>
+                </li>
+                @endif
 
             </ul>
 
@@ -118,20 +128,19 @@
                 <time class="text-md font-semibold text-gray-900">Absen Keluar, {{ \Carbon\Carbon::today()->locale('id')->isoFormat('D MMMM YYYY') }}</time>
             </span>
             <ul class="max-h-48 overflow-y-auto text-gray-700" aria-labelledby="dropdownUsersButton">
-
                 @foreach ( $attendance_out_today as $at )
-
                 <li>
-                    <a href="#" class="flex items-center p-2 bg-[#7678ed] text-white hover:bg-[#5d5ece] my-2 rounded-lg">
+                    <p class="flex items-center p-2 bg-[#7678ed] text-white text-xs hover:bg-[#5d5ece] my-2 rounded-lg">
                         <img class="w-6 h-6 me-2 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="Jese image">
-                        {{ $at->pegawai->nick_name }}, melakukan absensi <span class="text-white bg-red-400 px-2 mx-1 rounded-lg font-semibold"> keluar </span> pada pukul {{ \Carbon\Carbon::parse($at->jam_keluar)->format('H:i') }}
-                    </a>
+                        {{ $at->pegawai->nick_name }}, melakukan absensi
+                        <span class="bg-red-100 text-red-800 text-xs font-medium mx-1 px-1 py-0.5 rounded dark:bg-red-900 dark:text-red-300">
+                            Keluar
+                        </span>
+                        pada pukul {{ \Carbon\Carbon::parse($at->jam_keluar)->format('H:i') }}
+                    </p>
                 </li>
-
                 @endforeach
-
             </ul>
-
         </div>
 
     </div>
@@ -140,10 +149,33 @@
 
 <div class="grid grid-cols-1 gap-6">
     <div class="flex items-center justify-center rounded-lg bg-gray-50 h-auto p-4 ring-1 ring-gray-200 shadow-sm">
-
         <table id="filter-table">
             <thead>
                 <tr>
+                    <th>
+                        <span class="flex items-center">
+                            No
+                            <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 15 4 4 4-4m0-6-4-4-4 4" />
+                            </svg>
+                        </span>
+                    </th>
+                    <th>
+                        <span class="flex items-center">
+                            Tanggal
+                            <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 15 4 4 4-4m0-6-4-4-4 4" />
+                            </svg>
+                        </span>
+                    </th>
+                    <th>
+                        <span class="flex items-center">
+                            Waktu
+                            <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 15 4 4 4-4m0-6-4-4-4 4" />
+                            </svg>
+                        </span>
+                    </th>
                     <th>
                         <span class="flex items-center">
                             Kode Pegawai
@@ -176,36 +208,27 @@
                             </svg>
                         </span>
                     </th>
-                    <th>
-                        <span class="flex items-center">
-                            Alamat
-                            <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 15 4 4 4-4m0-6-4-4-4 4" />
-                            </svg>
-                        </span>
-                    </th>
-                    <th>
-                        <span class="flex items-center">
-                            Waktu
-                            <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 15 4 4 4-4m0-6-4-4-4 4" />
-                            </svg>
-                        </span>
-                    </th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($attendance_all as $index => $attendance)
-                <tr>
-                    <td class="py-2 px-4 border-b">{{ $index + 1 }}</td>
-                    <td class="py-2 px-4 border-b">{{ $attendance->kode_pegawai }}</td>
-                    <td class="py-2 px-4 border-b">{{ $attendance->pegawai->full_name ?? 'N/A' }}</td>
-                    <td class="py-2 px-4 border-b">{{ $attendance->pegawai->no_telp ?? 'N/A' }}</td>
-                    <td class="py-2 px-4 border-b">{{ $attendance->pegawai->alamat ?? 'N/A' }}</td>
-                    <td class="py-2 px-4 border-b">
-                        {{ $attendance->jam_masuk ? $attendance->jam_masuk->format('H:i:s') : 'N/A' }} ||
-                        {{ $attendance->jam_keluar ? $attendance->jam_keluar->format('H:i:s') : 'N/A' }}
+                <tr class="hover:bg-gray-100 hover:text-black hover:font-semibold">
+                    <td class="border-b">{{ $index + 1 }}</td>
+                    <td class="border-b">
+                        {{ $attendance->jam_masuk ? \Carbon\Carbon::parse($attendance->jam_masuk)->locale('id')->isoFormat('D MMMM YYYY') : 'N/A' }}
                     </td>
+                    <td class="border-b flex flex-col text-center">
+                        <span class="w-3/4 my-1 px-2 py-1 rounded-lg text-black ring-1 ring-green-400 shadow-sm hover:bg-green-300">
+                            Masuk : {{ \Carbon\Carbon::parse($attendance->jam_masuk)->format('H:i') }}
+                        </span>
+                        <span class="w-3/4 my-1 px-2 py-1 rounded-lg text-black ring-1 ring-red-400 shadow-sm hover:bg-red-300">
+                            Keluar : {{ $attendance->latest_jam_keluar ? \Carbon\Carbon::parse($attendance->latest_jam_keluar)->format('H:i') : 'None' }}
+                        </span>
+                    </td>
+                    <td class="border-b">{{ $attendance->kode_pegawai }}</td>
+                    <td class="border-b">{{ $attendance->full_name }}</td>
+                    <td class="border-b">{{ $attendance->nick_name ?? 'N/A' }}</td>
+                    <td class="border-b">{{ $attendance->no_telp ?? 'N/A' }}</td>
                 </tr>
                 @endforeach
 

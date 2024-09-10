@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Admin;
 use App\Models\Attendance;
 use App\Models\AttendanceOut;
+use App\Models\Pegawai;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
 class AdminController extends Controller
@@ -29,59 +31,24 @@ class AdminController extends Controller
             ->orderBy('jam_masuk', 'desc')
             ->get();
 
-        $attendance_all = $attendance_today->map(function ($attendance) use ($attendance_out_today) {
-            $attendance->jam_keluar = $attendance_out_today->get($attendance->kode_pegawai)->jam_keluar ?? null;
-            return $attendance;
-        });
+        // Subquery to get the latest `jam_keluar` for each `kode_pegawai` for today
+        $latestAttendanceOutToday = DB::table('tb_attendance_out')
+            ->select('kode_pegawai', DB::raw('MAX(jam_keluar) as latest_jam_keluar'))
+            ->whereDate('jam_keluar', $today)
+            ->groupBy('kode_pegawai');
+
+        // Main query to join tb_pegawai with the latest `jam_keluar` for today
+        $attendance_all = Pegawai::leftJoin('tb_attendance as a', 'tb_pegawai.kode_pegawai', '=', 'a.kode_pegawai')
+            ->leftJoinSub($latestAttendanceOutToday, 'latest_attendance_out_today', function ($join) {
+                $join->on('tb_pegawai.kode_pegawai', '=', 'latest_attendance_out_today.kode_pegawai');
+            })
+            ->select('tb_pegawai.kode_pegawai', 'tb_pegawai.full_name', 'tb_pegawai.nick_name', 'tb_pegawai.no_telp', 'tb_pegawai.alamat', 'a.jam_masuk', 'latest_attendance_out_today.latest_jam_keluar')
+            ->whereDate('a.jam_masuk', $today)
+            ->orderBy('a.jam_masuk', 'DESC')
+            ->get();
+
+
 
         return view('dashboard.dashboard', compact('attendance_today', 'attendance_out_today', 'attendance_all'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Admin $admin)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Admin $admin)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Admin $admin)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Admin $admin)
-    {
-        //
     }
 }
