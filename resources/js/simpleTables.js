@@ -36,6 +36,7 @@ if (
     });
 }
 
+// next & prev button on carousel
 const scrollContainer = document.getElementById("scrollContainer");
 const nextButton = document.getElementById("nextButton");
 const prevButton = document.getElementById("prevButton");
