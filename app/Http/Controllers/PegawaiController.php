@@ -19,6 +19,27 @@ class PegawaiController extends Controller
         return view('dashboard.pegawai.index', compact('pegawai'));
     }
 
+    public function create()
+    {
+        $jabatan = Jabatan::all();
+        return view('dashboard.pegawai.add', compact('jabatan'));
+    }
+
+    public function store(Request $request)
+    {
+        Pegawai::create([
+            'kode_pegawai' => $request->input('kode_pegawai'),
+            'full_name' => $request->input('nama_lengkap'),
+            'nick_name' => $request->input('nick_name'),
+            'no_telp' => $request->input('no_telp'),
+            'alamat' => $request->input('alamat'),
+            'jabatan' => $request->input('jabatan'),
+            'tgl_lahir' => $request->input('tgl_lahir')
+        ]);
+
+        return redirect()->route('dashboard.pegawai');
+    }
+
     public function edit(Pegawai $pegawai)
     {
         $jabatan = Jabatan::all();

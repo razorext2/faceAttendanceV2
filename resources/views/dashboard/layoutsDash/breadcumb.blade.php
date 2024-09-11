@@ -6,6 +6,8 @@
     <h2 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl">Pegawai</h2>
     @elseif (Route::currentRouteName() == 'pegawai.edit')
     <h2 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl">Edit Pegawai</h2>
+    @elseif (Route::currentRouteName() == 'pegawai.add')
+    <h2 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl">Tambah Pegawai</h2>
     @elseif (Route::currentRouteName() == 'dashboard.jabatan')
     <h2 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl">Jabatan</h2>
     @elseif (Route::currentRouteName() == 'dashboard.attendance')
