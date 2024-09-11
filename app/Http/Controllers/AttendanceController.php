@@ -10,7 +10,8 @@ class AttendanceController extends Controller
 
     public function index()
     {
-        return view('dashboard/attendancein');
+        $datas = Attendance::with('pegawaiRelasi')->get();
+        return view('dashboard.attendanceIn.view', compact('datas'));
     }
 
     public function storeAttendance(Request $request)

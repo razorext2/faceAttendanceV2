@@ -39,6 +39,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard/jabatan/edit/{jabatan}', [JabatanController::class, 'edit'])->name('jabatan.edit');
     Route::put('/dashboard/jabatan/update/{jabatan}', [JabatanController::class, 'update'])->name('jabatan.update');
     Route::delete('/dashboard/jabatan/delete/{jabatan}', [JabatanController::class, 'destroy'])->name('jabatan.delete');
+
+    // attendanceIn
+    Route::get('/dashboard/attendanceIn', [AttendanceController::class, 'index'])->name('attendanceIn.view');
+
+    // attendanceOut
+    Route::get('/dashboard/attendanceOut', [AttendanceOutController::class, 'index'])->name('attendanceOut.view');
 });
 
 require __DIR__ . '/auth.php';

@@ -38,9 +38,14 @@ Breadcrumbs::for('jabatan.edit', function (BreadcrumbTrail $trail, $jabatan) {
     $trail->push('Jabatan Edit', route('jabatan.edit', $jabatan));
 });
 
-Breadcrumbs::for('dashboard.attendance', function (BreadcrumbTrail $trail) {
+Breadcrumbs::for('attendanceIn.view', function (BreadcrumbTrail $trail) {
     $trail->parent('dashboard');
-    $trail->push('Attendance', route('dashboard.attendance'));
+    $trail->push('Absen Masuk', route('attendanceIn.view'));
+});
+
+Breadcrumbs::for('attendanceOut.view', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push('Absen Keluar', route('attendanceOut.view'));
 });
 
 Breadcrumbs::for('dashboard.jabatan', function (BreadcrumbTrail $trail) {

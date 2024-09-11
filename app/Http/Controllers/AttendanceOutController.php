@@ -7,6 +7,13 @@ use App\Models\AttendanceOut;
 
 class AttendanceOutController extends Controller
 {
+
+    public function index()
+    {
+        $datas = AttendanceOut::with('pegawaiRelasi')->get();
+        return view('dashboard.attendanceOut.view', compact('datas'));
+    }
+
     public function storeAttendance(Request $request)
     {
         try {

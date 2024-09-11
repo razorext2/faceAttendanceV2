@@ -14,8 +14,10 @@
     <h2 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl">Tambah Jabatan</h2>
     @elseif (Route::currentRouteName() == 'jabatan.edit')
     <h2 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl">Edit Jabatan</h2>
-    @elseif (Route::currentRouteName() == 'dashboard.attendance')
-    <h2 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl">Attendance</h2>
+    @elseif (Route::currentRouteName() == 'attendanceIn.view')
+    <h2 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl">Absen Masuk</h2>
+    @elseif (Route::currentRouteName() == 'attendanceOut.view')
+    <h2 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl">Absen Keluar</h2>
     @elseif (Route::currentRouteName() == 'profile.edit')
     <h2 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl">
         Profile -
