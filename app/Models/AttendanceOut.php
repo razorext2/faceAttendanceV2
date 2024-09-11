@@ -23,7 +23,7 @@ class AttendanceOut extends Model
     ];
 
     // In Attendance.php (Model)
-    public function pegawai()
+    public function pegawaiRelasi()
     {
         return $this->belongsTo(Pegawai::class, 'kode_pegawai', 'kode_pegawai');
     }

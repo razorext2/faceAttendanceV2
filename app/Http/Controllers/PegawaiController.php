@@ -15,7 +15,7 @@ class PegawaiController extends Controller
 
     public function index()
     {
-        $pegawai = Pegawai::all();
+        $pegawai = Pegawai::with('jabatanRelasi')->get();
         return view('dashboard.pegawai.index', compact('pegawai'));
     }
 
@@ -97,7 +97,7 @@ class PegawaiController extends Controller
 
     public function getPegawaiDataByLabel($label)
     {
-        $pegawai = Pegawai::with('attendance')->where('kode_pegawai', $label)->first();
+        $pegawai = Pegawai::with('attendanceRelasi')->where('kode_pegawai', $label)->first();
         if ($pegawai) {
             return response()->json($pegawai);
         } else {

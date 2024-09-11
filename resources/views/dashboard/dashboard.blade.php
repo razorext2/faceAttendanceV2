@@ -103,7 +103,7 @@
                 <li>
                     <p class="flex items-center p-2 bg-[#7678ed] text-white text-xs hover:bg-[#5d5ece] my-2 rounded-lg">
                         <img class="w-6 h-6 me-2 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="Jese image">
-                        {{ $at->pegawai->nick_name }}, melakukan absensi
+                        {{ $at->pegawaiRelasi->full_name }}, melakukan absensi
                         <span class="bg-green-100 text-green-800 text-xs font-medium mx-1 px-1 py-0.5 rounded dark:bg-green-900 dark:text-green-300">
                             Masuk
                         </span>
@@ -132,7 +132,7 @@
                 <li>
                     <p class="flex items-center p-2 bg-[#7678ed] text-white text-xs hover:bg-[#5d5ece] my-2 rounded-lg">
                         <img class="w-6 h-6 me-2 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="Jese image">
-                        {{ $at->pegawai->nick_name }}, melakukan absensi
+                        {{ $at->pegawaiRelasi->nick_name }}, melakukan absensi
                         <span class="bg-red-100 text-red-800 text-xs font-medium mx-1 px-1 py-0.5 rounded dark:bg-red-900 dark:text-red-300">
                             Keluar
                         </span>
@@ -160,13 +160,6 @@
                             </svg>
                         </span>
                     </th>
-                    <th>
-                        <span class="flex items-center">
-                            Tanggal
-                            <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 15 4 4 4-4m0-6-4-4-4 4" />
-                            </svg>
-                        </span>
                     </th>
                     <th>
                         <span class="flex items-center">
@@ -214,21 +207,34 @@
                 @foreach($attendance_all as $index => $attendance)
                 <tr class="hover:bg-gray-100 hover:text-black hover:font-semibold">
                     <td class="border-b">{{ $index + 1 }}</td>
-                    <td class="border-b">
-                        {{ $attendance->jam_masuk ? \Carbon\Carbon::parse($attendance->jam_masuk)->locale('id')->isoFormat('D MMMM YYYY') : 'N/A' }}
-                    </td>
                     <td class="border-b flex flex-col text-center">
+                        <!-- jam masuk -->
+                        @if ($attendance['jam_masuk'])
                         <span class="w-3/4 my-1 px-2 py-1 rounded-lg text-black ring-1 ring-green-400 shadow-sm hover:bg-green-300">
-                            Masuk : {{ \Carbon\Carbon::parse($attendance->jam_masuk)->format('H:i') }}
+                            Masuk : {{ \Carbon\Carbon::parse($attendance['jam_masuk'])->format('H:i') }}
                         </span>
+                        @else
+                        <span class="w-3/4 my-1 px-2 py-1 rounded-lg text-black ring-1 ring-red-400 shadow-sm bg-red-300">
+                            Belum Absen
+                        </span>
+                        @endif
+
+                        <!-- jam keluar -->
+                        @if ($attendance['latest_jam_keluar'])
                         <span class="w-3/4 my-1 px-2 py-1 rounded-lg text-black ring-1 ring-red-400 shadow-sm hover:bg-red-300">
-                            Keluar : {{ $attendance->latest_jam_keluar ? \Carbon\Carbon::parse($attendance->latest_jam_keluar)->format('H:i') : 'None' }}
+                            Keluar : {{ \Carbon\Carbon::parse($attendance['latest_jam_keluar'])->format('H:i') }}
                         </span>
+                        @else
+                        <span class="w-3/4 my-1 px-2 py-1 rounded-lg text-black ring-1 ring-red-400 shadow-sm bg-red-300">
+                            Belum Absen
+                        </span>
+                        @endif
+
                     </td>
-                    <td class="border-b">{{ $attendance->kode_pegawai }}</td>
-                    <td class="border-b">{{ $attendance->full_name }}</td>
-                    <td class="border-b">{{ $attendance->nick_name ?? 'N/A' }}</td>
-                    <td class="border-b">{{ $attendance->no_telp ?? 'N/A' }}</td>
+                    <td class="border-b">{{ $attendance['kode_pegawai'] }}</td>
+                    <td class="border-b">{{ $attendance['full_name'] }}</td>
+                    <td class="border-b">{{ $attendance['nick_name'] ?? 'N/A' }}</td>
+                    <td class="border-b">{{ $attendance['no_telp'] ?? 'N/A' }}</td>
                 </tr>
                 @endforeach
 

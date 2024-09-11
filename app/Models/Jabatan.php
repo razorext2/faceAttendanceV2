@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Jabatan extends Model
 {
     use HasFactory;
+
+    protected $table = 'tb_jabatan';
+
+    // Jabatan.php
+    public function pegawaiRelasi()
+    {
+        return $this->hasMany(Pegawai::class, 'jabatan', 'id'); // 'jabatan' refers to foreign key in tb_pegawai
+    }
 }

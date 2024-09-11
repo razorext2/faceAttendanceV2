@@ -90,7 +90,7 @@
                     <td class="border-b">{{ $p->full_name }}</td>
                     <td class="border-b">{{ $p->nick_name ?? 'N/A' }}</td>
                     <td class="border-b">{{ $p->no_telp ?? 'N/A' }}</td>
-                    <td class="border-b">{{ $p->jabatan ?? 'N/A' }}</td>
+                    <td class="border-b">{{ $p->jabatanRelasi->nama_jabatan }}</td>
                     <td class="border-b">{{ $p->alamat ?? 'N/A' }}</td>
                     <td class="border-b">{{ $p->storage ?? 'N/A' }}</td>
                 </tr>
