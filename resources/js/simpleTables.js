@@ -14,7 +14,7 @@ if (
         fixedHeight: true,
         searchable: false,
         paging: true, // enable or disable pagination
-        perPage: 5, // set the number of rows per page
+        perPage: 10, // set the number of rows per page
         perPageSelect: [5, 10, 20, 50], // set the number of rows per page options
         tableRender: (_data, table, type) => {
             if (type === "print") {
