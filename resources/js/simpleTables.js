@@ -4,6 +4,14 @@ if (
     typeof DataTable !== "undefined"
 ) {
     const dataTable = new DataTable("#filter-table", {
+        labels: {
+            placeholder: "Search data...",
+            searchTitle: "Search within data",
+            perPage: "data",
+            noRows: "No data to display",
+            info: "Showing {start} to {end} of {rows} data (Page {page} of {pages} pages)",
+        },
+        fixedHeight: true,
         searchable: false,
         paging: true, // enable or disable pagination
         perPage: 5, // set the number of rows per page
