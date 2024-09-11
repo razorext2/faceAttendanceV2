@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Pegawai;
 use App\Models\Jabatan;
-use App\Models\Attendance;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
@@ -102,11 +101,14 @@ class PegawaiController extends Controller
     public function storeImage(Request $request)
     {
         if ($request->hasFile('image') && $request->input('label')) {
+
+            $today = Carbon::now();
+
             $image = $request->file('image');
             $label = $request->input('label');
 
             $uploadDir = '/labels/' . $label . '/capturedImg/';
-            $timestamp = date('Ymd_his');
+            $timestamp = Carbon::parse($today)->locale('id')->isoFormat('YYYYMMDD_HHmmss');
             $imageName = $label . '_captured_' . $timestamp . '.png';
 
             $path = $image->storeAs($uploadDir, $imageName, 'public');
