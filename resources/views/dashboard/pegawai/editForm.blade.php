@@ -1,15 +1,21 @@
-<div class="w-full md:w-4/12 space-y-6">
-    <div class="p-4 sm:p-8 bg-white shadow-sm rounded-lg ring-1 ring-gray-200">
+<div class="w-full xl:w-6/12 2xl:w-1/3 space-y-6">
+    <div class="p-4 sm:px-10 sm:pb-8 sm:pt-4 bg-gray-50 shadow-sm rounded-lg ring-1 ring-gray-200">
         <div class="max-w-xl">
-            <header>
-                <h2 class="text-lg font-medium text-gray-900">
+            <header class="flex flex-row">
+                <a href="{{ route('dashboard.pegawai') }}" class="mr-3 px-2.5 mb-4 md:px-4 py-2.5 align-middle ring-1 ring-red-700 hover:bg-red-300 rounded-lg flex flex-row">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 1024 1024" fill="#000000" class="icon" version="1.1">
+                        <path d="M669.6 849.6c8.8 8 22.4 7.2 30.4-1.6s7.2-22.4-1.6-30.4l-309.6-280c-8-7.2-8-17.6 0-24.8l309.6-270.4c8.8-8 9.6-21.6 2.4-30.4-8-8.8-21.6-9.6-30.4-2.4L360.8 480.8c-27.2 24-28 64-0.8 88.8l309.6 280z" fill="" />
+                    </svg>
+                    Kembali
+                </a>
+                <h2 class="text-lg font-medium text-gray-900 mt-2">
                     {{ __('Edit Data Pegawai') }}
                 </h2>
 
-                <p class="mt-1 text-sm text-gray-600">
-                    {{ __('Silahkan sesuaikan data dibawah ini dengan data yang benar.') }}
-                </p>
             </header>
+            <p class="mt-1 text-sm text-gray-600">
+                {{ __('Silahkan sesuaikan data dibawah ini dengan data yang benar.') }}
+            </p>
 
             <form action="{{ route('pegawai.update', $pegawai) }}" class="mt-4" method="POST">
                 @csrf
@@ -54,17 +60,17 @@
                     </div>
 
                     <div class="relative max-w-sm">
-                        <label for="tanggal_lahir" class="block mb-2 text-sm font-medium text-gray-900">Tanggal Lahir</label>
+                        <label for="tgl_lahir" class="block mb-2 text-sm font-medium text-gray-900">Tanggal Lahir</label>
                         <div class="absolute inset-y-0 start-0 top-7 flex items-center ps-3 pointer-events-none">
                             <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                                 <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
                             </svg>
                         </div>
-                        <input name="tgl_lahir" id="datepicker-format" datepicker datepicker-format="yyyy-mm-dd" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5" placeholder="Select date" value="{{ old('tgl_lahir', $pegawai->tgl_lahir ?? '') }}">
+                        <input name="tgl_lahir" id="tgl_lahir" datepicker datepicker-format="yyyy-mm-dd" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5" placeholder="Select date" value="{{ old('tgl_lahir', $pegawai->tgl_lahir ?? '') }}">
                     </div>
 
                     <div class="sm:col-span-2">
-                        <label for="address" class="block mb-2 text-sm font-medium text-gray-900">Alamat</label>
+                        <label for="alamat" class="block mb-2 text-sm font-medium text-gray-900">Alamat</label>
                         <textarea
                             id="alamat"
                             name="alamat"
