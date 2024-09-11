@@ -92,9 +92,14 @@
                             <a href="{{ route('pegawai.edit', $p->id) }}" class="px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border-t border-b border-l border-green-800 rounded-s-lg hover:bg-green-600 hover:text-white focus:z-10 focus:ring-green-500 focus:bg-green-600 focus:text-white">
                                 Edit
                             </a>
-                            <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border-t border-b border-l border-r border-red-800 rounded-e-lg hover:bg-red-900 hover:text-white focus:z-10 focus:ring-red-500 focus:bg-red-900 focus:text-white">
-                                Delete
-                            </button>
+
+                            <form method="POST" action="{{ route('pegawai.delete', $p) }}">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" onclick="return confirm('Are you sure?')" class="px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border-t border-b border-l border-r border-red-800 rounded-e-lg hover:bg-red-900 hover:text-white focus:z-10 focus:ring-red-500 focus:bg-red-900 focus:text-white">
+                                    Delete
+                                </button>
+                            </form>
                         </div>
                     </td>
                     <td class="border-b">{{ $p->kode_pegawai }}</td>

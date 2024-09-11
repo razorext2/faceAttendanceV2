@@ -29,6 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::put('/dashboard/pegawai/update/{pegawai}', [PegawaiController::class, 'update'])->name('pegawai.update');
     Route::get('/dashboard/pegawai/add', [PegawaiController::class, 'create'])->name('pegawai.add');
     Route::post('/dashboard/pegawai/store', [PegawaiController::class, 'store'])->name('pegawai.store');
+    Route::delete('/dashboard/pegawai/delete/{pegawai}', [PegawaiController::class, 'destroy'])->name('pegawai.delete');
 
     Route::get('dashboard/jabatan', [JabatanController::class, 'index'])->name('dashboard.jabatan');
 });

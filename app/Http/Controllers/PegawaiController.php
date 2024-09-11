@@ -60,6 +60,12 @@ class PegawaiController extends Controller
         return redirect()->route('dashboard.pegawai');
     }
 
+    public function destroy(Pegawai $pegawai)
+    {
+        $pegawai->delete();
+        return redirect()->route('dashboard.pegawai');
+    }
+
     public function getEmployeeByKodePegawai($kode_pegawai)
     {
         $pegawai = Pegawai::where('kode_pegawai', $kode_pegawai)->first();
