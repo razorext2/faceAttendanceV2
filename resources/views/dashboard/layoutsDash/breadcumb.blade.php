@@ -10,6 +10,10 @@
     <h2 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl">Tambah Pegawai</h2>
     @elseif (Route::currentRouteName() == 'dashboard.jabatan')
     <h2 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl">Jabatan</h2>
+    @elseif (Route::currentRouteName() == 'jabatan.add')
+    <h2 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl">Tambah Jabatan</h2>
+    @elseif (Route::currentRouteName() == 'jabatan.edit')
+    <h2 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl">Edit Jabatan</h2>
     @elseif (Route::currentRouteName() == 'dashboard.attendance')
     <h2 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl">Attendance</h2>
     @elseif (Route::currentRouteName() == 'profile.edit')

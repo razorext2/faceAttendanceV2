@@ -11,6 +11,8 @@ class Jabatan extends Model
 
     protected $table = 'tb_jabatan';
 
+    protected $fillable = ['nama_jabatan', 'divisi', 'penempatan'];
+
     // Jabatan.php
     public function pegawaiRelasi()
     {

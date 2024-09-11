@@ -24,14 +24,21 @@ Route::middleware('auth')->group(function () {
     // menu di admin
     Route::get('/dashboard/attendance', [AttendanceController::class, 'index'])->name('dashboard.attendance');
 
+    // pegawai
     Route::get('/dashboard/pegawai', [PegawaiController::class, 'index'])->name('dashboard.pegawai');
-    Route::get('/dashboard/pegawai/edit/{pegawai}', [PegawaiController::class, 'edit'])->name('pegawai.edit');
-    Route::put('/dashboard/pegawai/update/{pegawai}', [PegawaiController::class, 'update'])->name('pegawai.update');
     Route::get('/dashboard/pegawai/add', [PegawaiController::class, 'create'])->name('pegawai.add');
     Route::post('/dashboard/pegawai/store', [PegawaiController::class, 'store'])->name('pegawai.store');
+    Route::get('/dashboard/pegawai/edit/{pegawai}', [PegawaiController::class, 'edit'])->name('pegawai.edit');
+    Route::put('/dashboard/pegawai/update/{pegawai}', [PegawaiController::class, 'update'])->name('pegawai.update');
     Route::delete('/dashboard/pegawai/delete/{pegawai}', [PegawaiController::class, 'destroy'])->name('pegawai.delete');
 
+    // jabatan
     Route::get('dashboard/jabatan', [JabatanController::class, 'index'])->name('dashboard.jabatan');
+    Route::get('/dashboard/jabatan/add', [JabatanController::class, 'create'])->name('jabatan.add');
+    Route::post('/dashboard/jabatan/store', [JabatanController::class, 'store'])->name('jabatan.store');
+    Route::get('/dashboard/jabatan/edit/{jabatan}', [JabatanController::class, 'edit'])->name('jabatan.edit');
+    Route::put('/dashboard/jabatan/update/{jabatan}', [JabatanController::class, 'update'])->name('jabatan.update');
+    Route::delete('/dashboard/jabatan/delete/{jabatan}', [JabatanController::class, 'destroy'])->name('jabatan.delete');
 });
 
 require __DIR__ . '/auth.php';

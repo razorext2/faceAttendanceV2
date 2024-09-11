@@ -28,6 +28,15 @@ Breadcrumbs::for('pegawai.add', function (BreadcrumbTrail $trail) {
     $trail->push('Pegawai Add', route('pegawai.add'));
 });
 
+Breadcrumbs::for('jabatan.add', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard.jabatan');
+    $trail->push('Jabatan Add', route('jabatan.add'));
+});
+
+Breadcrumbs::for('jabatan.edit', function (BreadcrumbTrail $trail, $jabatan) {
+    $trail->parent('dashboard.jabatan');
+    $trail->push('Jabatan Edit', route('jabatan.edit', $jabatan));
+});
 
 Breadcrumbs::for('dashboard.attendance', function (BreadcrumbTrail $trail) {
     $trail->parent('dashboard');

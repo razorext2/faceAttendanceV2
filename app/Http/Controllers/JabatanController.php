@@ -13,7 +13,8 @@ class JabatanController extends Controller
     public function index()
     {
         //
-        return view('dashboard.jabatan.index');
+        $jabatan = Jabatan::get();
+        return view('dashboard.jabatan.index', compact('jabatan'));
     }
 
     /**
@@ -21,6 +22,7 @@ class JabatanController extends Controller
      */
     public function create()
     {
+        return view('dashboard.jabatan.add');
         //
     }
 
@@ -30,14 +32,13 @@ class JabatanController extends Controller
     public function store(Request $request)
     {
         //
-    }
+        Jabatan::create([
+            'nama_jabatan' => $request->input('nama_jabatan'),
+            'divisi' => $request->input('divisi'),
+            'penempatan' => $request->input('penempatan')
+        ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Jabatan $jabatan)
-    {
-        //
+        return redirect()->route('dashboard.jabatan');
     }
 
     /**
@@ -46,6 +47,7 @@ class JabatanController extends Controller
     public function edit(Jabatan $jabatan)
     {
         //
+        return view('dashboard.jabatan.edit', compact('jabatan'));
     }
 
     /**
@@ -54,6 +56,13 @@ class JabatanController extends Controller
     public function update(Request $request, Jabatan $jabatan)
     {
         //
+        $jabatan->update([
+            'nama_jabatan' => $request->input('nama_jabatan'),
+            'divisi' => $request->input('divisi'),
+            'penempatan' => $request->input('penempatan')
+        ]);
+
+        return redirect()->route('dashboard.jabatan');
     }
 
     /**
@@ -61,6 +70,7 @@ class JabatanController extends Controller
      */
     public function destroy(Jabatan $jabatan)
     {
-        //
+        $jabatan->delete();
+        return redirect()->route('dashboard.jabatan');
     }
 }
