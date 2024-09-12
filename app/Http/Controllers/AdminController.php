@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Admin;
 use App\Models\Attendance;
 use App\Models\AttendanceOut;
 use App\Models\Pegawai;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
 class AdminController extends Controller
