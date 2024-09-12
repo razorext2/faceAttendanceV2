@@ -3,7 +3,7 @@
 
 <div class="grid grid-cols-1 xl:grid-cols-3 gap-4 mb-4">
     <!-- Pulse -->
-    <div class="flex bg-white ring-1 ring-gray-200 rounded-lg shadow-sm ">
+    <!-- <div class="flex bg-white ring-1 ring-gray-200 rounded-lg shadow-sm ">
         <div role="status" class="w-full animate-pulse p-4 md:p-6 ">
             <div class="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded">
                 <svg class="w-10 h-10 text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
@@ -26,11 +26,11 @@
             </div>
             <span class="sr-only">Loading...</span>
         </div>
-    </div>
+    </div> -->
     <!-- End Pulse -->
 
     <!-- Chart -->
-    <div class="flex items-center justify-center">
+    <div class="flex items-center justify-center col-span-2">
         <div class="w-full bg-white rounded-lg ring-1 ring-gray-200 shadow p-4 md:p-6">
             <div class="flex justify-between mb-5">
                 <div>
@@ -50,7 +50,7 @@
                     {{ $formattedDateRange }}
                 </div>
             </div>
-            <div id="tooltip-chart" data-late-counts='@json($lateCounts)' data-ontime-counts='@json($ontimeCounts)' data-dates='@json($dates)'></div>
+            <div id="tooltip-chart" data-late-counts='@json($lateCounts)' data-ontime-counts='@json($ontimeCounts)' data-scanout="@json($outtimeCounts)" data-dates='@json($dates)'></div>
             <div class="grid grid-cols-1 items-center border-gray-200 border-t justify-between mt-5">
                 <div class="flex justify-between items-center pt-5">
                     <a
@@ -131,7 +131,7 @@
 </div>
 
 <div class="grid grid-cols-1 gap-6">
-    <div class="flex items-center justify-center rounded-lg bg-gray-50 h-auto p-4 ring-1 ring-gray-200 shadow-sm">
+    <div class="flex items-center justify-center rounded-lg bg-white h-auto p-4 ring-1 ring-gray-200 shadow-sm">
         <!-- Table -->
         <table id="filter-table">
             <thead>

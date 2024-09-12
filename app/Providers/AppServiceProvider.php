@@ -63,6 +63,7 @@ class AppServiceProvider extends ServiceProvider
         $startDate = Carbon::now()->subDays(7); // 7 hari kebelakang
         $endDate = Carbon::now();
         $standardTime = Carbon::createFromTimeString('08:00:00'); // Jam standar untuk pembanding
+        $outTime = Carbon::createFromTimeString('17:00:00');
 
         // Query untuk mendapatkan jumlah keterlambatan per hari (berdasarkan jam_masuk)
         $lateData = DB::table('tb_attendance')
@@ -79,21 +80,30 @@ class AppServiceProvider extends ServiceProvider
             ->groupBy(DB::raw('DATE(created_at)'))
             ->pluck('total', 'date'); // Mengambil total terlambat dan tanggal
 
+        $scanoutData = DB::table('tb_attendance_out')
+            ->select(DB::raw('DATE(created_at) as date'), DB::raw('COUNT(*) as total'))
+            ->whereBetween('created_at', [$startDate, $endDate])
+            ->groupBy(DB::raw('DATE(created_at)'))
+            ->pluck('total', 'date');
+
         // Buat array tanggal 7 hari terakhir dengan jumlah terlambat
         $dates = [];
         $lateCounts = [];
         $ontimeCounts = [];
+        $outtimeCounts = [];
 
         for ($i = 6; $i >= 0; $i--) {
             $date = Carbon::now()->subDays($i)->format('Y-m-d');
             $dates[] = Carbon::now()->subDays($i)->locale('id')->isoFormat('D MMMM');
             $lateCounts[] = $lateData->get($date, 0); // Isi dengan 0 jika tidak ada data di tanggal tersebut
             $ontimeCounts[] = $ontimeData->get($date, 0);
+            $outtimeCounts[] = $scanoutData->get($date, 0);
         }
 
         // Bagikan data ke semua view
         $view->with('dates', $dates);
         $view->with('lateCounts', $lateCounts);
         $view->with('ontimeCounts', $ontimeCounts);
+        $view->with('outtimeCounts', $outtimeCounts);
     }
 }

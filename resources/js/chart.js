@@ -3,6 +3,7 @@ import ApexCharts from "apexcharts";
 const chartElement = document.getElementById("tooltip-chart");
 const lateCounts = JSON.parse(chartElement.dataset.lateCounts);
 const ontimeCounts = JSON.parse(chartElement.dataset.ontimeCounts);
+const scanOutCounts = JSON.parse(chartElement.dataset.scanout);
 const dates = JSON.parse(chartElement.dataset.dates);
 
 const options = {
@@ -28,13 +29,18 @@ const options = {
     series: [
         {
             name: "Tepat Waktu",
-            data: lateCounts,
-            color: "#1A56DB",
+            data: ontimeCounts,
+            color: "#3bf2ac",
         },
         {
             name: "Terlambat",
-            data: ontimeCounts,
-            color: "#7E3BF2",
+            data: lateCounts,
+            color: "#f2473b",
+        },
+        {
+            name: "Scan Keluar",
+            data: scanOutCounts,
+            color: "#f23b8a",
         },
     ],
     chart: {
