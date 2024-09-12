@@ -4,7 +4,7 @@
 <div class="grid grid-cols-1 xl:grid-cols-3 gap-4 mb-4">
     <!-- Pulse -->
     <div class="flex bg-white ring-1 ring-gray-200 rounded-lg shadow-sm ">
-        <div role="status" class="w-full animate-pulse md:p-6 ">
+        <div role="status" class="w-full animate-pulse p-4 md:p-6 ">
             <div class="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded">
                 <svg class="w-10 h-10 text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
                     <path d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM10.5 6a1.5 1.5 0 1 1 0 2.999A1.5 1.5 0 0 1 10.5 6Zm2.221 10.515a1 1 0 0 1-.858.485h-8a1 1 0 0 1-.9-1.43L5.6 10.039a.978.978 0 0 1 .936-.57 1 1 0 0 1 .9.632l1.181 2.981.541-1a.945.945 0 0 1 .883-.522 1 1 0 0 1 .879.529l1.832 3.438a1 1 0 0 1-.031.988Z" />
@@ -34,56 +34,38 @@
         <div class="w-full bg-white rounded-lg ring-1 ring-gray-200 shadow p-4 md:p-6">
             <div class="flex justify-between mb-5">
                 <div>
-                    <h5 class="leading-none text-3xl font-bold text-gray-900 pb-2">$12,423</h5>
-                    <p class="text-base font-normal text-gray-500">Sales this week</p>
+                    <h5 class="leading-none text-3xl font-bold text-gray-900 pb-2">{{ Carbon\Carbon::now()->year }}</h5>
+                    <p class="text-base font-normal text-gray-500">Data 7 hari kebelakang</p>
                 </div>
-                <div
-                    class="flex items-center px-2.5 py-0.5 text-base font-semibold text-green-500 text-center">
-                    23%
-                    <svg class="w-3 h-3 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13V1m0 0L1 5m4-4 4 4" />
-                    </svg>
+                <div class="flex items-center px-2.5 py-0.5 text-base font-semibold text-green-500 text-center">
+
+                    @php
+                    // Get the start and end dates for the last 7 days
+                    $startDate = \Carbon\Carbon::today()->subDays(6);
+                    $endDate = \Carbon\Carbon::today();
+
+                    // Format the date range
+                    $formattedDateRange = $startDate->locale('id')->isoFormat('dddd, D MMM') . ' - ' . $endDate->locale('id')->isoFormat('dddd, D MMM');
+                    @endphp
+                    {{ $formattedDateRange }}
                 </div>
             </div>
-            <div id="tooltip-chart"></div>
+            <div id="tooltip-chart" data-late-counts='@json($lateCounts)' data-ontime-counts='@json($ontimeCounts)' data-dates='@json($dates)'></div>
             <div class="grid grid-cols-1 items-center border-gray-200 border-t justify-between mt-5">
                 <div class="flex justify-between items-center pt-5">
-                    <!-- Button -->
-                    <button
-                        id="dropdownDefaultButton"
-                        data-dropdown-toggle="lastDaysdropdown"
-                        data-dropdown-placement="bottom"
-                        class="text-sm font-medium text-gray-500 hover:text-gray-900 text-center inline-flex items-center"
-                        type="button">
-                        Last 7 days
-                        <svg class="w-2.5 m-2.5 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
-                        </svg>
-                    </button>
-                    <!-- Dropdown menu -->
-                    <div id="lastDaysdropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
-                        <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownDefaultButton">
-                            <li>
-                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Yesterday</a>
-                            </li>
-                            <li>
-                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Today</a>
-                            </li>
-                            <li>
-                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Last 7 days</a>
-                            </li>
-                            <li>
-                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Last 30 days</a>
-                            </li>
-                            <li>
-                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Last 90 days</a>
-                            </li>
-                        </ul>
-                    </div>
                     <a
-                        href="#"
+                        href="{{route('attendanceIn.view')}}"
                         class="uppercase text-sm font-semibold inline-flex items-center rounded-lg text-blue-600 hover:text-blue-700 hover:bg-gray-100 px-3 py-2">
-                        Sales Report
+                        Absen masuk
+                        <svg class="w-2.5 h-2.5 ms-1.5 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+                        </svg>
+                    </a>
+
+                    <a
+                        href="{{ route('attendanceOut.view')}}"
+                        class="uppercase text-sm font-semibold inline-flex items-center rounded-lg text-red-600 hover:text-red-700 hover:bg-gray-100 px-3 py-2">
+                        Absen keluar
                         <svg class="w-2.5 h-2.5 ms-1.5 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
                         </svg>

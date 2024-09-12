@@ -1,5 +1,10 @@
 import ApexCharts from "apexcharts";
 
+const chartElement = document.getElementById("tooltip-chart");
+const lateCounts = JSON.parse(chartElement.dataset.lateCounts);
+const ontimeCounts = JSON.parse(chartElement.dataset.ontimeCounts);
+const dates = JSON.parse(chartElement.dataset.dates);
+
 const options = {
     // set this option to enable the tooltip for the chart, learn more here: https://apexcharts.com/docs/tooltip/
     tooltip: {
@@ -22,13 +27,13 @@ const options = {
     },
     series: [
         {
-            name: "Developer Edition",
-            data: [1500, 1418, 1456, 1526, 1356, 1256],
+            name: "Tepat Waktu",
+            data: lateCounts,
             color: "#1A56DB",
         },
         {
-            name: "Designer Edition",
-            data: [643, 413, 765, 412, 1423, 1731],
+            name: "Terlambat",
+            data: ontimeCounts,
             color: "#7E3BF2",
         },
     ],
@@ -63,15 +68,7 @@ const options = {
         width: 6,
     },
     xaxis: {
-        categories: [
-            "01 February",
-            "02 February",
-            "03 February",
-            "04 February",
-            "05 February",
-            "06 February",
-            "07 February",
-        ],
+        categories: dates,
         labels: {
             show: false,
         },
@@ -86,7 +83,7 @@ const options = {
         show: false,
         labels: {
             formatter: function (value) {
-                return "$" + value;
+                return value + " Orang";
             },
         },
     },
