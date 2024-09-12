@@ -10,7 +10,7 @@ class AttendanceController extends Controller
 
     public function index()
     {
-        $datas = Attendance::with('pegawaiRelasi')->get();
+        $datas = Attendance::with('pegawaiRelasi')->orderByDesc('jam_masuk')->get();
         return view('dashboard.attendanceIn.view', compact('datas'));
     }
 

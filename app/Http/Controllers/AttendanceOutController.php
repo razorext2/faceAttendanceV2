@@ -10,7 +10,7 @@ class AttendanceOutController extends Controller
 
     public function index()
     {
-        $datas = AttendanceOut::with('pegawaiRelasi')->get();
+        $datas = AttendanceOut::with('pegawaiRelasi')->orderByDesc('jam_keluar')->get();
         return view('dashboard.attendanceOut.view', compact('datas'));
     }
 
