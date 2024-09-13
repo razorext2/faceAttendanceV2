@@ -5,8 +5,8 @@
     @include('dashboard.layoutsDash.head')
 </head>
 
-<body>
-    <img src="{{ asset('assets/img/hero-bg-light.webp')}}" alt="Background Image" class="fixed object-cover bg-cover inset-0 -z-40 top-0 left-40 opacity-30 bg-local" />
+<body class="antialiased bg-gradient-to-t from-red-400 to-white">
+    <img src="{{ asset('assets/img/hero-bg-light.webp')}}" alt="Background Image" class="fixed object-cover bg-cover inset-0 -z-40 top-0 left-40 opacity-50 bg-local" />
     <img src="{{ asset('assets/img/grid.jpg')}}" alt="Background Image" class="fixed inset-0 object-cover w-full h-full -z-10 opacity-10 mix-blend-overlay" />
 
     @include('dashboard.layoutsDash.navbar')
