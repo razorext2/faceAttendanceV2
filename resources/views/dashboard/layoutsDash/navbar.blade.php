@@ -23,12 +23,10 @@
                     </div>
                     <div class="z-50 absolute top-16 md:top-14 right-5 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow-sm ring-1 ring-gray-200"
                         x-show="profile"
-                        x-transition:enter="transition ease-out duration-200 transform"
-                        x-transition:enter-start="opacity-0 scale-95"
-                        x-transition:enter-end="opacity-100 scale-100"
-                        x-transition:leave="transition ease-in duration-150 transform"
-                        x-transition:leave-start="opacity-100 scale-100"
-                        x-transition:leave-end="opacity-0 scale-95">
+                        x-transition:enter="transition ease-in duration-200"
+                        x-transition:enter-start="transform opacity-0 -translate-y-5"
+                        x-transition:leave="transition ease-out duration-200"
+                        x-transition:leave-end="transform opacity-0  -translate-y-5">
                         <div class="px-4 py-3" role="none">
                             <p class="text-sm text-gray-900" role="none">
                                 {{ Auth::user()->name }}
