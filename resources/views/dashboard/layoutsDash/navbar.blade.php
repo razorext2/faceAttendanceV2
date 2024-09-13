@@ -1,7 +1,7 @@
 <nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200">
     <div class="px-3 py-4 lg:px-5 lg:pl-3">
         <div class="flex items-center justify-between">
-            <div class="flex items-center justify-start rtl:justify-end">
+            <div class="flex items-center justify-start">
                 <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200">
                     <span class="sr-only">Open sidebar</span>
                     <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -13,15 +13,22 @@
                 </a>
             </div>
 
-            <div class="flex items-center">
+            <div class="flex items-center" x-data="{ profile: false }">
                 <div class="flex items-center ms-3">
                     <div>
-                        <button type="button" class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300" aria-expanded="false" data-dropdown-toggle="dropdown-user">
+                        <button type="button" @click="profile = !profile" class="flex text-sm bg-gray-800 rounded-full focus:ring-2 focus:ring-gray-300">
                             <span class="sr-only">Open user menu</span>
                             <img class="w-8 h-8 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="user photo">
                         </button>
                     </div>
-                    <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow" id="dropdown-user">
+                    <div class="z-50 absolute top-16 md:top-14 right-5 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow-sm ring-1 ring-gray-200"
+                        x-show="profile"
+                        x-transition:enter="transition ease-out duration-200 transform"
+                        x-transition:enter-start="opacity-0 scale-95"
+                        x-transition:enter-end="opacity-100 scale-100"
+                        x-transition:leave="transition ease-in duration-150 transform"
+                        x-transition:leave-start="opacity-100 scale-100"
+                        x-transition:leave-end="opacity-0 scale-95">
                         <div class="px-4 py-3" role="none">
                             <p class="text-sm text-gray-900" role="none">
                                 {{ Auth::user()->name }}

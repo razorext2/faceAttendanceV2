@@ -21,7 +21,7 @@ if (chartElement) {
         },
         grid: {
             show: false,
-            strokeDashArray: 4,
+            strokeDashArray: 2,
             padding: {
                 left: 2,
                 right: 2,
@@ -38,11 +38,6 @@ if (chartElement) {
                 name: "Terlambat",
                 data: lateCounts,
                 color: "#f2473b",
-            },
-            {
-                name: "Scan Keluar",
-                data: scanOutCounts,
-                color: "#f23b8a",
             },
         ],
         chart: {
@@ -73,7 +68,7 @@ if (chartElement) {
             enabled: false,
         },
         stroke: {
-            width: 6,
+            width: 1,
         },
         xaxis: {
             categories: dates,
