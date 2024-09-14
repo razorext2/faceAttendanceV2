@@ -5,15 +5,15 @@
     @include('dashboard.layoutsDash.head')
 </head>
 
-<body class="antialiased bg-gradient-to-t from-red-400 to-white">
-    <img src="{{ asset('assets/img/hero-bg-light.webp')}}" alt="Background Image" class="fixed object-cover bg-cover inset-0 -z-40 top-0 left-40 opacity-50 bg-local" />
-    <img src="{{ asset('assets/img/grid.jpg')}}" alt="Background Image" class="fixed inset-0 object-cover w-full h-full -z-10 opacity-10 mix-blend-overlay" />
+<body>
+    <img src="{{ asset('assets/img/hero-bg-light.webp')}}" alt="Background Image" class="fixed object-cover w-full h-full inset-0 -z-50 top-0 left-40 opacity-100" />
+    <img src="{{ asset('assets/img/grid.jpg')}}" alt="Background Image" class="fixed inset-0 object-cover w-full h-full -z-40 opacity-20 mix-blend-overlay" />
 
     @include('dashboard.layoutsDash.navbar')
     @include('dashboard.layoutsDash.sidebar')
     <div class="p-4 sm:ml-72">
 
-        <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg mt-16">
+        <div class="p-4 border-2 border-gray-100 border-dashed rounded-lg mt-16">
             <!-- carousel for cards -->
             <div class="grid grid-cols-1 gap-6 mb-3">
                 <div class="relative overflow-hidden">

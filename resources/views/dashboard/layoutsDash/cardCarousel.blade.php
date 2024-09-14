@@ -1,5 +1,5 @@
 <div class="inline-block scroll-ml-6 snap-start">
-    <div class="overflow-hidden rounded-xl border border-gray-300">
+    <div class="overflow-hidden rounded-xl border border-gray-50">
 
         <div class="group relative w-96 h-28 group-hover:top-0 bg-green-500">
 
@@ -25,7 +25,7 @@
 </div>
 
 <div class="inline-block scroll-ml-6 snap-start">
-    <div class="overflow-hidden rounded-xl border border-gray-300">
+    <div class="overflow-hidden rounded-xl border border-gray-50">
 
         <div class="group relative w-96 h-28 group-hover:top-0 bg-red-500">
 
@@ -51,7 +51,7 @@
 </div>
 
 <div class="inline-block scroll-ml-6 snap-start">
-    <div class="overflow-hidden rounded-xl border border-gray-300">
+    <div class="overflow-hidden rounded-xl border border-gray-50">
 
         <div class="group relative w-96 h-28 group-hover:top-0 bg-cyan-500">
 
@@ -77,7 +77,7 @@
 </div>
 
 <div class="inline-block scroll-ml-6 snap-start">
-    <div class="overflow-hidden rounded-xl border border-gray-300">
+    <div class="overflow-hidden rounded-xl border border-gray-50">
 
         <div class="group relative w-96 h-28 group-hover:top-0 bg-rose-500">
 
