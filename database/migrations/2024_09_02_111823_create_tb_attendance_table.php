@@ -23,6 +23,7 @@ return new class extends Migration
             $table->datetime('waktuori')->nullable();
             $table->tinyInteger('status')->nullable();
             $table->dateTime('jam_masuk');
+            $table->string('photoURL', 64)->nullable();
             $table->timestamps();
         });
     }

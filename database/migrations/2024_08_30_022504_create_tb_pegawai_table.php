@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nick_name', 20)->nullable();
             $table->string('no_telp', 13);
             $table->string('alamat', 64);
-            $table->integer('jabatan', 2);
+            $table->integer('jabatan');
             $table->date('tgl_lahir');
             $table->string('storage', 32)->nullable();
             $table->timestamps();
