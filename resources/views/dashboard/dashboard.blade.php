@@ -1,14 +1,14 @@
 @extends('dashboard.layoutsDash.app')
 @section('content')
 
-<div class="grid grid-cols-1 xl:grid-cols-3 gap-4 mb-4">
+<div class="grid grid-cols-1 gap-0 mb-4 xl:grid-cols-3 xl:gap-4">
 
     <!-- Chart -->
-    <div class="flex items-center justify-center col-span-2">
-        <div class="w-full bg-white rounded-lg ring-1 ring-gray-200 shadow p-4 md:p-6">
+    <div class="flex items-center justify-center col-span-2 mb-4 xl:mb-0">
+        <div class="w-full bg-white rounded-lg border border-gray-300 p-4 md:p-6">
             <div class="flex justify-between mb-5">
                 <div>
-                    <h5 class="leading-none text-3xl font-bold text-gray-900 pb-2">{{ Carbon\Carbon::now()->year }}</h5>
+                    <h5 class="leading-none text-3xl font-bold text-gray-900 mb-2">{{ Carbon\Carbon::now()->year }}</h5>
                     <p class="text-base font-normal text-gray-500">Data 7 hari kebelakang</p>
                 </div>
                 <div class="flex items-center px-2.5 py-0.5 text-base font-semibold text-green-500 text-center">
@@ -24,7 +24,7 @@
                     {{ $formattedDateRange }}
                 </div>
             </div>
-            <div id="tooltip-chart" data-late-counts='@json($lateCounts)' data-ontime-counts='@json($ontimeCounts)' data-scanout="@json($outtimeCounts)" data-dates='@json($dates)'></div>
+            <div id="tooltip-chart" data-late-counts='@json($lateCounts)' data-ontime-counts='@json($ontimeCounts)' data-outtime-counts="@json($outtimeCounts)" data-fast-counts='@json($fastCounts)' data-dates='@json($dates)'></div>
             <div class="grid grid-cols-1 items-center border-gray-200 border-t justify-between mt-5">
                 <div class="flex justify-between items-center pt-5">
                     <a
@@ -51,12 +51,13 @@
     <!-- End Chart -->
 
     <!-- Notification -->
-    <div class="grid grid-cols-1 w-full">
-        <div class="flex flex-col bg-white shadow-sm ring-1 ring-gray-200 p-4 rounded-lg">
+    <div class="grid grid-cols-1">
+
+        <div class="flex flex-col bg-white border border-gray-300 p-6 rounded-lg">
             <span>
                 <time class="text-md font-semibold text-gray-900">Absen Masuk, {{ \Carbon\Carbon::today()->locale('id')->isoFormat('D MMMM YYYY') }}</time>
             </span>
-            <ul class="max-h-48 overflow-y-auto text-gray-700" aria-labelledby="dropdownUsersButton">
+            <ul class="h-44 overflow-y-auto text-gray-700" aria-labelledby="dropdownUsersButton">
 
                 @if(!empty($attendance_today))
                 @foreach ( $attendance_today as $at )
@@ -81,11 +82,12 @@
 
             </ul>
         </div>
-        <div class="flex flex-col mt-3 bg-white shadow-sm ring-1 ring-gray-200 p-4 rounded-lg">
+
+        <div class="flex flex-col mt-3 bg-white border border-gray-300 p-6 rounded-lg">
             <span>
                 <time class="text-md font-semibold text-gray-900">Absen Keluar, {{ \Carbon\Carbon::today()->locale('id')->isoFormat('D MMMM YYYY') }}</time>
             </span>
-            <ul class="max-h-48 overflow-y-auto text-gray-700" aria-labelledby="dropdownUsersButton">
+            <ul class="h-44 overflow-y-auto text-gray-700" aria-labelledby="dropdownUsersButton">
                 @foreach ( $attendance_out_today as $at )
                 <li>
                     <p class="flex items-center p-2 bg-[#7678ed] text-white text-xs hover:bg-[#5d5ece] my-2 rounded-lg">
@@ -101,11 +103,13 @@
             </ul>
         </div>
     </div>
+
+
     <!-- End Notification -->
 </div>
 
 <div class="grid grid-cols-1 gap-6">
-    <div class="flex items-center justify-center rounded-lg bg-white h-auto p-4 ring-1 ring-gray-200 shadow-sm">
+    <div class="flex items-center justify-center rounded-lg bg-white h-auto p-4 border border-gray-300 shadow-sm">
         <!-- Table -->
         <table id="filter-table">
             <thead>
@@ -167,22 +171,22 @@
                     <td class="border-b flex flex-col text-center">
                         <!-- jam masuk -->
                         @if ($attendance['jam_masuk'])
-                        <span class="w-3/4 my-1 px-2 py-1 rounded-lg text-black ring-1 ring-green-400 shadow-sm hover:bg-green-300">
+                        <span class="w-3/4 my-1 px-2 py-1 rounded-lg text-black ring-1 ring-green-400 hover:bg-green-300">
                             Masuk : {{ \Carbon\Carbon::parse($attendance['jam_masuk'])->format('H:i') }}
                         </span>
                         @else
-                        <span class="w-3/4 my-1 px-2 py-1 rounded-lg text-black ring-1 ring-red-400 shadow-sm bg-red-300">
+                        <span class="w-3/4 my-1 px-2 py-1 rounded-lg text-black ring-1 ring-red-400 bg-red-300">
                             Belum Absen
                         </span>
                         @endif
 
                         <!-- jam keluar -->
                         @if ($attendance['latest_jam_keluar'])
-                        <span class="w-3/4 my-1 px-2 py-1 rounded-lg text-black ring-1 ring-red-400 shadow-sm hover:bg-red-300">
+                        <span class="w-3/4 my-1 px-2 py-1 rounded-lg text-black ring-1 ring-red-400 hover:bg-red-300">
                             Keluar : {{ \Carbon\Carbon::parse($attendance['latest_jam_keluar'])->format('H:i') }}
                         </span>
                         @else
-                        <span class="w-3/4 my-1 px-2 py-1 rounded-lg text-black ring-1 ring-red-400 shadow-sm bg-red-300">
+                        <span class="w-3/4 my-1 px-2 py-1 rounded-lg text-black ring-1 ring-red-400 bg-red-300">
                             Belum Absen
                         </span>
                         @endif

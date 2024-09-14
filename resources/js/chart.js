@@ -1,15 +1,61 @@
 import ApexCharts from "apexcharts";
 
-const chartElement = document.getElementById("tooltip-chart");
+const globalOptions = {
+    chart: {
+        height: "100%",
+        width: "100%",
+        type: "area",
+        fontFamily: "Inter, sans-serif",
+        dropShadow: {
+            enabled: false,
+        },
+        toolbar: {
+            show: false,
+        },
+        animations: {
+            enabled: true,
+        },
+    },
+    tooltip: {
+        enabled: false,
+    },
+    dataLabels: {
+        enabled: false,
+    },
+    stroke: {
+        width: 2,
+    },
+    grid: {
+        show: false,
+    },
+    xaxis: {
+        labels: {
+            show: false,
+        },
+    },
+    yaxis: {
+        show: false,
+    },
+};
 
-if (chartElement) {
-    const lateCounts = JSON.parse(chartElement.dataset.lateCounts);
-    const ontimeCounts = JSON.parse(chartElement.dataset.ontimeCounts);
-    const scanOutCounts = JSON.parse(chartElement.dataset.scanout);
-    const dates = JSON.parse(chartElement.dataset.dates);
+const bigChart = document.getElementById("tooltip-chart");
+const cardLate = document.getElementById("cardLate-chart");
+const cardOntime = document.getElementById("cardOntime-chart");
+const cardOuttime = document.getElementById("cardOuttime-chart");
+const kecepatan = document.getElementById("Cardkecepatan-chart");
+
+if (bigChart) {
+    const lateCounts = JSON.parse(bigChart.dataset.lateCounts);
+    const ontimeCounts = JSON.parse(bigChart.dataset.ontimeCounts);
+    const outtimeCounts = JSON.parse(bigChart.dataset.outtimeCounts);
+    const fastCounts = JSON.parse(bigChart.dataset.fastCounts);
+    const dates = JSON.parse(bigChart.dataset.dates);
 
     const options = {
-        // set this option to enable the tooltip for the chart, learn more here: https://apexcharts.com/docs/tooltip/
+        ...globalOptions,
+        dataLabels: {
+            enabled: true,
+        },
         tooltip: {
             enabled: true,
             x: {
@@ -19,57 +65,25 @@ if (chartElement) {
                 show: true,
             },
         },
-        grid: {
-            show: false,
-            strokeDashArray: 2,
-            padding: {
-                left: 2,
-                right: 2,
-                top: -26,
-            },
-        },
         series: [
             {
-                name: "Tepat Waktu",
+                name: "Masuk Tepat Waktu",
                 data: ontimeCounts,
-                color: "#3bf2ac",
             },
             {
                 name: "Terlambat",
                 data: lateCounts,
-                color: "#f2473b",
+            },
+
+            {
+                name: "Keluar Tepat Waktu",
+                data: outtimeCounts,
+            },
+            {
+                name: "Kecepatan Pulang",
+                data: fastCounts,
             },
         ],
-        chart: {
-            height: "100%",
-            maxWidth: "100%",
-            type: "area",
-            fontFamily: "Inter, sans-serif",
-            dropShadow: {
-                enabled: false,
-            },
-            toolbar: {
-                show: false,
-            },
-        },
-        legend: {
-            show: true,
-        },
-        fill: {
-            type: "gradient",
-            gradient: {
-                opacityFrom: 0.55,
-                opacityTo: 0,
-                shade: "#1C64F2",
-                gradientToColors: ["#1C64F2"],
-            },
-        },
-        dataLabels: {
-            enabled: false,
-        },
-        stroke: {
-            width: 1,
-        },
         xaxis: {
             categories: dates,
             labels: {
@@ -92,14 +106,109 @@ if (chartElement) {
         },
     };
 
-    if (
-        document.getElementById("tooltip-chart") &&
-        typeof ApexCharts !== "undefined"
-    ) {
-        const chart = new ApexCharts(
-            document.getElementById("tooltip-chart"),
-            options
-        );
-        chart.render();
-    }
+    const chart = new ApexCharts(bigChart, options);
+    chart.render();
+}
+
+if (cardLate) {
+    const lateCounts = JSON.parse(cardLate.dataset.lateCounts);
+
+    const options = {
+        ...globalOptions,
+        series: [
+            {
+                name: "Terlambat",
+                data: lateCounts,
+            },
+        ],
+        stroke: {
+            width: 2,
+            colors: "#FFF000",
+        },
+        fill: {
+            type: "solid",
+            colors: "#FFF",
+        },
+    };
+
+    const chart = new ApexCharts(cardLate, options);
+    chart.render();
+}
+
+if (cardOntime) {
+    const ontimeCounts = JSON.parse(cardOntime.dataset.ontimeCounts);
+
+    const options = {
+        ...globalOptions,
+        series: [
+            {
+                name: "Tepat Waktu",
+                data: ontimeCounts,
+            },
+        ],
+        stroke: {
+            type: "solid",
+            width: 2,
+            colors: "#FFF000",
+        },
+        fill: {
+            type: "solid",
+            colors: "#FFF",
+        },
+    };
+
+    const chart = new ApexCharts(cardOntime, options);
+    chart.render();
+}
+
+if (cardOuttime) {
+    const outtimeCounts = JSON.parse(cardOuttime.dataset.outtimeCounts);
+
+    const options = {
+        ...globalOptions,
+        series: [
+            {
+                name: "Tepat Waktu",
+                data: outtimeCounts,
+            },
+        ],
+        stroke: {
+            type: "solid",
+            width: 2,
+            colors: "#FFF000",
+        },
+        fill: {
+            type: "solid",
+            colors: "#FFF",
+        },
+    };
+
+    const chart = new ApexCharts(cardOuttime, options);
+    chart.render();
+}
+
+if (kecepatan) {
+    const fastCounts = JSON.parse(kecepatan.dataset.fastCounts);
+
+    const options = {
+        ...globalOptions,
+        series: [
+            {
+                name: "Tepat Waktu",
+                data: fastCounts,
+            },
+        ],
+        stroke: {
+            type: "solid",
+            width: 2,
+            colors: "#FFF000",
+        },
+        fill: {
+            type: "solid",
+            colors: "#FFF",
+        },
+    };
+
+    const chart = new ApexCharts(kecepatan, options);
+    chart.render();
 }
