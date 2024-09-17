@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\JabatanController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Crypt;
 
 // breeze for regist, verif, login and logout
 // landing page
@@ -67,7 +68,9 @@ Route::get('/photo-regist', [PegawaiController::class, 'photoRegist'])->name('ph
 Route::post('/photo-regist-process', [PegawaiController::class, 'photoRegistProcess'])->name('photo.registProcess');
 
 // route untuk manipulasi url pemanggilan foto
-Route::get('/libs/{filename}', function ($filename) {
+$libs = sha1('libs');
+
+Route::get('/' . $libs . '/{filename}', function ($filename) {
     $directories = Storage::directories('public/labels');
 
     $filePath = null;

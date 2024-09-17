@@ -53,14 +53,12 @@
                 @foreach($datas as $index => $data)
                 <tr class="hover:bg-gray-100 hover:text-black hover:font-semibold">
                     <td class="border-b">
-
                         @php
-                        $kode = $data->pegawaiRelasi->kode_pegawai;
-                        $tgl = \Carbon\Carbon::parse($data->jam_keluar)->format('Ymd_His');
-                        $path = asset('storage/labels/'.$kode.'/capturedImg/'.$kode.'_captured_'.$tgl.'.png');
+                        $photoURL = sha1("libs");
+                        $url = Crypt::decrypt($data->photoURL);
+                        $path = asset($photoURL.'/'.$url);
                         @endphp
-
-                        <img class="w-32 transition-all duration-300 rounded-lg blur-sm hover:blur-none" src="{{ $path }}" alt="image description">
+                        <img class="w-32 transition-all duration-300 rounded-lg blur-sm hover:blur-none" src="{{ $path.'.png' }}" alt="image description">
                     </td>
                     <td class="border-b">{{ $data->pegawaiRelasi->kode_pegawai }}</td>
                     <td class="border-b">{{ $data->pegawaiRelasi->full_name }}</td>

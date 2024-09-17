@@ -12,10 +12,18 @@ class AttendanceOut extends Model
     protected $table = 'tb_attendance_out';
 
     protected $fillable = [
+        'nik',
         'kode_pegawai',
-        'uplserver',
-        'aktif',
+        'upl',
+        'upl68',
+        'uplm68',
+        'upljam',
+        'jenis',
+        'waktuori',
+        'status',
         'jam_keluar',
+        'photoURL',
+        'created_at',
     ];
 
     protected $casts = [

@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Attendance;
 use Illuminate\Http\Request;
-use Carbon\Carbon;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Session;
 
 class AttendanceController extends Controller
 {
@@ -19,9 +20,8 @@ class AttendanceController extends Controller
     {
         try {
             $kodePegawai = $request->input('kode_pegawai');
-
-            // Menggunakan model Eloquent untuk menambah data
-            $shaUrl = sha1($kodePegawai);
+            $timestamp = Session::get('current_date');
+            $photoURL = Crypt::encrypt($kodePegawai . $timestamp);
 
             Attendance::create([
                 'nik' => null,
@@ -34,7 +34,7 @@ class AttendanceController extends Controller
                 'waktuori' => null,
                 'status' => 1,
                 'jam_masuk' => now(), // Menggunakan helper now() untuk mendapatkan waktu saat ini
-                'photoURL' => $shaUrl . '.png',
+                'photoURL' => $photoURL,
                 'created_at' => now(),
             ]);
 

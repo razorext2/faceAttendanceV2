@@ -54,12 +54,11 @@
                 <tr class="hover:bg-gray-100 hover:text-black hover:font-semibold">
                     <td class="border-b">
                         @php
-                        $storage = $data->pegawaiRelasi->storage;
-                        $url = $data->photoURL;
-
-                        $path = asset("libs/".$url);
+                        $photoURL = sha1("libs");
+                        $url = Crypt::decrypt($data->photoURL);
+                        $path = asset($photoURL.'/'.$url);
                         @endphp
-                        <img class="w-32 transition-all duration-300 rounded-lg blur-sm hover:blur-none" src="{{ $path }}" alt="image description">
+                        <img class="w-32 transition-all duration-300 rounded-lg blur-sm hover:blur-none" src="{{ $path.'.png' }}" alt="image description">
                     </td>
                     <td class="border-b">{{ $data->pegawaiRelasi->kode_pegawai }}</td>
                     <td class="border-b">{{ $data->pegawaiRelasi->full_name }}</td>

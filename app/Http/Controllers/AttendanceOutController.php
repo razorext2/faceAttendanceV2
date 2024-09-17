@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\AttendanceOut;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Crypt;
 
 class AttendanceOutController extends Controller
 {
@@ -18,8 +20,8 @@ class AttendanceOutController extends Controller
     {
         try {
             $kodePegawai = $request->input('kode_pegawai');
-
-            // Insert the clock-out time into the tb_attendance_out table
+            $timestamp = Session::get('current_date');
+            $photoURL = Crypt::encrypt($kodePegawai . $timestamp);
 
             AttendanceOut::create([
                 'nik' => null,
@@ -29,10 +31,10 @@ class AttendanceOutController extends Controller
                 'uplm68' => null,
                 'upljam' => null,
                 'jenis' => null,
-                'waktuori' => '',
+                'waktuori' => null,
                 'status' => 1,
                 'jam_keluar' => now(), // Menggunakan helper now() untuk mendapatkan waktu saat ini
-                'photoURL' => '',
+                'photoURL' => $photoURL,
                 'created_at' => now(),
             ]);
 

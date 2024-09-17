@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Pegawai;
 use App\Models\Jabatan;
-use Carbon\Carbon;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 
 class PegawaiController extends Controller
@@ -102,19 +102,15 @@ class PegawaiController extends Controller
     {
         if ($request->hasFile('image') && $request->input('label')) {
 
-            // pake timestamp untuk ambil data waktu sekarang
-            $today = Carbon::now();
-
-            // ubah jadi format YYYYMMDDD_HHmmss -> 20240914_154407
-            $timestamp = Carbon::parse($today)->locale('id')->isoFormat('YYYYMMDD_HHmmss');
+            $timestamp = getCurrentDate();
+            Session::put('current_date', $timestamp);
 
             $image = $request->file('image');
             $kodePegawai = $request->input('label');
-            $shaUrl = sha1($kodePegawai);
 
             $uploadDir = '/labels/' . $kodePegawai . '/capturedImg/';
 
-            $imageName =  $shaUrl . '.png';
+            $imageName = $kodePegawai . $timestamp . '.png';
 
             $path = $image->storeAs($uploadDir, $imageName, 'public');
 
