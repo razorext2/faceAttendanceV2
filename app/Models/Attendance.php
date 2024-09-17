@@ -12,10 +12,18 @@ class Attendance extends Model
     protected $table = 'tb_attendance';
 
     protected $fillable = [
+        'nik',
         'kode_pegawai',
-        'uplserver',
-        'aktif',
+        'upl',
+        'upl68',
+        'uplm68',
+        'upljam',
+        'jenis',
+        'waktuori',
+        'status',
         'jam_masuk',
+        'photoURL',
+        'created_at',
     ];
 
     protected $casts = [

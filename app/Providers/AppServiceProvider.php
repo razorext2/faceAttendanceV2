@@ -36,20 +36,11 @@ class AppServiceProvider extends ServiceProvider
                 $terlambat = Attendance::whereTime('jam_masuk', '>=', $jamMasuk)->count();
                 $outtimeAttendance = AttendanceOut::whereTime('jam_keluar', '>=', $jamKeluar)->count();
                 $kecepatan = AttendanceOut::whereTime('jam_keluar', '<=', $jamKeluar)->count();
-
-                $ontimePercentage = ($ontimeAttendance / $totalAtIn) * 100;
-                $terlambatPer = ($terlambat / $totalAtIn) * 100;
-                $outtimePercentage = ($outtimeAttendance / $totalAtOut) * 100;
-                $kecepatanPer = ($kecepatan / $totalAtOut) * 100;
             } else {
                 $ontimeAttendance = 0;
                 $outtimeAttendance = 0;
                 $terlambat = 0;
                 $kecepatan = 0;
-                $ontimePercentage = 0;
-                $outtimePercentage = 0;
-                $terlambatPer = 0;
-                $kecepatanPer = 0;
             }
 
             $view->with('ontimeAttendance', $ontimeAttendance);
@@ -58,10 +49,6 @@ class AppServiceProvider extends ServiceProvider
             $view->with('kecepatan', $kecepatan);
             $view->with('totalAtIn', $totalAtIn);
             $view->with('totalAtOut', $totalAtOut);
-            $view->with('ontimePercentage', $ontimePercentage);
-            $view->with('outtimePercentage', $outtimePercentage);
-            $view->with('terlambatPercentage', $terlambatPer);
-            $view->with('kecepatanPercentage', $kecepatanPer);
             $this->loadLateAttendanceData($view);
         });
     }
@@ -75,31 +62,31 @@ class AppServiceProvider extends ServiceProvider
 
         // Query untuk mendapatkan jumlah keterlambatan per hari (berdasarkan jam_masuk)
         $lateData = DB::table('tb_attendance')
-            ->select(DB::raw('DATE(created_at) as date'), DB::raw('COUNT(*) as total'))
-            ->whereBetween('created_at', [$startDate, $endDate])
+            ->select(DB::raw('DATE(jam_masuk) as date'), DB::raw('COUNT(*) as total'))
+            ->whereBetween('jam_masuk', [$startDate, $endDate])
             ->whereRaw('TIME(jam_masuk) > ?', [$inTime->toTimeString()]) // Bandingkan jam_masuk dengan 08:00:00
-            ->groupBy(DB::raw('DATE(created_at)'))
+            ->groupBy(DB::raw('DATE(jam_masuk)'))
             ->pluck('total', 'date'); // Mengambil total terlambat dan tanggal
 
         $ontimeData = DB::table('tb_attendance')
-            ->select(DB::raw('DATE(created_at) as date'), DB::raw('COUNT(*) as total'))
-            ->whereBetween('created_at', [$startDate, $endDate])
+            ->select(DB::raw('DATE(jam_masuk) as date'), DB::raw('COUNT(*) as total'))
+            ->whereBetween('jam_masuk', [$startDate, $endDate])
             ->whereRaw('TIME(jam_masuk) < ?', [$inTime->toTimeString()]) // Bandingkan jam_masuk dengan 08:00:00
-            ->groupBy(DB::raw('DATE(created_at)'))
+            ->groupBy(DB::raw('DATE(jam_masuk)'))
             ->pluck('total', 'date'); // Mengambil total terlambat dan tanggal
 
         $fastData = DB::table('tb_attendance_out')
-            ->select(DB::raw('DATE(created_at) as date'), DB::raw('COUNT(*) as total'))
-            ->whereBetween('created_at', [$startDate, $endDate])
+            ->select(DB::raw('DATE(jam_keluar) as date'), DB::raw('COUNT(*) as total'))
+            ->whereBetween('jam_keluar', [$startDate, $endDate])
             ->whereRaw('TIME(jam_keluar) < ?', [$outTime->toTimeString()]) // Bandingkan jam_keluar dengan 08:00:00
-            ->groupBy(DB::raw('DATE(created_at)'))
+            ->groupBy(DB::raw('DATE(jam_keluar)'))
             ->pluck('total', 'date'); // Mengambil total terlambat dan tanggal
 
         $outtimeData = DB::table('tb_attendance_out')
-            ->select(DB::raw('DATE(created_at) as date'), DB::raw('COUNT(*) as total'))
-            ->whereBetween('created_at', [$startDate, $endDate])
-            ->whereRaw('TIME(jam_keluar) > ?', [$outTime->toTimeString()]) // Bandingkan jam_masuk dengan 08:00:00
-            ->groupBy(DB::raw('DATE(created_at)'))
+            ->select(DB::raw('DATE(jam_keluar) as date'), DB::raw('COUNT(*) as total'))
+            ->whereBetween('jam_keluar', [$startDate, $endDate])
+            ->whereRaw('TIME(jam_keluar) > ?', [$outTime->toTimeString()]) // Bandingkan jam_keluar dengan 08:00:00
+            ->groupBy(DB::raw('DATE(jam_keluar)'))
             ->pluck('total', 'date'); // Mengambil total terlambat dan tanggal
 
 

@@ -7,6 +7,7 @@ use App\Http\Controllers\AttendanceOutController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\JabatanController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 
 // breeze for regist, verif, login and logout
 // landing page
@@ -64,3 +65,25 @@ Route::post('/store-attendance-out', [AttendanceOutController::class, 'storeAtte
 // daftar
 Route::get('/photo-regist', [PegawaiController::class, 'photoRegist'])->name('photo.regist');
 Route::post('/photo-regist-process', [PegawaiController::class, 'photoRegistProcess'])->name('photo.registProcess');
+
+// route untuk manipulasi url pemanggilan foto
+Route::get('/libs/{filename}', function ($filename) {
+    $directories = Storage::directories('public/labels');
+
+    $filePath = null;
+
+    foreach ($directories as $directory) {
+        $fullpath = $directory . '/capturedImg/' . $filename;
+
+        if (Storage::exists($fullpath)) {
+            $filePath = $fullpath;
+            break;
+        }
+    }
+
+    if ($filePath) {
+        return Storage::response($filePath);
+    } else {
+        abort(404);
+    }
+})->where('filename', '.*');

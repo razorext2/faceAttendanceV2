@@ -102,14 +102,19 @@ class PegawaiController extends Controller
     {
         if ($request->hasFile('image') && $request->input('label')) {
 
+            // pake timestamp untuk ambil data waktu sekarang
             $today = Carbon::now();
 
-            $image = $request->file('image');
-            $label = $request->input('label');
-
-            $uploadDir = '/labels/' . $label . '/capturedImg/';
+            // ubah jadi format YYYYMMDDD_HHmmss -> 20240914_154407
             $timestamp = Carbon::parse($today)->locale('id')->isoFormat('YYYYMMDD_HHmmss');
-            $imageName = $label . '_captured_' . $timestamp . '.png';
+
+            $image = $request->file('image');
+            $kodePegawai = $request->input('label');
+            $shaUrl = sha1($kodePegawai);
+
+            $uploadDir = '/labels/' . $kodePegawai . '/capturedImg/';
+
+            $imageName = $shaUrl . '.png';
 
             $path = $image->storeAs($uploadDir, $imageName, 'public');
 

@@ -43,7 +43,7 @@
             </div>
             @yield('content')
         </div>
-        @include('dashboard.layoutsDash.footer')
+        <!-- @include('dashboard.layoutsDash.footer') -->
     </div>
     <!-- footer -->
 

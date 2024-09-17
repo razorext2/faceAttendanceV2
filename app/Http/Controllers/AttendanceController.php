@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Attendance;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class AttendanceController extends Controller
 {
@@ -20,11 +21,26 @@ class AttendanceController extends Controller
             $kodePegawai = $request->input('kode_pegawai');
 
             // Menggunakan model Eloquent untuk menambah data
+            // pake timestamp untuk ambil data waktu sekarang
+            $today = Carbon::now();
+
+            // ubah jadi format YYYYMMDDD_HHmmss -> 20240914_154407
+            $timestamp = Carbon::parse($today)->locale('id')->isoFormat('YYYYMMDD_HHmmss');
+            $shaUrl = sha1($kodePegawai);
+
             Attendance::create([
+                'nik' => null,
                 'kode_pegawai' => $kodePegawai,
-                'uplserver' => null,
-                'aktif' => 1,
+                'upl' => null,
+                'upl68' => null,
+                'uplm68' => null,
+                'upljam' => null,
+                'jenis' => null,
+                'waktuori' => null,
+                'status' => 1,
                 'jam_masuk' => now(), // Menggunakan helper now() untuk mendapatkan waktu saat ini
+                'photoURL' => $shaUrl . '.png',
+                'created_at' => now(),
             ]);
 
             return response()->json(['success' => true, 'message' => 'Attendance recorded successfully.']);

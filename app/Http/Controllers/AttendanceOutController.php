@@ -22,10 +22,18 @@ class AttendanceOutController extends Controller
             // Insert the clock-out time into the tb_attendance_out table
 
             AttendanceOut::create([
+                'nik' => null,
                 'kode_pegawai' => $kodePegawai,
-                'uplserver' => null,
-                'aktif' => 1,
-                'jam_keluar' => now()
+                'upl' => null,
+                'upl68' => null,
+                'uplm68' => null,
+                'upljam' => null,
+                'jenis' => null,
+                'waktuori' => '',
+                'status' => 1,
+                'jam_keluar' => now(), // Menggunakan helper now() untuk mendapatkan waktu saat ini
+                'photoURL' => '',
+                'created_at' => now(),
             ]);
 
             return response()->json(['success' => true, 'message' => 'Clock-out recorded successfully.']);
