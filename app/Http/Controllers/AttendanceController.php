@@ -21,11 +21,6 @@ class AttendanceController extends Controller
             $kodePegawai = $request->input('kode_pegawai');
 
             // Menggunakan model Eloquent untuk menambah data
-            // pake timestamp untuk ambil data waktu sekarang
-            $today = Carbon::now();
-
-            // ubah jadi format YYYYMMDDD_HHmmss -> 20240914_154407
-            $timestamp = Carbon::parse($today)->locale('id')->isoFormat('YYYYMMDD_HHmmss');
             $shaUrl = sha1($kodePegawai);
 
             Attendance::create([

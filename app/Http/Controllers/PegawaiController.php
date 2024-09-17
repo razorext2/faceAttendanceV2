@@ -114,7 +114,7 @@ class PegawaiController extends Controller
 
             $uploadDir = '/labels/' . $kodePegawai . '/capturedImg/';
 
-            $imageName = $shaUrl . '.png';
+            $imageName =  $shaUrl . '.png';
 
             $path = $image->storeAs($uploadDir, $imageName, 'public');
 
