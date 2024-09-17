@@ -1,5 +1,5 @@
 <div class="w-full xl:w-6/12 2xl:w-1/3 space-y-6">
-    <div class="p-4 sm:px-10 sm:pb-8 sm:pt-4 bg-gray-50 shadow-sm rounded-lg ring-1 ring-gray-200">
+    <div class="p-4 sm:p6 bg-gray-50 shadow-sm rounded-xl ring-1 ring-gray-200">
         <div class="max-w-xl">
             <header class="flex flex-row">
                 <a href="{{ route('dashboard.pegawai') }}" class="mr-3 px-2.5 mb-4 md:px-4 py-2.5 align-middle ring-1 ring-red-700 hover:bg-red-300 rounded-lg flex flex-row">

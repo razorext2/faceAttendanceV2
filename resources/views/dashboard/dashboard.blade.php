@@ -5,7 +5,7 @@
 
     <!-- Chart -->
     <div class="flex items-center justify-center col-span-2 mb-4 xl:mb-0">
-        <div class="w-full bg-white rounded-lg border border-gray-300 p-4 md:p-6">
+        <div class="w-full bg-white rounded-xl border border-gray-300 p-4 md:p-6">
             <div class="flex justify-between mb-5">
                 <div>
                     <h5 class="leading-none text-3xl font-bold text-gray-900 mb-2">{{ Carbon\Carbon::now()->year }}</h5>
@@ -29,7 +29,7 @@
                 <div class="flex justify-between items-center pt-5">
                     <a
                         href="{{route('attendanceIn.view')}}"
-                        class="uppercase text-sm font-semibold inline-flex items-center rounded-lg text-blue-600 hover:text-blue-700 hover:bg-gray-100 px-3 py-2">
+                        class="uppercase text-sm font-semibold inline-flex items-center rounded-xl text-blue-600 hover:text-blue-700 hover:bg-gray-100 px-3 py-2">
                         Absen masuk
                         <svg class="w-2.5 h-2.5 ms-1.5 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
@@ -38,7 +38,7 @@
 
                     <a
                         href="{{ route('attendanceOut.view')}}"
-                        class="uppercase text-sm font-semibold inline-flex items-center rounded-lg text-red-600 hover:text-red-700 hover:bg-gray-100 px-3 py-2">
+                        class="uppercase text-sm font-semibold inline-flex items-center rounded-xl text-red-600 hover:text-red-700 hover:bg-gray-100 px-3 py-2">
                         Absen keluar
                         <svg class="w-2.5 h-2.5 ms-1.5 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
@@ -53,7 +53,7 @@
     <!-- Notification -->
     <div class="grid grid-cols-1">
 
-        <div class="flex flex-col bg-white border border-gray-300 p-6 rounded-lg">
+        <div class="flex flex-col bg-white border border-gray-300 p-6 rounded-xl">
             <span>
                 <time class="text-md font-semibold text-gray-900">Absen Masuk, {{ \Carbon\Carbon::today()->locale('id')->isoFormat('D MMMM YYYY') }}</time>
             </span>
@@ -74,7 +74,7 @@
                 @endforeach
                 @else
                 <li>
-                    <span class="flex items-center my-2 rounded-lg">
+                    <span class="flex items-center my-2 rounded-xl">
                         Belum ada absensi hari ini
                     </span>
                 </li>
@@ -83,7 +83,7 @@
             </ul>
         </div>
 
-        <div class="flex flex-col mt-3 bg-white border border-gray-300 p-6 rounded-lg">
+        <div class="flex flex-col mt-3 bg-white border border-gray-300 p-6 rounded-xl">
             <span>
                 <time class="text-md font-semibold text-gray-900">Absen Keluar, {{ \Carbon\Carbon::today()->locale('id')->isoFormat('D MMMM YYYY') }}</time>
             </span>
@@ -109,7 +109,7 @@
 </div>
 
 <div class="grid grid-cols-1 gap-6">
-    <div class="flex items-center justify-center rounded-lg bg-white h-auto p-4 border border-gray-300 shadow-sm">
+    <div class="flex items-center justify-center rounded-xl bg-white h-auto p-4 border border-gray-300 shadow-sm">
         <!-- Table -->
         <table id="filter-table">
             <thead>
@@ -163,22 +163,22 @@
                     <td class="border-b flex flex-col text-center">
                         <!-- jam masuk -->
                         @if ($attendance['jam_masuk'])
-                        <span class="w-3/4 my-1 px-2 py-1 rounded-lg text-black ring-1 ring-green-400 hover:bg-green-300">
+                        <span class="w-3/4 my-1 px-2 py-1 rounded-xl text-black ring-1 ring-green-400 hover:bg-green-300">
                             Masuk : {{ \Carbon\Carbon::parse($attendance['jam_masuk'])->format('H:i') }}
                         </span>
                         @else
-                        <span class="w-3/4 my-1 px-2 py-1 rounded-lg text-black ring-1 ring-red-400 bg-red-300">
+                        <span class="w-3/4 my-1 px-2 py-1 rounded-xl text-black ring-1 ring-red-400 bg-red-300">
                             Belum Absen
                         </span>
                         @endif
 
                         <!-- jam keluar -->
                         @if ($attendance['latest_jam_keluar'])
-                        <span class="w-3/4 my-1 px-2 py-1 rounded-lg text-black ring-1 ring-red-400 hover:bg-red-300">
+                        <span class="w-3/4 my-1 px-2 py-1 rounded-xl text-black ring-1 ring-red-400 hover:bg-red-300">
                             Keluar : {{ \Carbon\Carbon::parse($attendance['latest_jam_keluar'])->format('H:i') }}
                         </span>
                         @else
-                        <span class="w-3/4 my-1 px-2 py-1 rounded-lg text-black ring-1 ring-red-400 bg-red-300">
+                        <span class="w-3/4 my-1 px-2 py-1 rounded-xl text-black ring-1 ring-red-400 bg-red-300">
                             Belum Absen
                         </span>
                         @endif

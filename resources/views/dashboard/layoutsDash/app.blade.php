@@ -23,7 +23,7 @@
 
                     <div class="flex flex-col m-auto p-auto relative">
                         <!-- Tombol Previous -->
-                        <button id="prevButton" class="absolute left-0 -bottom-3 w-10 h-10  transform -translate-y-1/2 bg-gray-300 hover:bg-gray-400 transition-all duration-500 text-white p-2 rounded-full z-20">
+                        <button id="prevButton" class="absolute left-0 -bottom-2.5 w-10 h-10  transform -translate-y-1/2 bg-gray-600 hover:bg-gray-400 transition-all duration-500 text-white p-2 rounded-full border border-white z-20">
                             &#8592;
                         </button>
 
@@ -34,7 +34,7 @@
                         </div>
 
                         <!-- Tombol Next -->
-                        <button id="nextButton" class="absolute right-0 -bottom-3 w-10 h-10 transform -translate-y-1/2 bg-gray-300 hover:bg-gray-400 transition-all duration-500 text-white p-2 rounded-full z-20">
+                        <button id="nextButton" class="absolute right-0 -bottom-2.5 w-10 h-10 transform -translate-y-1/2 bg-gray-600 hover:bg-gray-400 transition-all duration-500 text-white p-2 rounded-full border border-white z-20">
                             &#8594;
                         </button>
                     </div>

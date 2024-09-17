@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="grid grid-cols-1 gap-6">
-    <div class="flex items-center justify-center rounded-lg bg-gray-50 h-auto p-4 ring-1 ring-gray-200 shadow-sm">
+    <div class="flex items-center justify-center rounded-xl bg-gray-50 h-auto p-4 ring-1 ring-gray-200 shadow-sm">
 
         <table id="filter-table">
             <thead>

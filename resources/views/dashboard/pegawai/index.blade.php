@@ -14,7 +14,7 @@
             Data
         </button>
     </div>
-    <div class="flex items-center justify-center rounded-lg bg-gray-50 pt-16 lg:p-4 pb-2 px-2 h-auto ring-1 ring-gray-200 shadow-sm">
+    <div class="flex items-center justify-center rounded-xl bg-gray-50 pt-16 lg:p-4 pb-2 px-2 h-auto ring-1 ring-gray-200 shadow-sm">
         <table id="filter-table">
             <thead>
                 <tr>
