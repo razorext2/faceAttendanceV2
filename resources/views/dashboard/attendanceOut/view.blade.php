@@ -55,7 +55,7 @@
                     <td class="border-b">
                         @php
                         $photoURL = sha1("libs");
-                        $url = Crypt::decrypt($data->photoURL);
+                        $url = $data->photoURL;
                         $path = asset($photoURL.'/'.$url);
                         @endphp
                         <img class="w-32 transition-all duration-300 rounded-lg blur-sm hover:blur-none" src="{{ $path.'.png' }}" alt="image description">

@@ -5,7 +5,6 @@ if (
 ) {
     const dataTable = new DataTable("#filter-table", {
         labels: {
-            placeholder: "Search data...",
             searchTitle: "Search within data",
             perPage: "Data",
             noRows: "No data to display",

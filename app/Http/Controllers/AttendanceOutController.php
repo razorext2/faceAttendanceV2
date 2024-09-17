@@ -21,7 +21,7 @@ class AttendanceOutController extends Controller
         try {
             $kodePegawai = $request->input('kode_pegawai');
             $timestamp = Session::get('current_date');
-            $photoURL = Crypt::encrypt($kodePegawai . $timestamp);
+            $photoURL = $kodePegawai . $timestamp;
 
             AttendanceOut::create([
                 'nik' => null,
