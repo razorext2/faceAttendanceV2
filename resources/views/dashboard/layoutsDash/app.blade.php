@@ -6,7 +6,7 @@
 </head>
 
 <body>
-    <img src="{{ asset('assets/img/hero-bg-light.webp')}}" alt="Background Image" class="fixed object-cover w-full h-full inset-0 -z-50 top-0 left-40 opacity-100" />
+    <img src="{{ asset('assets/img/hero-bg-light.webp')}}" alt="Background Image" class="fixed inset-0 object-cover w-full h-full -z-50" />
     <img src="{{ asset('assets/img/grid.jpg')}}" alt="Background Image" class="fixed inset-0 object-cover w-full h-full -z-40 opacity-20 mix-blend-overlay" />
 
     @include('dashboard.layoutsDash.navbar')

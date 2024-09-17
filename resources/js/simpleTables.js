@@ -11,7 +11,7 @@ if (
             info: "Showing {start} to {end} of {rows} data (Page {page} of {pages} pages)",
         },
         fixedHeight: true,
-        searchable: false,
+        searchable: true,
         paging: true, // enable or disable pagination
         perPage: 10, // set the number of rows per page
         perPageSelect: [5, 10, 20, 50], // set the number of rows per page options
