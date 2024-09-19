@@ -25,6 +25,10 @@
                         <label for="kode_pegawai" class="block mb-2 text-sm font-medium text-gray-900">Kode Pegawai</label>
                         <input type="text" name="kode_pegawai" id="kode_pegawai" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 cursor-not-allowed bg-gray-200" value="{{ $pegawai->kode_pegawai }}" placeholder="Nama lengkap" required="" disabled>
                     </div>
+                    <div class="sm:col-span-2">
+                        <label for="nik_pegawai" class="block mb-2 text-sm font-medium text-gray-900">NIK</label>
+                        <input type="text" name="nik_pegawai" id="nik_pegawai" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="NIK" required="" pattern="[0-9]{1,17}" value="{{ old('nik_pegawai', $pegawai->nik_pegawai) }}">
+                    </div>
                     <div class="w-full">
                         <label for="nama_lengkap" class="block mb-2 text-sm font-medium text-gray-900">Nama Lengkap</label>
                         <input type="text" name="nama_lengkap" id="nama_lengkap" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" value="{{ old('full_name', $pegawai->full_name ?? '') }}" placeholder="Nama lengkap" required="">

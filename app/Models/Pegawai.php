@@ -13,6 +13,7 @@ class Pegawai extends Model
     protected $table = 'tb_pegawai';
     protected $fillable = [
         'kode_pegawai',
+        'nik_pegawai',
         'full_name',
         'nick_name',
         'no_telp',

@@ -28,6 +28,7 @@ class PegawaiController extends Controller
     {
         Pegawai::create([
             'kode_pegawai' => $request->input('kode_pegawai'),
+            'nik_pegawai' => $request->input('nik_pegawai'),
             'full_name' => $request->input('nama_lengkap'),
             'nick_name' => $request->input('nick_name'),
             'no_telp' => $request->input('no_telp'),
@@ -48,6 +49,7 @@ class PegawaiController extends Controller
     public function update(Request $request, Pegawai $pegawai)
     {
         $pegawai->update([
+            'nik_pegawai' => $request->input('nik_pegawai'),
             'full_name' => $request->input('nama_lengkap'),
             'nick_name' => $request->input('nick_name'),
             'no_telp' => $request->input('no_telp'),
@@ -158,7 +160,6 @@ class PegawaiController extends Controller
 
     public function photoRegistProcess(Request $request)
     {
-        // Validate the request
         // Validate the request
         $request->validate([
             'kode_pegawai' => 'required|exists:tb_pegawai,kode_pegawai',
