@@ -39,8 +39,11 @@
         <form id="photoForm" action="{{ route('photo.registProcess') }}" method="POST" enctype="multipart/form-data">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 h-auto lg:w-[900px]">
                 @csrf
+                @php
+                $path = "assets/img/noCamera.png";
+                @endphp
                 <div class="video-container col-span-1 lg:col-span-2 text-center h-auto" data-aos="zoom-in" data-aos-delay="100">
-                    <video id="video" class="flex w-full h-auto lg:w-[640px] lg:h-[480px] border border-gray-200 p-0 lg:rounded-lg object-cover ring-1 ring-black" autoplay style="background: url('assets/img/noCamera.png') center center / cover no-repeat;" data-aos="zoom-in" data-aos-delay="100">
+                    <video id="video" class="flex w-full h-auto lg:w-[640px] lg:h-[480px] border border-gray-200 p-0 lg:rounded-lg object-cover ring-1 ring-black" autoplay style="background: url({{$path}}) center center / cover no-repeat;" data-aos="zoom-in" data-aos-delay="100">
                     </video>
 
                     <canvas id="overlay" class="flex w-full h-auto absolute top-0 left-0 p-0 lg:rounded-lg object-cover"></canvas>

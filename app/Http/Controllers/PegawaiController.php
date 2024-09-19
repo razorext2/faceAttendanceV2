@@ -8,6 +8,7 @@ use App\Models\Pegawai;
 use App\Models\Jabatan;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 
 class PegawaiController extends Controller
 {
@@ -43,7 +44,20 @@ class PegawaiController extends Controller
     public function edit(Pegawai $pegawai)
     {
         $jabatan = Jabatan::all();
-        return view('dashboard.pegawai.edit', compact('pegawai', 'jabatan'));
+
+        $path = public_path('storage/' . $pegawai->storage);
+        $files = File::files($path);
+
+        $images = [];
+
+        foreach ($files as $file) {
+            $extension = strtolower($file->getExtension());
+            if (in_array($extension, ['png'])) {
+                $images[] = $file->getFilename();
+            }
+        }
+
+        return view('dashboard.pegawai.edit', compact('pegawai', 'jabatan', 'images'));
     }
 
     public function update(Request $request, Pegawai $pegawai)
@@ -158,7 +172,7 @@ class PegawaiController extends Controller
         return view('regist');
     }
 
-    public function photoRegistProcess(Request $request)
+    public function saveImages(Request $request)
     {
         // Validate the request
         $request->validate([
@@ -200,7 +214,17 @@ class PegawaiController extends Controller
             ->update([
                 'storage' => $folderToDB,
             ]);
+    }
 
+    public function photoRegistProcess(Request $request)
+    {
+        $this->saveImages($request);
         return redirect()->route('photo.regist')->with('success', 'Data berhasil diperbarui!');
+    }
+
+    public function updatePhoto(Request $request)
+    {
+        $this->saveImages($request);
+        return redirect()->route('dashboard.pegawai')->with('status', 'Foto berhasil diperbarui!');
     }
 }
