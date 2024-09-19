@@ -136,7 +136,7 @@
                         <div class="w-full h-auto relative gap-4 mt-4">
                             <input type="hidden" name="kode_pegawai" id="kode_pegawai" value="{{ $pegawai->kode_pegawai }}">
                             <div class="w-full lg:px-0" data-aos="fade-right" data-aos-delay="150">
-                                <button type="button" id="capturePhoto" class="ring-1 ring-blue-700 text-gray-900 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 focus:text-gray-900 hover:text-white font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center items-center">Start Kamera</button>
+                                <button type="button" id="capturePhoto" class="ring-1 ring-blue-700 text-gray-900 hover:bg-blue-800 focus:ring-2 focus:ring-blue-300 focus:text-gray-900 hover:text-white font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center items-center">Start Kamera</button>
                                 <input type="hidden" id="photo1Data" name="photo1">
                                 <input type="hidden" id="photo2Data" name="photo2">
                             </div>

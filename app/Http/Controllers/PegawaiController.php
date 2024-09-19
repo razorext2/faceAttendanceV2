@@ -38,6 +38,8 @@ class PegawaiController extends Controller
             'tgl_lahir' => $request->input('tgl_lahir')
         ]);
 
+        $this->saveImages($request);
+
         return redirect()->route('dashboard.pegawai')->with('status', 'Berhasil menambah data Pegawai');
     }
 
