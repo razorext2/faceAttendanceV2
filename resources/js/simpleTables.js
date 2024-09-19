@@ -10,7 +10,7 @@ if (
             noRows: "No data to display",
             info: "Showing {start} to {end} of {rows} data (Page {page} of {pages} pages)",
         },
-        fixedHeight: true,
+        fixedHeight: false,
         searchable: true,
         paging: true, // enable or disable pagination
         perPage: 10, // set the number of rows per page

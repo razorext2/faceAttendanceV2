@@ -127,11 +127,11 @@ if (cardLate) {
         ],
         stroke: {
             width: 2,
-            colors: "#FFF000",
+            colors: ["#fff"],
         },
         fill: {
             type: "solid",
-            colors: "#FFF",
+            colors: ["#f05252"],
         },
     };
 
@@ -153,11 +153,11 @@ if (cardOntime) {
         stroke: {
             type: "solid",
             width: 2,
-            colors: "#FFF000",
+            colors: ["#fff"],
         },
         fill: {
             type: "solid",
-            colors: "#FFF",
+            colors: ["#0e9f6e"],
         },
     };
 
@@ -179,11 +179,11 @@ if (cardOuttime) {
         stroke: {
             type: "solid",
             width: 2,
-            colors: "#FFF000",
+            colors: ["#fff"],
         },
         fill: {
             type: "solid",
-            colors: "#FFF",
+            colors: ["#06b5d4"],
         },
     };
 
@@ -205,11 +205,11 @@ if (kecepatan) {
         stroke: {
             type: "solid",
             width: 2,
-            colors: "#FFF000",
+            colors: ["#fff"],
         },
         fill: {
             type: "solid",
-            colors: "#FFF",
+            colors: "#f43f5d",
         },
     };
 
