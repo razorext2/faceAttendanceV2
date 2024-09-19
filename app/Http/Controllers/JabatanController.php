@@ -38,7 +38,7 @@ class JabatanController extends Controller
             'penempatan' => $request->input('penempatan')
         ]);
 
-        return redirect()->route('dashboard.jabatan');
+        return redirect()->route('dashboard.jabatan')->with('status', 'Berhasil menambah data Jabatan');;
     }
 
     /**
@@ -62,7 +62,7 @@ class JabatanController extends Controller
             'penempatan' => $request->input('penempatan')
         ]);
 
-        return redirect()->route('dashboard.jabatan');
+        return redirect()->route('dashboard.jabatan')->with('status', 'Berhasil mengubah data Jabatan');;
     }
 
     /**
@@ -71,6 +71,6 @@ class JabatanController extends Controller
     public function destroy(Jabatan $jabatan)
     {
         $jabatan->delete();
-        return redirect()->route('dashboard.jabatan');
+        return redirect()->route('dashboard.jabatan')->with('status', 'Berhasil menghapus data Jabatan');;
     }
 }

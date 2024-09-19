@@ -37,7 +37,7 @@ class PegawaiController extends Controller
             'tgl_lahir' => $request->input('tgl_lahir')
         ]);
 
-        return redirect()->route('dashboard.pegawai');
+        return redirect()->route('dashboard.pegawai')->with('status', 'Berhasil menambah data Pegawai');
     }
 
     public function edit(Pegawai $pegawai)
@@ -58,13 +58,13 @@ class PegawaiController extends Controller
             'tgl_lahir' => $request->input('tgl_lahir')
         ]);
 
-        return redirect()->route('dashboard.pegawai');
+        return redirect()->route('dashboard.pegawai')->with('status', 'Berhasil mengubah data Pegawai');
     }
 
     public function destroy(Pegawai $pegawai)
     {
         $pegawai->delete();
-        return redirect()->route('dashboard.pegawai');
+        return redirect()->route('dashboard.pegawai')->with('status', 'Berhasil menghapus data Pegawai');
     }
 
     public function getEmployeeByKodePegawai($kode_pegawai)
