@@ -24,10 +24,10 @@
         </div>
 
         <div class="flex items-center space-x-2">
-
             <div class="flex-grow">
                 <x-input-label for="email" :value="__('Email')" />
-                <x-text-input id="email" name="email" type="text" class="mt-1 block w-full disabled:bg-gray-300" :value="old('email', $user->email)" disabled autofocus autocomplete="email" />
+                <x-text-input id="email" name="email_" type="text" class="mt-1 block w-full disabled:bg-gray-300" :value="old('email', $user->email)" disabled autofocus autocomplete="email" />
+                <x-text-input name="email" type="hidden" :value="old('email', $user->email)" />
                 <x-input-error class="mt-2" :messages="$errors->get('email')" />
             </div>
             @if(!is_null($user->email_verified_at))
@@ -37,23 +37,8 @@
             @endif
         </div>
 
-        @if (session('status') == 'verification-link-sent')
-        <div class="mb-4 font-medium text-sm text-green-600">
-            {{ __('A new verification link has been sent to the email address you provided during registration.') }}
-        </div>
-        @endif
-
         <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
-
-            @if (session('status') === 'profile-updated')
-            <p
-                x-data="{ show: true }"
-                x-show="show"
-                x-transition
-                x-init="setTimeout(() => show = false, 2000)"
-                class="text-sm text-gray-600">{{ __('Saved.') }}</p>
-            @endif
+            <button type="submit" class="ring-1 ring-blue-700 text-gray-900 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 focus:text-white hover:text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center">{{ __('Save') }}</button>
         </div>
     </form>
 </section>
