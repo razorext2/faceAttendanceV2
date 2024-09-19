@@ -11,7 +11,15 @@ class Pegawai extends Model
     use HasFactory;
 
     protected $table = 'tb_pegawai';
-    protected $fillable = ['kode_pegawai', 'full_name', 'nick_name', 'no_telp', 'alamat', 'jabatan', 'tgl_lahir'];
+    protected $fillable = [
+        'kode_pegawai',
+        'full_name',
+        'nick_name',
+        'no_telp',
+        'alamat',
+        'jabatan',
+        'tgl_lahir'
+    ];
 
     // In Pegawai.php (Model)
     public function attendanceRelasi()

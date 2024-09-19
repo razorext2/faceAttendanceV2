@@ -24,7 +24,6 @@ class AttendanceOutController extends Controller
             $photoURL = $kodePegawai . $timestamp;
 
             AttendanceOut::create([
-                'nik' => null,
                 'kode_pegawai' => $kodePegawai,
                 'upl' => null,
                 'upl68' => null,

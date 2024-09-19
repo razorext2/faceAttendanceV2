@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('tb_attendance', function (Blueprint $table) {
             $table->id();
-            $table->string('nik', 32);
             $table->string('kode_pegawai', 12);
             $table->tinyInteger('upl')->nullable();
             $table->tinyInteger('upl68')->nullable();

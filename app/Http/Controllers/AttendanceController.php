@@ -26,7 +26,6 @@ class AttendanceController extends Controller
 
 
             Attendance::create([
-                'nik' => null,
                 'kode_pegawai' => $kodePegawai,
                 'upl' => null,
                 'upl68' => null,

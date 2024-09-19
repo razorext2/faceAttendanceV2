@@ -12,7 +12,6 @@ class Attendance extends Model
     protected $table = 'tb_attendance';
 
     protected $fillable = [
-        'nik',
         'kode_pegawai',
         'upl',
         'upl68',

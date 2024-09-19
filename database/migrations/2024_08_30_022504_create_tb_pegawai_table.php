@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('tb_pegawai', function (Blueprint $table) {
             $table->id();
             $table->string('kode_pegawai', 16);
+            $table->string('nik_pegawai', 128);
             $table->string('full_name', 64);
             $table->string('nick_name', 20)->nullable();
             $table->string('no_telp', 13);
