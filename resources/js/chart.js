@@ -69,19 +69,23 @@ if (bigChart) {
             {
                 name: "Masuk Tepat Waktu",
                 data: ontimeCounts,
+                color: "#22c55e",
             },
             {
                 name: "Terlambat",
                 data: lateCounts,
+                color: "#f43f5e",
             },
 
             {
                 name: "Keluar Tepat Waktu",
                 data: outtimeCounts,
+                color: "#06b6d4",
             },
             {
                 name: "Kecepatan Pulang",
                 data: fastCounts,
+                color: "#ec4899",
             },
         ],
         xaxis: {
