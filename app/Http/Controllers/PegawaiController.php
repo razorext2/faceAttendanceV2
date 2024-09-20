@@ -37,8 +37,11 @@ class PegawaiController extends Controller
             'jabatan' => $request->input('jabatan'),
             'tgl_lahir' => $request->input('tgl_lahir')
         ]);
-
-        $this->saveImages($request);
+        
+        $photo = $request->input('photo1');
+        if (!is_null($photo)) {
+            $this->saveImages($request);
+        }
 
         return redirect()->route('dashboard.pegawai')->with('status', 'Berhasil menambah data Pegawai');
     }
@@ -73,6 +76,18 @@ class PegawaiController extends Controller
             'jabatan' => $request->input('jabatan'),
             'tgl_lahir' => $request->input('tgl_lahir')
         ]);
+
+        $photo = $request->input('photo1');
+        if (!is_null($photo)) {
+            // Validate the request
+            $request->validate([
+                'kode_pegawai' => 'required|exists:tb_pegawai,kode_pegawai',
+                'photo1' => 'required|string',
+                'photo2' => 'required|string',
+            ]);
+
+            $this->saveImages($request);
+        }
 
         return redirect()->route('dashboard.pegawai')->with('status', 'Berhasil mengubah data Pegawai');
     }
@@ -176,13 +191,6 @@ class PegawaiController extends Controller
 
     public function saveImages(Request $request)
     {
-        // Validate the request
-        $request->validate([
-            'kode_pegawai' => 'required|exists:tb_pegawai,kode_pegawai',
-            'photo1' => 'required|string',
-            'photo2' => 'required|string',
-        ]);
-
         // Get the `kode_pegawai` from the request
         $kodePegawai = $request->input('kode_pegawai');
 
@@ -220,13 +228,20 @@ class PegawaiController extends Controller
 
     public function photoRegistProcess(Request $request)
     {
+        // Validate the request
+        $request->validate([
+            'kode_pegawai' => 'required|exists:tb_pegawai,kode_pegawai',
+            'photo1' => 'required|string',
+            'photo2' => 'required|string',
+        ]);
+
         $this->saveImages($request);
         return redirect()->route('photo.regist')->with('success', 'Data berhasil diperbarui!');
     }
 
-    public function updatePhoto(Request $request)
-    {
-        $this->saveImages($request);
-        return redirect()->route('dashboard.pegawai')->with('status', 'Foto berhasil diperbarui!');
-    }
+    // public function updatePhoto(Request $request)
+    // {
+    //     $this->saveImages($request);
+    //     return redirect()->route('dashboard.pegawai')->with('status', 'Foto berhasil diperbarui!');
+    // }
 }

@@ -1,30 +1,32 @@
-<div class="grid grid-cols-1 xl:grid-cols-3 gap-4">
-    <div class="w-full space-y-6">
-        <div class="p-4 sm:p-6 bg-gray-50 shadow-sm rounded-xl ring-1 ring-gray-200">
-            <div class="w-full">
-                <header class="flex flex-row">
-                    <a href="{{ route('dashboard.pegawai') }}" class="mr-3 px-2.5 mb-4 md:px-4 py-2.5 align-middle ring-1 ring-red-700 hover:bg-red-300 rounded-lg flex flex-row">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 1024 1024" fill="#000000" class="icon" version="1.1">
-                            <path d="M669.6 849.6c8.8 8 22.4 7.2 30.4-1.6s7.2-22.4-1.6-30.4l-309.6-280c-8-7.2-8-17.6 0-24.8l309.6-270.4c8.8-8 9.6-21.6 2.4-30.4-8-8.8-21.6-9.6-30.4-2.4L360.8 480.8c-27.2 24-28 64-0.8 88.8l309.6 280z" fill="" />
-                        </svg>
-                        Kembali
-                    </a>
-                    <h2 class="text-lg font-medium text-gray-900 mt-2">
-                        {{ __('Edit Data Pegawai') }}
-                    </h2>
+<div class="grid xl:grid-cols-4 gap-4">
+    <div class="w-full space-y-6 xl:col-span-3">
+        <form id="photoForm" action="{{ route('pegawai.update', $pegawai) }}" method="POST" enctype="multipart/form-data">
+            <div class="grid lg:grid-cols-2 gap-4 bg-gray-50 shadow-sm rounded-xl ring-1 ring-gray-200 p-4 sm:p-6">
+                <div class="max-w-xl">
+                    <header class="flex flex-row">
+                        <a href="{{ route('dashboard.pegawai') }}" class="mr-3 px-2.5 mb-4 md:px-4 py-2.5 align-middle ring-1 ring-red-700 hover:bg-red-300 rounded-lg flex flex-row">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 1024 1024" fill="#000000" class="icon" version="1.1">
+                                <path d="M669.6 849.6c8.8 8 22.4 7.2 30.4-1.6s7.2-22.4-1.6-30.4l-309.6-280c-8-7.2-8-17.6 0-24.8l309.6-270.4c8.8-8 9.6-21.6 2.4-30.4-8-8.8-21.6-9.6-30.4-2.4L360.8 480.8c-27.2 24-28 64-0.8 88.8l309.6 280z" fill="" />
+                            </svg>
+                            Kembali
+                        </a>
+                        <h2 class="text-lg font-medium text-gray-900 mt-2">
+                            {{ __('Edit Data Pegawai') }}
+                        </h2>
 
-                </header>
-                <p class="mt-1 text-sm text-gray-600">
-                    {{ __('Silahkan sesuaikan data dibawah ini dengan data yang benar.') }}
-                </p>
+                    </header>
+                    <p class="mt-1 text-sm text-gray-600">
+                        {{ __('Silahkan sesuaikan data dibawah ini dengan data yang benar.') }}
+                    </p>
 
-                <form action="{{ route('pegawai.update', $pegawai) }}" class="mt-4" method="POST">
+
                     @csrf
                     @method('put')
                     <div class="grid gap-4 mb-4 sm:grid-cols-2 sm:gap-6 sm:mb-5">
                         <div class="sm:col-span-2">
                             <label for="kode_pegawai" class="block mb-2 text-sm font-medium text-gray-900">Kode Pegawai</label>
-                            <input type="text" name="kode_pegawai" id="kode_pegawai" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 cursor-not-allowed bg-gray-200" value="{{ $pegawai->kode_pegawai }}" placeholder="Nama lengkap" required="" disabled>
+                            <input type="text" id="kode_pegawai" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 cursor-not-allowed bg-gray-200" value="{{ $pegawai->kode_pegawai }}" placeholder="Nama lengkap" required="" disabled>
+                            <input type="hidden" name="kode_pegawai" value="{{ $pegawai->kode_pegawai }}">
                         </div>
                         <div class="sm:col-span-2">
                             <label for="nik_pegawai" class="block mb-2 text-sm font-medium text-gray-900">NIK</label>
@@ -95,77 +97,66 @@
                             </svg>
                         </button>
                     </div>
-                </form>
-            </div>
-        </div>
-    </div>
 
-    <div class="w-full space-y-4 xl:col-span-2">
-        <div class="w-full bg-gray-50 p-6 rounded-lg ">
-            <header class="flex flex-row">
-                <h2 class="text-lg font-medium text-gray-900 mt-2 mb-4">
-                    {{ __('Foto yang terdaftar') }}
-                </h2>
-            </header>
-
-            <div class="grid lg:grid-cols-2 gap-4 mt-4">
-                @foreach ($images as $image )
-                <div>
-                    <img class="h-auto max-w-full rounded-lg blur-sm border-1 border-gray-500 hover:blur-none" src="{{ asset('storage/'.$pegawai->storage. $image) }}" alt="">
                 </div>
-                @endforeach
-            </div>
-        </div>
 
-        <div class="w-full bg-gray-50 p-6 rounded-lg ">
-
-            <form id="photoForm" action="{{ route('pegawai.photo') }}" method="POST" enctype="multipart/form-data">
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 h-auto">
+                <div class="w-full">
                     @csrf
                     @php
                     $path = "assets/img/noCamera.png";
                     @endphp
-                    <div class="video-container col-span-1 lg:col-span-2 text-center h-auto" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="grid gap-4 col-span-1 lg:col-span-2 text-center h-auto" data-aos="zoom-in" data-aos-delay="100">
                         <div class="w-full h-auto relative">
                             <video id="video" class="flex w-full h-96 border border-gray-200 p-0 rounded-lg object-cover ring-1 ring-gray-50" autoplay style="background: url('{{asset($path) }}') center center / cover no-repeat;" data-aos="zoom-in" data-aos-delay="100">
                             </video>
 
                             <canvas id="overlay" class="w-full h-auto absolute top-0 left-0 p-0 rounded-lg object-cover"></canvas>
-                        </div>
 
-                        <div class="w-full h-auto relative gap-4 mt-4">
-                            <input type="hidden" name="kode_pegawai" id="kode_pegawai" value="{{ $pegawai->kode_pegawai }}">
-                            <div class="w-full lg:px-0" data-aos="fade-right" data-aos-delay="150">
-                                <button type="button" id="capturePhoto" class="ring-1 ring-blue-700 text-gray-900 hover:bg-blue-800 focus:ring-2 focus:ring-blue-300 focus:text-gray-900 hover:text-white font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center items-center">Start Kamera</button>
+                            <div class="absolute z-50 bottom-2 right-2" data-aos="fade-right" data-aos-delay="150">
+                                <button type="button" id="capturePhoto" class="ring-1 ring-blue-700 text-gray-900 bg-white hover:bg-blue-800 focus:ring-2 focus:ring-blue-300 focus:text-gray-90 focus:bg-white hover:text-white focus:hover:text-gray-900 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center items-center">Start Kamera</button>
                                 <input type="hidden" id="photo1Data" name="photo1">
                                 <input type="hidden" id="photo2Data" name="photo2">
                             </div>
                         </div>
 
-                    </div>
-
-                    <div class="col-span-1 lg:col-span-1 lg:p-0" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="grid gap-4">
-                            <div class="relative flex flex-col gap-4 lg:gap-0 rounded-lg md:flex-row lg:flex-col w-full" data-aos="fade-right" data-aos-delay="100">
+                        <div class="grid lg:grid-cols-2 gap-4">
+                            <div class="relative flex flex-col lg:gap-0 rounded-lg md:flex-row lg:flex-col w-full" data-aos="fade-right" data-aos-delay="100">
                                 <div class="w-full h-auto rounded-lg lg:w-full md:rounded-lg">
                                     <img id="canvLogo" class="object-cover w-full h-[184px] rounded-lg ring-1 ring-gray-200" src="{{asset('assets/img/noImage.png')}}" alt="">
                                     <canvas id="canvRegist" class="object-cover w-full h-full rounded-lg absolute top-0 left-0"></canvas>
                                 </div>
                             </div>
-                            <div class="relative flex flex-col gap-4 lg:gap-0 rounded-lg md:flex-row lg:flex-col w-full" data-aos="fade-left" data-aos-delay="100">
+
+                            <div class="relative flex flex-col lg:gap-0 rounded-lg md:flex-row lg:flex-col w-full" data-aos="fade-left" data-aos-delay="100">
                                 <div class="w-full h-auto rounded-lg lg:w-full md:rounded-lg">
                                     <img id="canvLogo" class="object-cover w-full h-[184px] rounded-lg ring-1 ring-gray-200" src="{{asset('assets/img/noImage.png')}}" alt="">
                                     <canvas id="canvRegistt" class="object-cover w-full h-full rounded-lg absolute top-0 left-0"></canvas>
                                 </div>
                             </div>
-
-                            <div class="w-full lg:px-0" data-aos="fade-left" data-aos-delay="150">
-                                <button type="submit" class="ring-1 ring-green-700 text-gray-900 hover:bg-green-800 focus:ring-4 focus:ring-green-300 focus:text-white hover:text-white font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center items-center">Upload Photos</button>
-                            </div>
                         </div>
                     </div>
                 </div>
-            </form>
+            </div>
+        </form>
+    </div>
+
+    <div class="w-full space-y-4">
+        <header class="flex flex-row bg-gray-50 p-4 sm:p-6 rounded-xl">
+            <h2 class="text-lg font-medium text-gray-900">
+                {{ __('Foto Terdaftar') }}
+            </h2>
+        </header>
+        <div class="grid lg:grid-cols-2 xl:grid-cols-1 gap-4">
+
+
+            @foreach ($images as $image )
+            @if(!is_null($image))
+            <div class="bg-gray-50 p-1 rounded-xl">
+                <img class="h-56 object-cover w-full rounded-xl blur-sm border-1 border-gray-500 hover:blur-none" src="{{ asset('storage/'.$pegawai->storage. $image) }}" alt="">
+            </div>
+            @endif
+            @endforeach
+
 
         </div>
     </div>
@@ -265,13 +256,5 @@
     // Event listener untuk tombol capture
     captureButton.addEventListener('click', () => {
         captureTwoPhotos();
-    });
-
-    // Optional: Set up form submission untuk memastikan foto telah diambil
-    document.getElementById('photoForm').addEventListener('submit', (event) => {
-        if (!photo1Data.value || !photo2Data.value) {
-            event.preventDefault();
-            alert('Please capture both photos before submitting.');
-        }
     });
 </script>

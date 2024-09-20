@@ -1,6 +1,6 @@
-<div class="w-full xl:w-2/3 space-y-6">
+<div class="w-full xl:w-3/4 space-y-6">
     <div class="p-4 sm:p-6 bg-gray-50 shadow-sm rounded-xl ring-1 ring-gray-200">
-        <form id="photoForm" action="{{ route('pegawai.store') }}" method="POST">
+        <form id="photoForm" action="{{ route('pegawai.store') }}" method="POST" enctype="multipart/form-data">
             <div class="grid lg:grid-cols-2 gap-4">
                 <div class="max-w-xl">
                     <header class="flex flex-row">
@@ -230,13 +230,5 @@
     // Event listener untuk tombol capture
     captureButton.addEventListener('click', () => {
         captureTwoPhotos();
-    });
-
-    // Optional: Set up form submission untuk memastikan foto telah diambil
-    document.getElementById('photoForm').addEventListener('submit', (event) => {
-        if (!photo1Data.value || !photo2Data.value) {
-            event.preventDefault();
-            alert('Please capture both photos before submitting.');
-        }
     });
 </script>

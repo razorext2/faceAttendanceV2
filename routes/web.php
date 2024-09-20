@@ -32,7 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard/pegawai/edit/{pegawai}', [PegawaiController::class, 'edit'])->name('pegawai.edit');
     Route::put('/dashboard/pegawai/update/{pegawai}', [PegawaiController::class, 'update'])->name('pegawai.update');
     Route::delete('/dashboard/pegawai/delete/{pegawai}', [PegawaiController::class, 'destroy'])->name('pegawai.delete');
-    Route::post('/dashboard/pegawai/photo-update', [PegawaiController::class, 'updatePhoto'])->name('pegawai.photo');
+    // Route::post('/dashboard/pegawai/photo-update', [PegawaiController::class, 'updatePhoto'])->name('pegawai.photo');
 
     // jabatan
     Route::get('dashboard/jabatan', [JabatanController::class, 'index'])->name('dashboard.jabatan');
