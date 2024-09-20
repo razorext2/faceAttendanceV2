@@ -80,11 +80,11 @@
                 </a>
             </li>
 
-            <!-- <li x-data="{ lokasi: {{ (Route::is('attendanceIn.view') || Route::is('attendanceOut.view')) ? 'true' : 'false' }} }">
+            <li x-data="{ lokasi: {{ (Route::is('dashboard.division') || Route::is('dashboard.placement')) ? 'true' : 'false' }} }">
                 <button @click="lokasi = !lokasi" type="button"
-                    class="flex items-center w-full p-2 text-base text-gray-900 transition duration-200 rounded-lg group hover:bg-gray-100"
+                    class="flex items-center w-full p-2 text-base text-gray-900 transition duration-200 rounded-lg group hover:bg-gray-100 {{ Route::is('dashboard.division') || Route::is('dashboard.placement') ? 'text-gray-900 dark:bg-transparent dark:hover:bg-transparent dark:text-white' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent dark:hover:text-white' }}"
                     aria-controls="dropdown-example" :aria-expanded="lokasi">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="fi-sidebar-item-icon h-6 w-6" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#9ca3af" version="1.1" id="Layer_1" viewBox="0 0 368.666 368.666" xml:space="preserve">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="fi-sidebar-item-icon h-6 w-6 text-gray-400 {{ (Route::is('dashboard.division') || Route::is('dashboard.placement')) ? 'dark:fill-white' : 'dark:hover:fill-white' }}" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#9ca3af" version="1.1" id="Layer_1" viewBox="0 0 368.666 368.666" xml:space="preserve">
                         <path d="M184.333,0C102.01,0,35.036,66.974,35.036,149.297c0,33.969,11.132,65.96,32.193,92.515     c27.27,34.383,106.572,116.021,109.934,119.479l7.169,7.375l7.17-7.374c3.364-3.46,82.69-85.116,109.964-119.51     c21.042-26.534,32.164-58.514,32.164-92.485C333.63,66.974,266.656,0,184.333,0z M285.795,229.355     c-21.956,27.687-80.92,89.278-101.462,110.581c-20.54-21.302-79.483-82.875-101.434-110.552     c-18.228-22.984-27.863-50.677-27.863-80.087C55.036,78.002,113.038,20,184.333,20c71.294,0,129.297,58.002,129.296,129.297     C313.629,178.709,304.004,206.393,285.795,229.355z" />
                         <path d="M184.333,59.265c-48.73,0-88.374,39.644-88.374,88.374c0,48.73,39.645,88.374,88.374,88.374s88.374-39.645,88.374-88.374     S233.063,59.265,184.333,59.265z M184.333,216.013c-37.702,0-68.374-30.673-68.374-68.374c0-37.702,30.673-68.374,68.374-68.374     s68.373,30.673,68.374,68.374C252.707,185.341,222.035,216.013,184.333,216.013z" />
                     </svg>
@@ -103,20 +103,20 @@
                     x-transition:leave-end="transform opacity-0 -translate-y-5"
                     class="py-4 space-y-4">
                     <li>
-                        <a href="{{ route('attendanceIn.view') }}"
+                        <a href="{{ route('dashboard.division') }}"
                             class="flex items-center w-full p-2 rounded-lg pl-11 group 
-               {{ Route::is('attendanceIn.view') ? 'text-gray-900 bg-gray-100 dark:bg-transparent dark:text-white' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent dark:hover:text-white' }}">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="fi-sidebar-item-icon h-5 w-5" fill="#9ca3af" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" version="1.1" id="Capa_1" viewBox="0 0 28.05 28.05" xml:space="preserve">
+               {{ Route::is('dashboard.division') ? 'text-gray-900 bg-gray-100 dark:bg-transparent dark:text-white' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent dark:hover:text-white' }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="fi-sidebar-item-icon h-5 w-5 {{ Route::currentRouteName() == 'dashboard.division' ? 'dark:fill-white' : 'dark:hover:fill-white' }}" fill="#9ca3af" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" version="1.1" id="Capa_1" viewBox="0 0 28.05 28.05" xml:space="preserve">
                                 <path d="M25.353,0H2.699c-1.25,0-2.265,1-2.265,2.232V25.82c0,1.23,1.015,2.23,2.265,2.23h22.654c1.248,0,2.264-1,2.264-2.23V2.232   C27.617,1,26.601,0,25.353,0z M4.055,1.68h19.941c1.1,0,1.993,0.877,1.993,1.965v3.852H2.063V3.645   C2.063,2.557,2.954,1.68,4.055,1.68z M2.063,24.408V9.668h6.896v16.705H4.055C2.954,26.373,2.063,25.492,2.063,24.408z    M23.996,26.373H11.215V9.668h14.774v14.74C25.99,25.492,25.096,26.373,23.996,26.373z" />
                             </svg>
                             <span class="flex-1 ms-3 whitespace-nowrap text-sm">Divisi</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('attendanceOut.view') }}"
+                        <a href="{{ route('dashboard.placement') }}"
                             class="flex items-center w-full p-2 rounded-lg pl-11 group 
-               {{ Route::is('attendanceOut.view') ? 'text-gray-900 bg-gray-100 dark:bg-transparent dark:text-white' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent dark:hover:text-white' }}">
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="fi-sidebar-item-icon h-6 w-6" fill="#9ca3af" version="1.1" id="Layer_1" viewBox="0 0 512 512" xml:space="preserve">
+               {{ Route::is('dashboard.placement') ? 'text-gray-900 bg-gray-100 dark:bg-transparent dark:text-white' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent dark:hover:text-white' }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="fi-sidebar-item-icon h-6 w-6 {{ Route::currentRouteName() == 'dashboard.placement' ? 'dark:fill-white' : 'dark:hover:fill-white' }}" fill="#9ca3af" version="1.1" id="Layer_1" viewBox="0 0 512 512" xml:space="preserve">
 
                                 <path d="M199.021,43.436h-63.367c-5.633,0-10.199,4.566-10.199,10.199v63.367c0,5.633,4.566,10.199,10.199,10.199h63.367    c5.633,0,10.199-4.566,10.199-10.199V53.636C209.22,48.003,204.654,43.436,199.021,43.436z M188.822,106.803h-42.968V63.835    h42.968V106.803z" />
                                 <path d="M312.468,43.436h-63.367c-5.633,0-10.199,4.566-10.199,10.199v63.367c0,5.633,4.566,10.199,10.199,10.199h63.367    c5.633,0,10.199-4.566,10.199-10.199V53.636C322.667,48.003,318.101,43.436,312.468,43.436z M302.269,106.803H259.3V63.835h42.968    V106.803z" />
@@ -133,7 +133,7 @@
                 </ul>
             </li>
 
-            <li x-data="{ lokasi: {{ (Route::is('attendanceIn.view') || Route::is('attendanceOut.view')) ? 'true' : 'false' }} }">
+            <!-- <li x-data="{ lokasi: {{ (Route::is('attendanceIn.view') || Route::is('attendanceOut.view')) ? 'true' : 'false' }} }">
                 <button @click="lokasi = !lokasi" type="button"
                     class="flex items-center w-full p-2 text-base text-gray-900 transition duration-200 rounded-lg group hover:bg-gray-100"
                     aria-controls="dropdown-example" :aria-expanded="lokasi">

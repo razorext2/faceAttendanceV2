@@ -6,6 +6,8 @@ use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\AttendanceOutController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\JabatanController;
+use App\Http\Controllers\DivisionController;
+use App\Http\Controllers\PlacementController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 
@@ -47,6 +49,12 @@ Route::middleware('auth')->group(function () {
 
     // attendanceOut
     Route::get('/dashboard/attendanceOut', [AttendanceOutController::class, 'index'])->name('attendanceOut.view');
+
+    // divisi
+    Route::get('dashboard/divisin', [DivisionController::class, 'index'])->name('dashboard.division');
+
+    // placement
+    Route::get('dashboard/placement', [PlacementController::class, 'index'])->name('dashboard.placement');
 });
 
 require __DIR__ . '/auth.php';
