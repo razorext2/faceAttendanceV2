@@ -44,175 +44,143 @@ const cardOntime = document.getElementById("cardOntime-chart");
 const cardOuttime = document.getElementById("cardOuttime-chart");
 const kecepatan = document.getElementById("Cardkecepatan-chart");
 
-if (bigChart) {
-    const lateCounts = JSON.parse(bigChart.dataset.lateCounts);
-    const ontimeCounts = JSON.parse(bigChart.dataset.ontimeCounts);
-    const outtimeCounts = JSON.parse(bigChart.dataset.outtimeCounts);
-    const fastCounts = JSON.parse(bigChart.dataset.fastCounts);
-    const dates = JSON.parse(bigChart.dataset.dates);
-
-    const options = {
-        ...globalOptions,
-        dataLabels: {
-            enabled: true,
-        },
-        tooltip: {
-            enabled: true,
-            x: {
-                show: true,
-            },
-            y: {
-                show: true,
-            },
-        },
-        series: [
-            {
-                name: "Masuk Tepat Waktu",
-                data: ontimeCounts,
-                color: "#22c55e",
-            },
-            {
-                name: "Terlambat",
-                data: lateCounts,
-                color: "#f43f5e",
-            },
-
-            {
-                name: "Keluar Tepat Waktu",
-                data: outtimeCounts,
-                color: "#06b6d4",
-            },
-            {
-                name: "Kecepatan Pulang",
-                data: fastCounts,
-                color: "#ec4899",
-            },
-        ],
-        xaxis: {
-            categories: dates,
-            labels: {
-                show: false,
-            },
-            axisBorder: {
-                show: false,
-            },
-            axisTicks: {
-                show: false,
-            },
-        },
-        yaxis: {
-            show: false,
-            labels: {
-                formatter: function (value) {
-                    return value + " Orang";
-                },
-            },
-        },
-    };
-
-    const chart = new ApexCharts(bigChart, options);
-    chart.render();
+function renderChart(element, options) {
+    const chart = new ApexCharts(element, options);
+    chart.render(); // Render langsung tanpa requestAnimationFrame
 }
 
-if (cardLate) {
-    const lateCounts = JSON.parse(cardLate.dataset.lateCounts);
-
-    const options = {
+function createOptions(seriesData, colors, seriesName, categories) {
+    return {
         ...globalOptions,
         series: [
             {
-                name: "Terlambat",
-                data: lateCounts,
+                name: seriesName,
+                data: seriesData,
             },
         ],
+        fill: {
+            type: "solid",
+            colors: [colors],
+        },
         stroke: {
             width: 2,
             colors: ["#fff"],
         },
-        fill: {
-            type: "solid",
-            colors: ["#f05252"],
-        },
     };
-
-    const chart = new ApexCharts(cardLate, options);
-    chart.render();
 }
 
-if (cardOntime) {
-    const ontimeCounts = JSON.parse(cardOntime.dataset.ontimeCounts);
+// Use IntersectionObserver to delay rendering until the element is in view
+const observer = new IntersectionObserver(
+    (entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                const element = entry.target;
+                let options;
 
-    const options = {
-        ...globalOptions,
-        series: [
-            {
-                name: "Tepat Waktu",
-                data: ontimeCounts,
-            },
-        ],
-        stroke: {
-            type: "solid",
-            width: 2,
-            colors: ["#fff"],
-        },
-        fill: {
-            type: "solid",
-            colors: ["#0e9f6e"],
-        },
-    };
+                if (element === bigChart) {
+                    const lateCounts = JSON.parse(bigChart.dataset.lateCounts);
+                    const ontimeCounts = JSON.parse(
+                        bigChart.dataset.ontimeCounts
+                    );
+                    const outtimeCounts = JSON.parse(
+                        bigChart.dataset.outtimeCounts
+                    );
+                    const fastCounts = JSON.parse(bigChart.dataset.fastCounts);
+                    const dates = JSON.parse(bigChart.dataset.dates);
 
-    const chart = new ApexCharts(cardOntime, options);
-    chart.render();
-}
+                    options = {
+                        ...globalOptions,
+                        series: [
+                            {
+                                name: "Masuk Tepat Waktu",
+                                data: ontimeCounts,
+                                color: "#22c55e",
+                            },
+                            {
+                                name: "Terlambat",
+                                data: lateCounts,
+                                color: "#f43f5e",
+                            },
+                            {
+                                name: "Keluar Tepat Waktu",
+                                data: outtimeCounts,
+                                color: "#06b6d4",
+                            },
+                            {
+                                name: "Kecepatan Pulang",
+                                data: fastCounts,
+                                color: "#ec4899",
+                            },
+                        ],
+                        xaxis: {
+                            categories: dates,
+                            labels: {
+                                show: false,
+                            },
+                            axisBorder: {
+                                show: false,
+                            },
+                            axisTicks: {
+                                show: false,
+                            },
+                        },
+                        tooltip: {
+                            enabled: true,
+                        },
+                    };
+                    renderChart(bigChart, options);
+                }
 
-if (cardOuttime) {
-    const outtimeCounts = JSON.parse(cardOuttime.dataset.outtimeCounts);
+                if (element === cardLate) {
+                    const lateCounts = JSON.parse(cardLate.dataset.lateCounts);
+                    options = createOptions(lateCounts, "#f05252", "Terlambat");
+                    renderChart(cardLate, options);
+                }
 
-    const options = {
-        ...globalOptions,
-        series: [
-            {
-                name: "Tepat Waktu",
-                data: outtimeCounts,
-            },
-        ],
-        stroke: {
-            type: "solid",
-            width: 2,
-            colors: ["#fff"],
-        },
-        fill: {
-            type: "solid",
-            colors: ["#06b5d4"],
-        },
-    };
+                if (element === cardOntime) {
+                    const ontimeCounts = JSON.parse(
+                        cardOntime.dataset.ontimeCounts
+                    );
+                    options = createOptions(
+                        ontimeCounts,
+                        "#0e9f6e",
+                        "Tepat Waktu"
+                    );
+                    renderChart(cardOntime, options);
+                }
 
-    const chart = new ApexCharts(cardOuttime, options);
-    chart.render();
-}
+                if (element === cardOuttime) {
+                    const outtimeCounts = JSON.parse(
+                        cardOuttime.dataset.outtimeCounts
+                    );
+                    options = createOptions(
+                        outtimeCounts,
+                        "#06b5d4",
+                        "Keluar Tepat Waktu"
+                    );
+                    renderChart(cardOuttime, options);
+                }
 
-if (kecepatan) {
-    const fastCounts = JSON.parse(kecepatan.dataset.fastCounts);
+                if (element === kecepatan) {
+                    const fastCounts = JSON.parse(kecepatan.dataset.fastCounts);
+                    options = createOptions(
+                        fastCounts,
+                        "#f43f5d",
+                        "Kecepatan Pulang"
+                    );
+                    renderChart(kecepatan, options);
+                }
 
-    const options = {
-        ...globalOptions,
-        series: [
-            {
-                name: "Tepat Waktu",
-                data: fastCounts,
-            },
-        ],
-        stroke: {
-            type: "solid",
-            width: 2,
-            colors: ["#fff"],
-        },
-        fill: {
-            type: "solid",
-            colors: "#f43f5d",
-        },
-    };
+                observer.unobserve(element); // Stop observing once the chart is rendered
+            }
+        });
+    },
+    { threshold: 0.1 }
+);
 
-    const chart = new ApexCharts(kecepatan, options);
-    chart.render();
-}
+// Attach observer to each chart element
+if (bigChart) observer.observe(bigChart);
+if (cardLate) observer.observe(cardLate);
+if (cardOntime) observer.observe(cardOntime);
+if (cardOuttime) observer.observe(cardOuttime);
+if (kecepatan) observer.observe(kecepatan);

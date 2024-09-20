@@ -17,6 +17,10 @@ class AdminController extends Controller
     {
         //
         $today = Carbon::today();
+        $startDate = $today->subDays(6);
+
+        $yearNow = Carbon::now()->year;
+        $formattedDateRange = $startDate->locale('id')->isoFormat('dddd, D MMM') . ' - ' . $today->locale('id')->isoFormat('dddd, D MMM');
 
         $attendance_out_today = AttendanceOut::whereDate('jam_keluar', $today)
             ->with('pegawaiRelasi')
@@ -53,6 +57,6 @@ class AdminController extends Controller
                 ];
             });
 
-        return view('dashboard.dashboard', compact('attendance_today', 'attendance_out_today', 'attendance_all'));
+        return view('dashboard.dashboard', compact('attendance_today', 'attendance_out_today', 'attendance_all', 'formattedDateRange', 'yearNow'));
     }
 }

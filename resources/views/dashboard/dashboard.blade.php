@@ -8,19 +8,10 @@
         <div class="w-full bg-white rounded-xl border border-gray-300 p-4 md:p-6">
             <div class="flex justify-between mb-5">
                 <div>
-                    <h5 class="leading-none text-3xl font-bold text-gray-900 mb-2">{{ Carbon\Carbon::now()->year }}</h5>
+                    <h5 class="leading-none text-3xl font-bold text-gray-900 mb-2">{{ $yearNow }}</h5>
                     <p class="text-base font-normal text-gray-500">Data 7 hari kebelakang</p>
                 </div>
                 <div class="flex items-center px-2.5 py-0.5 text-base font-semibold text-green-500 text-center">
-
-                    @php
-                    // Get the start and end dates for the last 7 days
-                    $startDate = \Carbon\Carbon::today()->subDays(6);
-                    $endDate = \Carbon\Carbon::today();
-
-                    // Format the date range
-                    $formattedDateRange = $startDate->locale('id')->isoFormat('dddd, D MMM') . ' - ' . $endDate->locale('id')->isoFormat('dddd, D MMM');
-                    @endphp
                     {{ $formattedDateRange }}
                 </div>
             </div>
