@@ -35,7 +35,8 @@
                     name="password"
                     type="password"
                     class="mt-1 block w-full"
-                    placeholder="{{ __('Password') }}" />
+                    placeholder="{{ __('Password') }}"
+                    autocomplete="current-password" />
 
                 <x-input-error :messages="$errors->userDeletion->get('password')" class="mt-2" />
             </div>
