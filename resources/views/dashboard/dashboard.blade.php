@@ -44,7 +44,7 @@
     <!-- Notification -->
     <div class="grid grid-cols-1">
 
-        <div class="flex flex-col bg-white border border-gray-300 p-6 rounded-xl dark:bg-gray-800 dark:border-gray-500">
+        <div class="flex flex-col bg-white border border-gray-300 p-4 rounded-xl dark:bg-gray-800 dark:border-gray-500">
             <span>
                 <time class="text-md font-semibold text-gray-900 dark:text-white">Absen Masuk, {{ \Carbon\Carbon::today()->locale('id')->isoFormat('D MMMM YYYY') }}</time>
             </span>
@@ -74,7 +74,7 @@
             </ul>
         </div>
 
-        <div class="flex flex-col mt-3 bg-white border border-gray-300 p-6 rounded-xl dark:bg-gray-800 dark:border-gray-500">
+        <div class="flex flex-col mt-3 bg-white border border-gray-300 p-4 rounded-xl dark:bg-gray-800 dark:border-gray-500">
             <span>
                 <time class="text-md font-semibold text-gray-900 dark:text-white">Absen Keluar, {{ \Carbon\Carbon::today()->locale('id')->isoFormat('D MMMM YYYY') }}</time>
             </span>

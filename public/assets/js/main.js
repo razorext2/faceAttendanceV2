@@ -234,3 +234,39 @@ setTimeout(showToast, 100); // Delay for the initial animation to allow renderin
 
 // Auto-close the toast after 5 seconds with fade-out and scale effect
 setTimeout(hideToast, 5000);
+
+//////////////////////
+//Dark Mode//
+
+var themeToggleDarkBtn = document.getElementById("theme-toggle-dark");
+var themeToggleLightBtn = document.getElementById("theme-toggle-light");
+
+// Change the icons and button backgrounds based on previous settings
+if (
+    localStorage.getItem("color-theme") === "dark" ||
+    (!("color-theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+) {
+    themeToggleDarkBtn.classList.remove("text-gray-400");
+    themeToggleDarkBtn.classList.add("text-gray-200");
+    themeToggleLightBtn.classList.remove("text-gray-200");
+    themeToggleLightBtn.classList.add("text-gray-500");
+} else {
+    themeToggleLightBtn.classList.remove("text-gray-200");
+    themeToggleLightBtn.classList.add("text-gray-400");
+    themeToggleDarkBtn.classList.remove("text-gray-500");
+    themeToggleDarkBtn.classList.add("text-gray-200");
+}
+
+themeToggleDarkBtn.addEventListener("click", function () {
+    document.documentElement.classList.add("dark");
+    localStorage.setItem("color-theme", "dark");
+});
+
+themeToggleLightBtn.addEventListener("click", function () {
+    document.documentElement.classList.remove("dark");
+    localStorage.setItem("color-theme", "light");
+});
+
+///////////////////
+// end darkmode //
