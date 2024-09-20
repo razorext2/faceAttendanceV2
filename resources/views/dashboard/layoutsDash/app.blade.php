@@ -6,8 +6,14 @@
 </head>
 
 <body>
-    <img src="{{ asset('assets/img/hero-bg-light.webp')}}" alt="Background Image" class="fixed inset-0 object-cover w-full h-full -z-50" />
-    <img src="{{ asset('assets/img/grid.jpg')}}" alt="Background Image" class="fixed inset-0 object-cover w-full h-full -z-40 opacity-20 mix-blend-overlay" />
+    <div class="relative">
+        <img src="{{ asset('assets/img/hero-bg-light.webp')}}" alt="Background Image" class="fixed inset-0 object-cover w-full h-full -z-50" />
+        <img src="{{ asset('assets/img/grid.jpg')}}" alt="Background Image" class="fixed inset-0 object-cover w-full h-full -z-40 opacity-20 mix-blend-overlay" />
+
+        <!-- Overlay -->
+        <div class="fixed w-full inset-0 -z-40 bg-gray-800 opacity-0 dark:opacity-85"></div>
+    </div>
+
 
     @if (session('status'))
     <div id="toast-top-right" x-data="{ showToast: true }" x-init="setTimeout(() => showToast = false, 3000)"
@@ -43,7 +49,7 @@
     @include('dashboard.layoutsDash.sidebar')
     <div class="p-4 sm:ml-72">
 
-        <div class="p-4 border-2 border-gray-100 border-dashed rounded-lg mt-16">
+        <div class="p-4 border-2 border-gray-100 border-dashed rounded-lg mt-16 dark:border-gray-800">
             <!-- carousel for cards -->
             <div class="grid grid-cols-1 gap-6 mb-3">
                 <div class="relative overflow-hidden">
@@ -53,7 +59,7 @@
 
                     <div class="flex flex-col m-auto p-auto relative">
                         <!-- Tombol Previous -->
-                        <button id="prevButton" class="absolute left-0 -bottom-2.5 w-10 h-10  transform -translate-y-1/2 bg-gray-600 hover:bg-gray-400 transition-all duration-500 text-white p-2 rounded-full border border-white z-20">
+                        <button id="prevButton" class="absolute left-0 -bottom-2.5 w-10 h-10  transform -translate-y-1/2 bg-gray-600 hover:bg-gray-400 transition-all duration-500 text-white p-2 rounded-full border border-white dark:bg-gray-800 dark:hover:bg-gray-900 dark:text-gray-300 dark:hover:text-white dark:border-gray-500">
                             &#8592;
                         </button>
 
@@ -64,7 +70,7 @@
                         </div>
 
                         <!-- Tombol Next -->
-                        <button id="nextButton" class="absolute right-0 -bottom-2.5 w-10 h-10 transform -translate-y-1/2 bg-gray-600 hover:bg-gray-400 transition-all duration-500 text-white p-2 rounded-full border border-white z-20">
+                        <button id="nextButton" class="absolute right-0 -bottom-2.5 w-10 h-10 transform -translate-y-1/2 bbg-gray-600 hover:bg-gray-400 transition-all duration-500 text-white p-2 rounded-full border border-white dark:bg-gray-800 dark:hover:bg-gray-900 dark:text-gray-300 dark:hover:text-white dark:border-gray-500">
                             &#8594;
                         </button>
                     </div>

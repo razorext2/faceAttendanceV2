@@ -17,10 +17,12 @@ class AdminController extends Controller
     {
         //
         $today = Carbon::today();
-        $startDate = $today->subDays(6);
 
-        $yearNow = Carbon::now()->year;
-        $formattedDateRange = $startDate->locale('id')->isoFormat('dddd, D MMM') . ' - ' . $today->locale('id')->isoFormat('dddd, D MMM');
+        $startDate = Carbon::today()->subDays(6);
+        $endDate = Carbon::today();
+        $formattedDateRange = $startDate->locale('id')->isoFormat('dddd, D MMM') . ' - ' . $endDate->locale('id')->isoFormat('dddd, D MMM');
+
+        $yearNow = Carbon::today()->year;
 
         $attendance_out_today = AttendanceOut::whereDate('jam_keluar', $today)
             ->with('pegawaiRelasi')

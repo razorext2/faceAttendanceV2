@@ -1,7 +1,7 @@
 <div class="inline-block scroll-ml-6 snap-start">
-    <div class="overflow-hidden rounded-xl border border-gray-50">
+    <div class="overflow-hidden rounded-xl border border-gray-50 dark:border-gray-500">
 
-        <div class="group relative w-96 h-28 group-hover:top-0 bg-green-500">
+        <div class="group relative w-96 h-28 group-hover:top-0 bg-green-500 dark:bg-gray-800">
 
             <div class="relative -left-32 opacity-0 top-0 z-10 w-96 rounded-xl group-hover:bg-transparent px-5 pt-9 pb-10 text-base font-semibold transition-all duration-700 group-hover:-left-3 group-hover:opacity-100">
                 <div class="flex flex-col">
@@ -25,9 +25,9 @@
 </div>
 
 <div class="inline-block scroll-ml-6 snap-start">
-    <div class="overflow-hidden rounded-xl border border-gray-50">
+    <div class="overflow-hidden rounded-xl border border-gray-50 dark:border-gray-500">
 
-        <div class="group relative w-96 h-28 group-hover:top-0 bg-red-500">
+        <div class="group relative w-96 h-28 group-hover:top-0 bg-red-500 dark:bg-gray-800">
 
             <div class="relative -left-32 top-0 z-10 w-96 rounded-xl group-hover:bg-transparent px-5 pt-9 pb-10 text-base font-semibold transition-all duration-700 group-hover:-left-3">
                 <div class="flex flex-col">
@@ -51,9 +51,9 @@
 </div>
 
 <div class="inline-block scroll-ml-6 snap-start">
-    <div class="overflow-hidden rounded-xl border border-gray-50">
+    <div class="overflow-hidden rounded-xl border border-gray-50 dark:border-gray-500">
 
-        <div class="group relative w-96 h-28 group-hover:top-0 bg-cyan-500">
+        <div class="group relative w-96 h-28 group-hover:top-0 bg-cyan-500 dark:bg-gray-800">
 
             <div class="relative -left-32 opacity-0 top-0 z-10 w-96 rounded-xl group-hover:bg-transparent px-5 pt-9 pb-10 text-base font-semibold transition-all duration-700 group-hover:-left-3 group-hover:opacity-100">
                 <div class="flex flex-col">
@@ -77,9 +77,9 @@
 </div>
 
 <div class="inline-block scroll-ml-6 snap-start">
-    <div class="overflow-hidden rounded-xl border border-gray-50">
+    <div class="overflow-hidden rounded-xl border border-gray-50 dark:border-gray-500">
 
-        <div class="group relative w-96 h-28 group-hover:top-0 bg-rose-500">
+        <div class="group relative w-96 h-28 group-hover:top-0 bg-rose-500 dark:bg-gray-800">
 
             <div class="relative -left-32 opacity-0 top-0 z-10 w-96 rounded-xl group-hover:bg-transparent px-5 pt-9 pb-10 text-base font-semibold transition-all duration-700 group-hover:-left-3 group-hover:opacity-100">
                 <div class="flex flex-col">

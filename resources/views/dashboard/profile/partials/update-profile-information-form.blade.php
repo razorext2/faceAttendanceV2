@@ -1,10 +1,10 @@
 <section>
     <header>
-        <h2 class="text-lg font-medium text-gray-900">
+        <h2 class="text-lg font-medium text-gray-900 dark:text-white">
             {{ __('Profile Information') }}
         </h2>
 
-        <p class="mt-1 text-sm text-gray-600">
+        <p class="mt-1 text-sm text-gray-600 dark:text-gray-300">
             {{ __("Update your account's profile information and email address.") }}
         </p>
     </header>
@@ -18,14 +18,14 @@
         @method('patch')
 
         <div>
-            <x-input-label for="name" :value="__('Name')" />
+            <x-input-label for="name" :value="__('Name')" class="dark:text-white" />
             <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
 
         <div class="flex items-center space-x-2">
             <div class="flex-grow">
-                <x-input-label for="email" :value="__('Email')" />
+                <x-input-label for="email" :value="__('Email')" class="dark:text-white" />
                 <x-text-input id="email" name="email_" type="text" class="mt-1 block w-full disabled:bg-gray-300" :value="old('email', $user->email)" disabled autofocus autocomplete="email" />
                 <x-text-input name="email" type="hidden" :value="old('email', $user->email)" />
                 <x-input-error class="mt-2" :messages="$errors->get('email')" />
@@ -38,7 +38,7 @@
         </div>
 
         <div class="flex items-center gap-4">
-            <button type="submit" class="ring-1 ring-blue-700 text-gray-900 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 focus:text-white hover:text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center">{{ __('Save') }}</button>
+            <button type="submit" class="ring-1 ring-blue-700 text-gray-900 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 focus:text-white hover:text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-800 dark:hover:bg-blue-900 dark:text-white dark:ring-gray-500">{{ __('Save') }}</button>
         </div>
     </form>
 </section>
