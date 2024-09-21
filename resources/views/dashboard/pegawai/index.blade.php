@@ -95,7 +95,11 @@
                 <tr class="hover:bg-gray-100 hover:text-black dark:text-gray-300 dark:hover:bg-gray-700/50 dark:hover:text-white">
                     <td>
                         <div class="inline-flex rounded-md shadow-sm" role="group">
-                            <a href="{{ route('pegawai.edit', $p->id) }}" class="px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border-t border-b border-l border-green-800 rounded-s-lg hover:bg-green-600 hover:text-white focus:z-10 focus:ring-green-500 focus:bg-green-600 focus:text-white dark:bg-green-800 dark:hover:bg-green-900 dark:text-white dark:border-gray-500">
+                            <a href="{{ route('pegawai.detail', $p->id) }}" class="px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border-t border-b border-l border-blue-800 rounded-s-lg hover:bg-blue-600 hover:text-white focus:z-10 focus:ring-blue-500 focus:bg-blue-600 focus:text-white dark:bg-blue-800 dark:hover:bg-blue-900 dark:text-white dark:border-gray-500">
+                                Data
+                            </a>
+
+                            <a href="{{ route('pegawai.edit', $p->id) }}" class="px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border-t border-b border-l border-green-800 hover:bg-green-600 hover:text-white focus:z-10 focus:ring-green-500 focus:bg-green-600 focus:text-white dark:bg-green-800 dark:hover:bg-green-900 dark:text-white dark:border-gray-500">
                                 Edit
                             </a>
 

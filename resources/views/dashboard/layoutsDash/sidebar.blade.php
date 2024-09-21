@@ -60,7 +60,7 @@
 
             <li>
                 <a href="{{ route('dashboard.pegawai') }}" class="flex items-center p-2 rounded-lg 
-                {{ Route::currentRouteName() == 'dashboard.pegawai' ? 'text-gray-900 bg-gray-100 dark:bg-transparent dark:text-white' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent dark:hover:text-white' }}"
+                {{ Route::currentRouteName() == 'dashboard.pegawai' || Route::currentRouteName() == 'pegawai.add' || Route::currentRouteName() == 'pegawai.edit' || Route::currentRouteName() == 'pegawai.detail' ? 'text-gray-900 bg-gray-100 dark:bg-transparent dark:text-white' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent dark:hover:text-white' }}"
                     role="menuitem">
                     <svg class=" fi-sidebar-item-icon h-6 w-6 text-gray-400 {{ Route::currentRouteName() == 'dashboard.pegawai' ? 'dark:text-white' : 'dark:hover:text-white' }}" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"></path>
@@ -71,7 +71,7 @@
             <li>
                 <a href="{{ route('dashboard.jabatan') }}"
                     class="flex items-center p-2 rounded-lg
-              {{ Route::currentRouteName() == 'dashboard.jabatan' ? 'text-gray-900 bg-gray-100 dark:bg-transparent dark:text-white' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent dark:hover:text-white' }}"
+              {{ Route::currentRouteName() == 'dashboard.jabatan' || Route::currentRouteName() == 'jabatan.add' || Route::currentRouteName() == 'jabatan.edit' ? 'text-gray-900 bg-gray-100 dark:bg-transparent dark:text-white' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent dark:hover:text-white' }}"
                     role="menuitem">
                     <svg class="fi-sidebar-item-icon h-6 w-6 text-gray-400 {{ Route::currentRouteName() == 'dashboard.jabatan' ? 'dark:text-white' : 'dark:hover:text-white' }}" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 6.878V6a2.25 2.25 0 0 1 2.25-2.25h7.5A2.25 2.25 0 0 1 18 6v.878m-12 0c.235-.083.487-.128.75-.128h10.5c.263 0 .515.045.75.128m-12 0A2.25 2.25 0 0 0 4.5 9v.878m13.5-3A2.25 2.25 0 0 1 19.5 9v.878m0 0a2.246 2.246 0 0 0-.75-.128H5.25c-.263 0-.515.045-.75.128m15 0A2.25 2.25 0 0 1 21 12v6a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 18v-6c0-.98.626-1.813 1.5-2.122"></path>
@@ -80,7 +80,7 @@
                 </a>
             </li>
 
-            <li x-data="{ lokasi: {{ (Route::is('dashboard.division') || Route::is('dashboard.placement')) ? 'true' : 'false' }} }">
+            <li x-data="{ lokasi: {{ (Route::is('dashboard.division') || Route::is('division.add') || Route::is('division.edit') ||  Route::is('dashboard.placement') ||  Route::is('placement.add') ||  Route::is('placement.edit')) ? 'true' : 'false' }} }">
                 <button @click="lokasi = !lokasi" type="button"
                     class="flex items-center w-full p-2 text-base text-gray-900 transition duration-200 rounded-lg group hover:bg-gray-100 {{ Route::is('dashboard.division') || Route::is('dashboard.placement') ? 'text-gray-900 dark:bg-transparent dark:hover:bg-transparent dark:text-white' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent dark:hover:text-white' }}"
                     aria-controls="dropdown-example" :aria-expanded="lokasi">
@@ -105,8 +105,8 @@
                     <li>
                         <a href="{{ route('dashboard.division') }}"
                             class="flex items-center w-full p-2 rounded-lg pl-11 group 
-               {{ Route::is('dashboard.division') ? 'text-gray-900 bg-gray-100 dark:bg-transparent dark:text-white' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent dark:hover:text-white' }}">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="fi-sidebar-item-icon h-5 w-5 {{ Route::currentRouteName() == 'dashboard.division' ? 'dark:fill-white' : 'dark:hover:fill-white' }}" fill="#9ca3af" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" version="1.1" id="Capa_1" viewBox="0 0 28.05 28.05" xml:space="preserve">
+               {{ Route::is('dashboard.division') || Route::is('division.add') || Route::is('division.edit') ? 'text-gray-900 bg-gray-100 dark:bg-transparent dark:text-white' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent dark:hover:text-white' }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="fi-sidebar-item-icon h-5 w-5 {{ Route::currentRouteName() == 'dashboard.division' || Route::currentRouteName() == 'division.add' || Route::currentRouteName() == 'division.edit' ? 'dark:fill-white' : 'dark:hover:fill-white' }}" fill="#9ca3af" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" version="1.1" id="Capa_1" viewBox="0 0 28.05 28.05" xml:space="preserve">
                                 <path d="M25.353,0H2.699c-1.25,0-2.265,1-2.265,2.232V25.82c0,1.23,1.015,2.23,2.265,2.23h22.654c1.248,0,2.264-1,2.264-2.23V2.232   C27.617,1,26.601,0,25.353,0z M4.055,1.68h19.941c1.1,0,1.993,0.877,1.993,1.965v3.852H2.063V3.645   C2.063,2.557,2.954,1.68,4.055,1.68z M2.063,24.408V9.668h6.896v16.705H4.055C2.954,26.373,2.063,25.492,2.063,24.408z    M23.996,26.373H11.215V9.668h14.774v14.74C25.99,25.492,25.096,26.373,23.996,26.373z" />
                             </svg>
                             <span class="flex-1 ms-3 whitespace-nowrap text-sm">Divisi</span>
@@ -115,8 +115,8 @@
                     <li>
                         <a href="{{ route('dashboard.placement') }}"
                             class="flex items-center w-full p-2 rounded-lg pl-11 group 
-               {{ Route::is('dashboard.placement') ? 'text-gray-900 bg-gray-100 dark:bg-transparent dark:text-white' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent dark:hover:text-white' }}">
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="fi-sidebar-item-icon h-6 w-6 {{ Route::currentRouteName() == 'dashboard.placement' ? 'dark:fill-white' : 'dark:hover:fill-white' }}" fill="#9ca3af" version="1.1" id="Layer_1" viewBox="0 0 512 512" xml:space="preserve">
+               {{ Route::is('dashboard.placement') || Route::is('placement.add') || Route::is('placement.edit') ? 'text-gray-900 bg-gray-100 dark:bg-transparent dark:text-white' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent dark:hover:text-white' }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="fi-sidebar-item-icon h-6 w-6 {{ Route::currentRouteName() == 'dashboard.placement' || Route::currentRouteName() == 'placement.add' || Route::currentRouteName() == 'placement.edit' ? 'dark:fill-white' : 'dark:hover:fill-white' }}" fill="#9ca3af" version="1.1" id="Layer_1" viewBox="0 0 512 512" xml:space="preserve">
 
                                 <path d="M199.021,43.436h-63.367c-5.633,0-10.199,4.566-10.199,10.199v63.367c0,5.633,4.566,10.199,10.199,10.199h63.367    c5.633,0,10.199-4.566,10.199-10.199V53.636C209.22,48.003,204.654,43.436,199.021,43.436z M188.822,106.803h-42.968V63.835    h42.968V106.803z" />
                                 <path d="M312.468,43.436h-63.367c-5.633,0-10.199,4.566-10.199,10.199v63.367c0,5.633,4.566,10.199,10.199,10.199h63.367    c5.633,0,10.199-4.566,10.199-10.199V53.636C322.667,48.003,318.101,43.436,312.468,43.436z M302.269,106.803H259.3V63.835h42.968    V106.803z" />

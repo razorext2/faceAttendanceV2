@@ -9,6 +9,10 @@ use App\Models\Jabatan;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Carbon\Carbon;
+use Carbon\CarbonPeriod;
+use App\Models\Attendance;
+use App\Models\AttendanceOut;
 
 class PegawaiController extends Controller
 {
@@ -37,7 +41,7 @@ class PegawaiController extends Controller
             'jabatan' => $request->input('jabatan'),
             'tgl_lahir' => $request->input('tgl_lahir')
         ]);
-        
+
         $photo = $request->input('photo1');
         if (!is_null($photo)) {
             $this->saveImages($request);
@@ -50,17 +54,7 @@ class PegawaiController extends Controller
     {
         $jabatan = Jabatan::all();
 
-        $path = public_path('storage/' . $pegawai->storage);
-        $files = File::files($path);
-
-        $images = [];
-
-        foreach ($files as $file) {
-            $extension = strtolower($file->getExtension());
-            if (in_array($extension, ['png'])) {
-                $images[] = $file->getFilename();
-            }
-        }
+        $images = $this->showImages($pegawai);
 
         return view('dashboard.pegawai.edit', compact('pegawai', 'jabatan', 'images'));
     }
@@ -92,11 +86,84 @@ class PegawaiController extends Controller
         return redirect()->route('dashboard.pegawai')->with('status', 'Berhasil mengubah data Pegawai');
     }
 
+    public function showImages(Pegawai $pegawai)
+    {
+        $path = public_path('storage/' . $pegawai->storage);
+        $files = File::files($path);
+
+        $images = [];
+
+        foreach ($files as $file) {
+            $extension = strtolower($file->getExtension());
+            if (in_array($extension, ['png'])) {
+                $images[] = $file->getFilename();
+            }
+        }
+
+        return $images;
+    }
+
     public function destroy(Pegawai $pegawai)
     {
         $pegawai->delete();
         return redirect()->route('dashboard.pegawai')->with('status', 'Berhasil menghapus data Pegawai');
     }
+
+    public function detail(Pegawai $pegawai)
+    {
+        // Ambil tanggal saat ini
+        $currentDate = Carbon::now();
+
+        $startOfMonth = $currentDate->copy()->startOfMonth();
+        $endOfMonth = $currentDate->copy()->endOfMonth();
+
+        // Membuat rentang tanggal
+        $period = CarbonPeriod::create($startOfMonth, $endOfMonth);
+
+        // Mendapatkan hari pertama bulan tersebut
+        $startDayOfWeek = $startOfMonth->dayOfWeek; // 0=Sunday, 6=Saturday
+
+        // Inisialisasi array untuk menyimpan hasil
+        $dd = [];
+
+        // Menambahkan null untuk mengisi grid kosong
+        for ($i = 0; $i < $startDayOfWeek; $i++) {
+            $dd[] = null; // Menambahkan null untuk mengisi grid kosong
+        }
+
+        // Iterate over the period dan tambahkan ke array
+        foreach ($period as $date) {
+            $dd[] = $date->isoFormat('Y-MM-DD'); // Format tanggal dan tambahkan ke array
+        }
+
+        $images = $this->showImages($pegawai);
+        $startOfMonth = $startOfMonth->locale('id')->isoFormat('MMMM Y');
+
+        $attendanceData = Attendance::all(); // Ambil data kehadiran
+
+        return view('dashboard.pegawai.detail', compact('pegawai', 'dd', 'startOfMonth', 'images', 'attendanceData'));
+    }
+
+    public function getAttendanceData(Request $request)
+    {
+        $date = $request->query('date');
+        $kode_pegawai = $request->query('kode_pegawai');
+
+        // Query untuk mendapatkan data dari tb_attendance dan tb_attendance_out sesuai tanggal
+        $attendance = Attendance::whereDate('jam_masuk', $date)
+            ->where('kode_pegawai', $kode_pegawai)
+            ->get(); // Menggunakan get() untuk mengembalikan koleksi
+
+        $attendanceOut = AttendanceOut::whereDate('jam_keluar', $date)
+            ->where('kode_pegawai', $kode_pegawai)
+            ->get(); // Menggunakan get() untuk mengembalikan koleksi
+
+        return response()->json([
+            'attendance' => $attendance,
+            'attendanceOut' => $attendanceOut,
+        ]);
+    }
+
 
     public function getEmployeeByKodePegawai($kode_pegawai)
     {

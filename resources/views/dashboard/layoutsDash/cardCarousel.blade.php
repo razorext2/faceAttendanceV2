@@ -13,7 +13,7 @@
                     </div>
                 </div>
             </div>
-            <div class="absolute h-full -right-0 top-0 z-20 w-96 self-end border-none px-5 py-2 text-base font-semibold transition-all duration-700 group-hover:-right-14 group-hover:w-64">
+            <div class="absolute h-full -right-0 top-0 z-10 w-96 self-end border-none px-5 py-2 text-base font-semibold transition-all duration-700 group-hover:-right-14 group-hover:w-64">
                 <div class="absolute flex cursor-pointer w-[395px] h-auto top-0 left-0 transition-all duration-700 group-hover:-left-44 group-hover:top-5">
                     <div id="cardOntime-chart" class="w-full rounded-lg" data-ontime-counts='@json($ontimeCounts)'></div>
                 </div>
@@ -39,7 +39,7 @@
                     </div>
                 </div>
             </div>
-            <div class="absolute h-full -right-0 top-0 z-20 w-96 self-end border-none px-5 py-2 text-base font-semibold transition-all duration-700 group-hover:-right-[132px] group-hover:w-64">
+            <div class="absolute h-full -right-0 top-0 z-10 w-96 self-end border-none px-5 py-2 text-base font-semibold transition-all duration-700 group-hover:-right-[132px] group-hover:w-64">
                 <div class="absolute flex cursor-pointer w-[395px] h-auto top-0 left-0 transition-all duration-700 group-hover:-left-[260px] group-hover:top-5">
                     <div id="cardLate-chart" class="w-full rounded-lg" data-late-counts='@json($lateCounts)'></div>
                 </div>
@@ -65,7 +65,7 @@
                     </div>
                 </div>
             </div>
-            <div class="absolute h-full -right-0 top-0 z-20 w-96 self-end border-none px-5 py-2 text-base font-semibold transition-all duration-700 group-hover:-right-14 group-hover:w-64">
+            <div class="absolute h-full -right-0 top-0 z-10 w-96 self-end border-none px-5 py-2 text-base font-semibold transition-all duration-700 group-hover:-right-14 group-hover:w-64">
                 <div class="absolute flex cursor-pointer w-[395px] h-auto top-0 left-0 transition-all duration-700 group-hover:-left-44 group-hover:top-5">
                     <div id="cardOuttime-chart" class="w-full rounded-lg" data-outtime-counts='@json($outtimeCounts)'></div>
                 </div>
@@ -91,7 +91,7 @@
                     </div>
                 </div>
             </div>
-            <div class="absolute h-full -right-0 top-0 z-20 w-96 self-end border-none px-5 py-2 text-base font-semibold transition-all duration-700 group-hover:-right-24 group-hover:w-64">
+            <div class="absolute h-full -right-0 top-0 z-10 w-96 self-end border-none px-5 py-2 text-base font-semibold transition-all duration-700 group-hover:-right-24 group-hover:w-64">
                 <div class="absolute flex cursor-pointer w-[395px] h-auto top-0 left-0 transition-all duration-700 group-hover:-left-44 group-hover:top-5">
                     <div id="Cardkecepatan-chart" class="w-full rounded-lg" data-fast-counts='@json($fastCounts)'></div>
                 </div>
