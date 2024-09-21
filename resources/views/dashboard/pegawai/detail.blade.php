@@ -264,7 +264,6 @@
                         console.error('Error fetching data:', error);
                         popoverContent.innerHTML = '<p>Terjadi kesalahan saat memuat data.</p>';
                     });
-
             });
         });
     });
