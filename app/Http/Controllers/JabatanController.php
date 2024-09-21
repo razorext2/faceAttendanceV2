@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Jabatan;
 use Illuminate\Http\Request;
+use App\Models\Division;
+use App\Models\Placement;
 
 class JabatanController extends Controller
 {
@@ -22,7 +24,9 @@ class JabatanController extends Controller
      */
     public function create()
     {
-        return view('dashboard.jabatan.add');
+        $division = Division::all();
+        $placement = Placement::all();
+        return view('dashboard.jabatan.add', compact('division', 'placement'));
         //
     }
 
@@ -47,7 +51,9 @@ class JabatanController extends Controller
     public function edit(Jabatan $jabatan)
     {
         //
-        return view('dashboard.jabatan.edit', compact('jabatan'));
+        $division = Division::all();
+        $placement = Placement::all();
+        return view('dashboard.jabatan.edit', compact('jabatan', 'division', 'placement'));
     }
 
     /**

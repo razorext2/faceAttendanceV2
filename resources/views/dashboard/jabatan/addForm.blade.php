@@ -26,11 +26,27 @@
                     </div>
                     <div class="w-full">
                         <label for="divisi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Divisi</label>
-                        <input type="text" name="divisi" id="divisi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Divisi" required="">
+                        <select id="divisi" name="divisi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
+                            <option selected>Pilih</option>
+                            @foreach ($division as $data)
+                            <option value="{{ $data->id }}">
+                                {{ $data->nama_divisi }}
+                            </option>
+                            @endforeach
+
+                        </select>
                     </div>
                     <div class="w-full">
                         <label for="penempatan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Penempatan</label>
-                        <input type="text" name="penempatan" id="penempatan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Penempatan" required="">
+                        <select id="penempatan" name="penempatan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
+                            <option selected>Pilih</option>
+                            @foreach ($placement as $data)
+                            <option value="{{ $data->id }}">
+                                {{ $data->penempatan }}
+                            </option>
+                            @endforeach
+
+                        </select>
                     </div>
                 </div>
                 <div class="flex items-center">
