@@ -13,7 +13,9 @@ class DivisionController extends Controller
     public function index()
     {
         //
-        return view('dashboard.division.index');
+        $division = Division::all();
+
+        return view('dashboard.division.index', compact('division'));
     }
 
     /**
@@ -22,6 +24,7 @@ class DivisionController extends Controller
     public function create()
     {
         //
+        return view('dashboard.division.add');
     }
 
     /**
@@ -30,14 +33,12 @@ class DivisionController extends Controller
     public function store(Request $request)
     {
         //
-    }
+        Division::create([
+            'kode_divisi' => $request->input('kode_divisi'),
+            'nama_divisi' => $request->input('divisi'),
+        ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Division $division)
-    {
-        //
+        return redirect()->route('dashboard.division')->with('status', 'Berhasil menambah data divisi.');
     }
 
     /**
@@ -46,6 +47,7 @@ class DivisionController extends Controller
     public function edit(Division $division)
     {
         //
+        return view('dashboard.division.edit', compact('division'));
     }
 
     /**
@@ -54,6 +56,12 @@ class DivisionController extends Controller
     public function update(Request $request, Division $division)
     {
         //
+        $division->update([
+            'kode_divisi' => $request->input('kode_divisi'),
+            'nama_divisi' => $request->input('divisi'),
+        ]);
+
+        return redirect()->route('dashboard.division')->with('status', 'Berhasil mengubah data divisi');
     }
 
     /**
@@ -62,5 +70,8 @@ class DivisionController extends Controller
     public function destroy(Division $division)
     {
         //
+        $division->delete();
+
+        return redirect()->route('dashboard.division')->with('status', 'Berhasil menghapus data divisi.');
     }
 }

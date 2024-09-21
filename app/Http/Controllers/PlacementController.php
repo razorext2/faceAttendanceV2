@@ -13,7 +13,8 @@ class PlacementController extends Controller
     public function index()
     {
         //
-        return view('dashboard.placement.index');
+        $placement = Placement::all();
+        return view('dashboard.placement.index', compact('placement'));
     }
 
     /**
@@ -22,6 +23,7 @@ class PlacementController extends Controller
     public function create()
     {
         //
+        return view('dashboard.placement.add');
     }
 
     /**
@@ -30,6 +32,13 @@ class PlacementController extends Controller
     public function store(Request $request)
     {
         //
+        Placement::create([
+            'kode_penempatan' => $request->input('kode_penempatan'),
+            'penempatan' => $request->input('penempatan'),
+            'alamat' => $request->input('alamat'),
+        ]);
+
+        return redirect()->route('dashboard.placement')->with('status', 'Berhasil menambah data penempatan.');
     }
 
     /**
@@ -46,6 +55,7 @@ class PlacementController extends Controller
     public function edit(Placement $placement)
     {
         //
+        return view('dashboard.placement.edit', compact('placement'));
     }
 
     /**
@@ -54,6 +64,13 @@ class PlacementController extends Controller
     public function update(Request $request, Placement $placement)
     {
         //
+        $placement->update([
+            'kode_penempatan' => $request->input('kode_penempatan'),
+            'penempatan' => $request->input('penempatan'),
+            'alamat' => $request->input('alamat'),
+        ]);
+
+        return redirect()->route('dashboard.placement')->with('status', 'Berhasil mengubah data penempatan');
     }
 
     /**
@@ -62,5 +79,8 @@ class PlacementController extends Controller
     public function destroy(Placement $placement)
     {
         //
+        $placement->delete();
+
+        return redirect()->route('dashboard.placement')->with('status', 'Berhasil menghapus data penempatan');
     }
 }

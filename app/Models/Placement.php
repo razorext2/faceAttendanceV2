@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Placement extends Model
 {
     use HasFactory;
+    protected $table = 'tb_placement';
+
+    protected $fillable = ['kode_penempatan', 'penempatan', 'alamat'];
 }

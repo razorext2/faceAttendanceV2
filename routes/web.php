@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\PlacementController;
+use App\Models\Placement;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 
@@ -51,10 +52,20 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard/attendanceOut', [AttendanceOutController::class, 'index'])->name('attendanceOut.view');
 
     // divisi
-    Route::get('dashboard/divisin', [DivisionController::class, 'index'])->name('dashboard.division');
+    Route::get('dashboard/division', [DivisionController::class, 'index'])->name('dashboard.division');
+    Route::get('dashboard/division/add', [DivisionController::class, 'create'])->name('division.add');
+    Route::post('dashboard/division/store', [DivisionController::class, 'store'])->name('division.store');
+    Route::get('dashboard/division/edit/{division}', [DivisionController::class, 'edit'])->name('division.edit');
+    Route::put('dashboard/division/update/{division}', [DivisionController::class, 'update'])->name('division.update');
+    Route::delete('dashboard/division/delete/{division}', [DivisionController::class, 'destroy'])->name('division.delete');
 
     // placement
     Route::get('dashboard/placement', [PlacementController::class, 'index'])->name('dashboard.placement');
+    Route::get('dashboard/placement/add', [PlacementController::class, 'create'])->name('placement.add');
+    Route::post('dashboard/placement/store', [PlacementController::class, 'store'])->name('placement.store');
+    Route::get('dashboard/placement/edit/{placement}', [PlacementController::class, 'edit'])->name('placement.edit');
+    Route::put('dashboard/placement/update/{placement}', [PlacementController::class, 'update'])->name('placement.update');
+    Route::delete('dashboard/placement/delete/{placement}', [PlacementController::class, 'destroy'])->name('placement.delete');
 });
 
 require __DIR__ . '/auth.php';
