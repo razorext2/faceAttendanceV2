@@ -4,7 +4,7 @@
 <div class="relative flex min-h-screen flex-col justify-center overflow-hidden py-32" id="Home">
     <div class="relative">
         <img src="{{ asset('assets/img/hero-bg-light.webp')}}" alt="Background Image" class="fixed inset-0 object-cover w-full h-full -z-50 opacity-40 dark:opacity-80" />
-        <img src="{{ asset('assets/img/grid.jpg')}}" alt="Background Image" class="fixed inset-0 object-cover w-full h-full -z-40 opacity-40 mix-blend-overlay" />
+        <img src="{{ asset('assets/img/grid.webp')}}" alt="Background Image" class="fixed inset-0 object-cover w-full h-full -z-40 opacity-40 mix-blend-overlay" />
 
         <!-- Overlay -->
         <div class="fixed w-full inset-0 -z-40 bg-gray-800 opacity-0 dark:opacity-70"></div>
@@ -24,7 +24,7 @@
     <div id="Scan" class="relative bg-white/70 p-0 ring-1 ring-black lg:mx-auto lg:rounded-lg lg:p-4 dark:bg-gray-800/70 dark:ring-gray-500" data-aos="zoom-in-up" data-aos-delay="50">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 h-auto lg:w-[900px]">
             <div class="video-container col-span-1 lg:col-span-2 text-center h-auto" data-aos="zoom-in" data-aos-delay="100">
-                <video id="video" class="flex w-full h-auto lg:w-[640px] lg:h-[480px] border border-gray-200 p-0 lg:rounded-lg object-cover ring-1 ring-black dark:ring-gray-500 dark:border-gray-500" autoplay style="background: url('assets/img/noCamera.png') center center / cover no-repeat;" data-aos="zoom-in" data-aos-delay="100">
+                <video id="video" class="flex w-full h-auto lg:w-[640px] lg:h-[480px] border border-gray-200 p-0 lg:rounded-lg object-cover ring-1 ring-black dark:ring-gray-500 dark:border-gray-500" autoplay style="background: url('assets/img/noCamera.webp') center center / cover no-repeat;" data-aos="zoom-in" data-aos-delay="100">
                 </video>
                 <canvas id="overlay" class="flex w-full h-auto lg:w-[640px] lg:h-[480px] absolute top-0 left-0 p-0 lg:rounded-lg object-cover"></canvas>
                 <div class="inline-flex mt-3 w-full px-3 lg:px-0 md:px-3">
@@ -49,7 +49,7 @@
 
                     <div class="relative flex flex-col gap-4 lg:gap-0 rounded-lg md:flex-row lg:flex-col w-full" data-aos="fade-right" data-aos-delay="100">
                         <div class="lg:object-fill w-full h-full rounded-lg lg:w-full md:rounded-lg">
-                            <img id="canvLogo" class="lg:object-fill w-full h-full rounded-lg ring-1 ring-black dark:ring-gray-500" src="{{asset('assets/img/noImage.png')}}" alt="">
+                            <img id="canvLogo" class="lg:object-fill w-full h-full rounded-lg ring-1 ring-black dark:ring-gray-500" src="{{asset('assets/img/noImage.webp')}}" alt="">
                             <canvas id="canvAttend" class="object-cover w-full h-full rounded-lg ring-1 ring-black absolute top-0 left-0 dark:ring-gray-500"></canvas>
                         </div>
                     </div>

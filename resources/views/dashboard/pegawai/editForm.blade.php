@@ -103,7 +103,7 @@
                 <div class="w-full">
                     @csrf
                     @php
-                    $path = "assets/img/noCamera.png";
+                    $path = "assets/img/noCamera.webp";
                     @endphp
                     <div class="grid gap-4 col-span-1 lg:col-span-2 text-center h-auto" data-aos="zoom-in" data-aos-delay="100">
                         <div class="w-full h-auto relative">
@@ -122,14 +122,14 @@
                         <div class="grid lg:grid-cols-2 gap-4">
                             <div class="relative flex flex-col lg:gap-0 rounded-lg md:flex-row lg:flex-col w-full" data-aos="fade-right" data-aos-delay="100">
                                 <div class="w-full h-auto rounded-lg lg:w-full md:rounded-lg">
-                                    <img id="canvLogo" class="object-cover w-full h-[184px] rounded-lg ring-1 ring-gray-200" src="{{asset('assets/img/noImage.png')}}" alt="">
+                                    <img id="canvLogo" class="object-cover w-full h-[184px] rounded-lg ring-1 ring-gray-200" src="{{asset('assets/img/noImage.webp')}}" alt="">
                                     <canvas id="canvRegist" class="object-cover w-full h-full rounded-lg absolute top-0 left-0"></canvas>
                                 </div>
                             </div>
 
                             <div class="relative flex flex-col lg:gap-0 rounded-lg md:flex-row lg:flex-col w-full" data-aos="fade-left" data-aos-delay="100">
                                 <div class="w-full h-auto rounded-lg lg:w-full md:rounded-lg">
-                                    <img id="canvLogo" class="object-cover w-full h-[184px] rounded-lg ring-1 ring-gray-200" src="{{asset('assets/img/noImage.png')}}" alt="">
+                                    <img id="canvLogo" class="object-cover w-full h-[184px] rounded-lg ring-1 ring-gray-200" src="{{asset('assets/img/noImage.webp')}}" alt="">
                                     <canvas id="canvRegistt" class="object-cover w-full h-full rounded-lg absolute top-0 left-0"></canvas>
                                 </div>
                             </div>
