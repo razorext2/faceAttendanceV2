@@ -1,5 +1,10 @@
 <x-guest-layout>
     <!-- Session Status -->
+    @if (session('message'))
+    <div class="alert alert-warning">
+        {{ session('message') }}
+    </div>
+    @endif
 
 
     <div class="w-full md:w-full lg:w-9/12 mx-auto md:mx-0">

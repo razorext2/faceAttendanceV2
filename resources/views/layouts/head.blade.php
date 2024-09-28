@@ -9,6 +9,9 @@
 <link href="{{ asset('assets/img/favicon.png') }}" rel="icon" />
 <link href="{{ asset('assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon" />
 
+<!-- images -->
+<link rel="preload" as="image" href="{{ asset('assets/img/noImage.webp') }}" type="image/webp">
+<link rel="preload" as="image" href="{{ asset('assets/img/noCamera.webp') }}" type="image/webp">
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com" rel="preconnect" />
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />

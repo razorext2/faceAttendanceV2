@@ -8,7 +8,7 @@
 <body>
     <div class="relative">
         <img src="{{ asset('assets/img/hero-bg-light.webp')}}" alt="Background Image" class="fixed inset-0 object-cover w-full h-full -z-50" />
-        <img src="{{ asset('assets/img/grid.jpg')}}" alt="Background Image" class="fixed inset-0 object-cover w-full h-full -z-40 opacity-20 mix-blend-overlay" />
+        <img src="{{ asset('assets/img/grid.webp')}}" alt="Background Image" class="fixed inset-0 object-cover w-full h-full -z-40 opacity-20 mix-blend-overlay" />
 
         <!-- Overlay -->
         <div class="fixed w-full inset-0 -z-40 bg-gray-800 opacity-0 dark:opacity-85"></div>

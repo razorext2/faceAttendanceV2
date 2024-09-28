@@ -45,7 +45,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 h-auto lg:w-[900px]">
                 @csrf
                 @php
-                $path = "assets/img/noCamera.png";
+                $path = "assets/img/noCamera.webp";
                 @endphp
                 <div class="video-container col-span-1 lg:col-span-2 text-center h-auto" data-aos="zoom-in" data-aos-delay="100">
                     <video id="video" class="flex w-full h-auto lg:w-[640px] lg:h-[480px] border border-gray-200 p-0 lg:rounded-lg object-cover ring-1 dark:border-gray-500" autoplay style="background: url({{$path}}) center center / cover no-repeat;" data-aos="zoom-in" data-aos-delay="100">
@@ -85,13 +85,13 @@
                         </div>
                         <div class="relative flex flex-col gap-4 lg:gap-0 rounded-lg md:flex-row lg:flex-col w-full" data-aos="fade-right" data-aos-delay="100">
                             <div class="lg:object-fill w-full h-full rounded-lg lg:w-full md:rounded-lg">
-                                <img id="canvLogo" class="lg:object-fill w-full h-full rounded-lg ring-1 ring-black dark:ring-gray-500" src="{{asset('assets/img/noImage.png')}}" alt="">
+                                <img id="canvLogo" class="lg:object-fill w-full h-full rounded-lg ring-1 ring-black dark:ring-gray-500" src="{{asset('assets/img/noImage.webp')}}" alt="">
                                 <canvas id="canvRegist" class="object-cover w-full h-full rounded-lg ring-1 ring-black dark:ring-gray-500 absolute top-0 left-0"></canvas>
                             </div>
                         </div>
                         <div class="relative flex flex-col gap-4 lg:gap-0 rounded-lg md:flex-row lg:flex-col w-full" data-aos="fade-left" data-aos-delay="100">
                             <div class="lg:object-fill w-full h-full rounded-lg lg:w-full md:rounded-lg">
-                                <img id="canvLogo" class="lg:object-fill w-full h-full rounded-lg ring-1 ring-black dark:ring-gray-500" src="{{asset('assets/img/noImage.png')}}" alt="">
+                                <img id="canvLogo" class="lg:object-fill w-full h-full rounded-lg ring-1 ring-black dark:ring-gray-500" src="{{asset('assets/img/noImage.webp')}}" alt="">
                                 <canvas id="canvRegistt" class="object-cover w-full h-full rounded-lg ring-1 ring-black dark:ring-gray-500 absolute top-0 left-0"></canvas>
                             </div>
                         </div>

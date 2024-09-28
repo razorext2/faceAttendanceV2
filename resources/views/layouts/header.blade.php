@@ -2,7 +2,7 @@
     <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
 
         <a href="https://indodacin.com" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <img src="{{ asset('assets/img/logo.png')}}" class="h-8" alt="Indodacin Logo" />
+            <img src="{{ asset('assets/img/logo.png')}}" alt="Indodacin Logo" loading="lazy" />
         </a>
 
         <button data-collapse-toggle="mega-menu-full" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="mega-menu-full" aria-expanded="false">
