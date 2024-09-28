@@ -209,7 +209,7 @@ class PegawaiController extends Controller
             $image = $request->file('image');
 
             $uploadDir = 'labels/' . $kodePegawai . '/capturedImg';
-            $imageName = $kodePegawai . '_' . $timestamp . '.png';
+            $imageName = $kodePegawai . $timestamp . '.png';
             $path = $image->move(public_path('storage/' . $uploadDir), $imageName);
 
             if ($path) {
