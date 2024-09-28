@@ -13,6 +13,7 @@ use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use App\Models\Attendance;
 use App\Models\AttendanceOut;
+use Illuminate\Support\Facades\Log;
 
 class PegawaiController extends Controller
 {
@@ -201,21 +202,18 @@ class PegawaiController extends Controller
     public function storeImage(Request $request)
     {
         if ($request->hasFile('image') && $request->input('label')) {
-
+            $kodePegawai = $request->input('label');
             $timestamp = getCurrentDate();
             Session::put('current_date', $timestamp);
 
             $image = $request->file('image');
-            $kodePegawai = $request->input('label');
 
-            $uploadDir = '/labels/' . $kodePegawai . '/capturedImg/';
-
-            $imageName = $kodePegawai . $timestamp . '.png';
-
-            $path = $image->storeAs($uploadDir, $imageName, 'public');
+            $uploadDir = 'labels/' . $kodePegawai . '/capturedImg';
+            $imageName = $kodePegawai . '_' . $timestamp . '.png';
+            $path = $image->move(public_path('storage/' . $uploadDir), $imageName);
 
             if ($path) {
-                $imageUrl = asset('storage/' . $uploadDir . $imageName);
+                $imageUrl = asset('storage/' . $uploadDir . '/' . $imageName);
                 return response()->json(['imageUrl' => $imageUrl]);
             } else {
                 return response()->json(['error' => 'Failed to save image'], 500);
