@@ -8,8 +8,8 @@
 
 
     <div class="w-full md:w-full lg:w-9/12 mx-auto md:mx-0">
-        <div class="bg-white p-10 flex flex-col w-full shadow-xl rounded-xl">
-            <h2 class="text-2xl font-bold text-gray-800 text-left mb-5">
+        <div class="bg-white p-10 flex flex-col w-full shadow-xl rounded-xl dark:bg-gray-800 dark:ring-1 dark:ring-gray-500">
+            <h2 class="text-2xl font-bold text-gray-800 text-left mb-5 dark:text-white">
                 Sign In
             </h2>
 
@@ -17,26 +17,26 @@
                 @csrf
 
                 <div id="input" class="flex flex-col w-full my-5">
-                    <x-input-label for="email" :value="__('Email')" class="text-gray-500 mb-2" />
-                    <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="email" class="appearance-none border-2 border-gray-100 rounded-lg px-4 py-3 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600 focus:shadow-lg" placeholder="Please insert your email" />
+                    <x-input-label for="email" :value="__('Email')" class="text-gray-500 mb-2 dark:text-white" />
+                    <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="email" class="appearance-none border-2 border-gray-100 rounded-lg px-4 py-3 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600 focus:shadow-lg dark:border-gray-500" placeholder="Please insert your email" />
                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
                 </div>
 
                 <div id="input" class="flex flex-col w-full my-5">
-                    <x-input-label for="password" :value="__('Password')" class="text-gray-500 mb-2" />
+                    <x-input-label for="password" :value="__('Password')" class="text-gray-500 mb-2 dark:text-white" />
 
                     <x-text-input id="password" class="block mt-1 w-full"
                         type="password"
                         name="password"
-                        required autocomplete="current-password" placeholder="Please insert your password" class="appearance-none border-2 border-gray-100 rounded-lg px-4 py-3 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600 focus:shadow-lg" />
+                        required autocomplete="current-password" placeholder="Please insert your password" class="appearance-none border-2 border-gray-100 rounded-lg px-4 py-3 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600 focus:shadow-lg dark:border-gray-500" />
 
                     <x-input-error :messages="$errors->get('password')" class="mt-2" />
                 </div>
 
                 <div class="block mt-4">
                     <label for="remember_me" class="inline-flex items-center">
-                        <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                        <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                        <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:border-gray-500" name="remember">
+                        <span class="ms-2 text-sm text-gray-600 dark:text-white">{{ __('Remember me') }}</span>
                     </label>
                 </div>
 
@@ -54,7 +54,7 @@
 
                     <div class="flex items-center justify-end mt-5">
                         @if (Route::has('password.request'))
-                        <a href="{{ route('password.request') }}" class=" w-full font-medium text-gray-500 shrink">
+                        <a href="{{ route('password.request') }}" class=" w-full font-medium text-gray-500 shrink dark:text-gray-300">
                             {{ __('Forgot your password?') }}
                         </a>
                         @endif

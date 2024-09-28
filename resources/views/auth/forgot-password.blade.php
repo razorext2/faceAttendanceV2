@@ -1,10 +1,10 @@
 <x-guest-layout>
     <div class="w-full md:w-full lg:w-9/12 mx-auto md:mx-0">
-        <div class="bg-white p-10 flex flex-col w-full shadow-xl rounded-xl">
-            <h2 class="text-2xl font-bold text-gray-800 text-left mb-5">
+        <div class="bg-white p-10 flex flex-col w-full shadow-xl rounded-xl dark:bg-gray-800 dark:ring-1 dark:ring-gray-500">
+            <h2 class="text-2xl font-bold text-gray-800 text-left mb-5 dark:text-white">
                 Forgot Password
             </h2>
-            <div class="mb-4 text-sm text-gray-600">
+            <div class="mb-4 text-sm text-gray-600 dark:text-gray-300">
                 {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
             </div>
             <!-- Session Status -->
@@ -15,8 +15,8 @@
 
                 <!-- Email Address -->
                 <div id="input" class="flex flex-col w-full my-5">
-                    <x-input-label for="email" :value="__('Email')" class="text-gray-500 mb-2" />
-                    <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus class="appearance-none border-2 border-gray-100 rounded-lg px-4 py-3 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600 focus:shadow-lg" placeholder="Please insert your email" />
+                    <x-input-label for="email" :value="__('Email')" class="text-gray-500 mb-2 dark:text-white" />
+                    <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus class="appearance-none border-2 border-gray-100 rounded-lg px-4 py-3 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600 focus:shadow-lg dark:border-gray-500 dark:placeholder-white" placeholder="Please insert your email" />
                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
                 </div>
 

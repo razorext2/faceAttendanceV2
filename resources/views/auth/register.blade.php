@@ -1,8 +1,8 @@
 <x-guest-layout>
 
     <div class="w-full md:w-full lg:w-9/12 mx-auto md:mx-0">
-        <div class="bg-white p-10 flex flex-col w-full shadow-xl rounded-xl">
-            <h2 class="text-2xl font-bold text-gray-800 text-left mb-5">
+        <div class="bg-white p-10 flex flex-col w-full shadow-xl rounded-xl dark:bg-gray-800 dark:ring-1 dark:ring-gray-500">
+            <h2 class="text-2xl font-bold text-gray-800 text-left mb-5 dark:text-white">
                 Register
             </h2>
             <form method="POST" action="{{ route('register') }}" class="w-full">
@@ -10,21 +10,21 @@
 
                 <!-- Name -->
                 <div id="input" class="flex flex-col w-full my-5">
-                    <x-input-label for="name" :value="__('Name')" />
+                    <x-input-label class="dark:text-white" for="name" :value="__('Name')" />
                     <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
                     <x-input-error :messages="$errors->get('name')" class="mt-2" />
                 </div>
 
                 <!-- Email Address -->
                 <div id="input" class="flex flex-col w-full my-5">
-                    <x-input-label for="email" :value="__('Email')" />
+                    <x-input-label class="dark:text-white" for="email" :value="__('Email')" />
                     <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
                 </div>
 
                 <!-- Password -->
                 <div id="input" class="flex flex-col w-full my-5">
-                    <x-input-label for="password" :value="__('Password')" />
+                    <x-input-label class="dark:text-white" for="password" :value="__('Password')" />
 
                     <x-text-input id="password" class="block mt-1 w-full"
                         type="password"
@@ -36,7 +36,7 @@
 
                 <!-- Confirm Password -->
                 <div id="input" class="flex flex-col w-full my-5">
-                    <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+                    <x-input-label class="dark:text-white" for="password_confirmation" :value="__('Confirm Password')" />
 
                     <x-text-input id="password_confirmation" class="block mt-1 w-full"
                         type="password"
@@ -59,7 +59,7 @@
 
                     <div class="flex items-center justify-end mt-5">
                         @if (Route::has('login'))
-                        <a href="{{ route('login') }}" class=" w-full font-medium text-gray-500 shrink">
+                        <a href="{{ route('login') }}" class=" w-full font-medium text-gray-500 shrink dark:text-white">
                             {{ __('Already have an account?') }}
                         </a>
                         @endif

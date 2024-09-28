@@ -1,11 +1,11 @@
 <x-guest-layout>
 
     <div class="w-full md:w-full lg:w-9/12 mx-auto md:mx-0">
-        <div class="bg-white p-10 flex flex-col w-full shadow-xl rounded-xl">
-            <h2 class="text-2xl font-bold text-gray-800 text-left mb-5">
+        <div class="bg-white p-10 flex flex-col w-full shadow-xl rounded-xl dark:bg-gray-800 dark:ring-1 dark:ring-gray-500">
+            <h2 class="text-2xl font-bold text-gray-800 text-left mb-5 dark:text-white">
                 Forgot Password
             </h2>
-            <div class="mb-4 text-sm text-gray-600">
+            <div class="mb-4 text-sm text-gray-600 dark:text-gray-300">
                 {{ __('Just write your new ones password. But this time, DONT forget it!') }}
             </div>
             <form method="POST" action="{{ route('password.store') }}">
@@ -16,23 +16,23 @@
 
                 <!-- Email Address -->
                 <div id="input" class="flex flex-col w-full my-5">
-                    <x-input-label class="text-gray-500 mb-2" for="email" :value="__('Email')" />
-                    <x-text-input id="email" class="appearance-none border-2 border-gray-100 rounded-lg px-4 py-3 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600 focus:shadow-lg" placeholder="Please insert your email" type="email" name="email" :value="old('email', $request->email)" required autofocus autocomplete="username" />
+                    <x-input-label class="text-gray-500 mb-2 dark:text-white" for="email" :value="__('Email')" />
+                    <x-text-input id="email" class="appearance-none border-2 border-gray-100 rounded-lg px-4 py-3 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600 focus:shadow-lg dark:border-gray-500 dark:placeholder-gray-500" placeholder="Please insert your email" type="email" name="email" :value="old('email', $request->email)" required autofocus autocomplete="username" />
                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
                 </div>
 
                 <!-- Password -->
                 <div id="input" class="flex flex-col w-full my-5">
-                    <x-input-label class="text-gray-500 mb-2" for="password" :value="__('Password')" />
-                    <x-text-input id="password" class="appearance-none border-2 border-gray-100 rounded-lg px-4 py-3 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600 focus:shadow-lg" placeholder="Please insert your password." type="password" name="password" required autocomplete="new-password" />
+                    <x-input-label class="text-gray-500 mb-2 dark:text-white" for="password" :value="__('Password')" />
+                    <x-text-input id="password" class="appearance-none border-2 border-gray-100 rounded-lg px-4 py-3 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600 focus:shadow-lg dark:border-gray-500 dark:placeholder-gray-500" placeholder="Please insert your password." type="password" name="password" required autocomplete="new-password" />
                     <x-input-error :messages="$errors->get('password')" class="mt-2" />
                 </div>
 
                 <!-- Confirm Password -->
                 <div id="input" class="flex flex-col w-full my-5">
-                    <x-input-label class="text-gray-500 mb-2" for="password_confirmation" :value="__('Confirm Password')" />
+                    <x-input-label class="text-gray-500 mb-2 dark:text-white" for="password_confirmation" :value="__('Confirm Password')" />
 
-                    <x-text-input id="password_confirmation" class="appearance-none border-2 border-gray-100 rounded-lg px-4 py-3 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600 focus:shadow-lg" placeholder="Please insert your password again."
+                    <x-text-input id="password_confirmation" class="appearance-none border-2 border-gray-100 rounded-lg px-4 py-3 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600 focus:shadow-lg dark:border-gray-500 dark:placeholder-gray-500" placeholder="Please insert your password again."
                         type="password"
                         name="password_confirmation" required autocomplete="new-password" />
 

@@ -1,7 +1,7 @@
 <x-guest-layout>
     <div class="w-full md:w-full lg:w-9/12 mx-auto md:mx-0">
-        <div class="bg-white p-10 flex flex-col w-full shadow-xl rounded-xl">
-            <h2 class="text-2xl font-bold text-gray-800 text-left mb-5">
+        <div class="bg-white p-10 flex flex-col w-full shadow-xl rounded-xl dark:bg-gray-500 dark:ring-1 dark:ring-gray-500">
+            <h2 class="text-2xl font-bold text-gray-800 text-left mb-5 dark:text-white">
                 Sign In
             </h2>
             <div class="mb-4 text-sm text-gray-600">
@@ -13,12 +13,12 @@
 
                 <!-- Password -->
                 <div id="input" class="flex flex-col w-full my-5">
-                    <x-input-label for="password" :value="__('Password')" class="text-gray-500 mb-2" />
+                    <x-input-label for="password" :value="__('Password')" class="text-gray-500 mb-2 dark:text-white" />
 
                     <x-text-input id="password" class="block mt-1 w-full"
                         type="password"
                         name="password"
-                        required autocomplete="current-password" class="appearance-none border-2 border-gray-100 rounded-lg px-4 py-3 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600 focus:shadow-lg" placeholder="Konfirmasi password" />
+                        required autocomplete="current-password" class="appearance-none border-2 border-gray-100 rounded-lg px-4 py-3 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600 focus:shadow-lg dark:border-gray-500 dark:placeholder-white" placeholder="Konfirmasi password" />
 
                     <x-input-error :messages="$errors->get('password')" class="mt-2" />
                 </div>
