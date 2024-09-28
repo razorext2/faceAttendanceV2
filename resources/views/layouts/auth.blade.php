@@ -25,7 +25,7 @@
     </script>
 </head>
 
-<body class="antialiased bg-gradient-to-t from-red-500 to-white dark:to-gray-800">
+<body class="antialiased bg-gradient-to-t from-red-500 to-white dark:to-red-500 dark:from-gray-800">
     @if(session('status'))
     <div id="toast-bottom-right" x-data="{ showToast: true }" x-init="setTimeout(() => showToast = false, 3000)"
         x-show="showToast"
@@ -70,9 +70,9 @@
                             d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
                     </svg>
                 </div>
-                <h1 class="text-5xl text-gray-800 font-bold dark:text-white">Client Area</h1>
+                <h1 class="text-5xl text-gray-800 font-bold dark:text-white">Indodacin Presisi Utama</h1>
                 <p class="w-5/12 mx-auto md:mx-0 text-gray-500 dark:text-white">
-                    Control and monitorize your website data from dashboard.
+                    Jl. Glugur No.18-D, Petisah Tengah, Kota Medan
                 </p>
             </div>
             {{ $slot }}

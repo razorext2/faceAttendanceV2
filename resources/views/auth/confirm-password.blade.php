@@ -1,10 +1,10 @@
 <x-guest-layout>
     <div class="w-full md:w-full lg:w-9/12 mx-auto md:mx-0">
-        <div class="bg-white p-10 flex flex-col w-full shadow-xl rounded-xl dark:bg-gray-500 dark:ring-1 dark:ring-gray-500">
+        <div class="bg-white p-10 flex flex-col w-full shadow-xl rounded-xl dark:bg-gray-800 dark:ring-1 dark:ring-gray-500">
             <h2 class="text-2xl font-bold text-gray-800 text-left mb-5 dark:text-white">
                 Sign In
             </h2>
-            <div class="mb-4 text-sm text-gray-600">
+            <div class="mb-4 text-sm text-gray-600 dark:text-white">
                 {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
             </div>
 
