@@ -1,7 +1,7 @@
 <!-- start DeleteModal -->
-<div id="deleteModal" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+<div id="deleteModal" data-modal-placement="center-center" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 max-h-full bg-gray-800/50 dark:bg-transparent">
     <div class="relative w-full max-w-md max-h-full">
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+        <div class="relative bg-white ring-1 ring-gray-300 rounded-lg shadow dark:bg-gray-700 dark:ring-gray-500">
             <!-- Modal Header -->
             <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
                 <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
@@ -17,7 +17,7 @@
             <!-- Modal Body -->
             <div class="p-6">
                 <p class="text-sm text-gray-500 dark:text-gray-400">
-                    Are you sure you want to delete this item? This action cannot be undone.
+                    Are you sure you want to delete this data? This action cannot be undone.
                 </p>
             </div>
             <!-- Modal Footer -->
