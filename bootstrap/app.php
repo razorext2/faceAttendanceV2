@@ -5,6 +5,8 @@ use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 // user cookies
 use App\Http\Middleware\TrackUserActivity;
+// track log
+use App\Http\Middleware\LogUserActions;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -15,6 +17,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         //
         $middleware->append(TrackUserActivity::class);
+        $middleware->append(LogUserActions::class);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
