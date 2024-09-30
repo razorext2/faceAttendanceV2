@@ -58,7 +58,7 @@
 
                     <div class="flex flex-col m-auto p-auto relative">
                         <!-- Tombol Previous -->
-                        <button id="prevButton" class="absolute left-0 -bottom-2.5 w-10 h-10  transform -translate-y-1/2 bg-gray-600 hover:bg-gray-400 transition-all duration-500 text-white p-2 rounded-full border border-white dark:bg-gray-800 dark:hover:bg-gray-900 dark:text-gray-300 dark:hover:text-white dark:border-gray-500">
+                        <button id="prevButton" class="absolute left-0 -bottom-2.5 w-10 h-10  transform -translate-y-1/2 bg-white hover:bg-gray-300 transition-all duration-500 text-gray-800 p-2 rounded-full border border-gray-300 dark:bg-gray-800 dark:hover:bg-gray-900 dark:text-gray-300 dark:hover:text-white dark:border-gray-500">
                             &#8592;
                         </button>
 
@@ -69,7 +69,7 @@
                         </div>
 
                         <!-- Tombol Next -->
-                        <button id="nextButton" class="absolute right-0 -bottom-2.5 w-10 h-10 transform -translate-y-1/2 bbg-gray-600 hover:bg-gray-400 transition-all duration-500 text-white p-2 rounded-full border border-white dark:bg-gray-800 dark:hover:bg-gray-900 dark:text-gray-300 dark:hover:text-white dark:border-gray-500">
+                        <button id="nextButton" class="absolute right-0 -bottom-2.5 w-10 h-10 transform -translate-y-1/2 bg-white hover:bg-gray-300 transition-all duration-500 text-gray-800 p-2 rounded-full border border-gray-300 dark:bg-gray-800 dark:hover:bg-gray-900 dark:text-gray-300 dark:hover:text-white dark:border-gray-500">
                             &#8594;
                         </button>
                     </div>
