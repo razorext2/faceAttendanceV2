@@ -23,6 +23,7 @@
         "alpinejs": "^3.14.1",
         "apexcharts": "^3.53.0",
         "D": "^1.0.0",
-        "simple-datatables": "^9.1.0"
+        "simple-datatables": "^9.1.0",
+        "sweetalert2": "^11.14.1"
     }
 }

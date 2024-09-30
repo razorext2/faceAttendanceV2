@@ -15,7 +15,7 @@ class JabatanController extends Controller
     public function index()
     {
         //
-        $jabatan = Jabatan::get();
+        $jabatan = Jabatan::with('divisionRelasi')->get();
         return view('dashboard.jabatan.index', compact('jabatan'));
     }
 

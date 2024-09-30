@@ -69,8 +69,8 @@
                         </div>
                     </td>
                     <td>{{ $data->nama_jabatan }}</td>
-                    <td>{{ $data->divisi }}</td>
-                    <td>{{ $data->penempatan ?? 'N/A' }}</td>
+                    <td>{{ $data->divisionRelasi->nama_divisi }}</td>
+                    <td>{{ $data->placementRelasi->penempatan ?? 'N/A' }}</td>
                 </tr>
                 @endforeach
 

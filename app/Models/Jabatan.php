@@ -13,9 +13,13 @@ class Jabatan extends Model
 
     protected $fillable = ['nama_jabatan', 'divisi', 'penempatan'];
 
-    // Jabatan.php
-    public function pegawaiRelasi()
+    public function divisionRelasi()
     {
-        return $this->hasMany(Pegawai::class, 'jabatan', 'id'); // 'jabatan' refers to foreign key in tb_pegawai
+        return $this->belongsTo(Division::class, 'divisi', 'id');
+    }
+
+    public function placementRelasi()
+    {
+        return $this->belongsTo(Placement::class, 'penempatan', 'id');
     }
 }
