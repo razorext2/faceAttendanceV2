@@ -14,7 +14,6 @@
         <div class="fixed w-full inset-0 -z-40 bg-gray-800 opacity-0 dark:opacity-85"></div>
     </div>
 
-
     @if (session('status'))
     <div id="toast-top-right" x-data="{ showToast: true }" x-init="setTimeout(() => showToast = false, 3000)"
         x-show="showToast"
@@ -79,8 +78,8 @@
             </div>
             @yield('content')
         </div>
-        <!-- @include('dashboard.layoutsDash.footer') -->
     </div>
+    @include('dashboard.layoutsDash.modals')
     <!-- footer -->
 
     <!-- js -->

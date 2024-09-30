@@ -67,11 +67,12 @@ class DivisionController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Division $division)
+    public function destroy($id)
     {
         //
+        $division = Division::findOrFail($id);
         $division->delete();
 
-        return redirect()->route('dashboard.division')->with('status', 'Berhasil menghapus data divisi.');
+        return redirect()->back()->with('status', 'Berhasil menghapus data divisi.');
     }
 }

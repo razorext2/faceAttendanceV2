@@ -67,13 +67,14 @@
                                 Edit
                             </a>
 
-                            <form method="POST" action="{{ route('placement.delete', $data) }}">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" onclick="return confirm('Are you sure?')" class="px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border-t border-b border-l border-r border-red-800 rounded-e-lg hover:bg-red-900 hover:text-white focus:z-10 focus:ring-red-500 focus:bg-red-900 focus:text-white dark:bg-red-800 dark:hover:bg-red-900 dark:text-white dark:border-gray-500">
-                                    Delete
-                                </button>
-                            </form>
+                            <button
+                                class="delete-btn px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border-red-800 border  rounded-e-lg hover:bg-red-900 hover:text-white focus:ring-red-500 focus:bg-red-900 focus:text-white dark:bg-red-800 dark:hover:bg-red-900 dark:text-white dark:border-gray-500"
+                                data-id="{{ $data->id }}"
+                                data-modal-target="deleteModal"
+                                data-modal-toggle="deleteModal">
+                                Delete
+                            </button>
+
                         </div>
                     </td>
                     <td>{{ $data->kode_penempatan }}</td>

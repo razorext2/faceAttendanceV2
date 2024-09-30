@@ -1,81 +1,68 @@
 <script src="{{ asset('assets/vendor/php-email-form/validate.js') }}"></script>
 <script src="{{ asset('assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+
 <script>
     // next & prev button on carousel
     const scrollContainer = document.getElementById("scrollContainer");
     const nextButton = document.getElementById("nextButton");
     const prevButton = document.getElementById("prevButton");
 
-    nextButton.addEventListener("click", () => {
+    function scrollContent(direction) {
         scrollContainer.scrollBy({
-            left: 300,
+            left: direction * 300,
             behavior: "smooth",
         });
-    });
-
-    prevButton.addEventListener("click", () => {
-        scrollContainer.scrollBy({
-            left: -300,
-            behavior: "smooth",
-        });
-    });
-
-    // Fungsi untuk menyembunyikan tombol jika tidak ada scrollbar
-    function updateButtonVisibility() {
-        const hasScroll = scrollContainer.scrollWidth > scrollContainer.clientWidth;
-        nextButton.style.display = hasScroll ? "block" : "none";
-        prevButton.style.display = hasScroll ? "block" : "none";
     }
 
-    nextButton.addEventListener("click", () => {
-        scrollContainer.scrollBy({
-            left: 300,
-            behavior: "smooth"
-        });
-    });
+    function updateButtonVisibility() {
+        const hasScroll = scrollContainer.scrollWidth > scrollContainer.clientWidth;
+        nextButton.style.display = prevButton.style.display = hasScroll ? "block" : "none";
+    }
 
-    prevButton.addEventListener("click", () => {
-        scrollContainer.scrollBy({
-            left: -300,
-            behavior: "smooth"
-        });
-    });
+    nextButton.addEventListener("click", () => scrollContent(1));
+    prevButton.addEventListener("click", () => scrollContent(-1));
 
-    // Cek pada load pertama
+    // Cek pada load pertama dan saat resize
     updateButtonVisibility();
-
-    // Tambahkan listener untuk perubahan ukuran layar
     window.addEventListener("resize", updateButtonVisibility);
 
     ///////////////////////
     // enable dark mode //
+    const themeToggleDarkBtn = document.getElementById('theme-toggle-dark');
+    const themeToggleLightBtn = document.getElementById('theme-toggle-light');
 
-    var themeToggleDarkBtn = document.getElementById('theme-toggle-dark');
-    var themeToggleLightBtn = document.getElementById('theme-toggle-light');
-
-    // Change the icons and button backgrounds based on previous settings
-    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        themeToggleDarkBtn.classList.remove('text-gray-400');
-        themeToggleDarkBtn.classList.add('text-gray-200');
-        themeToggleLightBtn.classList.remove('text-gray-200');
-        themeToggleLightBtn.classList.add('text-gray-500');
-    } else {
-        themeToggleLightBtn.classList.remove('text-gray-200');
-        themeToggleLightBtn.classList.add('text-gray-400');
-        themeToggleDarkBtn.classList.remove('text-gray-500');
-        themeToggleDarkBtn.classList.add('text-gray-200');
+    function toggleTheme(isDark) {
+        document.documentElement.classList.toggle('dark', isDark);
+        localStorage.setItem('color-theme', isDark ? 'dark' : 'light');
+        themeToggleDarkBtn.classList.toggle('text-gray-300', isDark);
+        themeToggleDarkBtn.classList.toggle('text-gray-200', !isDark);
+        themeToggleLightBtn.classList.toggle('text-gray-700', isDark);
+        themeToggleLightBtn.classList.toggle('text-red-400', !isDark);
     }
 
-    themeToggleDarkBtn.addEventListener('click', function() {
-        document.documentElement.classList.add('dark');
-        localStorage.setItem('color-theme', 'dark');
-    });
+    const isDarkMode = localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    toggleTheme(isDarkMode);
 
-    themeToggleLightBtn.addEventListener('click', function() {
-        document.documentElement.classList.remove('dark');
-        localStorage.setItem('color-theme', 'light');
-    });
+    themeToggleDarkBtn.addEventListener('click', () => toggleTheme(true));
+    themeToggleLightBtn.addEventListener('click', () => toggleTheme(false));
+    // end enable dark mode //
+    /////////////////////////
 
-    // end enable darkmode //
-    ////////////////////////
+    /////////////////////////
+    // delete modal //
+    document.addEventListener('DOMContentLoaded', function() {
+        const deleteButtons = document.querySelectorAll('.delete-btn');
+        const deleteForm = document.getElementById('deleteForm');
+        const currentRoute = '{{ request()->segment(2) }}';
+
+        deleteButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const itemId = this.getAttribute('data-id');
+                const actionUrl = `${currentRoute}/delete/${itemId}`;
+                deleteForm.setAttribute('action', actionUrl);
+            });
+        });
+    });
+    // end delete modal //
+    /////////////////////
 </script>
