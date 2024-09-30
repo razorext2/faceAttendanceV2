@@ -60,12 +60,31 @@
             <tbody>
                 @foreach($log as $index => $data)
                 <tr class="hover:bg-gray-100 hover:text-black dark:text-gray-300 dark:hover:bg-gray-700/50 dark:hover:text-white">
-                    <td>{{ $data->user_id  ?? 'N/A' }}</td>
-                    <td>{{ $data->user_action  ?? 'N/A' }}</td>
+                    <td>
+                        <p>Userid: {{ $data->user_id }}</p>
+                        <p class="font-medium">{{ $data->userRelasi->name  ?? 'N/A' }}</p>
+                    </td>
+                    <td>
+                        @php
+                        $str = $data->user_action;
+                        $st = '';
+
+                        if (str_contains($str, 'create')) {
+                        $st = 'bg-green-400 dark:bg-transparent dark:text-green-400';
+                        } elseif (str_contains($str, 'update')) {
+                        $st = 'bg-blue-400 dark:bg-transparent dark:text-blue-400';
+                        } elseif (str_contains($str, 'delete')) {
+                        $st = 'bg-red-400 dark:bg-transparent dark:text-red-400';
+                        } else {
+                        $st = 'bg-gray-400 dark:bg-transparent dark:text-gray-300';}
+                        @endphp
+
+                        <span class="px-3 py-1 rounded-lg cursor-default font-medium text-black {{$st}}">{{ ucfirst($data->user_action)  ?? 'N/A' }}</span>
+                    </td>
                     <td>{{ $data->ip_address  ?? 'N/A' }}</td>
                     <td>{{ $data->user_agent  ?? 'N/A' }}</td>
                     <td>{{ $data->user_location  ?? 'N/A' }}</td>
-                    <td>{{ $data->created_at  ?? 'N/A' }} // {{ $data->updated_at ?? 'N/A' }}</td>
+                    <td>Create: {{ $data->created_at  ?? 'N/A' }} / Updated: {{ $data->updated_at ?? 'N/A' }}</td>
                 </tr>
                 @endforeach
 

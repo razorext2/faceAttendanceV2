@@ -35,7 +35,7 @@ class LogUserActions
             // Simpan log ke tb_log dengan format yang diinginkan
             DB::table('tb_log')->insert([
                 'user_id' => $user->id,
-                'user_action' => "{$entityName}->{$actionName} data",
+                'user_action' => "{$entityName} > {$actionName}",
                 'ip_address' => $request->ip(),
                 'user_agent' => $request->header('User-Agent'),
                 'user_location' => 'Unknown', // Implementasi untuk user location opsional
