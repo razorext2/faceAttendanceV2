@@ -134,8 +134,8 @@
             </li>
 
             <li>
-                <a href="#" class="flex items-center p-2 rounded-lg group text-gray-900 hover:bg-gray-100 dark:bg-transparent dark:hover:bg-transparent dark:text-gray-300 dark:hover:text-white">
-                    <svg class="fi-sidebar-item-icon h-6 w-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+                <a href="{{ route('dashboard.log') }}" class="flex items-center p-2 rounded-lg group {{ Route::is('dashboard.log') ? 'text-gray-900 bg-gray-100 dark:bg-transparent dark:text-white' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent dark:hover:text-white' }}">
+                    <svg class="fi-sidebar-item-icon h-6 w-6 text-gray-400 {{ Route::currentRouteName() == 'dashboard.log' ? 'dark:fill-white' : 'dark:hover:fill-white' }}" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"></path>
                     </svg>
                     <span class="flex-1 ms-3 text-sm whitespace-nowrap">Log History</span>

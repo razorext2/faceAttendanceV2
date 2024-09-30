@@ -8,7 +8,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\PlacementController;
-use App\Models\Placement;
+use App\Http\Controllers\LoghistoryController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 
@@ -68,6 +68,9 @@ Route::middleware('auth')->group(function () {
     Route::get('dashboard/placement/edit/{placement}', [PlacementController::class, 'edit'])->name('placement.edit');
     Route::put('dashboard/placement/update/{placement}', [PlacementController::class, 'update'])->name('placement.update');
     Route::delete('dashboard/placement/delete/{placement}', [PlacementController::class, 'destroy'])->name('placement.delete');
+
+    // log
+    Route::get('dashboard/log', [LoghistoryController::class, 'index'])->name('dashboard.log');
 });
 
 require __DIR__ . '/auth.php';
