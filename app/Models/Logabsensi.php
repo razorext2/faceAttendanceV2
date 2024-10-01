@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Logabsensi extends Model
 {
     use HasFactory;
+
+    protected $connection = 'mysql2';
     protected $table = 'tbllog';
-    protected $fillable = ['urutan', 'nik', 'kodejari', 'waktu', 'lokasifoto', 'upl', 'upl68', 'uplm68', 'upljam', 'jenis', 'waktuori', 'KodeBarcode', 'status'];
+    protected $fillable = ['nik', 'kodejari', 'waktu', 'lokasifoto', 'upl', 'upl68', 'uplm68', 'upljam', 'jenis', 'waktuori', 'KodeBarcode', 'status'];
 }

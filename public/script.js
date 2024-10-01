@@ -484,6 +484,7 @@ async function saveAttendance(kodePegawai) {
             const result = await response.json();
             if (result.success) {
                 console.log(result.message);
+                window.alert("Berhasil Clock Out!");
             } else {
                 console.error("Failed to record clock-out:", result.message);
             }
@@ -531,6 +532,7 @@ async function saveAttendance(kodePegawai) {
             const result = await response.json();
             if (result.success) {
                 console.log(result.message);
+                window.alert("Berhasil Clock In!");
             } else {
                 console.error("Failed to record clock-in:", result.message);
             }

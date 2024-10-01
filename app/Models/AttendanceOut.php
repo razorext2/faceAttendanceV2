@@ -9,6 +9,7 @@ class AttendanceOut extends Model
 {
     use HasFactory;
 
+    protected $connection = 'mysql';
     protected $table = 'tb_attendance_out';
 
     protected $fillable = [

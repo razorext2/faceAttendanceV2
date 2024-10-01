@@ -49,7 +49,7 @@ class AttendanceOutController extends Controller
                 'jenis' => 'Wajah',
                 'waktuori' => now(),
                 'KodeBarcode' => null,
-                'status' => 'Masuk',
+                'status' => 'Keluar',
             ]);
 
             return response()->json(['success' => true, 'message' => 'Clock-out recorded successfully.']);
