@@ -4,6 +4,7 @@
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <meta name="csrf-token" content="{{ csrf_token() }}">
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
 <!-- Favicons -->
 <link href="{{ asset('assets/img/favicon.png') }}" rel="icon" />

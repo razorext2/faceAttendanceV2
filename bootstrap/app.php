@@ -7,6 +7,7 @@ use Illuminate\Foundation\Configuration\Middleware;
 use App\Http\Middleware\TrackUserActivity;
 // track log
 use App\Http\Middleware\LogUserActions;
+use App\Http\Middleware\UpgradeToHttpsUnderNgrok;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -18,6 +19,7 @@ return Application::configure(basePath: dirname(__DIR__))
         //
         $middleware->append(TrackUserActivity::class);
         $middleware->append(LogUserActions::class);
+        $middleware->append(UpgradeToHttpsUnderNgrok::class);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
