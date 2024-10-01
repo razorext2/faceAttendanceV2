@@ -16,6 +16,10 @@ return new class extends Migration
             $table->string('kode_penempatan', 32)->unique();
             $table->string('penempatan', 128)->nullable();
             $table->string('alamat', 128)->nullable();
+            $table->string('longitude', 32)->nullable();
+            $table->string('latitude', 32)->nullable();
+            $table->integer('radius', 3);
+
             $table->timestamps();
         });
     }

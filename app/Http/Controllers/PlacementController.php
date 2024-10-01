@@ -36,6 +36,9 @@ class PlacementController extends Controller
             'kode_penempatan' => $request->input('kode_penempatan'),
             'penempatan' => $request->input('penempatan'),
             'alamat' => $request->input('alamat'),
+            'longitude' => $request->input('longitude'),
+            'latitude' => $request->input('latitude'),
+            'radius' => $request->input('radius'),
         ]);
 
         return redirect()->route('dashboard.placement')->with('status', 'Berhasil menambah data penempatan.');
@@ -68,6 +71,9 @@ class PlacementController extends Controller
             'kode_penempatan' => $request->input('kode_penempatan'),
             'penempatan' => $request->input('penempatan'),
             'alamat' => $request->input('alamat'),
+            'longitude' => $request->input('longitude'),
+            'latitude' => $request->input('latitude'),
+            'radius' => $request->input('radius'),
         ]);
 
         return redirect()->route('dashboard.placement')->with('status', 'Berhasil mengubah data penempatan');
