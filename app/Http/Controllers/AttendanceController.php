@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Attendance;
+use App\Models\Logabsensi;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Session;
 
 class AttendanceController extends Controller
@@ -37,6 +37,21 @@ class AttendanceController extends Controller
                 'jam_masuk' => now(), // Menggunakan helper now() untuk mendapatkan waktu saat ini
                 'photoURL' => $photoURL,
                 'created_at' => now(),
+            ]);
+
+            Logabsensi::create([
+                'nik' => 0,
+                'kodejari' => $kodePegawai,
+                'waktu' => now(),
+                'lokasifoto' => $photoURL,
+                'upl' => 0,
+                'upl68' => 0,
+                'uplm68' => 0,
+                'upljam' => 0,
+                'jenis' => 'Wajah',
+                'waktuori' => now(),
+                'KodeBarcode' => null,
+                'status' => 'Masuk',
             ]);
 
             return response()->json(['success' => true, 'message' => 'Attendance recorded successfully.']);
