@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tb_division', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_divisi', 32);
+            $table->string('kode_divisi', 32)->nullable();
             $table->string('nama_divisi', 128)->nullable();
             $table->timestamps();
         });

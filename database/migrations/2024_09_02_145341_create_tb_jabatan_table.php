@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('tb_jabatan', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_jabatan', 32);
-            $table->string('divisi', 32);
-            $table->string('penempatan', 64);
+            $table->string('nama_jabatan', 32)->nullable();
+            $table->string('divisi', 32)->nullable();
+            $table->string('penempatan', 64)->nullable();
             $table->timestamps();
         });
     }
