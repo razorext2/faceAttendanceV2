@@ -22,8 +22,7 @@
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 <link href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet" />
 <link href="{{ asset('assets/vendor/aos/aos.css') }}" rel="stylesheet" />
-<link href="{{ asset('assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet" />
-<link href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.1/dist/sweetalert2.min.css">
 <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet" />
 
 @if(request()->is('/') || request()->is('/*'))

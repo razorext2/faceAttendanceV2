@@ -13,7 +13,6 @@ use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use App\Models\Attendance;
 use App\Models\AttendanceOut;
-use Illuminate\Support\Facades\Log;
 
 class PegawaiController extends Controller
 {
@@ -74,7 +73,6 @@ class PegawaiController extends Controller
 
         $photo = $request->input('photo1');
         if (!is_null($photo)) {
-            // Validate the request
             $request->validate([
                 'kode_pegawai' => 'required|exists:tb_pegawai,kode_pegawai',
                 'photo1' => 'required|string',
@@ -112,35 +110,27 @@ class PegawaiController extends Controller
 
     public function detail(Pegawai $pegawai)
     {
-        // Ambil tanggal saat ini
         $currentDate = Carbon::now();
 
         $startOfMonth = $currentDate->copy()->startOfMonth();
         $endOfMonth = $currentDate->copy()->endOfMonth();
-
-        // Membuat rentang tanggal
         $period = CarbonPeriod::create($startOfMonth, $endOfMonth);
-
-        // Mendapatkan hari pertama bulan tersebut
-        $startDayOfWeek = $startOfMonth->dayOfWeek; // 0=Sunday, 6=Saturday
-
-        // Inisialisasi array untuk menyimpan hasil
+        $startDayOfWeek = $startOfMonth->dayOfWeek;
         $dd = [];
 
-        // Menambahkan null untuk mengisi grid kosong
+
         for ($i = 0; $i < $startDayOfWeek; $i++) {
-            $dd[] = null; // Menambahkan null untuk mengisi grid kosong
+            $dd[] = null;
         }
 
-        // Iterate over the period dan tambahkan ke array
         foreach ($period as $date) {
-            $dd[] = $date->isoFormat('Y-MM-DD'); // Format tanggal dan tambahkan ke array
+            $dd[] = $date->isoFormat('Y-MM-DD');
         }
 
         $images = $this->showImages($pegawai);
         $startOfMonth = $startOfMonth->locale('id')->isoFormat('MMMM Y');
 
-        $attendanceData = Attendance::all(); // Ambil data kehadiran
+        $attendanceData = Attendance::all();
 
         return view('dashboard.pegawai.detail', compact('pegawai', 'dd', 'startOfMonth', 'images', 'attendanceData'));
     }
@@ -150,14 +140,13 @@ class PegawaiController extends Controller
         $date = $request->query('date');
         $kode_pegawai = $request->query('kode_pegawai');
 
-        // Query untuk mendapatkan data dari tb_attendance dan tb_attendance_out sesuai tanggal
         $attendance = Attendance::whereDate('jam_masuk', $date)
             ->where('kode_pegawai', $kode_pegawai)
-            ->get(); // Menggunakan get() untuk mengembalikan koleksi
+            ->get();
 
         $attendanceOut = AttendanceOut::whereDate('jam_keluar', $date)
             ->where('kode_pegawai', $kode_pegawai)
-            ->get(); // Menggunakan get() untuk mengembalikan koleksi
+            ->get();
 
         return response()->json([
             'attendance' => $attendance,
@@ -256,35 +245,28 @@ class PegawaiController extends Controller
 
     public function saveImages(Request $request)
     {
-        // Get the `kode_pegawai` from the request
         $kodePegawai = $request->input('kode_pegawai');
 
-        // Define the directory path based on `kode_pegawai`
         $folderPath = "public/labels/{$kodePegawai}";
         $folderToDB = "labels/{$kodePegawai}/";
 
-        // Create the folder if it doesn't exist
         if (!Storage::exists($folderPath)) {
             Storage::makeDirectory($folderPath);
         }
 
-        // Handle the file upload
         $photo1Data = $request->input('photo1');
         $photo2Data = $request->input('photo2');
 
-        // Save photo1
         $photo1Data = str_replace('data:image/jpeg;base64,', '', $photo1Data);
         $photo1Data = base64_decode($photo1Data);
         $photo1Path = "{$folderPath}/photo1.png";
         Storage::put($photo1Path, $photo1Data);
 
-        // Save photo2
         $photo2Data = str_replace('data:image/jpeg;base64,', '', $photo2Data);
         $photo2Data = base64_decode($photo2Data);
         $photo2Path = "{$folderPath}/photo2.png";
         Storage::put($photo2Path, $photo2Data);
 
-        // Update the `tb_pegawai` table with the new photo paths
         Pegawai::where('kode_pegawai', $kodePegawai)
             ->update([
                 'storage' => $folderToDB,
@@ -301,12 +283,6 @@ class PegawaiController extends Controller
         ]);
 
         $this->saveImages($request);
-        return redirect()->route('photo.regist')->with('success', 'Data berhasil diperbarui!');
+        return redirect()->route('landing.page')->with('success', 'Data berhasil diperbarui!');
     }
-
-    // public function updatePhoto(Request $request)
-    // {
-    //     $this->saveImages($request);
-    //     return redirect()->route('dashboard.pegawai')->with('status', 'Foto berhasil diperbarui!');
-    // }
 }

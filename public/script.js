@@ -447,6 +447,16 @@ function formatDatabaseDate(dateString) {
     return date.toLocaleString("id-ID", options);
 }
 
+function attendanceAlert() {
+    Swal.fire({
+        title: "Sukses!",
+        html: "Berhasil melakukan absensi.",
+        timer: 1500,
+        icon: "success",
+        showConfirmButton: false,
+    });
+}
+
 async function saveAttendance(kodePegawai) {
     try {
         // Check attendance status
@@ -484,7 +494,7 @@ async function saveAttendance(kodePegawai) {
             const result = await response.json();
             if (result.success) {
                 console.log(result.message);
-                window.alert("Berhasil Clock Out!");
+                attendanceAlert();
             } else {
                 console.error("Failed to record clock-out:", result.message);
             }
@@ -532,7 +542,7 @@ async function saveAttendance(kodePegawai) {
             const result = await response.json();
             if (result.success) {
                 console.log(result.message);
-                window.alert("Berhasil Clock In!");
+                attendanceAlert();
             } else {
                 console.error("Failed to record clock-in:", result.message);
             }
