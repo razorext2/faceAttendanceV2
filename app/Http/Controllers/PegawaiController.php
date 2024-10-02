@@ -283,6 +283,6 @@ class PegawaiController extends Controller
         ]);
 
         $this->saveImages($request);
-        return redirect()->route('landing.page')->with('success', 'Data berhasil diperbarui!');
+        return redirect()->to(route('landing.page') . '/#Scan')->with('success', 'Data berhasil diperbarui!');
     }
 }

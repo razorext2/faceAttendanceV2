@@ -10,19 +10,18 @@ document.addEventListener("keydown", (event) => {
         slashKey();
     } else if (event.key === "*") {
         location.reload();
+    } else if (event.key === "Backspace") {
+        window.location.href = "/#Scan";
     }
 });
 
 function slashKey() {
-    // Mendapatkan URL saat ini
-    const currentUrl = window.location.pathname;
-
     if (currentUrl === "/") {
         // Jika berada di halaman index, arahkan ke /photo-regist
-        window.location.href = "/photo-regist";
+        window.location.href = "/photo-regist#Scan";
     } else if (currentUrl === "/photo-regist") {
         // Jika berada di halaman /photo-regist, arahkan ke halaman index
-        window.location.href = "/";
+        window.location.href = "/#Scan";
     }
 }
 
