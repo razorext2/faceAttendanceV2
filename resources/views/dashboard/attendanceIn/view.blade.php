@@ -60,8 +60,8 @@
                         @endphp
                         <img class="w-32 transition-all duration-300 rounded-lg blur-sm hover:blur-none" src="{{ $path.'.png' }}" alt="image description">
                     </td>
-                    <td>{{ $data->pegawaiRelasi->kode_pegawai }}</td>
-                    <td>{{ $data->pegawaiRelasi->full_name }}</td>
+                    <td>{{ $data->pegawaiRelasi->kode_pegawai ?? 'N/A' }}</td>
+                    <td>{{ $data->pegawaiRelasi->full_name ?? 'N/A' }}</td>
                     <td>{{ $data->pegawaiRelasi->nick_name ?? 'N/A' }}</td>
                     <td>
                         {{ $data->jam_masuk ?? 'N/A' }}

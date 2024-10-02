@@ -174,8 +174,8 @@
                         @endif
 
                     </td>
-                    <td>{{ $attendance['kode_pegawai'] }}</td>
-                    <td>{{ $attendance['full_name'] }}</td>
+                    <td>{{ $attendance['kode_pegawai'] ?? 'N/A' }}</td>
+                    <td>{{ $attendance['full_name'] ?? 'N/A' }}</td>
                     <td>{{ $attendance['nick_name'] ?? 'N/A' }}</td>
                     <td>{{ $attendance['no_telp'] ?? 'N/A' }}</td>
                 </tr>

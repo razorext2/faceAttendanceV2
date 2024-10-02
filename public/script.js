@@ -21,6 +21,8 @@ const csrfToken = document
     .querySelector('meta[name="csrf-token"]')
     .getAttribute("content");
 const canvInfo = document.getElementById("canvAttend");
+const pegawaiKosong = document.getElementById("pegawaiKosong");
+const pegawaiInfo = document.getElementById("pegawaiInfo");
 
 const originalConsoleLog = console.log;
 console.log = customConsoleLog;
@@ -291,8 +293,8 @@ function displayImageOnCanvas(imageUrl) {
         img.src = imageUrl;
 
         img.onload = () => {
-            canvas.width = img.width;
-            canvas.height = img.height;
+            canvInfo.width = img.width;
+            canvInfo.height = img.height;
             context.drawImage(img, 0, 0);
         };
 
@@ -306,8 +308,8 @@ function displayImageOnCanvas(imageUrl) {
 
 endButton.addEventListener("click", () => {
     canvInfo.style.display = "none";
-    document.getElementById("pegawaiKosong").style.display = "block";
-    document.getElementById("pegawaiInfo").style.display = "none";
+    pegawaiKosong.style.display = "block";
+    pegawaiInfo.style.display = "none";
     overlay.style.display = "none";
     startButton.removeAttribute("disabled");
     endButton.setAttribute("disabled", "disabled");
@@ -340,8 +342,8 @@ async function getPegawaiDataByLabel(label) {
 }
 
 function displayPegawaiData(pegawaiData) {
-    document.getElementById("pegawaiKosong").style.display = "none";
-    const pegawaiInfoDiv = document.getElementById("pegawaiInfo");
+    pegawaiKosong.style.display = "none";
+    const pegawaiInfoDiv = pegawaiInfo;
 
     if (pegawaiInfoDiv) {
         pegawaiInfoDiv.style.display = "block";
@@ -455,6 +457,12 @@ function attendanceAlert() {
         icon: "success",
         showConfirmButton: false,
     });
+
+    setTimeout(function () {
+        pegawaiKosong.style.display = "block";
+        pegawaiInfo.style.display = "none";
+        canvInfo.style.display = "none";
+    }, 2000);
 }
 
 async function saveAttendance(kodePegawai) {

@@ -10,7 +10,7 @@ document.addEventListener("keydown", (event) => {
         slashKey();
     } else if (event.key === "*") {
         location.reload();
-    } else if (event.key === "Backspace") {
+    } else if (event.key === "+") {
         window.location.href = "/#Scan";
     }
 });

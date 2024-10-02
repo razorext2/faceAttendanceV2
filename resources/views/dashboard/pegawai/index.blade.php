@@ -117,7 +117,7 @@
                     <td>{{ $p->full_name ?? 'N/A' }}</td>
                     <td>{{ $p->nick_name ?? 'N/A' }}</td>
                     <td>{{ $p->no_telp ?? 'N/A' }}</td>
-                    <td>{{ $p->jabatanRelasi->nama_jabatan }}</td>
+                    <td>{{ $p->jabatanRelasi->nama_jabatan ?? 'N/A' }}</td>
                     <td>{{ $p->alamat ?? 'N/A' }}</td>
                     <td>{{ $p->storage ?? 'N/A' }}</td>
                 </tr>
