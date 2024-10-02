@@ -7,12 +7,10 @@ use Illuminate\Http\Request;
 
 class LoghistoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
-        $log = LogHistory::get();
+        $log = LogHistory::get()->sortByDesc('created_at');
         return view('dashboard.log.index', compact('log'));
         //
     }
