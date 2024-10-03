@@ -19,7 +19,8 @@ class Pegawai extends Model
         'no_telp',
         'alamat',
         'jabatan',
-        'tgl_lahir'
+        'golongan',
+        'tgl_lahir',
     ];
 
     // In Pegawai.php (Model)
@@ -46,5 +47,10 @@ class Pegawai extends Model
     public function jabatanRelasi()
     {
         return $this->belongsTo(Jabatan::class, 'jabatan', 'id');
+    }
+
+    public function golonganRelasi()
+    {
+        return $this->belongsTo(Golongan::class, 'golongan', 'id');
     }
 }

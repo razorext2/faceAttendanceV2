@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use App\Models\Pegawai;
-use App\Models\Jabatan;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
@@ -13,6 +11,9 @@ use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use App\Models\Attendance;
 use App\Models\AttendanceOut;
+use App\Models\Pegawai;
+use App\Models\Jabatan;
+use App\Models\Golongan;
 
 class PegawaiController extends Controller
 {
@@ -26,7 +27,8 @@ class PegawaiController extends Controller
     public function create()
     {
         $jabatan = Jabatan::all();
-        return view('dashboard.pegawai.add', compact('jabatan'));
+        $golongan = Golongan::all();
+        return view('dashboard.pegawai.add', compact('jabatan', 'golongan'));
     }
 
     public function store(Request $request)
@@ -39,6 +41,7 @@ class PegawaiController extends Controller
             'no_telp' => $request->input('no_telp'),
             'alamat' => $request->input('alamat'),
             'jabatan' => $request->input('jabatan'),
+            'golongan' => $request->input('golongan'),
             'tgl_lahir' => $request->input('tgl_lahir')
         ]);
 
@@ -53,10 +56,11 @@ class PegawaiController extends Controller
     public function edit(Pegawai $pegawai)
     {
         $jabatan = Jabatan::all();
+        $golongan = Golongan::all();
 
         $images = $this->showImages($pegawai);
 
-        return view('dashboard.pegawai.edit', compact('pegawai', 'jabatan', 'images'));
+        return view('dashboard.pegawai.edit', compact('pegawai', 'jabatan', 'images', 'golongan'));
     }
 
     public function update(Request $request, Pegawai $pegawai)
@@ -68,6 +72,7 @@ class PegawaiController extends Controller
             'no_telp' => $request->input('no_telp'),
             'alamat' => $request->input('alamat'),
             'jabatan' => $request->input('jabatan'),
+            'golongan' => $request->input('golongan'),
             'tgl_lahir' => $request->input('tgl_lahir')
         ]);
 

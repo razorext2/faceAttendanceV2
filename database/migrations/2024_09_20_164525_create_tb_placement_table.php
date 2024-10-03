@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('longitude', 32)->nullable();
             $table->string('latitude', 32)->nullable();
             $table->integer('radius')->nullable();
-
+            $table->string('restrict_app', 4)->nullable();
             $table->timestamps();
         });
     }

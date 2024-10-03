@@ -35,6 +35,16 @@
                             </div>
 
                             <div class="w-full">
+                                <label for="restrict_app" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pembatasan Akses</label>
+                                <select id="restrict_app" name="restrict_app" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
+                                    <option selected>Pilih</option>
+                                    <option value="y"> Ya </option>
+                                    <option value="t"> Tidak </option>
+
+                                </select>
+                            </div>
+
+                            <div class="w-full">
                                 <label for="alamat" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Alamat</label>
                                 <textarea
                                     id="alamat"

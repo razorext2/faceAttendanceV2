@@ -10,5 +10,5 @@ class Placement extends Model
     use HasFactory;
     protected $table = 'tb_placement';
 
-    protected $fillable = ['kode_penempatan', 'penempatan', 'alamat', 'longitude', 'latitude', 'radius'];
+    protected $fillable = ['kode_penempatan', 'penempatan', 'alamat', 'longitude', 'latitude', 'radius', 'restrict_app'];
 }

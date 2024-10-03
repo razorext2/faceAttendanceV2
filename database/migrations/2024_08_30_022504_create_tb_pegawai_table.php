@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('no_telp', 13)->nullable();
             $table->string('alamat', 64)->nullable();
             $table->integer('jabatan')->nullable();
+            $table->integer('golongan')->nullable();
             $table->date('tgl_lahir')->nullable();
             $table->string('storage', 32)->nullable();
             $table->timestamps();

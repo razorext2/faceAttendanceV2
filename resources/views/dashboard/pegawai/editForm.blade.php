@@ -40,13 +40,25 @@
                             <label for="nick_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Panggilan</label>
                             <input type="text" name="nick_name" id="nick_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" value="{{ old('nick_name', $pegawai->nick_name ?? '') }}" placeholder="Nama panggilan" required="">
                         </div>
-                        <div class="sm:col-span-2">
+                        <div class="w-full">
                             <label for="jabatan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Posisi</label>
                             <select id="jabatan" name="jabatan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
                                 <option selected>Pilih</option>
                                 @foreach ($jabatan as $jb)
                                 <option value="{{ $jb->id }}" @if ($pegawai->jabatan == $jb->id) selected @endif>
                                     {{ $jb->nama_jabatan }}
+                                </option>
+                                @endforeach
+
+                            </select>
+                        </div>
+                        <div class="w-full">
+                            <label for="golongan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Posisi</label>
+                            <select id="golongan" name="golongan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
+                                <option selected>Pilih</option>
+                                @foreach ($golongan as $gol)
+                                <option value="{{ $gol->id }}" @if ($pegawai->golongan == $gol->id) selected @endif>
+                                    {{ $gol->nama_golongan }}
                                 </option>
                                 @endforeach
 
