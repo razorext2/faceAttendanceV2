@@ -94,95 +94,95 @@
             </ul>
         </div>
     </div>
-
-
     <!-- End Notification -->
 </div>
 
 <div class="grid grid-cols-1 gap-6">
     <div class="flex items-center justify-center rounded-xl bg-white h-auto p-4 border border-gray-300 shadow-sm dark:bg-gray-800 dark:border-gray-500">
         <!-- Table -->
-        <table id="filter-table">
-            <thead>
-                <tr>
-                    <th class="dark:text-white">
-                        <span class="flex items-center">
-                            Waktu
-                            <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 15 4 4 4-4m0-6-4-4-4 4" />
-                            </svg>
-                        </span>
-                    </th>
-                    <th class="dark:text-white">
-                        <span class="flex items-center">
-                            Kode Pegawai
-                            <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 15 4 4 4-4m0-6-4-4-4 4" />
-                            </svg>
-                        </span>
-                    </th>
-                    <th class="dark:text-white">
-                        <span class="flex items-center">
-                            Full Name
-                            <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 15 4 4 4-4m0-6-4-4-4 4" />
-                            </svg>
-                        </span>
-                    </th>
-                    <th class="dark:text-white">
-                        <span class="flex items-center">
-                            Nick Name
-                            <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 15 4 4 4-4m0-6-4-4-4 4" />
-                            </svg>
-                        </span>
-                    </th>
-                    <th class="dark:text-white">
-                        <span class="flex items-center">
-                            No Telepon
-                            <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 15 4 4 4-4m0-6-4-4-4 4" />
-                            </svg>
-                        </span>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($attendance_all as $index => $attendance)
-                <tr class="hover:bg-gray-100 hover:text-black dark:text-gray-300 dark:hover:bg-gray-700/50 dark:hover:text-white">
-                    <td class="flex flex-col text-center">
-                        <!-- jam masuk -->
-                        @if ($attendance['jam_masuk'])
-                        <span class="w-full my-1 py-1 md:px-1 rounded-lg text-black ring-1 ring-green-400 hover:bg-green-300 dark:text-white dark:ring-1 dark:ring-gray-500 dark:bg-green-800 dark:hover:bg-green-900">
-                            Masuk : {{ \Carbon\Carbon::parse($attendance['jam_masuk'])->format('H:i') }}
-                        </span>
-                        @else
-                        <span class="w-full my-1 py-1 md:px-1 rounded-lg text-black ring-1 ring-green-400 hover:bg-green-300 dark:text-white dark:ring-1 dark:ring-gray-500 dark:bg-green-800 dark:hover:bg-green-900">
-                            Belum Absen
-                        </span>
-                        @endif
+        <div class="relative w-full overflow-x-auto">
+            <table id="filter-table" class="w-full text-sm text-left">
+                <thead>
+                    <tr>
+                        <th class="dark:text-white">
+                            <span class="flex items-center">
+                                Waktu
+                                <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 15 4 4 4-4m0-6-4-4-4 4" />
+                                </svg>
+                            </span>
+                        </th>
+                        <th class="dark:text-white">
+                            <span class="flex items-center">
+                                Kode Pegawai
+                                <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 15 4 4 4-4m0-6-4-4-4 4" />
+                                </svg>
+                            </span>
+                        </th>
+                        <th class="dark:text-white">
+                            <span class="flex items-center">
+                                Full Name
+                                <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 15 4 4 4-4m0-6-4-4-4 4" />
+                                </svg>
+                            </span>
+                        </th>
+                        <th class="dark:text-white">
+                            <span class="flex items-center">
+                                Nick Name
+                                <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 15 4 4 4-4m0-6-4-4-4 4" />
+                                </svg>
+                            </span>
+                        </th>
+                        <th class="dark:text-white">
+                            <span class="flex items-center">
+                                No Telepon
+                                <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 15 4 4 4-4m0-6-4-4-4 4" />
+                                </svg>
+                            </span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($attendance_all as $index => $attendance)
+                    <tr class="hover:bg-gray-100 hover:text-black dark:text-gray-300 dark:hover:bg-gray-700/50 dark:hover:text-white">
+                        <td class="flex flex-col text-center">
+                            <!-- jam masuk -->
+                            @if ($attendance['jam_masuk'])
+                            <span class="w-full my-1 py-1 md:px-1 rounded-lg text-black ring-1 ring-green-400 hover:bg-green-300 dark:text-white dark:ring-1 dark:ring-gray-500 dark:bg-green-800 dark:hover:bg-green-900">
+                                Masuk : {{ \Carbon\Carbon::parse($attendance['jam_masuk'])->format('H:i') }}
+                            </span>
+                            @else
+                            <span class="w-full my-1 py-1 md:px-1 rounded-lg text-black ring-1 ring-green-400 hover:bg-green-300 dark:text-white dark:ring-1 dark:ring-gray-500 dark:bg-green-800 dark:hover:bg-green-900">
+                                Belum Absen
+                            </span>
+                            @endif
 
-                        <!-- jam keluar -->
-                        @if ($attendance['latest_jam_keluar'])
-                        <span class="w-full my-1 py-1 md:px-1 rounded-lg text-black ring-1 ring-red-400 hover:bg-red-300 dark:text-white dark:ring-1 dark:ring-gray-500 dark:bg-green-800 dark:hover:bg-green-900">
-                            Keluar : {{ \Carbon\Carbon::parse($attendance['latest_jam_keluar'])->format('H:i') }}
-                        </span>
-                        @else
-                        <span class="w-full my-1 py-1 md:px-1 rounded-lg text-black ring-1 ring-red-400 hover:bg-red-300 dark:text-white dark:ring-1 dark:ring-gray-500 dark:bg-red-800 dark:hover:bg-red-900">
-                            Belum Absen
-                        </span>
-                        @endif
+                            <!-- jam keluar -->
+                            @if ($attendance['latest_jam_keluar'])
+                            <span class="w-full my-1 py-1 md:px-1 rounded-lg text-black ring-1 ring-red-400 hover:bg-red-300 dark:text-white dark:ring-1 dark:ring-gray-500 dark:bg-green-800 dark:hover:bg-green-900">
+                                Keluar : {{ \Carbon\Carbon::parse($attendance['latest_jam_keluar'])->format('H:i') }}
+                            </span>
+                            @else
+                            <span class="w-full my-1 py-1 md:px-1 rounded-lg text-black ring-1 ring-red-400 hover:bg-red-300 dark:text-white dark:ring-1 dark:ring-gray-500 dark:bg-red-800 dark:hover:bg-red-900">
+                                Belum Absen
+                            </span>
+                            @endif
 
-                    </td>
-                    <td>{{ $attendance['kode_pegawai'] ?? 'N/A' }}</td>
-                    <td>{{ $attendance['full_name'] ?? 'N/A' }}</td>
-                    <td>{{ $attendance['nick_name'] ?? 'N/A' }}</td>
-                    <td>{{ $attendance['no_telp'] ?? 'N/A' }}</td>
-                </tr>
-                @endforeach
+                        </td>
+                        <td>{{ $attendance['kode_pegawai'] ?? 'N/A' }}</td>
+                        <td>{{ $attendance['full_name'] ?? 'N/A' }}</td>
+                        <td>{{ $attendance['nick_name'] ?? 'N/A' }}</td>
+                        <td>{{ $attendance['no_telp'] ?? 'N/A' }}</td>
+                    </tr>
+                    @endforeach
 
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
         <!-- End Table -->
     </div>
 
