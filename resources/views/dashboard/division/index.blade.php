@@ -67,6 +67,8 @@
                                 Delete
                             </button>
 
+                            @include('dashboard.layoutsDash.modals')
+
                         </div>
                     </td>
                     <td>{{ $data->kode_divisi }}</td>
@@ -80,5 +82,4 @@
     </div>
 </div>
 
-@include('dashboard.layoutsDash.modals')
 @endsection

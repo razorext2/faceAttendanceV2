@@ -66,6 +66,9 @@
                                 data-modal-toggle="deleteModal">
                                 Delete
                             </button>
+
+                            @include('dashboard.layoutsDash.modals')
+
                     </td>
                     <td>{{ $data->nama_jabatan }}</td>
                     <td>{{ $data->divisionRelasi->nama_divisi ?? 'N/A' }}</td>
@@ -77,6 +80,4 @@
         </table>
     </div>
 </div>
-
-@include('dashboard.layoutsDash.modals')
 @endsection

@@ -1,5 +1,5 @@
 <!-- Sidebar Navigation -->
-<aside id="logo-sidebar" class="shadow-sm fixed top-0 left-0 z-40 w-72 h-screen pt-16 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-500" aria-label="Sidebar">
+<aside id="logo-sidebar" class="shadow-sm fixed top-0 left-0 z-40 w-72 h-full pt-16 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-500" aria-label="Sidebar">
     <div class="h-full p-5 overflow-y-auto">
         <ul class="space-y-2 font-medium">
             <li>

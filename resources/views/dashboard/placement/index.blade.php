@@ -91,6 +91,8 @@
                                 Delete
                             </button>
 
+                            @include('dashboard.layoutsDash.modals')
+
                         </div>
                     </td>
                     <td>{{ $data->kode_penempatan }}</td>

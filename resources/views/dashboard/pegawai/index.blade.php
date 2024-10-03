@@ -110,6 +110,9 @@
                                 data-modal-toggle="deleteModal">
                                 Delete
                             </button>
+
+                            @include('dashboard.layoutsDash.modals')
+
                         </div>
                     </td>
                     <td>{{ $p->kode_pegawai }}</td>
