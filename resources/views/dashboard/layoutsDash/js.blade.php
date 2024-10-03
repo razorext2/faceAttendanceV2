@@ -1,5 +1,4 @@
 <script src="{{ asset('assets/vendor/php-email-form/validate.js') }}"></script>
-<script src="{{ asset('assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
 
 <script>
     // next & prev button on carousel

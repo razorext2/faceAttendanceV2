@@ -18,7 +18,6 @@
 <!-- Vendor CSS Files -->
 @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/chart.js', 'resources/js/simpleTables.js', 'resources/js/alpine.js'])
 <link href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet" />
-<link href="{{ asset('assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet" />
 
 <style>
     ::-webkit-scrollbar {
