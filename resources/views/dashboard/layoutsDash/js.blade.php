@@ -63,7 +63,6 @@
                 deleteForm.setAttribute('action', actionUrl);
             });
         });
-        z
     });
     // end delete modal //
     /////////////////////

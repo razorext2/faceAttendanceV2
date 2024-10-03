@@ -3,10 +3,11 @@ if (
     document.getElementById("filter-table") &&
     typeof DataTable !== "undefined"
 ) {
-    const dataTable = new DataTable("#filter-table", {
+    new DataTable("#filter-table", {
         labels: {
-            searchTitle: "Search within data",
             perPage: "Data",
+            placeholder: "Cari data...",
+            class: "datatable-input w-full min-w-5",
             noRows: "No data to display",
             info: "Showing {start} to {end} of {rows} data (Page {page} of {pages} pages)",
         },
@@ -35,6 +36,7 @@ if (
                                     class: "datatable-input",
                                     type: "search",
                                     "data-columns": "[" + index + "]",
+                                    placeholder: "Cari data...",
                                 },
                             },
                         ],

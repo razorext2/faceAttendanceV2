@@ -55,7 +55,7 @@
                 <li>
                     <p class="flex items-center p-2 bg-[#7678ed] text-white text-xs hover:bg-[#5d5ece] my-2 rounded-lg dark:bg-green-700 dark:hover:bg-green-800">
                         <img class="w-6 h-6 me-2 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="Jese image">
-                        {{ $at->pegawaiRelasi->full_name }}, melakukan absensi
+                        {{ $at->pegawaiRelasi->full_name ?? 'N/A' }}, melakukan absensi
                         <span class="bg-green-100 text-green-800 text-xs font-medium mx-1 px-1 py-0.5 rounded dark:bg-green-900 dark:text-green-300">
                             Masuk
                         </span>
@@ -83,7 +83,7 @@
                 <li>
                     <p class="flex items-center p-2 bg-[#7678ed] text-white text-xs hover:bg-[#5d5ece] my-2 rounded-lg dark:bg-red-700 dark:hover:bg-red-800">
                         <img class="w-6 h-6 me-2 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="Jese image">
-                        {{ $at->pegawaiRelasi->nick_name }}, melakukan absensi
+                        {{ $at->pegawaiRelasi->nick_name ?? 'N/A' }}, melakukan absensi
                         <span class="bg-red-100 text-red-800 text-xs font-medium mx-1 px-1 py-0.5 rounded dark:bg-red-900 dark:text-red-300">
                             Keluar
                         </span>
@@ -153,22 +153,22 @@
                     <td class="flex flex-col text-center">
                         <!-- jam masuk -->
                         @if ($attendance['jam_masuk'])
-                        <span class="w-2/3 my-1 py-1 rounded-lg text-black ring-1 ring-green-400 hover:bg-green-300 dark:text-white dark:ring-1 dark:ring-gray-500 dark:bg-green-800 dark:hover:bg-green-900">
+                        <span class="w-full my-1 py-1 md:px-1 rounded-lg text-black ring-1 ring-green-400 hover:bg-green-300 dark:text-white dark:ring-1 dark:ring-gray-500 dark:bg-green-800 dark:hover:bg-green-900">
                             Masuk : {{ \Carbon\Carbon::parse($attendance['jam_masuk'])->format('H:i') }}
                         </span>
                         @else
-                        <span class="w-2/3 my-1 py-1 rounded-lg text-black ring-1 ring-green-400 hover:bg-green-300 dark:text-white dark:ring-1 dark:ring-gray-500 dark:bg-green-800 dark:hover:bg-green-900">
+                        <span class="w-full my-1 py-1 md:px-1 rounded-lg text-black ring-1 ring-green-400 hover:bg-green-300 dark:text-white dark:ring-1 dark:ring-gray-500 dark:bg-green-800 dark:hover:bg-green-900">
                             Belum Absen
                         </span>
                         @endif
 
                         <!-- jam keluar -->
                         @if ($attendance['latest_jam_keluar'])
-                        <span class="w-2/3 my-1 py-1 rounded-lg text-black ring-1 ring-red-400 hover:bg-red-300 dark:text-white dark:ring-1 dark:ring-gray-500 dark:bg-green-800 dark:hover:bg-green-900">
+                        <span class="w-full my-1 py-1 md:px-1 rounded-lg text-black ring-1 ring-red-400 hover:bg-red-300 dark:text-white dark:ring-1 dark:ring-gray-500 dark:bg-green-800 dark:hover:bg-green-900">
                             Keluar : {{ \Carbon\Carbon::parse($attendance['latest_jam_keluar'])->format('H:i') }}
                         </span>
                         @else
-                        <span class="w-2/3 my-1 py-1 rounded-lg text-black ring-1 ring-red-400 hover:bg-red-300 dark:text-white dark:ring-1 dark:ring-gray-500 dark:bg-red-800 dark:hover:bg-red-900">
+                        <span class="w-full my-1 py-1 md:px-1 rounded-lg text-black ring-1 ring-red-400 hover:bg-red-300 dark:text-white dark:ring-1 dark:ring-gray-500 dark:bg-red-800 dark:hover:bg-red-900">
                             Belum Absen
                         </span>
                         @endif

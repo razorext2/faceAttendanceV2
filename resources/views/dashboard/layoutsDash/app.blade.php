@@ -46,9 +46,9 @@
 
     @include('dashboard.layoutsDash.navbar')
     @include('dashboard.layoutsDash.sidebar')
-    <div class="p-4 sm:ml-72">
+    <div class="p-2 sm:p-4 sm:ml-72 mt-2 sm:mt-0">
 
-        <div class="p-4 border-2 border-gray-100 border-dashed rounded-lg mt-16 dark:border-gray-800">
+        <div class="p-2 sm:p-4 border-2 border-gray-100 border-dashed rounded-lg mt-16 dark:border-gray-800">
             <!-- carousel for cards -->
             <div class="grid grid-cols-1 gap-6 mb-3">
                 <div class="relative overflow-hidden">
