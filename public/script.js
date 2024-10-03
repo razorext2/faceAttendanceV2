@@ -70,13 +70,14 @@ async function getImagePathsForLabel(storage) {
         const response = await fetch(
             `/api/pegawai-images/${encodeURIComponent(storage)}`
         );
-        // console.log("Fetching image paths...");
+
         if (!response.ok) {
             throw new Error("Network response was not ok");
         }
         return await response.json();
     } catch (error) {
-        console.error("Error fetching image paths:", error);
+        console.log("Some folder of employee is empty. ");
+        console.log("Please register their face first.");
         return [];
     }
 }

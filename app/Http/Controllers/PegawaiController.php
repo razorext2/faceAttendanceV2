@@ -176,16 +176,26 @@ class PegawaiController extends Controller
     {
         $sanitizedStorage = basename($storage);
         $directoryPath = public_path('storage/labels/' . $sanitizedStorage);
+
+        // Cek apakah direktori ada
         if (!is_dir($directoryPath)) {
             return response()->json(['error' => 'Directory not found'], 404);
         }
 
+        // Mencari gambar dengan ekstensi yang ditentukan
         $images = glob($directoryPath . '/*.{png,jpg,jpeg,webp}', GLOB_BRACE);
-        $relativeImagePaths = array_map(function ($path) use ($directoryPath) {
-            return str_replace(public_path(), '', $path);
-        }, $images);
 
-        return response()->json($relativeImagePaths);
+        // Cek apakah gambar ditemukan
+        if (!empty($images)) {
+            // Jika gambar ditemukan, buat relative paths
+            $relativeImagePaths = array_map(function ($path) use ($directoryPath) {
+                return str_replace(public_path(), '', $path);
+            }, $images);
+
+            return response()->json($relativeImagePaths);
+        } //else {
+        //     return response()->json(['error' => 'Image not found'], 404);
+        // }
     }
 
     public function storeImage(Request $request)
