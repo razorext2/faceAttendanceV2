@@ -79,7 +79,6 @@
             @yield('content')
         </div>
     </div>
-    @include('dashboard.layoutsDash.modals')
     <!-- footer -->
 
     <!-- js -->

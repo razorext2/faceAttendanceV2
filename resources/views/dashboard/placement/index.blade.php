@@ -105,7 +105,7 @@
             </tbody>
         </table>
     </div>
-
 </div>
 
+@include('dashboard.layoutsDash.modals')
 @endsection

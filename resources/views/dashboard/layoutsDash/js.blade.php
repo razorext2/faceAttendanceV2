@@ -49,19 +49,24 @@
 
     /////////////////////////
     // delete modal //
-    document.addEventListener('DOMContentLoaded', function() {
-        const deleteButtons = document.querySelectorAll('.delete-btn');
-        const deleteForm = document.getElementById('deleteForm');
-        const currentRoute = '{{ request()->segment(2) }}';
+    var deleteModal = document.getElementById('deleteModal');
 
-        deleteButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const itemId = this.getAttribute('data-id');
-                const actionUrl = `${currentRoute}/delete/${itemId}`;
-                deleteForm.setAttribute('action', actionUrl);
+    if (deleteModal) {
+        document.addEventListener('DOMContentLoaded', function() {
+
+            const deleteButtons = document.querySelectorAll('.delete-btn');
+            const deleteForm = document.getElementById('deleteForm');
+            const currentRoute = '{{ request()->segment(2) }}';
+
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const itemId = this.getAttribute('data-id');
+                    const actionUrl = `${currentRoute}/delete/${itemId}`;
+                    deleteForm.setAttribute('action', actionUrl);
+                });
             });
         });
-    });
+    }
     // end delete modal //
     /////////////////////
 </script>
