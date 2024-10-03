@@ -23,6 +23,7 @@ const csrfToken = document
 const canvInfo = document.getElementById("canvAttend");
 const pegawaiKosong = document.getElementById("pegawaiKosong");
 const pegawaiInfo = document.getElementById("pegawaiInfo");
+const lokasi = "Titi Kuning";
 
 const originalConsoleLog = console.log;
 console.log = customConsoleLog;
@@ -199,8 +200,16 @@ async function startFaceDetection() {
                         // Check if kodePegawai is defined
                         const imageBlob = await captureImage();
                         if (imageBlob) {
+                            const pegawaiData = await getPegawaiDataByLabel(
+                                captureLabel
+                            );
+
                             await saveImageToServer(imageBlob, captureLabel);
-                            await saveAttendance(kodePegawai, nikPegawai); // Pass kodePegawai
+                            await saveAttendance(
+                                kodePegawai,
+                                nikPegawai,
+                                pegawaiData
+                            ); // Pass kodePegawai
                             canvInfo.style.display = "block";
                         } else {
                             console.error("Failed to capture image");
@@ -347,6 +356,12 @@ async function getPegawaiDataByLabel(label) {
 function displayPegawaiData(pegawaiData) {
     pegawaiKosong.style.display = "none";
     const pegawaiInfoDiv = pegawaiInfo;
+    const namaJabatan = pegawaiData.jabatan_relasi
+        ? pegawaiData.jabatan_relasi.nama_jabatan
+        : "Jabatan tidak ditemukan";
+    const namaGolongan = pegawaiData.golongan_relasi
+        ? pegawaiData.golongan_relasi.nama_golongan
+        : "Golongan tidak ditemukan";
 
     if (pegawaiInfoDiv) {
         pegawaiInfoDiv.style.display = "block";
@@ -356,7 +371,7 @@ function displayPegawaiData(pegawaiData) {
                     <svg class="flex-shrink-0 w-3.5 h-3.5 text-green-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5" />
                     </svg>
-                    <span>Lokasi: Titi Kuning</span>
+                    <span>Lokasi: ${lokasi}</span>
                 </li>
                 <li class="flex items-center space-x-3 rtl:space-x-reverse">
                      <svg class="flex-shrink-0 w-3.5 h-3.5 text-green-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
@@ -375,6 +390,18 @@ function displayPegawaiData(pegawaiData) {
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5" />
                     </svg>
                     <span>Nama: ${pegawaiData.full_name}</span>
+                </li>
+                <li class="flex items-center space-x-3 rtl:space-x-reverse">
+                    <svg class="flex-shrink-0 w-3.5 h-3.5 text-green-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5" />
+                    </svg>
+                    <span>Jabatan: ${namaJabatan}</span>
+                </li>
+                <li class="flex items-center space-x-3 rtl:space-x-reverse">
+                    <svg class="flex-shrink-0 w-3.5 h-3.5 text-green-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5" />
+                    </svg>
+                    <span>Golongan: ${namaGolongan}</span>
                 </li>
                 <li class="flex items-center space-x-3 rtl:space-x-reverse">
                     <svg class="flex-shrink-0 w-3.5 h-3.5 text-green-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
@@ -474,7 +501,17 @@ function attendanceAlert() {
     }, 2000);
 }
 
-async function saveAttendance(kodePegawai, nikPegawai) {
+// Fungsi untuk mendapatkan jam saat ini dalam format HH:MM:SS
+function getCurrentTime() {
+    const now = new Date(); // Mendapatkan waktu saat ini
+    const hours = String(now.getHours()).padStart(2, "0"); // Mendapatkan jam dengan padding 0 jika perlu
+    const minutes = String(now.getMinutes()).padStart(2, "0"); // Mendapatkan menit dengan padding 0 jika perlu
+    const seconds = String(now.getSeconds()).padStart(2, "0"); // Mendapatkan detik dengan padding 0 jika perlu
+
+    return `${hours}:${minutes}:${seconds}`; // Mengembalikan dalam format HH:MM:SS
+}
+
+async function saveAttendance(kodePegawai, nikPegawai, pegawaiData) {
     try {
         // Check attendance status
         const checkResponse = await fetch("/check-attendance", {
@@ -490,85 +527,121 @@ async function saveAttendance(kodePegawai, nikPegawai) {
         });
 
         const checkResult = await checkResponse.json();
+        const currentTime = getCurrentTime();
+        const jamKeluarByGolongan = pegawaiData.golongan_relasi
+            ? pegawaiData.golongan_relasi.jam_keluar
+            : "Jam keluar tidak ditemukan";
+        const jamMasukByGolongan = pegawaiData.golongan_relasi
+            ? pegawaiData.golongan_relasi.jam_masuk
+            : "Jam masuk tidak ditemukan";
+
+        function restrictAlert() {
+            Swal.fire({
+                title: "Gagal!",
+                html: `<p>Anda tidak dapat melakukan absensi!</p>
+                       <p>${jamMasukByGolongan} - ${jamKeluarByGolongan}</p>`, // Use backticks here
+                timer: 1500,
+                icon: "error",
+                showConfirmButton: false,
+            });
+
+            setTimeout(function () {
+                pegawaiKosong.style.display = "block";
+                pegawaiInfo.style.display = "none";
+                canvInfo.style.display = "none";
+            }, 2000);
+        }
 
         if (checkResult.hasClockedIn) {
-            // Display existing attendance data
-            const jamMasuk = checkResult.jam_masuk; // Assuming checkResult has jam_masuk
-            const jamMasukFormat = formatDatabaseDate(jamMasuk);
-            document.getElementById(
-                "waktu-masuk"
-            ).textContent = `Waktu Masuk: ${jamMasukFormat}`;
+            // console.log(jamKeluarByGolongan);
+            if (currentTime >= jamKeluarByGolongan) {
+                // Display existing attendance data
+                const jamMasuk = checkResult.jam_masuk; // Assuming checkResult has jam_masuk
+                const jamMasukFormat = formatDatabaseDate(jamMasuk);
+                document.getElementById(
+                    "waktu-masuk"
+                ).textContent = `Waktu Masuk: ${jamMasukFormat}`;
 
-            jamKeluar();
+                jamKeluar();
 
-            // Proceed with clock-out
-            const response = await fetch("/store-attendance-out", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "X-CSRF-TOKEN": csrfToken,
-                },
-                body: JSON.stringify({
-                    kode_pegawai: kodePegawai,
-                    nik_pegawai: nikPegawai,
-                }),
-            });
+                // Proceed with clock-out
+                const response = await fetch("/store-attendance-out", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRF-TOKEN": csrfToken,
+                    },
+                    body: JSON.stringify({
+                        kode_pegawai: kodePegawai,
+                        nik_pegawai: nikPegawai,
+                    }),
+                });
 
-            const result = await response.json();
-            if (result.success) {
-                console.log(result.message);
-                attendanceAlert();
+                const result = await response.json();
+                if (result.success) {
+                    console.log(result.message);
+                    attendanceAlert();
+                } else {
+                    console.error(
+                        "Failed to record clock-out:",
+                        result.message
+                    );
+                }
             } else {
-                console.error("Failed to record clock-out:", result.message);
+                restrictAlert();
             }
         } else {
-            // Handle clock-in
-            const currentDate = new Date();
+            if (currentTime <= jamMasukByGolongan) {
+                // Handle clock-in
+                const currentDate = new Date();
 
-            // Format the current date and time to WIB (UTC+7)
-            const options = {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-                hour: "numeric",
-                minute: "numeric",
-                second: "numeric",
-                hour12: false,
-                timeZone: "Asia/Jakarta",
-            };
-            const formattedJamMasuk = currentDate.toLocaleString(
-                "id-ID",
-                options
-            );
+                // Format the current date and time to WIB (UTC+7)
+                const options = {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                    hour: "numeric",
+                    minute: "numeric",
+                    second: "numeric",
+                    hour12: false,
+                    timeZone: "Asia/Jakarta",
+                };
+                const formattedJamMasuk = currentDate.toLocaleString(
+                    "id-ID",
+                    options
+                );
 
-            // Display formatted clock-in time
-            document.getElementById(
-                "waktu-masuk"
-            ).textContent = `Waktu Masuk: ${formattedJamMasuk}`;
+                // Display formatted clock-in time
+                document.getElementById(
+                    "waktu-masuk"
+                ).textContent = `Waktu Masuk: ${formattedJamMasuk}`;
 
-            document.getElementById("waktu-keluar").textContent =
-                "Jam Keluar: Belum ada data";
+                document.getElementById("waktu-keluar").textContent =
+                    "Jam Keluar: Belum ada data";
 
-            // Store clock-in data
-            const response = await fetch("/store-attendance", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "X-CSRF-TOKEN": csrfToken,
-                },
-                body: JSON.stringify({
-                    kode_pegawai: kodePegawai,
-                    nik_pegawai: nikPegawai,
-                    jam_masuk: currentDate.toISOString(),
-                }),
-            });
+                // Store clock-in data
+                const response = await fetch("/store-attendance", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRF-TOKEN": csrfToken,
+                    },
+                    body: JSON.stringify({
+                        kode_pegawai: kodePegawai,
+                        nik_pegawai: nikPegawai,
+                        jam_masuk: currentDate.toISOString(),
+                    }),
+                });
 
-            const result = await response.json();
-            if (result.success) {
-                console.log(result.message);
-                attendanceAlert();
+                const result = await response.json();
+                if (result.success) {
+                    console.log(result.message);
+                    attendanceAlert();
+                } else {
+                    console.error("Failed to record clock-in:", result.message);
+                }
             } else {
-                console.error("Failed to record clock-in:", result.message);
+                restrictAlert();
             }
         }
     } catch (error) {

@@ -229,7 +229,10 @@ class PegawaiController extends Controller
 
     public function getPegawaiDataByLabel($label)
     {
-        $pegawai = Pegawai::with('attendanceRelasi')->where('kode_pegawai', $label)->first();
+        $pegawai = Pegawai::with(['attendanceRelasi', 'jabatanRelasi', 'golonganRelasi'])
+            ->where('kode_pegawai', $label)
+            ->first();
+
         if ($pegawai) {
             return response()->json($pegawai);
         } else {
