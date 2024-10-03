@@ -20,6 +20,7 @@ class AttendanceController extends Controller
     {
         try {
             $kodePegawai = $request->input('kode_pegawai');
+            $nikPegawai = $request->input('nik_pegawai');
             $timestamp = Session::get('current_date');
             $photoURL = $kodePegawai . $timestamp;
             // $photoURL = $kodePegawai . $timestamp . '.png';
@@ -27,12 +28,12 @@ class AttendanceController extends Controller
 
             Attendance::create([
                 'kode_pegawai' => $kodePegawai,
-                'upl' => null,
-                'upl68' => null,
-                'uplm68' => null,
-                'upljam' => null,
-                'jenis' => null,
-                'waktuori' => null,
+                'upl' => 0,
+                'upl68' => 0,
+                'uplm68' => 0,
+                'upljam' => 0,
+                'jenis' => 'Wajah',
+                'waktuori' => now(),
                 'status' => 1,
                 'jam_masuk' => now(), // Menggunakan helper now() untuk mendapatkan waktu saat ini
                 'photoURL' => $photoURL,
@@ -40,7 +41,7 @@ class AttendanceController extends Controller
             ]);
 
             Logabsensi::create([
-                'nik' => 0,
+                'nik' => $nikPegawai,
                 'kodejari' => $kodePegawai,
                 'waktu' => now(),
                 'lokasifoto' => $photoURL,

@@ -154,7 +154,6 @@ class PegawaiController extends Controller
         ]);
     }
 
-
     public function getEmployeeByKodePegawai($kode_pegawai)
     {
         $pegawai = Pegawai::where('kode_pegawai', $kode_pegawai)->first();
@@ -168,7 +167,8 @@ class PegawaiController extends Controller
 
     public function getPegawai()
     {
-        $kode = Pegawai::pluck('kode_pegawai');
+        // cek data pegawai yang kolom storagenya tidak kosong
+        $kode = Pegawai::whereNotNull('storage')->pluck('kode_pegawai');
         return response()->json($kode);
     }
 

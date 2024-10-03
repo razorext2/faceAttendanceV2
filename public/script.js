@@ -159,6 +159,7 @@ async function startFaceDetection() {
                     let shouldCapture = false;
                     let captureLabel = null;
                     let kodePegawai = null; // Define kodePegawai here
+                    let nikPegawai = null;
 
                     for (const detection of resizedDetections) {
                         const bestMatch = faceMatcher.findBestMatch(
@@ -188,6 +189,7 @@ async function startFaceDetection() {
                             if (pegawaiData) {
                                 displayPegawaiData(pegawaiData); // Tampilkan data pegawai di halaman
                                 kodePegawai = pegawaiData.kode_pegawai; // Set kodePegawai here
+                                nikPegawai = pegawaiData.nik_pegawai;
                             }
                         }
                     }
@@ -197,7 +199,7 @@ async function startFaceDetection() {
                         const imageBlob = await captureImage();
                         if (imageBlob) {
                             await saveImageToServer(imageBlob, captureLabel);
-                            await saveAttendance(kodePegawai); // Pass kodePegawai
+                            await saveAttendance(kodePegawai, nikPegawai); // Pass kodePegawai
                             canvInfo.style.display = "block";
                         } else {
                             console.error("Failed to capture image");
@@ -359,7 +361,13 @@ function displayPegawaiData(pegawaiData) {
                      <svg class="flex-shrink-0 w-3.5 h-3.5 text-green-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5" />
                     </svg>
-                    <span>Nama: ${pegawaiData.kode_pegawai}</span>
+                    <span>Kode Pegawai: ${pegawaiData.kode_pegawai}</span>
+                </li>
+                <li class="flex items-center space-x-3 rtl:space-x-reverse">
+                     <svg class="flex-shrink-0 w-3.5 h-3.5 text-green-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5" />
+                    </svg>
+                    <span>NIK: ${pegawaiData.nik_pegawai}</span>
                 </li>
                 <li class="flex items-center space-x-3 rtl:space-x-reverse">
                      <svg class="flex-shrink-0 w-3.5 h-3.5 text-green-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
@@ -465,7 +473,7 @@ function attendanceAlert() {
     }, 2000);
 }
 
-async function saveAttendance(kodePegawai) {
+async function saveAttendance(kodePegawai, nikPegawai) {
     try {
         // Check attendance status
         const checkResponse = await fetch("/check-attendance", {
@@ -474,7 +482,10 @@ async function saveAttendance(kodePegawai) {
                 "Content-Type": "application/json",
                 "X-CSRF-TOKEN": csrfToken,
             },
-            body: JSON.stringify({ kode_pegawai: kodePegawai }),
+            body: JSON.stringify({
+                kode_pegawai: kodePegawai,
+                nik_pegawai: nikPegawai,
+            }),
         });
 
         const checkResult = await checkResponse.json();
@@ -496,7 +507,10 @@ async function saveAttendance(kodePegawai) {
                     "Content-Type": "application/json",
                     "X-CSRF-TOKEN": csrfToken,
                 },
-                body: JSON.stringify({ kode_pegawai: kodePegawai }),
+                body: JSON.stringify({
+                    kode_pegawai: kodePegawai,
+                    nik_pegawai: nikPegawai,
+                }),
             });
 
             const result = await response.json();
@@ -543,6 +557,7 @@ async function saveAttendance(kodePegawai) {
                 },
                 body: JSON.stringify({
                     kode_pegawai: kodePegawai,
+                    nik_pegawai: nikPegawai,
                     jam_masuk: currentDate.toISOString(),
                 }),
             });
