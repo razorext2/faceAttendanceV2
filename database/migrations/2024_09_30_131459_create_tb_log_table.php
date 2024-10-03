@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('user_id', 32)->nullable();
             $table->string('user_action', '32')->nullable();
             $table->string('ip_address', '32')->nullable();
-            $table->string('user_agent', '128')->nullable();
+            $table->string('user_agent')->nullable();
             $table->string('user_location', '128')->nullable();
             $table->timestamps();
         });

@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tbllog', function (Blueprint $table) {
+        Schema::connection('mysql2')->create('tbllog', function (Blueprint $table) {
             $table->increments('urutan');
             $table->string('nik', 255)->nullable();
             $table->string('kodejari', 255)->nullable();
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tbllog');
+        Schema::connection('mysql2')->dropIfExists('tbllog');
     }
 };
