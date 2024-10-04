@@ -7,6 +7,7 @@ use App\Http\Controllers\AttendanceOutController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\DivisionController;
+use App\Http\Controllers\GolonganController;
 use App\Http\Controllers\PlacementController;
 use App\Http\Controllers\LoghistoryController;
 use Illuminate\Support\Facades\Route;
@@ -68,6 +69,14 @@ Route::middleware('auth')->group(function () {
     Route::get('dashboard/placement/edit/{placement}', [PlacementController::class, 'edit'])->name('placement.edit');
     Route::put('dashboard/placement/update/{placement}', [PlacementController::class, 'update'])->name('placement.update');
     Route::delete('dashboard/placement/delete/{placement}', [PlacementController::class, 'destroy'])->name('placement.delete');
+
+    // golongan
+    Route::get('dashboard/golongan', [GolonganController::class, 'index'])->name('dashboard.golongan');
+    Route::get('dashboard/golongan/add', [GolonganController::class, 'create'])->name('golongan.add');
+    Route::post('dashboard/golongan/store', [GolonganController::class, 'store'])->name('golongan.store');
+    Route::get('dashboard/golongan/edit/{golongan}', [GolonganController::class, 'edit'])->name('golongan.edit');
+    Route::put('dashboard/golongan/update/{golongan}', [GolonganController::class, 'update'])->name('golongan.update');
+    Route::delete('dashboard/golongan/delete/{golongan}', [GolonganController::class, 'destroy'])->name('golongan.delete');
 
     // log
     Route::get('dashboard/log', [LoghistoryController::class, 'index'])->name('dashboard.log');

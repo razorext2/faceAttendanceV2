@@ -502,14 +502,14 @@ function attendanceAlert() {
 }
 
 // Fungsi untuk mendapatkan jam saat ini dalam format HH:MM:SS
-function getCurrentTime() {
-    const now = new Date(); // Mendapatkan waktu saat ini
-    const hours = String(now.getHours()).padStart(2, "0"); // Mendapatkan jam dengan padding 0 jika perlu
-    const minutes = String(now.getMinutes()).padStart(2, "0"); // Mendapatkan menit dengan padding 0 jika perlu
-    const seconds = String(now.getSeconds()).padStart(2, "0"); // Mendapatkan detik dengan padding 0 jika perlu
+// function getCurrentTime() {
+//     const now = new Date(); // Mendapatkan waktu saat ini
+//     const hours = String(now.getHours()).padStart(2, "0"); // Mendapatkan jam dengan padding 0 jika perlu
+//     const minutes = String(now.getMinutes()).padStart(2, "0"); // Mendapatkan menit dengan padding 0 jika perlu
+//     const seconds = String(now.getSeconds()).padStart(2, "0"); // Mendapatkan detik dengan padding 0 jika perlu
 
-    return `${hours}:${minutes}:${seconds}`; // Mengembalikan dalam format HH:MM:SS
-}
+//     return `${hours}:${minutes}:${seconds}`; // Mengembalikan dalam format HH:MM:SS
+// }
 
 async function saveAttendance(kodePegawai, nikPegawai, pegawaiData) {
     try {
@@ -527,122 +527,119 @@ async function saveAttendance(kodePegawai, nikPegawai, pegawaiData) {
         });
 
         const checkResult = await checkResponse.json();
-        const currentTime = getCurrentTime();
-        const jamKeluarByGolongan = pegawaiData.golongan_relasi
-            ? pegawaiData.golongan_relasi.jam_keluar
-            : "Jam keluar tidak ditemukan";
-        const jamMasukByGolongan = pegawaiData.golongan_relasi
-            ? pegawaiData.golongan_relasi.jam_masuk
-            : "Jam masuk tidak ditemukan";
+        // const currentTime = getCurrentTime();
+        // const jamKeluarByGolongan = pegawaiData.golongan_relasi
+        //     ? pegawaiData.golongan_relasi.jam_keluar
+        //     : "Jam keluar tidak ditemukan";
+        // const jamMasukByGolongan = pegawaiData.golongan_relasi
+        //     ? pegawaiData.golongan_relasi.jam_masuk
+        //     : "Jam masuk tidak ditemukan";
 
-        function restrictAlert() {
-            Swal.fire({
-                title: "Gagal!",
-                html: `<p>Anda tidak dapat melakukan absensi!</p>
-                       <p>${jamMasukByGolongan} - ${jamKeluarByGolongan}</p>`, // Use backticks here
-                timer: 1500,
-                icon: "error",
-                showConfirmButton: false,
-            });
+        // function restrictAlert() {
+        //     Swal.fire({
+        //         title: "Gagal!",
+        //         html: `<p>Anda tidak dapat melakukan absensi!</p>
+        //                <p>${jamMasukByGolongan} - ${jamKeluarByGolongan}</p>`, // Use backticks here
+        //         timer: 1500,
+        //         icon: "error",
+        //         showConfirmButton: false,
+        //     });
 
-            setTimeout(function () {
-                pegawaiKosong.style.display = "block";
-                pegawaiInfo.style.display = "none";
-                canvInfo.style.display = "none";
-            }, 2000);
-        }
+        //     setTimeout(function () {
+        //         pegawaiKosong.style.display = "block";
+        //         pegawaiInfo.style.display = "none";
+        //         canvInfo.style.display = "none";
+        //     }, 2000);
+        // }
 
         if (checkResult.hasClockedIn) {
             // console.log(jamKeluarByGolongan);
-            if (currentTime >= jamKeluarByGolongan) {
-                // Display existing attendance data
-                const jamMasuk = checkResult.jam_masuk; // Assuming checkResult has jam_masuk
-                const jamMasukFormat = formatDatabaseDate(jamMasuk);
-                document.getElementById(
-                    "waktu-masuk"
-                ).textContent = `Waktu Masuk: ${jamMasukFormat}`;
+            // if (currentTime >= jamKeluarByGolongan) {
+            // Display existing attendance data
+            const jamMasuk = checkResult.jam_masuk; // Assuming checkResult has jam_masuk
+            const jamMasukFormat = formatDatabaseDate(jamMasuk);
+            document.getElementById(
+                "waktu-masuk"
+            ).textContent = `Waktu Masuk: ${jamMasukFormat}`;
 
-                jamKeluar();
+            jamKeluar();
 
-                // Proceed with clock-out
-                const response = await fetch("/store-attendance-out", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "X-CSRF-TOKEN": csrfToken,
-                    },
-                    body: JSON.stringify({
-                        kode_pegawai: kodePegawai,
-                        nik_pegawai: nikPegawai,
-                    }),
-                });
+            // Proceed with clock-out
+            const response = await fetch("/store-attendance-out", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": csrfToken,
+                },
+                body: JSON.stringify({
+                    kode_pegawai: kodePegawai,
+                    nik_pegawai: nikPegawai,
+                }),
+            });
 
-                const result = await response.json();
-                if (result.success) {
-                    console.log(result.message);
-                    attendanceAlert();
-                } else {
-                    console.error(
-                        "Failed to record clock-out:",
-                        result.message
-                    );
-                }
+            const result = await response.json();
+            if (result.success) {
+                console.log(result.message);
+                attendanceAlert();
             } else {
-                restrictAlert();
+                console.error("Failed to record clock-out:", result.message);
             }
+            // } else {
+            //     restrictAlert();
+            // }
         } else {
-            if (currentTime <= jamMasukByGolongan) {
-                // Handle clock-in
-                const currentDate = new Date();
+            // if (currentTime <= jamMasukByGolongan) {
+            // Handle clock-in
+            const currentDate = new Date();
 
-                // Format the current date and time to WIB (UTC+7)
-                const options = {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                    hour: "numeric",
-                    minute: "numeric",
-                    second: "numeric",
-                    hour12: false,
-                    timeZone: "Asia/Jakarta",
-                };
-                const formattedJamMasuk = currentDate.toLocaleString(
-                    "id-ID",
-                    options
-                );
+            // Format the current date and time to WIB (UTC+7)
+            const options = {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+                hour: "numeric",
+                minute: "numeric",
+                second: "numeric",
+                hour12: false,
+                timeZone: "Asia/Jakarta",
+            };
+            const formattedJamMasuk = currentDate.toLocaleString(
+                "id-ID",
+                options
+            );
 
-                // Display formatted clock-in time
-                document.getElementById(
-                    "waktu-masuk"
-                ).textContent = `Waktu Masuk: ${formattedJamMasuk}`;
+            // Display formatted clock-in time
+            document.getElementById(
+                "waktu-masuk"
+            ).textContent = `Waktu Masuk: ${formattedJamMasuk}`;
 
-                document.getElementById("waktu-keluar").textContent =
-                    "Jam Keluar: Belum ada data";
+            document.getElementById("waktu-keluar").textContent =
+                "Jam Keluar: Belum ada data";
 
-                // Store clock-in data
-                const response = await fetch("/store-attendance", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "X-CSRF-TOKEN": csrfToken,
-                    },
-                    body: JSON.stringify({
-                        kode_pegawai: kodePegawai,
-                        nik_pegawai: nikPegawai,
-                        jam_masuk: currentDate.toISOString(),
-                    }),
-                });
+            // Store clock-in data
+            const response = await fetch("/store-attendance", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": csrfToken,
+                },
+                body: JSON.stringify({
+                    kode_pegawai: kodePegawai,
+                    nik_pegawai: nikPegawai,
+                    jam_masuk: currentDate.toISOString(),
+                }),
+            });
 
-                const result = await response.json();
-                if (result.success) {
-                    console.log(result.message);
-                    attendanceAlert();
-                } else {
-                    console.error("Failed to record clock-in:", result.message);
-                }
+            const result = await response.json();
+            if (result.success) {
+                console.log(result.message);
+                attendanceAlert();
             } else {
-                restrictAlert();
+                console.error("Failed to record clock-in:", result.message);
             }
+            // } else {
+            //     restrictAlert();
+            // }
         }
     } catch (error) {
         console.error("Error checking or saving attendance:", error);

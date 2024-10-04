@@ -16,4 +16,9 @@ class Golongan extends Model
         'jam_masuk',
         'jam_keluar',
     ];
+
+    public function jadwalRelasi()
+    {
+        return $this->hasMany(Jadwal::class, 'id_golongan', 'id');
+    }
 }

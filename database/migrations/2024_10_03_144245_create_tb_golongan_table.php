@@ -15,8 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('nama_golongan', 32)->nullable();
             $table->string('alias', 10)->nullable();
-            $table->time('jam_masuk')->nullable();
-            $table->time('jam_keluar')->nullable();
             $table->timestamps();
         });
     }
