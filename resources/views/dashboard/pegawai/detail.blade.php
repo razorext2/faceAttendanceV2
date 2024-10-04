@@ -78,14 +78,14 @@
                         <div class="flex flex-col items-start justify-center rounded-xl bg-gray-100 p-3  border border-gray-200 dark:bg-gray-700 dark:border-gray-500">
                             <p class="text-sm text-gray-600 dark:text-gray-300">Jabatan</p>
                             <p class="text-base font-medium text-navy-700 dark:text-white">
-                                {{ $pegawai->jabatan }}
+                                {{ $pegawai->jabatanRelasi->nama_jabatan }}
                             </p>
                         </div>
 
                         <div class="flex flex-col items-start justify-center rounded-xl bg-gray-100 p-3  border border-gray-200 dark:bg-gray-700 dark:border-gray-500">
                             <p class="text-sm text-gray-600 dark:text-gray-300">Storage</p>
                             <p class="text-base font-medium text-navy-700 dark:text-white">
-                                {{ $pegawai->storage }}
+                                {{ $pegawai->storage ?? 'N/A' }}
                             </p>
                         </div>
 
@@ -113,13 +113,13 @@
 
                 <div class="grid grid-cols-7 gap-2 text-center">
                     <!-- Nama-nama hari -->
+                    <div class="text-gray-900 font-medium dark:text-white">Min</div>
                     <div class="text-gray-900 font-medium dark:text-white">Sen</div>
                     <div class="text-gray-900 font-medium dark:text-white">Sel</div>
                     <div class="text-gray-900 font-medium dark:text-white">Rab</div>
                     <div class="text-gray-900 font-medium dark:text-white">Kam</div>
                     <div class="text-gray-900 font-medium dark:text-white">Jum</div>
                     <div class="text-gray-900 font-medium dark:text-white">Sab</div>
-                    <div class="text-gray-900 font-medium dark:text-white">Min</div>
 
                     <!-- Looping untuk menampilkan tanggal -->
                     @foreach ($dd as $date)
@@ -144,7 +144,7 @@
                         <div class="px-3 py-2 bg-gray-100 border-b border-gray-200 rounded-t-xl dark:border-gray-600 dark:bg-gray-700">
                             <h3 class="font-semibold text-gray-900 dark:text-white">Absen pada: {{ $date }}</h3>
                         </div>
-                        <div class="p-4 popover-content ">
+                        <div class="p-4 max-h-[250px] overflow-y-auto popover-content ">
                             <p>Tunggu sebentar, data sedang dimuat...</p>
                         </div>
                         <div data-popper-arrow></div>

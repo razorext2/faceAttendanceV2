@@ -113,8 +113,10 @@ class PegawaiController extends Controller
         return redirect()->route('dashboard.pegawai')->with('status', 'Berhasil menghapus data Pegawai');
     }
 
-    public function detail(Pegawai $pegawai)
+    public function detail($id)
     {
+        $pegawai = Pegawai::with('jabatanRelasi')->findOrFail($id);
+
         $currentDate = Carbon::now();
 
         $startOfMonth = $currentDate->copy()->startOfMonth();
