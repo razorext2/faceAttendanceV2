@@ -137,7 +137,7 @@ class PegawaiController extends Controller
         $images = $this->showImages($pegawai);
         $startOfMonth = $startOfMonth->locale('id')->isoFormat('MMMM Y');
 
-        $attendanceData = Attendance::all();
+        $attendanceData = Attendance::where('kode_pegawai', $pegawai->kode_pegawai)->get();
 
         return view('dashboard.pegawai.detail', compact('pegawai', 'dd', 'startOfMonth', 'images', 'attendanceData'));
     }

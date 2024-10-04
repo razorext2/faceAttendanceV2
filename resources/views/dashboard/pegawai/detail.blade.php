@@ -36,49 +36,49 @@
                         <div class="flex flex-col md:col-span-2 items-start justify-center rounded-xl bg-gray-100 p-3  border border-gray-200 dark:bg-gray-700 dark:border-gray-500">
                             <p class="text-sm text-gray-600 dark:text-gray-300">Kode Pegawai</p>
                             <p class="text-base font-medium text-navy-700 dark:text-white">
-                                {{ $pegawai->kode_pegawai }}
+                                {{ $pegawai->kode_pegawai ?? 'N/A' }}
                             </p>
                         </div>
 
                         <div class="flex flex-col items-start justify-center rounded-xl bg-gray-100 p-3  border border-gray-200 dark:bg-gray-700 dark:border-gray-500">
                             <p class="text-sm text-gray-600 dark:text-gray-300">Nama Lengkap</p>
                             <p class="text-base font-medium text-navy-700 dark:text-white">
-                                {{ $pegawai->full_name }}
+                                {{ $pegawai->full_name ?? 'N/A' }}
                             </p>
                         </div>
 
                         <div class="flex flex-col items-start justify-center rounded-xl bg-gray-100 p-3  border border-gray-200 dark:bg-gray-700 dark:border-gray-500">
                             <p class="text-sm text-gray-600 dark:text-gray-300">Panggilan</p>
                             <p class="text-base font-medium text-navy-700 dark:text-white">
-                                {{ $pegawai->nick_name }}
+                                {{ $pegawai->nick_name ?? 'N/A' }}
                             </p>
                         </div>
 
                         <div class="flex flex-col items-start justify-center rounded-xl bg-gray-100 p-3  border border-gray-200 dark:bg-gray-700 dark:border-gray-500">
                             <p class="text-sm text-gray-600 dark:text-gray-300">No Telepon</p>
                             <p class="text-base font-medium text-navy-700 dark:text-white">
-                                {{ $pegawai->no_telp }}
+                                {{ $pegawai->no_telp ?? 'N/A' }}
                             </p>
                         </div>
 
                         <div class="flex flex-col items-start justify-center rounded-xl bg-gray-100 p-3  border border-gray-200 dark:bg-gray-700 dark:border-gray-500">
                             <p class="text-sm text-gray-600 dark:text-gray-300">Tanggal Lahir</p>
                             <p class="text-base font-medium text-navy-700 dark:text-white">
-                                {{ $pegawai->tgl_lahir }}
+                                {{ $pegawai->tgl_lahir ?? 'N/A' }}
                             </p>
                         </div>
 
                         <div class="flex flex-col md:col-span-2 items-start justify-center rounded-xl bg-gray-100 p-3  border border-gray-200 dark:bg-gray-700 dark:border-gray-500">
                             <p class="text-sm text-gray-600 dark:text-gray-300">Alamat</p>
                             <p class="text-base font-medium text-navy-700 dark:text-white">
-                                {{ $pegawai->alamat }}
+                                {{ $pegawai->alamat ?? 'N/A' }}
                             </p>
                         </div>
 
                         <div class="flex flex-col items-start justify-center rounded-xl bg-gray-100 p-3  border border-gray-200 dark:bg-gray-700 dark:border-gray-500">
                             <p class="text-sm text-gray-600 dark:text-gray-300">Jabatan</p>
                             <p class="text-base font-medium text-navy-700 dark:text-white">
-                                {{ $pegawai->jabatanRelasi->nama_jabatan }}
+                                {{ $pegawai->jabatanRelasi->nama_jabatan ?? 'N/A' }}
                             </p>
                         </div>
 
