@@ -10,6 +10,7 @@ use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\GolonganController;
 use App\Http\Controllers\PlacementController;
 use App\Http\Controllers\LoghistoryController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 

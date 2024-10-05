@@ -1,7 +1,7 @@
-<nav class="bg-white border-gray-200 ring-1 ring-black p-8 dark:bg-gray-800 dark:ring-gray-500">
-    <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+<nav class="bg-white border-gray-200 ring-1 ring-black md:p-4 lg:p-8 dark:bg-gray-800 dark:ring-gray-500 hidden md:block">
+    <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl center">
 
-        <a href="https://indodacin.com" class="flex items-center space-x-3 rtl:space-x-reverse">
+        <a href="https://indodacin.com" class="flex items-center space-x-3 rtl:space-x-reverse md:mx-auto md:mb-4 lg:mb-0 lg:mx-0">
             <img src="{{ asset('assets/img/logo.png')}}" alt="Indodacin Logo" loading="lazy" />
         </a>
 
@@ -12,7 +12,7 @@
             </svg>
         </button>
 
-        <div id="mega-menu-full" class="items-center justify-between font-medium hidden w-full md:flex md:w-auto md:order-1">
+        <div id="mega-menu-full" class="items-center justify-between font-medium hidden w-full md:flex md:w-auto md:order-1 mx-auto lg:mx-0">
             <ul class="flex flex-col items-center p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 dark:border-gray-500">
                 <li>
                     <a href="{{ route('landing.page') }}" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-300 dark:hover:text-white" aria-current="page">Home</a>
