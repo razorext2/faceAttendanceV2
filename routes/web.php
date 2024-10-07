@@ -36,7 +36,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/dashboard/pegawai/store', [PegawaiController::class, 'store'])->name('pegawai.store');
     Route::get('/dashboard/pegawai/edit/{pegawai}', [PegawaiController::class, 'edit'])->name('pegawai.edit');
     Route::put('/dashboard/pegawai/update/{pegawai}', [PegawaiController::class, 'update'])->name('pegawai.update');
-    Route::delete('/dashboard/pegawai/delete/{pegawai}', [PegawaiController::class, 'destroy'])->name('pegawai.delete');
+    // sementara
+    Route::delete('/dashboard/pegawai/detail/pegawai/delete/{pegawai}', [PegawaiController::class, 'destroy'])->name('pegawai.delete');
     Route::get('dashboard/pegawai/detail/{pegawai}', [PegawaiController::class, 'detail'])->name('pegawai.detail');
     // Route::post('/dashboard/pegawai/photo-update', [PegawaiController::class, 'updatePhoto'])->name('pegawai.photo');
     Route::get('/api/get-attendance-data', [PegawaiController::class, 'getAttendanceData'])->name('pegawai.getattendance');

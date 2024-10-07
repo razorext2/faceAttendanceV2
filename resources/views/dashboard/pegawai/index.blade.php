@@ -99,20 +99,9 @@
                                 Data
                             </a>
 
-                            <a href="{{ route('pegawai.edit', $p->id) }}" class="px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border-t border-b border-l border-green-800 hover:bg-green-600 hover:text-white focus:z-10 focus:ring-green-500 focus:bg-green-600 focus:text-white dark:bg-green-800 dark:hover:bg-green-900 dark:text-white dark:border-gray-500">
+                            <a href="{{ route('pegawai.edit', $p->id) }}" class="px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border-t border-b border-l border-green-800 rounded-e-lg hover:bg-green-600 hover:text-white focus:z-10 focus:ring-green-500 focus:bg-green-600 focus:text-white dark:bg-green-800 dark:hover:bg-green-900 dark:text-white dark:border-gray-500">
                                 Edit
                             </a>
-
-                            <button
-                                class="delete-btn px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border-red-800 border  rounded-e-lg hover:bg-red-900 hover:text-white focus:ring-red-500 focus:bg-red-900 focus:text-white dark:bg-red-800 dark:hover:bg-red-900 dark:text-white dark:border-gray-500"
-                                data-id="{{ $p->id }}"
-                                data-modal-target="deleteModal"
-                                data-modal-toggle="deleteModal">
-                                Delete
-                            </button>
-
-                            @include('dashboard.layoutsDash.modals')
-
                         </div>
                     </td>
                     <td>{{ $p->kode_pegawai }}</td>
@@ -131,5 +120,4 @@
     </div>
 </div>
 
-@include('dashboard.layoutsDash.modals')
 @endsection
