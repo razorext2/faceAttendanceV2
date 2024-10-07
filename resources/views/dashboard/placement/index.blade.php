@@ -97,10 +97,7 @@
                                 data-modal-target="deleteModal"
                                 data-modal-toggle="deleteModal">
                                 Delete
-                            </button>
-
-                            @include('dashboard.layoutsDash.modals')
-
+                            </button>   
                         </div>
                     </td>
                     <td>{{ $data->kode_penempatan ?? 'N/A'}}</td>
