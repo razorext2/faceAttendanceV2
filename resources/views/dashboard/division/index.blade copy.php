@@ -1,6 +1,6 @@
 @extends('dashboard.layoutsDash.app')
 @section('content')
-    <form id="add-pegawai" action="{{ route('placement.add') }}"></form>
+    <form id="add-pegawai" action="{{ route('division.add') }}"></form>
 
     <div class="relative grid grid-cols-1 gap-6">
         <div class="absolute lg:top-3.5 lg:left-72 left-2 top-2">
@@ -32,7 +32,7 @@
                         </th>
                         <th>
                             <span class="flex items-center text-white">
-                                Kode Penempatan
+                                Kode Divisi
                                 <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                     width="24" height="24" fill="none" viewBox="0 0 24 24">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
@@ -42,47 +42,7 @@
                         </th>
                         <th>
                             <span class="flex items-center text-white">
-                                Restrict App
-                                <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                    width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="m8 15 4 4 4-4m0-6-4-4-4 4" />
-                                </svg>
-                            </span>
-                        </th>
-                        <th>
-                            <span class="flex items-center text-white">
-                                Penempatan
-                                <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                    width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="m8 15 4 4 4-4m0-6-4-4-4 4" />
-                                </svg>
-                            </span>
-                        </th>
-                        <th>
-                            <span class="flex items-center text-white">
-                                Alamat
-                                <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                    width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="m8 15 4 4 4-4m0-6-4-4-4 4" />
-                                </svg>
-                            </span>
-                        </th>
-                        <th>
-                            <span class="flex items-center text-white">
-                                Peta
-                                <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                    width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="m8 15 4 4 4-4m0-6-4-4-4 4" />
-                                </svg>
-                            </span>
-                        </th>
-                        <th>
-                            <span class="flex items-center text-white">
-                                Radius
+                                Nama Divisi
                                 <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                     width="24" height="24" fill="none" viewBox="0 0 24 24">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
@@ -103,12 +63,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($placement as $index => $data)
+                    @foreach ($division as $index => $data)
                         <tr
                             class="hover:bg-gray-100 hover:text-black dark:text-gray-300 dark:hover:bg-gray-700/50 dark:hover:text-white">
                             <td>
                                 <div class="inline-flex rounded-md shadow-sm" role="group">
-                                    <a href="{{ route('placement.edit', $data->id) }}"
+                                    <a href="{{ route('division.edit', $data->id) }}"
                                         class="px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border-t border-b border-l border-green-800 rounded-s-lg hover:bg-green-600 hover:text-white focus:z-10 focus:ring-green-500 focus:bg-green-600 focus:text-white dark:bg-green-800 dark:hover:bg-green-900 dark:text-white dark:border-gray-500">
                                         Edit
                                     </a>
@@ -121,20 +81,8 @@
                                     </button>
                                 </div>
                             </td>
-                            <td>{{ $data->kode_penempatan ?? 'N/A' }}</td>
-                            <td>
-                                @if ($data->restrict_app == 'y')
-                                    Aplikasi dibatasi
-                                @elseif($data->restrict_app == 't')
-                                    Aplikasi tidak dibatasi
-                                @else
-                                    N/A
-                                @endif
-                            </td>
-                            <td>{{ $data->penempatan ?? 'N/A' }}</td>
-                            <td>{{ $data->alamat ?? 'N/A' }}</td>
-                            <td>{{ $data->longitude ?? 'N/A' }} / {{ $data->latitude ?? 'N/A' }}</td>
-                            <td>{{ $data->radius . ' Meter' ?? 'N/A' }}</td>
+                            <td>{{ $data->kode_divisi }}</td>
+                            <td>{{ $data->nama_divisi }}</td>
                             <td>{{ $data->created_at ?? 'N/A' }} / {{ $data->updated_at ?? 'N/A' }}</td>
                         </tr>
                     @endforeach

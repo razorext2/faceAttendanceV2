@@ -87,6 +87,9 @@ Route::middleware('auth')->group(function () {
 require __DIR__ . '/auth.php';
 // end breeze
 
+Route::get('/data', [DivisionController::class, 'indexData']);
+Route::get('/getData', [DivisionController::class, 'getData'])->name('getDataDivision');
+
 // api for get pegawai data
 Route::get('/api/getPegawai', [PegawaiController::class, 'getPegawai']);
 Route::get('/api/pegawai-images/{id}', [PegawaiController::class, 'getPegawaiImages']);
