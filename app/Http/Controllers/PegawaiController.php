@@ -38,21 +38,7 @@ class PegawaiController extends Controller
         $maxDate = cleanDate($request->input('maxDate'));
 
         // Start building the query
-        $query = DB::table('tb_pegawai')->select([
-            'id',
-            'kode_pegawai',
-            'nik_pegawai',
-            'full_name',
-            'nick_name',
-            'no_telp',
-            'alamat',
-            'jabatan',
-            'golongan',
-            'tgl_lahir',
-            'storage',
-            'created_at',
-            'updated_at'
-        ]);
+        $query = Pegawai::with('golonganRelasi', 'jabatanRelasi')->get();
 
         // Apply date filtering if minDate and maxDate are provided
         if ($minDate) {
@@ -84,6 +70,12 @@ class PegawaiController extends Controller
                         Delete
                     </button>
                 </div>';
+            })
+            ->addColumn('golongan', function ($data) {
+                return $data->golonganRelasi->nama_golongan ?? 'N/A';
+            })
+            ->addColumn('jabatan', function ($data) {
+                return $data->jabatanRelasi->nama_jabatan ?? 'N/A';
             })
             ->addIndexColumn() // This is the DT_RowIndex
             ->make(true);

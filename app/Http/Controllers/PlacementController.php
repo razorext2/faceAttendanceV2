@@ -67,11 +67,15 @@ class PlacementController extends Controller
                     return 'N/A';
             })
             ->editColumn('longitude_latitude', function ($data) {
-                return $data->longitude . ' / ' . $data->latitude;
+                return '<p>Longitude: ' . $data->longitude . '</p><p>Latitude: ' . $data->latitude . '</p>';
             })
             ->editColumn('created_updated_at', function ($data) {
                 return $data->created_at . ' / ' . $data->updated_at;
             })
+            ->editColumn('radius', function ($data) {
+                return $data->radius . ' M';
+            })
+            ->rawColumns(['action', 'longitude_latitude'])
             ->make(true);
     }
 
