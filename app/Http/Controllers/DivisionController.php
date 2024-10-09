@@ -21,11 +21,6 @@ class DivisionController extends Controller
         return view('dashboard.division.index', compact('division'));
     }
 
-    public function indexData()
-    {
-        return view('tesDatatables');
-    }
-
     public function getData(Request $request)
     {
         // Function to clean the date string
@@ -40,13 +35,7 @@ class DivisionController extends Controller
         $maxDate = cleanDate($request->input('maxDate'));
 
         // Start building the query
-        $query = DB::table('tb_division')->select([
-            'id',
-            'kode_divisi',
-            'nama_divisi',
-            'created_at',
-            'updated_at'
-        ]);
+        $query = Division::get();
 
         // Apply date filtering if minDate and maxDate are provided
         if ($minDate) {
@@ -73,6 +62,9 @@ class DivisionController extends Controller
                         Delete
                     </button>
                 </div>';
+            })
+            ->editColumn('created_updated_at', function ($data) {
+                return $data->created_at . ' / ' . $data->updated_at;
             })
             ->addIndexColumn() // This is the DT_RowIndex
             ->make(true);

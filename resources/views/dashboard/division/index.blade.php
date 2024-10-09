@@ -1,9 +1,9 @@
 @extends('dashboard.layoutsDash.app')
 @section('content')
-    <form id="add-pegawai" action="{{ route('division.add') }}"></form>
+    <form id="add-division" action="{{ route('division.add') }}"></form>
     <div class="relative grid grid-cols-1 gap-6">
-        <div class="absolute max-w-xs left-6 sm:left-auto sm:right-6 lg:right-auto lg:left-6 lg:top-24 md:top-24 top-56 ">
-            <button form="add-pegawai"
+        <div class="absolute max-w-xs left-6 sm:left-auto sm:right-6 lg:right-auto lg:left-6 lg:top-24 md:top-40 top-56 ">
+            <button form="add-division"
                 class="flex flex-row px-4 py-2 rounded-lg lg:px-8 ring-1 ring-green-700 hover:bg-green-300 dark:bg-green-800 dark:text-white dark:hover:bg-green-900 dark:ring-gray-500">
                 <svg class="rotate-180 dark:fill-white" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
                     viewBox="0 0 1024 1024" fill="#000000" class="icon" version="1.1">
@@ -17,7 +17,7 @@
         <div class="flex items-center justify-center h-auto">
             <div
                 class="grid w-full grid-cols-2 gap-4 p-6 shadow-sm rounded-xl bg-gray-50 ring-1 ring-gray-200 dark:bg-gray-800 dark:ring-gray-500">
-                <div class="grid grid-cols-2 col-span-2 gap-4 md:col-span-1">
+                <div class="grid grid-cols-2 col-span-2 gap-4 md:col-span-2 lg:col-span-1">
                     <div>
                         <div class="relative">
                             <div class="absolute inset-y-0 end-0 top-0 flex items-center pe-3.5 pointer-events-none">
@@ -49,7 +49,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="relative col-span-2 md:col-span-1">
+                <div class="relative col-span-2 md:col-span-2 lg:col-span-1">
                     <form id="searchForm" action="" method="get">
                         <div class="relative">
                             <div class="absolute inset-y-0 flex items-center pointer-events-none start-0 ps-3">
@@ -59,7 +59,7 @@
                                         stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                                 </svg>
                             </div>
-                            <input type="search" id="mySearchText"
+                            <input type="search" id="searchText"
                                 class="block w-full p-4 text-sm text-gray-900 border border-gray-300 rounded-lg ps-10 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 placeholder="Search..." />
 
@@ -81,7 +81,7 @@
                     </form>
                 </div>
                 <div class="col-span-2">
-                    <table id="tableProduct"
+                    <table id="table-division"
                         class="w-full mt-20 text-sm text-left text-gray-500 sm:mt-4 dark:text-gray-300">
                         <thead class="text-xs uppercase">
                             <tr>
@@ -102,12 +102,7 @@
                                 </th>
                                 <th>
                                     <span class="flex items-center text-gray-800 dark:text-white">
-                                        Created At
-                                    </span>
-                                </th>
-                                <th>
-                                    <span class="flex items-center text-gray-800 dark:text-white">
-                                        Updated At
+                                        Created / Updated
                                     </span>
                                 </th>
                             </tr>
@@ -121,4 +116,148 @@
     </div>
 
     @include('dashboard.layoutsDash.modals')
+
+    <script>
+        function showDatatables() {
+            let minDate, maxDate;
+
+            // Initialize DateTime pickers for min and max date inputs
+            minDate = new DateTime($('#min'), {
+                format: 'DDD'
+            });
+            maxDate = new DateTime($('#max'), {
+                format: 'DDD'
+            });
+
+            // Initialize DataTable
+            let table = $('#table-division').DataTable({
+                processing: true,
+                serverSide: true,
+                responsive: true,
+                perPageSelect: [5, 25, 50, 100],
+                ajax: {
+                    url: "{{ route('getDataDivision') }}",
+                    data: function(d) {
+                        d.minDate = minDate.val();
+                        d.maxDate = maxDate.val();
+                    }
+                },
+                columns: [{
+                        data: 'action',
+                        name: 'action'
+                    },
+                    {
+                        data: 'kode_divisi',
+                        name: 'kode_divisi'
+                    },
+                    {
+                        data: 'nama_divisi',
+                        name: 'nama_divisi'
+                    },
+                    {
+                        data: 'created_updated_at',
+                        name: 'created_updated_at'
+                    }
+                ],
+                dom: '<"text-left lg:text-right dark:text-white"l><"relative overflow-x-auto w-full"t><"grid text-center gap-4 lg:grid-cols-2 mt-4 dark:text-white"<"lg:mt-3 lg:text-left"i><"lg:text-right"p>>'
+            });
+
+            // Custom filtering function for date range
+            $.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
+                let min = minDate.val() ? new Date(minDate.val()) : null;
+                let max = maxDate.val() ? new Date(maxDate.val()) : null;
+
+                // Convert updated_at (data[4]) to date object
+                let updatedDate = new Date(data[4]).setHours(0, 0, 0, 0); // Strip time for comparison
+
+                // Strip time for min and max dates
+                if (min) min = new Date(min).setHours(0, 0, 0, 0);
+                if (max) max = new Date(max).setHours(0, 0, 0, 0);
+
+                // Filter logic: Check if updatedDate falls within the range
+                if (
+                    (!min && !max) ||
+                    (!min && updatedDate <= max) ||
+                    (min <= updatedDate && !max) ||
+                    (min <= updatedDate && updatedDate <= max)
+                ) {
+                    return true;
+                }
+                return false;
+            });
+
+            // Trigger table redraw when the date inputs change
+            $('#min, #max').on('change', function() {
+                table.draw();
+            });
+
+            // Bind the submit event of the form
+            $('#searchForm').on('submit', function(e) {
+                e.preventDefault(); // Prevent the default form submission
+                // Execute the search on DataTable
+                table.search($('#searchText').val()).draw();
+            });
+
+            const searchInput = document.getElementById("searchText");
+            const clearIcon = document.getElementById("clearIcon");
+
+            searchInput.addEventListener("input", function() {
+                if (searchInput.value.length > 0) {
+                    clearIcon.style.display = "flex"; // Show clear icon
+                } else {
+                    clearIcon.style.display = "none"; // Hide clear icon
+                }
+            });
+
+            // Clear the search input and refresh the datatable when clear icon is clicked
+            clearIcon.addEventListener("click", function() {
+                searchInput.value = "";
+                clearIcon.style.display = "none";
+                // Call function to refresh DataTable
+                refreshDataTable();
+            });
+
+            // Refresh DataTable (assuming you're using DataTables.js)
+            function refreshDataTable() {
+                // Assuming you have a DataTable instance initialized
+                // Replace 'yourDataTable' with your actual DataTable instance variable
+                $('#table-division').DataTable().search('').draw(); // Clear the search and redraw table
+            }
+        }
+        // end datatables //
+        ///////////////////
+
+        function deleteModal() {
+
+            const modalEl = document.getElementById('deleteModal');
+            if (modalEl) {
+                new Modal(modalEl); // Assuming you have imported Modal from Flowbite
+
+                const currentRoute = '{{ request()->segment(2) }}';
+
+                // Delegate click event to the table
+                $('#table-division').on('click', '.delete-btn', function() {
+                    // Get the id from data attribute
+                    var id = $(this).data('id');
+                    // Set the form action for deletion
+                    $('#deleteForm').attr('action', currentRoute +
+                        '/delete/' + id);
+                    // Show the modal
+                    $('#deleteModal').removeClass('hidden');
+                });
+
+                // Close modal
+                $('[data-modal-hide="deleteModal"]').on('click', function() {
+                    $('#deleteModal').addClass('hidden');
+                });
+            }
+        }
+        // end delete modal //
+        /////////////////////
+
+        $(document).ready(function() {
+            showDatatables();
+            deleteModal();
+        });
+    </script>
 @endsection

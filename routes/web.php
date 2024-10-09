@@ -31,18 +31,19 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard/attendance', [AttendanceController::class, 'index'])->name('dashboard.attendance');
 
     // pegawai
+    Route::get('/getdata-pegawai', [PegawaiController::class, 'getData'])->name('getDataPegawai');
     Route::get('/dashboard/pegawai', [PegawaiController::class, 'index'])->name('dashboard.pegawai');
     Route::get('/dashboard/pegawai/add', [PegawaiController::class, 'create'])->name('pegawai.add');
     Route::post('/dashboard/pegawai/store', [PegawaiController::class, 'store'])->name('pegawai.store');
     Route::get('/dashboard/pegawai/edit/{pegawai}', [PegawaiController::class, 'edit'])->name('pegawai.edit');
     Route::put('/dashboard/pegawai/update/{pegawai}', [PegawaiController::class, 'update'])->name('pegawai.update');
-    // sementara
-    Route::delete('/dashboard/pegawai/detail/pegawai/delete/{pegawai}', [PegawaiController::class, 'destroy'])->name('pegawai.delete');
+    Route::delete('/dashboard/pegawai/delete/{pegawai}', [PegawaiController::class, 'destroy'])->name('pegawai.delete');
     Route::get('dashboard/pegawai/detail/{pegawai}', [PegawaiController::class, 'detail'])->name('pegawai.detail');
     // Route::post('/dashboard/pegawai/photo-update', [PegawaiController::class, 'updatePhoto'])->name('pegawai.photo');
     Route::get('/api/get-attendance-data', [PegawaiController::class, 'getAttendanceData'])->name('pegawai.getattendance');
 
     // jabatan
+    Route::get('/getdata-jabatan', [JabatanController::class, 'getData'])->name('getDataJabatan');
     Route::get('dashboard/jabatan', [JabatanController::class, 'index'])->name('dashboard.jabatan');
     Route::get('/dashboard/jabatan/add', [JabatanController::class, 'create'])->name('jabatan.add');
     Route::post('/dashboard/jabatan/store', [JabatanController::class, 'store'])->name('jabatan.store');
@@ -57,6 +58,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard/attendanceOut', [AttendanceOutController::class, 'index'])->name('attendanceOut.view');
 
     // divisi
+
+    Route::get('/getdata-division', [DivisionController::class, 'getData'])->name('getDataDivision');
     Route::get('dashboard/division', [DivisionController::class, 'index'])->name('dashboard.division');
     Route::get('dashboard/division/add', [DivisionController::class, 'create'])->name('division.add');
     Route::post('dashboard/division/store', [DivisionController::class, 'store'])->name('division.store');
@@ -65,6 +68,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('dashboard/division/delete/{division}', [DivisionController::class, 'destroy'])->name('division.delete');
 
     // placement
+    Route::get('/getdata-placement', [PlacementController::class, 'getData'])->name('getDataPlacement');
     Route::get('dashboard/placement', [PlacementController::class, 'index'])->name('dashboard.placement');
     Route::get('dashboard/placement/add', [PlacementController::class, 'create'])->name('placement.add');
     Route::post('dashboard/placement/store', [PlacementController::class, 'store'])->name('placement.store');
@@ -73,6 +77,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('dashboard/placement/delete/{placement}', [PlacementController::class, 'destroy'])->name('placement.delete');
 
     // golongan
+    Route::get('/getdata-golongan', [GolonganController::class, 'getData'])->name('getDataGolongan');
     Route::get('dashboard/golongan', [GolonganController::class, 'index'])->name('dashboard.golongan');
     Route::get('dashboard/golongan/add', [GolonganController::class, 'create'])->name('golongan.add');
     Route::post('dashboard/golongan/store', [GolonganController::class, 'store'])->name('golongan.store');
@@ -86,9 +91,6 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__ . '/auth.php';
 // end breeze
-
-Route::get('/data', [DivisionController::class, 'indexData']);
-Route::get('/getData', [DivisionController::class, 'getData'])->name('getDataDivision');
 
 // api for get pegawai data
 Route::get('/api/getPegawai', [PegawaiController::class, 'getPegawai']);

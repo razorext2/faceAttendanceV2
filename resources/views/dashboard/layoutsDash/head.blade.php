@@ -22,6 +22,7 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.tailwindcss.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.5.4/css/dataTables.dateTime.min.css">
 <link href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 
 <style>
     ::-webkit-scrollbar {

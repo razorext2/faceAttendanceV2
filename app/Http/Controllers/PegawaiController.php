@@ -14,14 +14,79 @@ use App\Models\AttendanceOut;
 use App\Models\Pegawai;
 use App\Models\Jabatan;
 use App\Models\Golongan;
+use Yajra\DataTables\Facades\DataTables;
 
 class PegawaiController extends Controller
 {
 
     public function index()
     {
-        $pegawai = Pegawai::with('jabatanRelasi')->get();
-        return view('dashboard.pegawai.index', compact('pegawai'));
+        return view('dashboard.pegawai.index');
+    }
+
+    public function getData(Request $request)
+    {
+        // Function to clean the date string
+        function cleanDate($dateString)
+        {
+            // Use regex to remove timezone name in parentheses, leaving the GMT offset intact
+            return preg_replace('/\s\(.+\)$/', '', $dateString);
+        }
+
+        // Parse the minDate and maxDate from the request after cleaning
+        $minDate = cleanDate($request->input('minDate'));
+        $maxDate = cleanDate($request->input('maxDate'));
+
+        // Start building the query
+        $query = DB::table('tb_pegawai')->select([
+            'id',
+            'kode_pegawai',
+            'nik_pegawai',
+            'full_name',
+            'nick_name',
+            'no_telp',
+            'alamat',
+            'jabatan',
+            'golongan',
+            'tgl_lahir',
+            'storage',
+            'created_at',
+            'updated_at'
+        ]);
+
+        // Apply date filtering if minDate and maxDate are provided
+        if ($minDate) {
+            $query->where('updated_at', '>=', Carbon::parse($minDate)->startOfDay());
+        }
+        if ($maxDate) {
+            $query->where('updated_at', '<=', Carbon::parse($maxDate)->endOfDay());
+        }
+
+        // Fetch the filtered data with pagination for DataTables
+        return DataTables::of($query)
+            ->addColumn('action', function ($data) {
+                $editUrl = route('pegawai.edit', $data->id);
+                $dataUrl = route('pegawai.detail', $data->id);
+                return '
+                <div class="inline-flex rounded-md shadow-sm" role="group">
+                    <a href="' . $dataUrl . '"
+                        class="px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border-t border-b border-l border-blue-800 rounded-s-lg hover:bg-blue-600 hover:text-white focus:z-10 focus:ring-blue-500 focus:bg-blue-600 focus:text-white dark:bg-blue-800 dark:hover:bg-blue-900 dark:text-white dark:border-gray-500">
+                        Data
+                    </a>
+                    <a href="' . $editUrl . '"
+                        class="px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border-t border-b border-l border-green-800 hover:bg-green-600 hover:text-white focus:z-10 focus:ring-green-500 focus:bg-green-600 focus:text-white dark:bg-green-800 dark:hover:bg-green-900 dark:text-white dark:border-gray-500">
+                        Edit
+                    </a>
+                    <button
+                        class="px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border border-red-800 delete-btn rounded-e-lg hover:bg-red-900 hover:text-white focus:ring-red-500 focus:bg-red-900 focus:text-white dark:bg-red-800 dark:hover:bg-red-900 dark:text-white dark:border-gray-500"
+                        data-id="' . $data->id . '" data-modal-target="deleteModal"
+                        data-modal-toggle="deleteModal">
+                        Delete
+                    </button>
+                </div>';
+            })
+            ->addIndexColumn() // This is the DT_RowIndex
+            ->make(true);
     }
 
     public function create()
@@ -107,10 +172,13 @@ class PegawaiController extends Controller
         return $images;
     }
 
-    public function destroy(Pegawai $pegawai)
+    public function destroy($id)
     {
+        //
+        $pegawai = Pegawai::findOrFail($id);
         $pegawai->delete();
-        return redirect()->route('dashboard.pegawai')->with('status', 'Berhasil menghapus data Pegawai');
+
+        return redirect()->back()->with('status', 'Berhasil menghapus data pegawai.');
     }
 
     public function detail($id)
