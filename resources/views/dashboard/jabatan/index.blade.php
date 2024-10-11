@@ -3,7 +3,8 @@
     <form id="add-jabatan" action="{{ route('jabatan.add') }}"></form>
 
     <div class="relative grid grid-cols-1 gap-6">
-        <div class="absolute max-w-xs left-6 sm:left-auto sm:right-6 lg:right-auto lg:left-6 lg:top-24 md:top-40 top-56 ">
+        <div
+            class="absolute z-10 max-w-xs left-6 sm:left-auto sm:right-6 lg:right-auto lg:left-6 lg:top-24 md:top-40 top-56 ">
             <button form="add-jabatan"
                 class="flex flex-row px-4 py-2 rounded-lg lg:px-8 ring-1 ring-green-700 hover:bg-green-300 dark:bg-green-800 dark:text-white dark:hover:bg-green-900 dark:ring-gray-500">
                 <svg class="rotate-180 dark:fill-white" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
@@ -12,7 +13,7 @@
                         d="M669.6 849.6c8.8 8 22.4 7.2 30.4-1.6s7.2-22.4-1.6-30.4l-309.6-280c-8-7.2-8-17.6 0-24.8l309.6-270.4c8.8-8 9.6-21.6 2.4-30.4-8-8.8-21.6-9.6-30.4-2.4L360.8 480.8c-27.2 24-28 64-0.8 88.8l309.6 280z"
                         fill="" />
                 </svg>
-                Tambah <span class="hidden sm:block">Data</span>
+                <span class="hidden sm:block">Tambah</span> <span class="hidden sm:block">Data</span>
             </button>
         </div>
         <div class="flex items-center justify-center h-auto">
@@ -169,7 +170,26 @@
                         name: 'created_updated_at'
                     }
                 ],
-                dom: '<"text-left lg:text-right dark:text-white"l><"relative overflow-x-auto w-full"t><"grid text-center gap-4 lg:grid-cols-2 mt-4 dark:text-white"<"lg:mt-3 lg:text-left"i><"lg:text-right"p>>'
+                dom: '<"absolute top-1 right-0 md:left-0 lg:left-48 mt-14 lg:mt-0 dark:text-white max-w-xs"B><"text-left lg:text-right dark:text-white"l><"relative overflow-x-auto w-full mt-20 lg:mt-4"t><"grid text-center gap-4 lg:grid-cols-2 mt-4 dark:text-white"<"lg:mt-3 lg:text-left"i><"lg:text-right dark:text-gray-900"p>>',
+                buttons: [{
+                        extend: "csv",
+                        exportOptions: {
+                            stripHtml: false
+                        }
+                    },
+                    {
+                        extend: "excel",
+                        exportOptions: {
+                            stripHtml: false,
+                            decodeEntities: false
+                        }
+                    },
+                    "print",
+                ],
+                "deferRender": true,
+                "language": {
+                    "infoFiltered": ""
+                }
             });
 
             // Custom filtering function for date range
