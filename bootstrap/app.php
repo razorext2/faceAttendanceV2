@@ -16,7 +16,13 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+        // roles
+        $middleware->alias([
+            'role' => \Spatie\Permission\Middleware\RoleMiddleware::class,
+            'permission' => \Spatie\Permission\Middleware\PermissionMiddleware::class,
+            'role_or_permission' => \Spatie\Permission\Middleware\RoleOrPermissionMiddleware::class
+        ]);
+
         $middleware->append(TrackUserActivity::class);
         $middleware->append(LogUserActions::class);
         $middleware->append(UpgradeToHttpsUnderNgrok::class);

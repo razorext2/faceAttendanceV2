@@ -9,9 +9,4 @@ class HomeController extends Controller
     {
         return view('home');
     }
-
-    public function mobileView()
-    {
-        return view('mobile');
-    }
 }
