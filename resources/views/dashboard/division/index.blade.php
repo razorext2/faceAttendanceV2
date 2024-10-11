@@ -2,7 +2,8 @@
 @section('content')
     <form id="add-division" action="{{ route('division.add') }}"></form>
     <div class="relative grid grid-cols-1 gap-6">
-        <div class="absolute max-w-xs left-2 sm:left-auto sm:right-6 lg:right-auto lg:left-6 lg:top-24 md:top-40 top-48">
+        <div
+            class="absolute z-10 max-w-xs left-2 sm:left-auto sm:right-6 lg:right-auto lg:left-6 lg:top-24 md:top-40 top-48">
             <button form="add-division"
                 class="flex flex-row px-4 py-2 rounded-lg lg:px-8 ring-1 ring-green-700 hover:bg-green-300 dark:bg-green-800 dark:text-white dark:hover:bg-green-900 dark:ring-gray-500">
                 <svg class="rotate-180 dark:fill-white" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
@@ -159,7 +160,7 @@
                         name: 'created_updated_at'
                     }
                 ],
-                dom: '<"absolute top-1 right-0 md:left-0 lg:left-48 mt-14 lg:mt-0 dark:text-white"B><"text-left lg:text-right dark:text-white"l><"relative overflow-x-auto w-full mt-20 lg:mt-4"t><"grid text-center gap-4 lg:grid-cols-2 mt-4 dark:text-white"<"lg:mt-3 lg:text-left"i><"lg:text-right"p>>',
+                dom: '<"absolute top-1 right-0 md:left-0 lg:left-48 mt-14 lg:mt-0 dark:text-white max-w-xs"B><"text-left lg:text-right dark:text-white"l><"relative overflow-x-auto w-full mt-20 lg:mt-4"t><"grid text-center gap-4 lg:grid-cols-2 mt-4 dark:text-white"<"lg:mt-3 lg:text-left"i><"lg:text-right dark:text-gray-900"p>>',
                 buttons: [{
                         extend: "csv",
                         exportOptions: {
