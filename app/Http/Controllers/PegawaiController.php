@@ -73,7 +73,7 @@ class PegawaiController extends Controller
                 if (auth()->user()->can('pegawai-edit')) {
                     $actionButtons .= '
                     <a href="' . $editUrl . '"
-                        class="px-4 py-2 mx-1 text-sm font-medium text-gray-900 bg-transparent border-green-800 rounded-lg hover:bg-green-600 hover:text-white focus:z-10 focus:ring-green-500 focus:bg-green-600 focus:text-white dark:bg-green-800 dark:hover:bg-green-900 dark:text-white">
+                        class="px-4 py-2 mx-1 text-sm font-medium text-gray-900 bg-transparent bg-green-800 rounded-lg hover:bg-green-600 hover:text-white focus:z-10 focus:ring-green-500 focus:bg-green-600 focus:text-white dark:bg-green-800 dark:hover:bg-green-900 dark:text-white">
                         Edit
                     </a>';
                 }
