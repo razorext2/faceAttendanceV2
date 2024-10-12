@@ -8,7 +8,7 @@
                 <a href="{{ route('dashboard') }}"
                     class="flex items-center p-2 rounded-lg group {{ Route::currentRouteName() == 'dashboard' ? 'text-gray-900 bg-gray-100 dark:bg-transparent dark:text-white' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent dark:hover:text-white' }}"
                     role="menuitem">
-                    <svg class="fi-sidebar-item-icon h-6 w-6 text-gray-400 {{ Route::currentRouteName() == 'dashboard' ? 'dark:text-white' : 'dark:hover:text-white' }}"
+                    <svg class="fi-sidebar-item-icon h-6 w-6 text-gray-400 {{ Route::currentRouteName() == 'dashboard' ? 'stroke-gray-700 dark:stroke-white' : 'stroke-gray-400' }}"
                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" aria-hidden="true" data-slot="icon">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -48,7 +48,7 @@
                         <a href="{{ route('attendanceIn.view') }}"
                             class="flex items-center w-full p-2 rounded-lg pl-11 group 
                {{ Route::is('attendanceIn.view') ? 'text-gray-900 bg-gray-100 dark:bg-transparent dark:text-white' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent dark:hover:text-white' }}">
-                            <svg class="fi-btn-icon h-5 w-5 text-gray-400 rotate-180 {{ Route::currentRouteName() == 'attendanceIn.view' ? 'dark:text-white' : 'dark:hover:text-white' }}"
+                            <svg class="fi-btn-icon h-5 w-5 text-gray-400 rotate-180 {{ Route::currentRouteName() == 'attendanceIn.view' ? 'fill-gray-700 dark:fill-white' : 'fill-gray-400' }}"
                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                                 aria-hidden="true">
                                 <path fill-rule="evenodd"
@@ -65,7 +65,7 @@
                         <a href="{{ route('attendanceOut.view') }}"
                             class="flex items-center w-full p-2 rounded-lg pl-11 group 
                {{ Route::is('attendanceOut.view') ? 'text-gray-900 bg-gray-100 dark:bg-transparent dark:text-white' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent dark:hover:text-white' }}">
-                            <svg class="fi-btn-icon h-5 w-5 text-gray-400 {{ Route::currentRouteName() == 'attendanceOut.view' ? 'dark:text-white' : 'dark:hover:text-white' }}"
+                            <svg class="fi-btn-icon h-5 w-5 text-gray-400 {{ Route::currentRouteName() == 'attendanceOut.view' ? 'fill-gray-700 dark:fill-white' : 'fill-gray-400' }}"
                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                                 aria-hidden="true">
                                 <path fill-rule="evenodd"
@@ -87,7 +87,7 @@
                         class="flex items-center p-2 rounded-lg 
                 {{ Route::currentRouteName() == 'dashboard.pegawai' || Route::currentRouteName() == 'pegawai.add' || Route::currentRouteName() == 'pegawai.edit' || Route::currentRouteName() == 'pegawai.detail' ? 'text-gray-900 bg-gray-100 dark:bg-transparent dark:text-white' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent dark:hover:text-white' }}"
                         role="menuitem">
-                        <svg class=" fi-sidebar-item-icon h-6 w-6 text-gray-400 {{ Route::currentRouteName() == 'dashboard.pegawai' ? 'dark:text-white' : 'dark:hover:text-white' }}"
+                        <svg class=" fi-sidebar-item-icon h-6 w-6 text-gray-400 {{ Route::currentRouteName() == 'dashboard.pegawai' || Route::currentRouteName() == 'pegawai.add' || Route::currentRouteName() == 'pegawai.edit' ? 'stroke-gray-700 dark:stroke-white' : 'stroke-gray-400' }}"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" aria-hidden="true" data-slot="icon">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -105,7 +105,7 @@
                         class="flex items-center p-2 rounded-lg
               {{ Route::currentRouteName() == 'dashboard.jabatan' || Route::currentRouteName() == 'jabatan.add' || Route::currentRouteName() == 'jabatan.edit' ? 'text-gray-900 bg-gray-100 dark:bg-transparent dark:text-white' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent dark:hover:text-white' }}"
                         role="menuitem">
-                        <svg class="fi-sidebar-item-icon h-6 w-6 text-gray-400 {{ Route::currentRouteName() == 'dashboard.jabatan' ? 'dark:text-white' : 'dark:hover:text-white' }}"
+                        <svg class="fi-sidebar-item-icon h-6 w-6 text-gray-400 {{ Route::currentRouteName() == 'dashboard.jabatan' || Route::currentRouteName() == 'jabatan.add' || Route::currentRouteName() == 'jabatan.edit' ? 'stroke-gray-700 dark:stroke-white' : 'stroke-gray-400' }}"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" aria-hidden="true" data-slot="icon">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -123,7 +123,7 @@
               {{ Route::currentRouteName() == 'dashboard.golongan' || Route::currentRouteName() == 'golongan.add' || Route::currentRouteName() == 'golongan.edit' ? 'text-gray-900 bg-gray-100 dark:bg-transparent dark:text-white' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent dark:hover:text-white' }}"
                         role="menuitem">
                         <svg viewBox="0 0 24 24" fill="" xmlns="http://www.w3.org/2000/svg"
-                            class="fi-sidebar-item-icon fill-none h-6 w-6 stroke-gray-400 {{ Route::currentRouteName() == 'dashboard.golongan' ? 'dark:stroke-white' : 'dark:hover:stroke-white' }}">
+                            class="fi-sidebar-item-icon fill-none h-6 w-6 {{ Route::currentRouteName() == 'dashboard.golongan' || Route::currentRouteName() == 'golongan.add' || Route::currentRouteName() == 'golongan.edit' ? 'stroke-gray-700 dark:stroke-white' : 'stroke-gray-400' }}">
                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                             <g id="SVGRepo_iconCarrier">
@@ -171,9 +171,9 @@
                                     class="flex items-center w-full p-2 rounded-lg pl-11 group 
                {{ Route::is('dashboard.division') || Route::is('division.add') || Route::is('division.edit') ? 'text-gray-900 bg-gray-100 dark:bg-transparent dark:text-white' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent dark:hover:text-white' }}">
                                     <svg xmlns="http://www.w3.org/2000/svg"
-                                        class="fi-sidebar-item-icon h-6 w-6 {{ Route::currentRouteName() == 'dashboard.division' || Route::currentRouteName() == 'division.add' || Route::currentRouteName() == 'division.edit' ? 'dark:fill-white' : 'dark:hover:fill-white' }}"
-                                        fill="#9ca3af" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"
-                                        version="1.1" id="Capa_1" viewBox="0 0 28.05 28.05" xml:space="preserve">
+                                        class="fi-sidebar-item-icon h-6 w-6 {{ Route::currentRouteName() == 'dashboard.division' || Route::currentRouteName() == 'division.add' || Route::currentRouteName() == 'division.edit' ? 'fill-gray-700 dark:fill-white' : 'fill-gray-400' }}"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1"
+                                        viewBox="0 0 28.05 28.05" xml:space="preserve">
                                         <path
                                             d="M25.353,0H2.699c-1.25,0-2.265,1-2.265,2.232V25.82c0,1.23,1.015,2.23,2.265,2.23h22.654c1.248,0,2.264-1,2.264-2.23V2.232   C27.617,1,26.601,0,25.353,0z M4.055,1.68h19.941c1.1,0,1.993,0.877,1.993,1.965v3.852H2.063V3.645   C2.063,2.557,2.954,1.68,4.055,1.68z M2.063,24.408V9.668h6.896v16.705H4.055C2.954,26.373,2.063,25.492,2.063,24.408z    M23.996,26.373H11.215V9.668h14.774v14.74C25.99,25.492,25.096,26.373,23.996,26.373z" />
                                     </svg>
@@ -187,9 +187,8 @@
                                     class="flex items-center w-full p-2 rounded-lg pl-11 group 
                {{ Route::is('dashboard.placement') || Route::is('placement.add') || Route::is('placement.edit') ? 'text-gray-900 bg-gray-100 dark:bg-transparent dark:text-white' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent dark:hover:text-white' }}">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                        class="fi-sidebar-item-icon h-6 w-6 {{ Route::currentRouteName() == 'dashboard.placement' || Route::currentRouteName() == 'placement.add' || Route::currentRouteName() == 'placement.edit' ? 'dark:fill-white' : 'dark:hover:fill-white' }}"
-                                        fill="#9ca3af" version="1.1" id="Layer_1" viewBox="0 0 512 512"
-                                        xml:space="preserve">
+                                        class="fi-sidebar-item-icon h-6 w-6 {{ Route::currentRouteName() == 'dashboard.placement' || Route::currentRouteName() == 'placement.add' || Route::currentRouteName() == 'placement.edit' ? 'fill-gray-700 dark:fill-white' : 'fill-gray-400' }}"
+                                        version="1.1" id="Layer_1" viewBox="0 0 512 512" xml:space="preserve">
 
                                         <path
                                             d="M199.021,43.436h-63.367c-5.633,0-10.199,4.566-10.199,10.199v63.367c0,5.633,4.566,10.199,10.199,10.199h63.367    c5.633,0,10.199-4.566,10.199-10.199V53.636C209.22,48.003,204.654,43.436,199.021,43.436z M188.822,106.803h-42.968V63.835    h42.968V106.803z" />
@@ -261,13 +260,12 @@
                                     class="flex items-center w-full p-2 rounded-lg pl-11 group 
                {{ Route::is('dashboard.users') || Route::is('users.add') || Route::is('users.edit') ? 'text-gray-900 bg-gray-100 dark:bg-transparent dark:text-white' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent dark:hover:text-white' }}">
                                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                        class="w-6 h-6 fi-sidebar-item-icon">
+                                        class="w-6 h-6 fi-sidebar-item-icon {{ Route::currentRouteName() == 'dashboard.users' || Route::currentRouteName() == 'users.add' || Route::currentRouteName() == 'users.edit' ? 'stroke-gray-700 dark:stroke-white' : 'stroke-gray-400' }}">
                                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                         <g id="SVGRepo_iconCarrier">
                                             <path
                                                 d="M13.8 10.2H13.806M10.2004 10.1999H10.2064M9.59961 13.1997C9.59961 13.1997 10.4996 14.3997 11.9996 14.3997C13.4996 14.3997 14.3996 13.1997 14.3996 13.1997M17 3H19C20.1046 3 21 3.89543 21 5V7M21 17V19C21 20.1046 20.1046 21 19 21H17M7 21H5C3.89543 21 3 20.1046 3 19V17M3 7V5C3 3.89543 3.89543 3 5 3H7M14.1 10.2C14.1 10.3657 13.9657 10.5 13.8 10.5C13.6343 10.5 13.5 10.3657 13.5 10.2C13.5 10.0343 13.6343 9.9 13.8 9.9C13.9657 9.9 14.1 10.0343 14.1 10.2ZM10.5004 10.1999C10.5004 10.3656 10.3661 10.4999 10.2004 10.4999C10.0347 10.4999 9.90039 10.3656 9.90039 10.1999C9.90039 10.0342 10.0347 9.8999 10.2004 9.8999C10.3661 9.8999 10.5004 10.0342 10.5004 10.1999ZM18 12C18 15.3137 15.3137 18 12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12Z"
-                                                stroke="{{ Route::currentRouteName() == 'dashboard.users' || Route::currentRouteName() == 'users.add' || Route::currentRouteName() == 'users.edit' ? '#fff' : '#9ca3af' }}"
                                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                                         </g>
                                     </svg>
@@ -282,15 +280,13 @@
                                     class="flex items-center w-full p-2 rounded-lg pl-11 group 
                {{ Route::is('dashboard.roles') || Route::is('roles.add') || Route::is('roles.edit') ? 'text-gray-900 bg-gray-100 dark:bg-transparent dark:text-white' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent dark:hover:text-white' }}">
                                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                        class="w-6 h-6 fi-sidebar-item-icon">
+                                        class="w-6 h-6 fi-sidebar-item-icon {{ Route::currentRouteName() == 'dashboard.roles' || Route::currentRouteName() == 'roles.add' || Route::currentRouteName() == 'roles.edit' ? 'stroke-gray-700 dark:stroke-white' : 'stroke-gray-400' }}">
                                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                         <g id="SVGRepo_iconCarrier">
                                             <path
                                                 d="M9 12L11 14L15 10M12 3L13.9101 4.87147L16.5 4.20577L17.2184 6.78155L19.7942 7.5L19.1285 10.0899L21 12L19.1285 13.9101L19.7942 16.5L17.2184 17.2184L16.5 19.7942L13.9101 19.1285L12 21L10.0899 19.1285L7.5 19.7942L6.78155 17.2184L4.20577 16.5L4.87147 13.9101L3 12L4.87147 10.0899L4.20577 7.5L6.78155 6.78155L7.5 4.20577L10.0899 4.87147L12 3Z"
-                                                stroke-linecap="round"
-                                                stroke="{{ Route::currentRouteName() == 'dashboard.roles' || Route::currentRouteName() == 'roles.add' || Route::currentRouteName() == 'roles.edit' ? '#fff' : '#9ca3af' }}"
-                                                stroke-linejoin="round" stroke-width="2"></path>
+                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
                                         </g>
                                     </svg>
                                     <span class="flex-1 text-sm ms-3 whitespace-nowrap">Roles</span>
@@ -304,13 +300,12 @@
                                     class="flex items-center w-full p-2 rounded-lg pl-11 group 
                {{ Route::is('dashboard.permissions') || Route::is('permissions.add') || Route::is('permissions.edit') ? 'text-gray-900 bg-gray-100 dark:bg-transparent dark:text-white' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent dark:hover:text-white' }}">
                                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                        class="w-6 h-6 fi-sidebar-item-icon">
+                                        class="w-6 h-6 fi-sidebar-item-icon {{ Route::currentRouteName() == 'dashboard.permissions' || Route::currentRouteName() == 'permissions.add' || Route::currentRouteName() == 'permissions.edit' ? 'stroke-gray-700 dark:stroke-white' : 'stroke-gray-400' }}">
                                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                         <g id="SVGRepo_iconCarrier">
                                             <path
                                                 d="M9 12L11 14L15 9.99999M20 12C20 16.4611 14.54 19.6937 12.6414 20.683C12.4361 20.79 12.3334 20.8435 12.191 20.8712C12.08 20.8928 11.92 20.8928 11.809 20.8712C11.6666 20.8435 11.5639 20.79 11.3586 20.683C9.45996 19.6937 4 16.4611 4 12V8.21759C4 7.41808 4 7.01833 4.13076 6.6747C4.24627 6.37113 4.43398 6.10027 4.67766 5.88552C4.9535 5.64243 5.3278 5.50207 6.0764 5.22134L11.4382 3.21067C11.6461 3.13271 11.75 3.09373 11.857 3.07827C11.9518 3.06457 12.0482 3.06457 12.143 3.07827C12.25 3.09373 12.3539 3.13271 12.5618 3.21067L17.9236 5.22134C18.6722 5.50207 19.0465 5.64243 19.3223 5.88552C19.566 6.10027 19.7537 6.37113 19.8692 6.6747C20 7.01833 20 7.41808 20 8.21759V12Z"
-                                                stroke="{{ Route::currentRouteName() == 'dashboard.permissions' || Route::currentRouteName() == 'permissions.add' || Route::currentRouteName() == 'permissions.edit' ? '#fff' : '#9ca3af' }}"
                                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                                         </g>
                                     </svg>
@@ -326,7 +321,7 @@
                 <li>
                     <a href="{{ route('dashboard.log') }}"
                         class="flex items-center p-2 rounded-lg group {{ Route::is('dashboard.log') ? 'text-gray-900 bg-gray-100 dark:bg-transparent dark:text-white' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent dark:hover:text-white' }}">
-                        <svg class="fi-sidebar-item-icon h-6 w-6 text-gray-400 {{ Route::currentRouteName() == 'dashboard.log' ? 'dark:text-white' : 'dark:hover:text-white' }}"
+                        <svg class="fi-sidebar-item-icon h-6 w-6 text-gray-400 {{ Route::currentRouteName() == 'dashboard.log' || Route::currentRouteName() == 'log.add' || Route::currentRouteName() == 'log.edit' ? 'stroke-gray-700 dark:stroke-white' : 'stroke-gray-400' }}"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" aria-hidden="true" data-slot="icon">
                             <path stroke-linecap="round" stroke-linejoin="round"
