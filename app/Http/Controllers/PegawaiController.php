@@ -60,24 +60,39 @@ class PegawaiController extends Controller
             ->addColumn('action', function ($data) {
                 $editUrl = route('pegawai.edit', $data->id);
                 $dataUrl = route('pegawai.detail', $data->id);
-                return '
-                <div class="inline-flex rounded-md shadow-sm" role="group">
-                    <a href="' . $dataUrl . '"
-                        class="px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border-t border-b border-l border-blue-800 rounded-s-lg hover:bg-blue-600 hover:text-white focus:z-10 focus:ring-blue-500 focus:bg-blue-600 focus:text-white dark:bg-blue-800 dark:hover:bg-blue-900 dark:text-white dark:border-gray-500">
-                        Data
-                    </a>
+
+                // Inisialisasi variabel untuk tombol aksi
+                $actionButtons = '
+            <div class="inline-flex rounded-md shadow-sm" role="group">
+                <a href="' . $dataUrl . '"
+                    class="px-4 py-2 mx-1 text-sm font-medium text-gray-900 bg-transparent border-blue-800 rounded-lg hover:bg-blue-600 hover:text-white focus:z-10 focus:ring-blue-500 focus:bg-blue-600 focus:text-white dark:bg-blue-800 dark:hover:bg-blue-900 dark:text-white">
+                    Data
+                </a>';
+
+                // Cek izin edit
+                if (auth()->user()->can('pegawai-edit')) {
+                    $actionButtons .= '
                     <a href="' . $editUrl . '"
-                        class="px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border-t border-b border-l border-green-800 hover:bg-green-600 hover:text-white focus:z-10 focus:ring-green-500 focus:bg-green-600 focus:text-white dark:bg-green-800 dark:hover:bg-green-900 dark:text-white dark:border-gray-500">
+                        class="px-4 py-2 mx-1 text-sm font-medium text-gray-900 bg-transparent border-green-800 rounded-lg hover:bg-green-600 hover:text-white focus:z-10 focus:ring-green-500 focus:bg-green-600 focus:text-white dark:bg-green-800 dark:hover:bg-green-900 dark:text-white">
                         Edit
-                    </a>
+                    </a>';
+                }
+
+                if(auth()->user()->can('pegawai-delete')) {
+                    // Tambahkan tombol delete
+                    $actionButtons .= '
                     <button
-                        class="px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border border-red-800 delete-btn rounded-e-lg hover:bg-red-900 hover:text-white focus:ring-red-500 focus:bg-red-900 focus:text-white dark:bg-red-800 dark:hover:bg-red-900 dark:text-white dark:border-gray-500"
-                        data-id="' . $data->id . '" data-modal-target="deleteModal"
-                        data-modal-toggle="deleteModal">
+                        class="px-4 py-2 mx-1 text-sm font-medium text-gray-900 bg-transparent rounded-lg delete-btn hover:bg-red-900 hover:text-white focus:ring-red-500 focus:bg-red-900 focus:text-white dark:bg-red-800 dark:hover:bg-red-900 dark:text-white"
+                        data-id="' . $data->id . '" data-modal-target="deleteModal" data-modal-toggle="deleteModal">
                         Delete
-                    </button>
-                </div>';
+                    </button>';
+                }
+                
+            '</div>';
+
+                return $actionButtons;
             })
+
             ->addColumn('golongan', function ($data) {
                 return $data->golonganRelasi->nama_golongan ?? 'N/A';
             })
@@ -85,6 +100,7 @@ class PegawaiController extends Controller
                 return $data->jabatanRelasi->nama_jabatan ?? 'N/A';
             })
             ->addIndexColumn() // This is the DT_RowIndex
+            ->rawColumns(['action'])
             ->make(true);
     }
 
