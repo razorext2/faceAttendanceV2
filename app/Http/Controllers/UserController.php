@@ -69,7 +69,7 @@ class UserController extends Controller
                     if (auth()->user()->can('users-edit')) {
                         $actionButtons .= '
                         <a href="' . $editUrl . '"
-                            class="px-4 py-2 mx-1 text-sm font-medium text-gray-900 bg-transparent border-green-800 rounded-lg hover:bg-green-600 hover:text-white focus:z-10 focus:ring-green-500 focus:bg-green-600 focus:text-white dark:bg-green-800 dark:hover:bg-green-900 dark:text-white">
+                            class="px-4 py-2 mx-1 text-sm font-medium text-gray-900 bg-transparent border border-green-800 rounded-lg hover:bg-green-600 hover:text-white focus:z-10 focus:ring-green-500 focus:bg-green-600 focus:text-white dark:bg-green-800 dark:hover:bg-green-900 dark:text-white">
                             Edit
                         </a>';
                     }
@@ -78,7 +78,7 @@ class UserController extends Controller
                         // Tambahkan tombol delete
                         $actionButtons .= '
                         <button
-                            class="px-4 py-2 mx-1 text-sm font-medium text-gray-900 bg-transparent rounded-lg delete-btn hover:bg-red-900 hover:text-white focus:ring-red-500 focus:bg-red-900 focus:text-white dark:bg-red-800 dark:hover:bg-red-900 dark:text-white"
+                            class="px-4 py-2 mx-1 text-sm font-medium text-gray-900 bg-transparent border border-red-800 rounded-lg hover:bg-red-600 hover:text-white focus:z-10 focus:ring-red-500 focus:bg-red-600 focus:text-white dark:bg-red-800 dark:hover:bg-red-900 dark:text-white"
                             data-id="' . $data->id . '" data-modal-target="deleteModal" data-modal-toggle="deleteModal">
                             Delete
                         </button>';
