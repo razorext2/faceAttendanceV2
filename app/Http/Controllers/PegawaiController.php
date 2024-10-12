@@ -18,6 +18,13 @@ use Yajra\DataTables\Facades\DataTables;
 
 class PegawaiController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:pegawai-list', ['only' => ['index', 'getData']]);
+        $this->middleware('permission:pegawai-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:pegawai-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:pegawai-delete', ['only' => ['destroy']]);
+    }
 
     public function index()
     {

@@ -7,7 +7,10 @@ use Illuminate\Http\Request;
 
 class LoghistoryController extends Controller
 {
-
+    function __construct()
+    {
+        $this->middleware('permission:log-list', ['only' => ['index']]);
+    }
     public function index()
     {
         $log = LogHistory::get()->sortByDesc('created_at');

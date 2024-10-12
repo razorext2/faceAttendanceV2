@@ -12,6 +12,13 @@ use Carbon\Carbon;
 
 class JabatanController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:jabatan-list', ['only' => ['index', 'getData']]);
+        $this->middleware('permission:jabatan-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:jabatan-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:jabatan-delete', ['only' => ['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      */

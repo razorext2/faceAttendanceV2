@@ -10,9 +10,14 @@ use Yajra\DataTables\DataTables;
 
 class GolonganController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    function __construct()
+    {
+        $this->middleware('permission:golongan-list', ['only' => ['index', 'getData']]);
+        $this->middleware('permission:golongan-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:golongan-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:golongan-delete', ['only' => ['destroy']]);
+    }
+
     public function index()
     {
         return view('dashboard.golongan.index');

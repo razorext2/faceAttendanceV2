@@ -9,6 +9,13 @@ use Carbon\Carbon;
 
 class PlacementController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:placement-list', ['only' => ['index', 'getData']]);
+        $this->middleware('permission:placement-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:placement-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:placement-delete', ['only' => ['destroy']]);
+    }
 
     public function index()
     {

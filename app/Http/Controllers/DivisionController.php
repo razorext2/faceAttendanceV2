@@ -10,9 +10,14 @@ use Carbon\Carbon;
 
 class DivisionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    function __construct()
+    {
+        $this->middleware('permission:divisi-list', ['only' => ['index', 'getData']]);
+        $this->middleware('permission:divisi-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:divisi-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:divisi-delete', ['only' => ['destroy']]);
+    }
+
     public function index()
     {
         //
