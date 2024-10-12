@@ -1,11 +1,11 @@
 @extends('dashboard.layoutsDash.app')
 @section('content')
-    <form id="add-users" action="{{ route('users.add') }}"></form>
+    <form id="add-permissions" action="{{ route('permissions.add') }}"></form>
 
     <div class="relative grid grid-cols-1 gap-6">
         <div
             class="absolute z-10 max-w-xs left-6 sm:left-auto sm:right-6 lg:right-auto lg:left-6 lg:top-24 md:top-40 top-56 ">
-            <button form="add-users"
+            <button form="add-permissions"
                 class="flex flex-row px-4 py-2 rounded-lg lg:px-8 ring-1 ring-green-700 hover:bg-green-300 dark:bg-green-800 dark:text-white dark:hover:bg-green-900 dark:ring-gray-500">
                 <svg class="rotate-180 dark:fill-white" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
                     viewBox="0 0 1024 1024" fill="#000000" class="icon" version="1.1">
@@ -83,7 +83,8 @@
                     </form>
                 </div>
                 <div class="col-span-2">
-                    <table id="table-users" class="w-full mt-20 text-sm text-left text-gray-500 sm:mt-4 dark:text-gray-300">
+                    <table id="table-permissions"
+                        class="w-full mt-20 text-sm text-left text-gray-500 sm:mt-4 dark:text-gray-300">
                         <thead class="text-xs uppercase">
                             <tr>
                                 <th>
@@ -93,19 +94,14 @@
                                 </th>
                                 <th>
                                     <span class="flex items-center text-gray-800 dark:text-white">
-                                        Nama
+                                        Permission Name
                                     </span>
                                 </th>
-                                <th>
+                                {{-- <th>
                                     <span class="flex items-center text-gray-800 dark:text-white">
-                                        Email
+                                        Permissions
                                     </span>
-                                </th>
-                                <th>
-                                    <span class="flex items-center text-gray-800 dark:text-white">
-                                        Remember Token
-                                    </span>
-                                </th>
+                                </th> --}}
                                 <th>
                                     <span class="flex items-center text-gray-800 dark:text-white">
                                         Create / Update
@@ -136,13 +132,13 @@
             });
 
             // Initialize DataTable
-            let table = $('#table-users').DataTable({
+            let table = $('#table-permissions').DataTable({
                 processing: true,
                 serverSide: true,
                 responsive: true,
                 perPageSelect: [5, 25, 50, 100],
                 ajax: {
-                    url: "{{ route('getDataUsers') }}",
+                    url: "{{ route('getDataPermissions') }}",
                     data: function(d) {
                         d.minDate = minDate.val();
                         d.maxDate = maxDate.val();
@@ -153,17 +149,13 @@
                         name: 'action'
                     },
                     {
-                        data: 'name_roles',
-                        name: 'name_roles'
+                        data: 'name',
+                        name: 'name'
                     },
-                    {
-                        data: 'email',
-                        name: 'email'
-                    },
-                    {
-                        data: 'remember_token',
-                        name: 'remember_token'
-                    },
+                    // {
+                    //     data: 'permissions',
+                    //     name: 'permissions'
+                    // },
                     {
                         data: 'created_updated_at',
                         name: 'created_updated_at'
@@ -250,7 +242,7 @@
             function refreshDataTable() {
                 // Assuming you have a DataTable instance initialized
                 // Replace 'yourDataTable' with your actual DataTable instance variable
-                $('#table-users').DataTable().search('').draw(); // Clear the search and redraw table
+                $('#table-permissions').DataTable().search('').draw(); // Clear the search and redraw table
             }
         }
         // end datatables //
@@ -265,7 +257,7 @@
                 const currentRoute = '{{ request()->segment(2) }}';
 
                 // Delegate click event to the table
-                $('#table-users').on('click', '.delete-btn', function() {
+                $('#table-permissions').on('click', '.delete-btn', function() {
                     // Get the id from data attribute
                     var id = $(this).data('id');
                     // Set the form action for deletion

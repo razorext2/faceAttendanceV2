@@ -13,7 +13,6 @@ use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Carbon\Carbon;
 use Yajra\DataTables\Datatables;
-use Illuminate\Validation\Rules;
 
 class UserController extends Controller
 {

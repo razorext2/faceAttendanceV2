@@ -18,7 +18,7 @@
     rel="stylesheet" />
 
 <!-- Vendor CSS Files -->
-@vite(['resources/css/app.css'])
+@vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/chart.js', 'resources/js/simpleTables.js', 'resources/js/alpine.js'])
 <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.tailwindcss.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.5.4/css/dataTables.dateTime.min.css">
 

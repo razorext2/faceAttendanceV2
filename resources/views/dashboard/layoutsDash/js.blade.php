@@ -1,4 +1,3 @@
-@vite(['resources/js/app.js', 'resources/js/chart.js', 'resources/js/simpleTables.js', 'resources/js/alpine.js'])
 <script src="{{ asset('assets/vendor/php-email-form/validate.js') }}"></script>
 <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
 <script src="https://cdn.datatables.net/2.1.8/js/dataTables.tailwindcss.js"></script>

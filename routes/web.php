@@ -10,7 +10,9 @@ use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\GolonganController;
 use App\Http\Controllers\PlacementController;
 use App\Http\Controllers\LoghistoryController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PermissionController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 
@@ -95,22 +97,22 @@ Route::middleware('auth')->group(function () {
     Route::delete('dashboard/users/delete/{users}', [UserController::class, 'destroy'])->name('users.delete');
 
     // roles
-    Route::get('/getdata-roles', [UserController::class, 'getData'])->name('getDataRoles');
-    Route::get('dashboard/roles', [UserController::class, 'index'])->name('dashboard.roles');
-    Route::get('dashboard/roles/add', [UserController::class, 'create'])->name('roles.add');
-    Route::post('dashboard/roles/store', [UserController::class, 'store'])->name('roles.store');
-    Route::get('dashboard/roles/edit/{roles}', [UserController::class, 'edit'])->name('roles.edit');
-    Route::put('dashboard/roles/update/{roles}', [UserController::class, 'update'])->name('roles.update');
-    Route::delete('dashboard/roles/delete/{roles}', [UserController::class, 'destroy'])->name('roles.delete');
+    Route::get('/getdata-roles', [RoleController::class, 'getData'])->name('getDataRoles');
+    Route::get('dashboard/roles', [RoleController::class, 'index'])->name('dashboard.roles');
+    Route::get('dashboard/roles/add', [RoleController::class, 'create'])->name('roles.add');
+    Route::post('dashboard/roles/store', [RoleController::class, 'store'])->name('roles.store');
+    Route::get('dashboard/roles/edit/{roles}', [RoleController::class, 'edit'])->name('roles.edit');
+    Route::put('dashboard/roles/update/{roles}', [RoleController::class, 'update'])->name('roles.update');
+    Route::delete('dashboard/roles/delete/{roles}', [RoleController::class, 'destroy'])->name('roles.delete');
 
     // permissions
-    Route::get('/getdata-permissions', [UserController::class, 'getData'])->name('getDataPermissions');
-    Route::get('dashboard/permissions', [UserController::class, 'index'])->name('dashboard.permissions');
-    Route::get('dashboard/permissions/add', [UserController::class, 'create'])->name('permissions.add');
-    Route::post('dashboard/permissions/store', [UserController::class, 'store'])->name('permissions.store');
-    Route::get('dashboard/permissions/edit/{permissions}', [UserController::class, 'edit'])->name('permissions.edit');
-    Route::put('dashboard/permissions/update/{permissions}', [UserController::class, 'update'])->name('permissions.update');
-    Route::delete('dashboard/permissions/delete/{permissions}', [UserController::class, 'destroy'])->name('permissions.delete');
+    Route::get('/getdata-permissions', [PermissionController::class, 'getData'])->name('getDataPermissions');
+    Route::get('dashboard/permissions', [PermissionController::class, 'index'])->name('dashboard.permissions');
+    Route::get('dashboard/permissions/add', [PermissionController::class, 'create'])->name('permissions.add');
+    Route::post('dashboard/permissions/store', [PermissionController::class, 'store'])->name('permissions.store');
+    Route::get('dashboard/permissions/edit/{permissions}', [PermissionController::class, 'edit'])->name('permissions.edit');
+    Route::put('dashboard/permissions/update/{permissions}', [PermissionController::class, 'update'])->name('permissions.update');
+    Route::delete('dashboard/permissions/delete/{permissions}', [PermissionController::class, 'destroy'])->name('permissions.delete');
 
     // log
     Route::get('dashboard/log', [LoghistoryController::class, 'index'])->name('dashboard.log');
