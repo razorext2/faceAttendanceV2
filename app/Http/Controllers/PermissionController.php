@@ -105,11 +105,14 @@ class PermissionController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required|unique:permissions,name',
+        $request->validate([
+            'name' => 'required|array',        // Harus berupa array
+            'name.*' => 'required|string|max:255',  // Setiap elemen array harus string
         ]);
 
-        Permission::create(['name' => $request->input('name')]);
+        foreach ($request->name as $permissionName) {
+            Permission::create(['name' => $permissionName]);
+        }
 
         return redirect()->route('dashboard.permissions')->with('status', 'Berhasil menambah data role');;
     }

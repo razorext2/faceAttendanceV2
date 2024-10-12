@@ -25,16 +25,35 @@
 
                 <form action="{{ route('permissions.store') }}" class="mt-4" method="POST">
                     @csrf
-                    <div class="grid gap-4 mb-4 sm:gap-6 sm:mb-5">
+                    <div class="grid gap-4 mb-4 sm:gap-6 sm:mb-5" id="permissionInputs">
                         <div class="w-full">
                             <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama
                                 Permission</label>
-                            <input type="text" name="name" id="name"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                                placeholder="Permission" required="">
+
+                            <div class="flex">
+                                <div class="relative w-full">
+                                    <input type="text" name="name[]" id="name" id="search-dropdown"
+                                        class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-lg rounded-gray-100 rounded-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
+                                        placeholder="Permission" required />
+                                    <button type="button" id="addPermission"
+                                        class="absolute top-0 end-0 p-2.5 h-full text-sm font-medium text-white bg-blue-700 rounded-e-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                        <svg viewBox="0 0 24 24" class="w-6 h-6 stroke-gray-300 dark:stroke-white"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
+                                            </g>
+                                            <g id="SVGRepo_iconCarrier">
+                                                <path d="M6 12H18M12 6V18" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round"></path>
+                                            </g>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="flex items-center">
+
+                    <div class="flex mt-4 itemcenter">
                         <button type="submit"
                             class="ring-1 ring-blue-700 text-gray-900 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 focus:text-white hover:text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-800 dark:text-white dark:hover:bg-blue-900 dark:ring-gray-500">
                             Submit
@@ -49,4 +68,23 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.getElementById('addPermission').addEventListener('click', function() {
+            // Create a new input field
+            const newInput = document.createElement('div');
+            newInput.classList.add('w-full', 'mt-2'); // Add any necessary classes
+            newInput.innerHTML = `
+                <div class="flex">
+                                <div class="relative w-full">
+                                    <input type="text" name="name[]" id="name" id="search-dropdown"
+                                        class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-lg rounded-gray-100 rounded-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
+                                        placeholder="Permission" required />
+                                </div>
+                            </div>
+            `;
+            // Append the new input to the form
+            document.getElementById('permissionInputs').appendChild(newInput);
+        });
+    </script>
 @endsection
