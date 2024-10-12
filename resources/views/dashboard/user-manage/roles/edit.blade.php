@@ -40,13 +40,15 @@
 
                             <input type="checkbox" id="select-all"
                                 class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="select-all" class="text-sm font-medium text-gray-900 ms-2 dark:text-gray-300">Select
+                            <label for="select-all" id="select-all-label"
+                                class="text-sm font-medium text-gray-900 ms-2 dark:text-gray-300">Select
                                 All</label>
+
                             <div class="grid md:grid-cols-2">
                                 @foreach ($permission as $value)
                                     <div>
-                                        <input type="checkbox" name="permission[{{ $value->id }}]"
-                                            value="{{ $value->id }}"
+                                        <input type="checkbox" id="permission[{{ $value->id }}]"
+                                            name="permission[{{ $value->id }}]" value="{{ $value->id }}"
                                             class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded permission-checkbox focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                                             {{ in_array($value->id, $rolePermissions) ? 'checked' : '' }}>
                                         <label for="permission[{{ $value->id }}]"
@@ -54,6 +56,7 @@
                                     </div>
                                 @endforeach
                             </div>
+
                         </div>
                     </div>
                     <div class="flex items-center">
@@ -81,6 +84,40 @@
             checkboxes.forEach(function(checkbox) {
                 checkbox.checked = document.getElementById('select-all').checked;
             });
+
+            // Update label for select all/deselect all
+            updateSelectAllLabel();
         });
+
+        // Add event listener to each permission checkbox to update the select-all checkbox state
+        let permissionCheckboxes = document.querySelectorAll('.permission-checkbox');
+        permissionCheckboxes.forEach(function(checkbox) {
+            checkbox.addEventListener('change', function() {
+                // If any checkbox is unchecked, deselect the select-all checkbox
+                if (!this.checked) {
+                    document.getElementById('select-all').checked = false;
+                }
+
+                // If all checkboxes are checked, select the select-all checkbox
+                if (Array.from(permissionCheckboxes).every(chk => chk.checked)) {
+                    document.getElementById('select-all').checked = true;
+                }
+
+                // Update the label for select all/deselect all
+                updateSelectAllLabel();
+            });
+        });
+
+        // Function to update the label of "Select All"
+        function updateSelectAllLabel() {
+            let selectAllCheckbox = document.getElementById('select-all');
+            let label = document.getElementById('select-all-label');
+
+            if (selectAllCheckbox.checked) {
+                label.textContent = "Deselect All";
+            } else {
+                label.textContent = "Select All";
+            }
+        }
     </script>
 @endsection
