@@ -37,12 +37,17 @@
 
                         <div class="w-full">
                             <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Permissions</label>
+
+                            <input type="checkbox" id="select-all"
+                                class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="select-all" class="text-sm font-medium text-gray-900 ms-2 dark:text-gray-300">Select
+                                All</label>
                             <div class="grid md:grid-cols-2">
                                 @foreach ($permission as $value)
                                     <div>
                                         <input type="checkbox" name="permission[{{ $value->id }}]"
                                             value="{{ $value->id }}"
-                                            class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                                            class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded permission-checkbox focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                                             {{ in_array($value->id, $rolePermissions) ? 'checked' : '' }}>
                                         <label for="permission[{{ $value->id }}]"
                                             class="text-sm font-medium text-gray-900 ms-2 dark:text-gray-300">{{ $value->name }}</label>
@@ -66,4 +71,16 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.getElementById('select-all').addEventListener('change', function() {
+            // Get all checkboxes with class 'permission-checkbox'
+            let checkboxes = document.querySelectorAll('.permission-checkbox');
+
+            // Set the checked state of all checkboxes based on the "Select All" checkbox
+            checkboxes.forEach(function(checkbox) {
+                checkbox.checked = document.getElementById('select-all').checked;
+            });
+        });
+    </script>
 @endsection
