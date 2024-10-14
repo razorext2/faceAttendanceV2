@@ -128,6 +128,8 @@
     <script>
         function showDatatables() {
             let minDate, maxDate;
+            let namaPegawai = "{{ Auth::user()->name }}";
+            const tanggal = "{{ \Carbon\Carbon::today()->locale('id')->isoFormat('D MMMM YYYY') }}";
 
             // Initialize DateTime pickers for min and max date inputs
             minDate = new DateTime($('#min'), {
@@ -175,17 +177,98 @@
                 buttons: [{
                         extend: "csv",
                         exportOptions: {
-                            stripHtml: false
+                            stripHtml: false,
+                            columns: ':not(:first-child)'
                         }
                     },
                     {
                         extend: "excel",
                         exportOptions: {
                             stripHtml: false,
-                            decodeEntities: false
+                            decodeEntities: false,
+                            columns: ':not(:first-child)'
                         }
                     },
-                    "print",
+                    {
+                        extend: "print",
+                        exportOptions: {
+                            columns: [1, 2, 3]
+                        },
+                        title: '', // Custom title in print view
+                        customize: function(win) {
+                            // Menambahkan CSS inline khusus untuk print
+                            $(win.document.head).append(`
+                                <style>
+                                    body {
+                                        background-color: #fff;
+                                    }
+                                    table {
+                                        margin: 20px;
+                                        border: 1px solid;
+                                        border-collapse: collapse;
+                                        width: 100%;
+                                    }
+                                    th {
+                                        text-align: center !important; /* Membuat teks di <th> berada di tengah */
+                                    }
+                                    td, th {
+                                        padding: 8px;
+                                        border: 1px solid #ddd;
+                                    }
+                                    h3 {
+                                        text-align: center;
+                                        font-size: 2rem;
+                                        margin-bottom: 1rem;
+                                    }
+                                    /* Footer fixed untuk cetakan */
+                                    footer {
+                                        position: fixed;
+                                        bottom: 0;
+                                        width: 100%;
+                                        text-align: center;
+                                        font-size: 1.2rem;
+                                        background-color: #fff;
+                                        padding: 10px; /* Menambahkan padding agar ada ruang di sekitar teks */
+                                    }
+                                    /* Menghilangkan border dari elemen footer */
+                                    footer table, footer td, footer th {
+                                        border: none !important;
+                                        padding: 0;
+                                    }
+                                    /* Agar tabel di dalam footer berada di kanan */
+                                    footer table {
+                                        float: right; /* Membuat tabel mengambang ke kanan */
+                                        margin-bottom: 50px;
+                                    }
+                                </style>
+                            `);
+
+
+                            // Menambahkan header atau judul tambahan
+                            $(win.document.body).prepend(
+                                '<h3>Laporan Golongan</h3>'
+                            );
+
+                            $(win.document.body).append(`
+                                <footer>
+                                    <table style="width: auto;">
+                                        <tr>
+                                            <td>Di keluarkan oleh ` + namaPegawai + `</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Pada tanggal, ` + tanggal + `</td>    
+                                        </tr>
+                                        <tr>
+                                            <td style="height: 80px;"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>` + namaPegawai + `</td>
+                                        </tr>
+                                    </table>
+                                </footer>
+                            `);
+                        },
+                    },
                 ],
                 "deferRender": true,
                 "language": {

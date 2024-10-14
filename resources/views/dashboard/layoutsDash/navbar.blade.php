@@ -26,10 +26,11 @@
                             class="flex text-sm rounded-full dark:bg-gray-800">
                             <span class="sr-only">Open user menu</span>
                             <div class="items-center hidden space-x-6 rtl:space-x-reverse me-2 md:block">
-                                <p class="text-sm text-gray-800 dark:text-white" role="none">
+                                <p class="text-sm text-right text-gray-800 dark:text-white" role="none">
                                     {{ Auth::user()->name }}
                                 </p>
-                                <p class="text-sm font-medium text-gray-800 truncate dark:text-white" role="none">
+                                <p class="text-sm font-medium text-right text-gray-800 truncate dark:text-white"
+                                    role="none">
                                     {{ Auth::user()->email }}
                                 </p>
                             </div>
