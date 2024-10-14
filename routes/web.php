@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DayoffController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\AttendanceController;
@@ -113,6 +114,18 @@ Route::middleware('auth')->group(function () {
     Route::get('dashboard/permissions/edit/{permissions}', [PermissionController::class, 'edit'])->name('permissions.edit');
     Route::put('dashboard/permissions/update/{permissions}', [PermissionController::class, 'update'])->name('permissions.update');
     Route::delete('dashboard/permissions/delete/{permissions}', [PermissionController::class, 'destroy'])->name('permissions.delete');
+
+    // dayoff
+    Route::get('/dashboard/dayoff/autocomplete', [DayoffController::class, 'autocomplete'])->name('autocomplete');
+    Route::get('/getdata-dayoff', [DayoffController::class, 'getData'])->name('getDataDayoff');
+    Route::get('dashboard/dayoff', [DayoffController::class, 'index'])->name('dashboard.dayoff');
+    Route::get('dashboard/dayoff/add', [DayoffController::class, 'create'])->name('dayoff.add');
+    Route::post('dashboard/dayoff/store', [DayoffController::class, 'store'])->name('dayoff.store');
+    Route::get('dashboard/dayoff/edit/{dayoff}', [DayoffController::class, 'edit'])->name('dayoff.edit');
+    Route::put('dashboard/dayoff/update/{dayoff}', [DayoffController::class, 'update'])->name('dayoff.update');
+    Route::delete('dashboard/dayoff/delete/{dayoff}', [DayoffController::class, 'destroy'])->name('dayoff.delete');
+    Route::post('/upload-image', [DayoffController::class, 'uploadImage']);
+
 
     // log
     Route::get('dashboard/log', [LoghistoryController::class, 'index'])->name('dashboard.log');

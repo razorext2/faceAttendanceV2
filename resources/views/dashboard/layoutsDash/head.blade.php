@@ -25,8 +25,13 @@
 {{-- datatables button --}}
 <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.1.2/css/buttons.dataTables.css">
+{{-- quill --}}
+<link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet">
+
+{{-- quill --}}
 
 <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
 
 <style>
     ::-webkit-scrollbar {

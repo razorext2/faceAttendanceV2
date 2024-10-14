@@ -1,0 +1,171 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Carbon\Carbon;
+use App\Models\Dayoff;
+use App\Models\Pegawai;
+use yajra\DataTables\DataTables;
+use Illuminate\Support\Facades\Storage;
+
+class DayoffController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        //
+        return view('dashboard.dayoff.index');
+    }
+
+    public function getData(Request $request)
+    {
+        // Function to clean the date string
+        function cleanDate($dateString)
+        {
+            // Use regex to remove timezone name in parentheses, leaving the GMT offset intact
+            return preg_replace('/\s\(.+\)$/', '', $dateString);
+        }
+
+        // Parse the minDate and maxDate from the request after cleaning
+        $minDate = cleanDate($request->input('minDate'));
+        $maxDate = cleanDate($request->input('maxDate'));
+
+        // Start building the query
+        $query = Dayoff::get();
+
+        // Apply date filtering if minDate and maxDate are provided
+        if ($minDate) {
+            $query->where('updated_at', '>=', Carbon::parse($minDate)->startOfDay());
+        }
+        if ($maxDate) {
+            $query->where('updated_at', '<=', Carbon::parse($maxDate)->endOfDay());
+        }
+
+        // Fetch the filtered data with pagination for DataTables
+        return DataTables::of($query)
+            ->addColumn('action', function ($data) {
+                $editUrl = route('dayoff.edit', $data->id);
+
+                // Inisialisasi variabel untuk tombol aksi
+                $actionButtons = '
+                <div class="inline-flex" role="group">';
+
+                    // Cek izin edit
+                    if (auth()->user()->can('dayoff-edit')) {
+                        $actionButtons .= '
+                        <a href="' . $editUrl . '"
+                            class="px-4 py-2 mx-1 text-sm font-medium text-gray-900 bg-transparent border border-green-800 rounded-lg hover:bg-green-600 hover:text-white focus:z-10 focus:ring-green-500 focus:bg-green-600 focus:text-white dark:bg-green-800 dark:hover:bg-green-900 dark:text-white">
+                            Edit
+                        </a>';
+                    }
+
+                    if(auth()->user()->can('dayoff-delete')) {
+                        // Tambahkan tombol delete
+                        $actionButtons .= '
+                        <button
+                            class="px-4 py-2 mx-1 text-sm font-medium text-gray-900 bg-transparent border border-red-800 rounded-lg hover:bg-red-600 hover:text-white focus:z-10 focus:ring-red-500 focus:bg-red-600 focus:text-white dark:bg-red-800 dark:hover:bg-red-900 dark:text-white"
+                            data-id="' . $data->id . '" data-modal-target="deleteModal" data-modal-toggle="deleteModal">
+                            Delete
+                        </button>';
+                    }
+                '</div>';
+
+                return $actionButtons;
+            })
+            ->editColumn('created_updated_at', function ($data) {
+                return $data->created_at . ' / ' . $data->updated_at;
+            })
+            ->make(true);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+        return view('dashboard.dayoff.add');
+    }
+
+    public function autocomplete(Request $request)
+    {
+        $search = $request->input('query'); // Mengambil input dari request
+        
+        // Cari nama pengguna berdasarkan input
+        $users = Pegawai::where('full_name', 'LIKE', "%{$search}%")
+            ->limit(10) // Batasi hasil
+            ->get(['id', 'kode_pegawai', 'nick_name', 'full_name']); // Ambil ID dan nama saja
+        
+        return response()->json($users); // Kembalikan hasil sebagai JSON
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        //
+        Dayoff::create([
+            'id_user' => $request->input('kode_pegawai'),
+            'dayoff_for' => $request->input('dayoff_for'),
+            'url' => NULL,
+            'tgl_dari' => $request->input('start_time'),
+            'tgl_hingga' => $request->input('end_time'),
+            'keterangan' => $request->input('keterangan'),
+            'status' => 'requested',
+        ]);
+
+        return redirect()->route('dashboard.dayoff')->with('status', 'Berhasil menambah data divisi.');
+    }
+
+    public function uploadImage(Request $request)
+    {
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Validasi file gambar
+        ]);
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $path = $image->store('uploads', 'public'); // Simpan file di folder 'public/uploads'
+
+            return response()->json(['url' => Storage::url($path)]); // Kembalikan URL gambar yang diupload
+        }
+
+        return response()->json(['error' => 'Gagal mengupload gambar'], 500);
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
+    }
+}

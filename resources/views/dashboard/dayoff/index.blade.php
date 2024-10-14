@@ -1,11 +1,12 @@
 @extends('dashboard.layoutsDash.app')
 @section('content')
-    <form id="add-pegawai" action="{{ route('pegawai.add') }}"></form>
+    <form id="add-dayoff" action="{{ route('dayoff.add') }}"></form>
+
     <div class="relative grid grid-cols-1 gap-6">
-        @can('pegawai-create')
+        @can('dayoff-create')
             <div
                 class="absolute z-10 max-w-xs left-6 sm:left-auto sm:right-6 lg:right-auto lg:left-6 lg:top-24 md:top-40 top-56 ">
-                <button form="add-pegawai"
+                <button form="add-dayoff"
                     class="flex flex-row px-4 py-2 rounded-lg lg:px-8 ring-1 ring-green-700 hover:bg-green-300 dark:bg-green-800 dark:text-white dark:hover:bg-green-900 dark:ring-gray-500">
                     <svg class="rotate-180 dark:fill-white" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
                         viewBox="0 0 1024 1024" fill="#000000" class="icon" version="1.1">
@@ -17,7 +18,6 @@
                 </button>
             </div>
         @endcan
-
         <div class="flex items-center justify-center h-auto">
             <div
                 class="grid w-full grid-cols-2 gap-4 p-6 shadow-sm rounded-xl bg-gray-50 ring-1 ring-gray-200 dark:bg-gray-800 dark:ring-gray-500">
@@ -85,7 +85,7 @@
                     </form>
                 </div>
                 <div class="col-span-2">
-                    <table id="table-pegawai"
+                    <table id="table-dayoff"
                         class="w-full mt-20 text-sm text-left text-gray-500 sm:mt-4 dark:text-gray-300">
                         <thead class="text-xs uppercase">
                             <tr>
@@ -96,47 +96,42 @@
                                 </th>
                                 <th>
                                     <span class="flex items-center text-gray-800 dark:text-white">
-                                        Kode Pegawai
+                                        ID User
                                     </span>
                                 </th>
                                 <th>
                                     <span class="flex items-center text-gray-800 dark:text-white">
-                                        NIK
+                                        Dayoff For
                                     </span>
                                 </th>
                                 <th>
                                     <span class="flex items-center text-gray-800 dark:text-white">
-                                        Full Name
+                                        URL
                                     </span>
                                 </th>
                                 <th>
                                     <span class="flex items-center text-gray-800 dark:text-white">
-                                        Nick Name
+                                        Tanggal Dari
                                     </span>
                                 </th>
                                 <th>
                                     <span class="flex items-center text-gray-800 dark:text-white">
-                                        No Telepon
+                                        Tanggal Hingga
                                     </span>
                                 </th>
                                 <th>
                                     <span class="flex items-center text-gray-800 dark:text-white">
-                                        Jabatan
+                                        Keterangan
                                     </span>
                                 </th>
                                 <th>
                                     <span class="flex items-center text-gray-800 dark:text-white">
-                                        Golongan
+                                        Status
                                     </span>
                                 </th>
                                 <th>
                                     <span class="flex items-center text-gray-800 dark:text-white">
-                                        Alamat
-                                    </span>
-                                </th>
-                                <th>
-                                    <span class="flex items-center text-gray-800 dark:text-white">
-                                        Storage
+                                        Create / Update
                                     </span>
                                 </th>
                             </tr>
@@ -151,7 +146,6 @@
     </div>
 
     @include('dashboard.layoutsDash.modals')
-
     <script>
         function showDatatables() {
             let minDate, maxDate;
@@ -165,13 +159,13 @@
             });
 
             // Initialize DataTable
-            let table = $('#table-pegawai').DataTable({
+            let table = $('#table-dayoff').DataTable({
                 processing: true,
                 serverSide: true,
                 responsive: true,
                 perPageSelect: [5, 25, 50, 100],
                 ajax: {
-                    url: "{{ route('getDataPegawai') }}",
+                    url: "{{ route('getDataDayoff') }}",
                     data: function(d) {
                         d.minDate = minDate.val();
                         d.maxDate = maxDate.val();
@@ -182,43 +176,39 @@
                         name: 'action'
                     },
                     {
-                        data: 'kode_pegawai',
-                        name: 'kode_pegawai'
+                        data: 'id_user',
+                        name: 'id_user'
                     },
                     {
-                        data: 'nik_pegawai',
-                        name: 'nik_pegawai'
+                        data: 'dayoff_for',
+                        name: 'dayoff_for'
                     },
                     {
-                        data: 'full_name',
-                        name: 'full_name'
+                        data: 'url',
+                        name: 'url'
                     },
                     {
-                        data: 'nick_name',
-                        name: 'nick_name'
+                        data: 'tgl_dari',
+                        name: 'tgl_dari'
                     },
                     {
-                        data: 'no_telp',
-                        name: 'no_telp'
+                        data: 'tgl_hingga',
+                        name: 'tgl_hingga'
                     },
                     {
-                        data: 'jabatan',
-                        name: 'jabatan'
+                        data: 'keterangan',
+                        name: 'keterangan'
                     },
                     {
-                        data: 'golongan',
-                        name: 'golongan'
+                        data: 'status',
+                        name: 'status'
                     },
                     {
-                        data: 'alamat',
-                        name: 'alamat'
-                    },
-                    {
-                        data: 'storage',
-                        name: 'storage'
+                        data: 'created_updated_at',
+                        name: 'created_updated_at'
                     }
                 ],
-                dom: `<"absolute top-1 md:left-0 {{ auth()->user()->can('pegawai-create') ? 'lg:left-48 right-0' : '' }} mt-14 lg:mt-0 dark:text-white max-w-xs"B><"text-left lg:text-right dark:text-white"l><"relative overflow-x-auto w-full mt-20 lg:mt-4"t><"grid text-center gap-4 lg:grid-cols-2 mt-4 dark:text-white"<"lg:mt-3 lg:text-left"i><"lg:text-right dark:text-gray-900"p>>`,
+                dom: `<"absolute top-1 md:left-0 {{ auth()->user()->can('dayoff-create') ? 'lg:left-48 right-0' : '' }} mt-14 lg:mt-0 dark:text-white max-w-xs"B><"text-left lg:text-right dark:text-white"l><"relative overflow-x-auto w-full mt-20 lg:mt-4"t><"grid text-center gap-4 lg:grid-cols-2 mt-4 dark:text-white"<"lg:mt-3 lg:text-left"i><"lg:text-right dark:text-gray-900"p>>`,
                 buttons: [{
                         extend: "csv",
                         exportOptions: {
@@ -232,85 +222,7 @@
                             decodeEntities: false
                         }
                     },
-                    {
-                        extend: "print",
-                        exportOptions: {
-                            columns: [2, 3, 4, 5, 6, 7, 8, 9, 10]
-                        },
-                        title: '', // Custom title in print view
-                        customize: function(win) {
-                            // Menambahkan CSS inline khusus untuk print
-                            $(win.document.head).append(`
-                                <style>
-                                    body {
-                                        background-color: #fff;
-                                    }
-                                    table {
-                                        margin: 20px;
-                                        border: 1px solid;
-                                        border-collapse: collapse;
-                                        width: 100%;
-                                    }
-                                    th {
-                                        text-align: center !important; /* Membuat teks di <th> berada di tengah */
-                                    }
-                                    td, th {
-                                        padding: 8px;
-                                        border: 1px solid #ddd;
-                                    }
-                                    h3 {
-                                        text-align: center;
-                                        font-size: 2rem;
-                                        margin-bottom: 1rem;
-                                    }
-                                    /* Footer fixed untuk cetakan */
-                                    footer {
-                                        position: fixed;
-                                        bottom: 0;
-                                        width: 100%;
-                                        text-align: center;
-                                        font-size: 1.2rem;
-                                        background-color: #fff;
-                                        padding: 10px; /* Menambahkan padding agar ada ruang di sekitar teks */
-                                    }
-                                    /* Menghilangkan border dari elemen footer */
-                                    footer table, footer td, footer th {
-                                        border: none !important;
-                                        padding: 0;
-                                    }
-                                    /* Agar tabel di dalam footer berada di kanan */
-                                    footer table {
-                                        float: right; /* Membuat tabel mengambang ke kanan */
-                                        margin-bottom: 50px;
-                                    }
-                                </style>
-                            `);
-
-                            // Menambahkan header atau judul tambahan
-                            $(win.document.body).prepend(
-                                '<h3>Laporan Data Karyawan</h3>'
-                            );
-
-                            $(win.document.body).append(`
-                                <footer>
-                                    <table style="width: auto;">
-                                        <tr>
-                                            <td>Di keluarkan oleh ` + namaPegawai + `</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Pada tanggal, ` + tanggal + `</td>    
-                                        </tr>
-                                        <tr>
-                                            <td style="height: 80px;"></td>
-                                        </tr>
-                                        <tr>
-                                            <td>` + namaPegawai + `</td>
-                                        </tr>
-                                    </table>
-                                </footer>
-                            `);
-                        },
-                    },
+                    "print",
                 ],
                 "deferRender": true,
                 "language": {
@@ -377,7 +289,7 @@
             function refreshDataTable() {
                 // Assuming you have a DataTable instance initialized
                 // Replace 'yourDataTable' with your actual DataTable instance variable
-                $('#table-pegawai').DataTable().search('').draw(); // Clear the search and redraw table
+                $('#table-dayoff').DataTable().search('').draw(); // Clear the search and redraw table
             }
         }
         // end datatables //
@@ -392,7 +304,7 @@
                 const currentRoute = '{{ request()->segment(2) }}';
 
                 // Delegate click event to the table
-                $('#table-pegawai').on('click', '.delete-btn', function() {
+                $('#table-dayoff').on('click', '.delete-btn', function() {
                     // Get the id from data attribute
                     var id = $(this).data('id');
                     // Set the form action for deletion
