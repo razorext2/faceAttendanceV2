@@ -4,7 +4,7 @@
             <div class="flex items-center justify-start">
                 <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar"
                     type="button"
-                    class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-200">
+                    class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden dark:hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-200">
                     <span class="sr-only">Open sidebar</span>
                     <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg">
@@ -23,7 +23,7 @@
                     <div class="flex flex-wrap items-center justify-between max-w-screen-xl mx-auto">
 
                         <button type="button" @click="profile = !profile"
-                            class="flex text-sm bg-gray-800 rounded-full">
+                            class="flex text-sm rounded-full dark:bg-gray-800">
                             <span class="sr-only">Open user menu</span>
                             <div class="items-center hidden space-x-6 rtl:space-x-reverse me-2 md:block">
                                 <p class="text-sm text-gray-800 dark:text-white" role="none">
@@ -33,7 +33,7 @@
                                     {{ Auth::user()->email }}
                                 </p>
                             </div>
-                            <img class="w-8 h-8 rounded-full md:mt-1"
+                            <img class="w-8 h-8 rounded-full md:mt-1 "
                                 src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="user photo">
                         </button>
                     </div>
