@@ -2,7 +2,7 @@
 @section('content')
     <div class="w-full space-y-6 xl:w-6/12 2xl:w-1/3">
         <div class="p-4 shadow-sm sm:p-6 bg-gray-50 rounded-xl ring-1 ring-gray-200 dark:bg-gray-800 dark:ring-gray-500">
-            <div class="max-w-xl">
+            <div class="w-full">
                 <header class="flex flex-row">
                     <a href="{{ route('dashboard.dayoff') }}"
                         class="mr-3 px-2.5 mb-4 md:px-4 py-2.5 align-middle ring-1 ring-red-700 hover:bg-red-300 rounded-lg flex flex-row dark:bg-red-800 dark:hover:bg-red-900 dark:text-white dark:ring-gray-500">
@@ -50,10 +50,10 @@
                             <select id="dayoff_for" name="dayoff_for"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
                                 <option selected>Pilih</option>
-                                <option value="izin"> Izin </option>
-                                <option value="sakit"> Sakit </option>
-                                <option value="absen"> Absen </option>
-                                <option value="pc"> Pulang Cepat </option>
+                                <option value="Izin"> Izin </option>
+                                <option value="Sakit"> Sakit </option>
+                                <option value="Absen"> Absen </option>
+                                <option value="PC"> Pulang Cepat </option>
                             </select>
                         </div>
 
@@ -74,10 +74,10 @@
                     </div>
 
                     <div class="relative w-full mb-4">
-                        <label for="editor" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                             Keterangan
                         </label>
-                        <div id="editor" class="w-full h-32"></div>
+                        <div id="editor" class="w-full h-32 dark:bg-white"></div>
                         <input type="hidden" name="keterangan" id="keterangan">
                     </div>
 
@@ -236,6 +236,12 @@
 
                 $('#autocomplete-results').empty(); // Kosongkan hasil setelah memilih
             });
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector('.ql-toolbar').classList.add('dark:bg-white', 'rounded-t-lg');
+            document.querySelector('.ql-picker').classList.add('dark:bg-gray-50');
+            document.getElementById('editor').classList.add('!h-96', 'rounded-b-lg');
         });
     </script>
 @endsection

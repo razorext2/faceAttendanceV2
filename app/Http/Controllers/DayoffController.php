@@ -48,10 +48,19 @@ class DayoffController extends Controller
         return DataTables::of($query)
             ->addColumn('action', function ($data) {
                 $editUrl = route('dayoff.edit', $data->id);
+                $detailUrl = route('dayoff.detail', $data->id);
 
                 // Inisialisasi variabel untuk tombol aksi
                 $actionButtons = '
                 <div class="inline-flex" role="group">';
+
+                    if(auth()->user()->can('dayoff-detail')){
+                        $actionButtons .= '
+                        <a href="' . $detailUrl . '"
+                        class="px-4 py-2 mx-1 text-sm font-medium text-gray-900 bg-transparent border border-blue-800 rounded-lg hover:bg-blue-600 hover:text-white focus:z-10 focus:ring-blue-500 focus:bg-blue-600 focus:text-white dark:bg-blue-800 dark:hover:bg-blue-900 dark:text-white">
+                        Data
+                    </a>';
+                    }
 
                     // Cek izin edit
                     if (auth()->user()->can('dayoff-edit')) {

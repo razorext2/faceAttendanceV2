@@ -106,22 +106,12 @@
                                 </th>
                                 <th>
                                     <span class="flex items-center text-gray-800 dark:text-white">
-                                        URL
-                                    </span>
-                                </th>
-                                <th>
-                                    <span class="flex items-center text-gray-800 dark:text-white">
                                         Tanggal Dari
                                     </span>
                                 </th>
                                 <th>
                                     <span class="flex items-center text-gray-800 dark:text-white">
                                         Tanggal Hingga
-                                    </span>
-                                </th>
-                                <th>
-                                    <span class="flex items-center text-gray-800 dark:text-white">
-                                        Keterangan
                                     </span>
                                 </th>
                                 <th>
@@ -184,20 +174,12 @@
                         name: 'dayoff_for'
                     },
                     {
-                        data: 'url',
-                        name: 'url'
-                    },
-                    {
                         data: 'tgl_dari',
                         name: 'tgl_dari'
                     },
                     {
                         data: 'tgl_hingga',
                         name: 'tgl_hingga'
-                    },
-                    {
-                        data: 'keterangan',
-                        name: 'keterangan'
                     },
                     {
                         data: 'status',

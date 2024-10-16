@@ -125,7 +125,7 @@ Route::middleware('auth')->group(function () {
     Route::put('dashboard/dayoff/update/{dayoff}', [DayoffController::class, 'update'])->name('dayoff.update');
     Route::delete('dashboard/dayoff/delete/{dayoff}', [DayoffController::class, 'destroy'])->name('dayoff.delete');
     Route::post('/upload-image', [DayoffController::class, 'uploadImage']);
-
+    Route::get('dashboard/dayoff/detail/{dayoff}', [DayoffController::class, 'detail'])->name('dayoff.detail');
 
     // log
     Route::get('dashboard/log', [LoghistoryController::class, 'index'])->name('dashboard.log');
