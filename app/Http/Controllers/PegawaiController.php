@@ -15,6 +15,7 @@ use App\Models\Pegawai;
 use App\Models\Jabatan;
 use App\Models\Golongan;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Cache;
 
 class PegawaiController extends Controller
 {
@@ -45,7 +46,9 @@ class PegawaiController extends Controller
         $maxDate = cleanDate($request->input('maxDate'));
 
         // Start building the query
-        $query = Pegawai::with('golonganRelasi', 'jabatanRelasi')->get();
+        $query = Cache::remember('pegawai_with_golongan_jabatan', 60 * 60, function () {
+            return Pegawai::with('golonganRelasi', 'jabatanRelasi')->get();
+        });
 
         // Apply date filtering if minDate and maxDate are provided
         if ($minDate) {

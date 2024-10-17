@@ -2,7 +2,7 @@
 <aside id="logo-sidebar"
     class="fixed top-0 left-0 z-40 h-full pt-16 transition-transform -translate-x-full bg-white border-r border-gray-200 shadow-sm w-72 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-500"
     aria-label="Sidebar">
-    <div class="h-full p-5 overflow-y-auto">
+    <div class="relative p-5 overflow-y-auto max-h-[87.5%]">
         <ul class="space-y-2 font-medium">
             <li>
                 <a href="{{ route('dashboard') }}"
@@ -353,7 +353,7 @@
         </ul>
     </div>
 
-    <div class="absolute bottom-0 left-0 grid w-auto h-auto grid-cols-1 p-5">
+    <div class="absolute bottom-0 left-0 grid w-auto grid-cols-1 px-5 pb-5 h-content">
         <!-- start footer -->
         @include('dashboard.layoutsDash.footer')
         <!-- footer -->

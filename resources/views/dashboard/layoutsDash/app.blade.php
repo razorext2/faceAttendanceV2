@@ -104,6 +104,8 @@
     </div>
     <!-- footer -->
 
+    
+
     <!-- js -->
     @include('dashboard.layoutsDash.js')
 </body>
