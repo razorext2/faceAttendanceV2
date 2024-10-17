@@ -127,6 +127,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/upload-image', [DayoffController::class, 'uploadImage']);
     Route::get('dashboard/dayoff/detail/{dayoff}', [DayoffController::class, 'detail'])->name('dayoff.detail');
 
+    Route::put('dashboard/dayoff/detail/confirm/{dayoff}', [DayoffController::class, 'confirm'])->name('dayoff.confirm');
+    Route::put('dashboard/dayoff/detail/ignore/{dayoff}', [DayoffController::class, 'ignore'])->name('dayoff.ignore');
+
     // log
     Route::get('dashboard/log', [LoghistoryController::class, 'index'])->name('dashboard.log');
 });

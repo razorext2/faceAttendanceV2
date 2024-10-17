@@ -96,7 +96,7 @@
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                         </g>
                     </svg>
-                    <span class="flex-1 text-sm ms-3 whitespace-nowrap">Day Off</span>
+                    <span class="flex-1 text-sm ms-3 whitespace-nowrap">Off Day</span>
                 </a>
             </li>
 

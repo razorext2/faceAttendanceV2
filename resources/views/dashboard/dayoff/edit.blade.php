@@ -4,7 +4,7 @@
         <div class="p-4 shadow-sm sm:p-6 bg-gray-50 rounded-xl ring-1 ring-gray-200 dark:bg-gray-800 dark:ring-gray-500">
             <div class="max-w-xl">
                 <header class="flex flex-row">
-                    <a href="{{ route('dashboard.users') }}"
+                    <a href="{{ route('dashboard.dayoff') }}"
                         class="mr-3 px-2.5 mb-4 md:px-4 py-2.5 align-middle ring-1 ring-red-700 hover:bg-red-300 rounded-lg flex flex-row dark:bg-red-800 dark:hover:bg-red-900 dark:text-white dark:ring-gray-500">
                         <svg class="dark:fill-white" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
                             viewBox="0 0 1024 1024" fill="#000000" class="icon" version="1.1">
@@ -15,7 +15,7 @@
                         Kembali
                     </a>
                     <h2 class="mt-2 text-lg font-medium text-gray-900 dark:text-white">
-                        {{ __('Tambah Data User') }}
+                        {{ __('Edit Pengajuan Off') }}
                     </h2>
 
                 </header>
@@ -23,56 +23,68 @@
                     {{ __('Silahkan sesuaikan data dibawah ini dengan data yang benar.') }}
                 </p>
 
-                <form action="{{ route('users.update', $user) }}" class="mt-4" method="POST">
+                <form id="content-form" action="{{ route('dayoff.update', $dayoff) }}" class="mt-4" method="POST">
                     @csrf
                     @method('put')
-                    <div class="grid gap-4 mb-4 sm:gap-6 sm:mb-5">
-                        <div class="w-full">
+                    <div class="grid grid-cols-2 gap-4 mb-4 sm:gap-6 sm:mb-5">
+
+                        <div class="w-full col-span-2">
+                            <label for="kode_pegawai"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kode Pegawai</label>
+                            <input type="text" name="kode_pegawai" id="kode_pegawai"
+                                class="dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 cursor-not-allowed"
+                                placeholder="Kode pegawai" required="" readonly
+                                value="{{ old('kode_pegawai', $dayoff->id_user) }}">
+                        </div>
+
+                        <div class="w-full col-span-2">
                             <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama
-                                User</label>
+                                Pegawai</label>
                             <input type="text" name="name" id="name"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                                placeholder="User" required="" value="{{ $user->name }}">
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
+                                placeholder="Nama karyawan.." required=""
+                                value="{{ old('full_name', $dayoff->pegawaiRelasi->full_name) }}" readonly>
+                            <div id="autocomplete-results" class="autocomplete-results"></div>
                         </div>
 
-                        <div class="w-full">
-                            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email
-                                User</label>
-                            <input type="email" id="email" name="email" placeholder="Email"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                                value="{{ $user->email }}">
-
-                        </div>
-                        <div class="w-full">
-                            <label for="password"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                            <input type="password" id="password" name="password" placeholder="Password"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5">
-
-                        </div>
-                        <div class="w-full">
-                            <label for="confirm-password"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm
-                                Password</label>
-                            <input type="password" id="confirm-password" name="confirm-password"
-                                placeholder="Confirm Password"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5">
-                        </div>
-
-                        <div class="w-full">
-                            <label for="roles"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Roles</label>
-                            <select id="roles" name="roles[]"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
-                                multiple="multiple">
-                                @foreach ($roles as $value => $label)
-                                    <option value="{{ $value }}" {{ isset($userRole[$value]) ? 'selected' : '' }}>
-                                        {{ $label }}
-                                    </option>
-                                @endforeach
+                        <div class="w-full col-span-2">
+                            <label for="dayoff_for"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Peruntukan</label>
+                            <select id="dayoff_for" name="dayoff_for"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
+                                <option selected>Pilih</option>
+                                <option value="Izin" @if ($dayoff->dayoff_for == 'Izin') selected @endif> Izin </option>
+                                <option value="Sakit" @if ($dayoff->dayoff_for == 'Sakit') selected @endif> Sakit </option>
+                                <option value="Absen" @if ($dayoff->dayoff_for == 'Absen') selected @endif> Absen </option>
+                                <option value="PC" @if ($dayoff->dayoff_for == 'PC') selected @endif> Pulang Cepat
+                                </option>
                             </select>
                         </div>
+
+                        <div class="w-full">
+                            <label for="start-time"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Start time:</label>
+                            <input type="datetime-local" name="start_time" id="start-time"
+                                class="bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray-800 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                required value="{{ old('tgl_dari', $dayoff->tgl_dari) }}" />
+                        </div>
+                        <div class="w-full">
+                            <label for="end-time" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">End
+                                time:</label>
+                            <input type="datetime-local" name="end_time" id="end-time"
+                                class="bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray-800 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                required value="{{ old('tgl_hingga', $dayoff->tgl_hingga) }}" />
+                        </div>
                     </div>
+
+                    <div class="relative w-full mb-4">
+                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                            Keterangan
+                        </label>
+                        <div id="editor" class="w-full h-32 dark:bg-white"></div>
+                        <input type="hidden" name="keterangan" id="keterangan">
+                    </div>
+
                     <div class="flex items-center">
                         <button type="submit"
                             class="ring-1 ring-blue-700 text-gray-900 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 focus:text-white hover:text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-800 dark:text-white dark:hover:bg-blue-900 dark:ring-gray-500">
@@ -88,4 +100,105 @@
             </div>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
+    <script>
+        // Ensure you import Quill and its CSS correctly
+        const BlockEmbed = Quill.import('blots/block/embed');
+
+        // Create a custom blot
+        class CustomEmbed extends BlockEmbed {
+            static create(value) {
+                let node = super.create();
+                node.setAttribute('data-value', value);
+                return node;
+            }
+
+            static formats(node) {
+                return node.getAttribute('data-value');
+            }
+        }
+
+        // Register the custom blot
+        CustomEmbed.blotName = 'customEmbed'; // The name you want to use
+        CustomEmbed.tagName = 'div'; // HTML tag
+        Quill.register(CustomEmbed);
+
+        // Initialize Quill
+        const quill = new Quill('#editor', {
+            theme: 'snow',
+            placeholder: 'Tulis keterangan...',
+            modules: {
+                toolbar: [
+                    [{
+                        'header': [1, 2, false]
+                    }],
+                    ['bold', 'italic', 'underline'],
+                    ['image', 'code-block'],
+                    [{
+                        'list': 'ordered'
+                    }, {
+                        'list': 'bullet'
+                    }]
+                ],
+            }
+        });
+
+        // Set the initial content for the editor
+        const initialContent = @json($dayoff->keterangan); // Ambil data dari database
+        quill.root.innerHTML = initialContent; // Isi editor dengan nilai dari keterangan
+
+        // Register the image handler
+        quill.getModule('toolbar').addHandler('image', imageHandler);
+
+        // Image handler function
+        function imageHandler() {
+            const input = document.createElement('input');
+            input.setAttribute('type', 'file');
+            input.setAttribute('accept', 'image/*');
+            input.click();
+
+            input.onchange = async () => {
+                const file = input.files[0];
+
+                if (file) {
+                    const formData = new FormData();
+                    formData.append('image', file);
+
+                    // Use fetch API to upload the image
+                    const response = await fetch('/upload-image', {
+                        method: 'POST',
+                        headers: {
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute(
+                                'content')
+                        },
+                        body: formData
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        const range = quill.getSelection();
+                        if (range) {
+                            quill.insertEmbed(range.index, 'image', data.url); // Insert the image into Quill
+                        } else {
+                            console.error('No selection in Quill to insert image');
+                        }
+                    } else {
+                        console.error('Failed to upload image');
+                    }
+                }
+            };
+        }
+
+        document.getElementById('content-form').onsubmit = function() {
+            const content = document.getElementById('keterangan');
+            content.value = quill.root.innerHTML; // Get the HTML content
+        };
+
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector('.ql-toolbar').classList.add('dark:bg-white', 'rounded-t-lg');
+            document.querySelector('.ql-picker').classList.add('dark:bg-gray-50');
+            document.getElementById('editor').classList.add('!h-96', 'rounded-b-lg');
+        });
+    </script>
 @endsection

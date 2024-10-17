@@ -182,8 +182,8 @@
                         name: 'tgl_hingga'
                     },
                     {
-                        data: 'status',
-                        name: 'status'
+                        data: 'statuses',
+                        name: 'statuses'
                     },
                     {
                         data: 'created_updated_at',
