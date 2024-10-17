@@ -203,7 +203,6 @@ class DayoffController extends Controller
             'tgl_dari' => $request->input('start_time'),
             'tgl_hingga' => $request->input('end_time'),
             'keterangan' => $request->input('keterangan'),
-            'status' => 'requested',
         ]);
 
         return redirect()->route('dashboard.dayoff')->with('status', 'Berhasil mengubah pengajuan');
