@@ -1,6 +1,6 @@
 <!-- Sidebar Navigation -->
 <aside id="logo-sidebar"
-    class="fixed top-0 left-0 z-40 h-full pt-16 transition-transform -translate-x-full bg-white border-r border-gray-200 shadow-sm w-72 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-500"
+    class="fixed top-0 left-0 z-40 hidden h-full pt-16 transition-transform -translate-x-full bg-white border-r border-gray-200 shadow-sm w-72 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-500 md:block"
     aria-label="Sidebar">
     <div class="relative p-5 overflow-y-auto max-h-[87.5%]">
         <ul class="space-y-2 font-medium">

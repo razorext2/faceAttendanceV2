@@ -166,8 +166,8 @@
                         name: 'action'
                     },
                     {
-                        data: 'id_user',
-                        name: 'id_user'
+                        data: 'id_nama_user',
+                        name: 'id_nama_user'
                     },
                     {
                         data: 'dayoff_for',

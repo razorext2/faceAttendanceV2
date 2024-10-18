@@ -104,8 +104,10 @@
     </div>
     <!-- footer -->
 
-    
-
+    {{-- bikin navigasi ala android --}}
+    <div class="fixed bottom-0 w-full px-3 py-5 bg-gray-900 md:hidden">
+        <div class="w-full p-5 bg-gray-800 rounded-full"></div>
+    </div>
     <!-- js -->
     @include('dashboard.layoutsDash.js')
 </body>
