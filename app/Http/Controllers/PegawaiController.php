@@ -45,10 +45,8 @@ class PegawaiController extends Controller
         $minDate = cleanDate($request->input('minDate'));
         $maxDate = cleanDate($request->input('maxDate'));
 
-        // Start building the query
-        $query = Cache::remember('pegawai_with_golongan_jabatan', 60 * 60, function () {
-            return Pegawai::with('golonganRelasi', 'jabatanRelasi')->get();
-        });
+        // batalkan penggunaan cache di database
+        $query = Pegawai::with('golonganRelasi', 'jabatanRelasi')->get();
 
         // Apply date filtering if minDate and maxDate are provided
         if ($minDate) {
@@ -81,7 +79,7 @@ class PegawaiController extends Controller
                     </a>';
                 }
 
-                if(auth()->user()->can('pegawai-delete')) {
+                if (auth()->user()->can('pegawai-delete')) {
                     // Tambahkan tombol delete
                     $actionButtons .= '
                     <button
@@ -90,8 +88,8 @@ class PegawaiController extends Controller
                         Delete
                     </button>';
                 }
-                
-            '</div>';
+
+                '</div>';
 
                 return $actionButtons;
             })
