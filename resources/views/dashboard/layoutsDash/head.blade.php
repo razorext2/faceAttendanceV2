@@ -1,5 +1,5 @@
 <meta charset="utf-8" />
-<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>FaceID Attendance System</title>
 <meta name="description" content="" />
 <meta name="keywords" content="" />
@@ -9,61 +9,55 @@
 <!-- Favicons -->
 <link href="{{ asset('assets/img/logo.ico') }}" rel="icon" />
 <link href="{{ asset('assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon" />
-
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com" rel="preconnect" />
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
 <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet" />
-
+	href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+	rel="stylesheet" />
 <!-- Vendor CSS Files -->
 @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/chart.js', 'resources/js/simpleTables.js', 'resources/js/alpine.js'])
-<link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.tailwindcss.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.5.4/css/dataTables.dateTime.min.css">
-
+<link href="https://cdn.datatables.net/2.1.8/css/dataTables.tailwindcss.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/datetime/1.5.4/css/dataTables.dateTime.min.css" rel="stylesheet">
 {{-- datatables button --}}
-<link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.1.2/css/buttons.dataTables.css">
-
+<link href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/buttons/3.1.2/css/buttons.dataTables.css" rel="stylesheet">
 {{-- quill --}}
 <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet">
 {{-- quill --}}
 
-<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-
-
 <style>
-    ::-webkit-scrollbar {
-        width: 5px;
-        height: 5px;
-        transition: width 0.3s ease;
-        scrollbar-width: thin;
-    }
+	::-webkit-scrollbar {
+		width: 5px;
+		height: 5px;
+		transition: width 0.3s ease;
+		scrollbar-width: thin;
+	}
 
-    ::-webkit-scrollbar-thumb {
-        background-color: rgba(0, 0, 0, 0.1);
-        border-radius: 5px;
-        transition: opacity 0.5s ease;
-    }
+	::-webkit-scrollbar-thumb {
+		background-color: rgba(0, 0, 0, 0.1);
+		border-radius: 5px;
+		transition: opacity 0.5s ease;
+	}
 
-    ::-webkit-scrollbar-thumb:hover {
-        background-color: rgba(0, 0, 0, 0.2);
-        /* Darken the scrollbar thumb on hover */
-    }
+	::-webkit-scrollbar-thumb:hover {
+		background-color: rgba(0, 0, 0, 0.2);
+		/* Darken the scrollbar thumb on hover */
+	}
 
-    .swiper {
-        width: 600px;
-        height: 300px;
-    }
+	.swiper {
+		width: 600px;
+		height: 300px;
+	}
 </style>
 
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 <script>
-    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
-            '(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-    } else {
-        document.documentElement.classList.remove('dark')
-    }
+	// On page load or when changing themes, best to add inline in `head` to avoid FOUC
+	if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
+			'(prefers-color-scheme: dark)').matches)) {
+		document.documentElement.classList.add('dark');
+	} else {
+		document.documentElement.classList.remove('dark')
+	}
 </script>

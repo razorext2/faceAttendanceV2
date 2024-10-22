@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('tb_log', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id', 32)->nullable();
-            $table->string('user_action', '32')->nullable();
-            $table->string('ip_address', '32')->nullable();
+            $table->string('user_id')->nullable();
+            $table->string('user_action')->nullable();
+            $table->string('ip_address')->nullable();
             $table->string('user_agent')->nullable();
-            $table->string('user_location', '128')->nullable();
+            $table->string('user_location')->nullable();
             $table->timestamps();
         });
     }
