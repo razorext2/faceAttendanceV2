@@ -8,7 +8,7 @@
 
 	<div class="mx-auto w-full md:mx-0 md:w-full lg:w-9/12">
 		<div class="dark:bg-gray-800 dark:ring-1 dark:ring-gray-500 flex w-full flex-col rounded-xl bg-white p-10 shadow-xl">
-			<h2 class="dark:text-white mb-5 text-left text-2xl font-bold text-gray-800">
+			<h2 class="dark:text-white mb-2 text-left text-2xl font-bold text-gray-800">
 				Sign In
 			</h2>
 
