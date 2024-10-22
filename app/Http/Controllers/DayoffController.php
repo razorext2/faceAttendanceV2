@@ -8,12 +8,19 @@ use App\Models\Dayoff;
 use App\Models\Pegawai;
 use yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class DayoffController extends Controller
 {
 	/**
 	 * Display a listing of the resource.
 	 */
+	function __construct()
+	{
+		$this->middleware('permission:dayoff-delete', ['only' => ['destroy']]);
+		$this->middleware('permission:dayoff-confirm', ['only' => ['confirm', 'ignore']]);
+	}
+
 	public function index()
 	{
 		//
@@ -34,7 +41,17 @@ class DayoffController extends Controller
 		$maxDate = cleanDate($request->input('maxDate'));
 
 		// Start building the query
-		$query = Dayoff::with('pegawaiRelasi')->get();
+		if (auth()->user()->hasRole(['Admin', 'Support', 'HRD', 'Management'])) {
+			// Fetch all Dayoff records with pegawaiRelasi relationship for specific roles
+			$query = Dayoff::with('pegawaiRelasi')
+				->orderByDesc('tgl_dari')
+				->get();
+		} else {
+			// Fetch only Dayoff records for the currently logged-in user's pegawaiRelasi
+			$query = Dayoff::with('pegawaiRelasi')
+				->where('id_user', Auth::user()->kode_pegawai)
+				->get();
+		}
 
 		// Apply date filtering if minDate and maxDate are provided
 		if ($minDate) {
@@ -57,28 +74,28 @@ class DayoffController extends Controller
 				$actionButtons = '
                 <div class="inline-flex" role="group">';
 
-				if (auth()->user()->can('dayoff-detail')) {
-					$actionButtons .=
-						'
+				// if (auth()->user()->can('dayoff-detail')) {
+				$actionButtons .=
+					'
                         <a href="' .
-						$detailUrl .
-						'"
+					$detailUrl .
+					'"
                         class="px-4 py-2 mx-1 text-sm font-medium text-gray-900 bg-transparent border border-blue-800 rounded-lg hover:bg-blue-600 hover:text-white focus:z-10 focus:ring-blue-500 focus:bg-blue-600 focus:text-white dark:bg-blue-800 dark:hover:bg-blue-900 dark:text-white">
                         Data
                     </a>';
-				}
+				// }
 
 				// Cek izin edit
-				if (auth()->user()->can('dayoff-edit')) {
-					$actionButtons .=
-						'
+				// if (auth()->user()->can('dayoff-edit')) {
+				$actionButtons .=
+					'
                         <a href="' .
-						$editUrl .
-						'"
+					$editUrl .
+					'"
                             class="px-4 py-2 mx-1 text-sm font-medium text-gray-900 bg-transparent border border-green-800 rounded-lg hover:bg-green-600 hover:text-white focus:z-10 focus:ring-green-500 focus:bg-green-600 focus:text-white dark:bg-green-800 dark:hover:bg-green-900 dark:text-white">
                             Edit
                         </a>';
-				}
+				// }
 
 				if (auth()->user()->can('dayoff-delete')) {
 					// Tambahkan tombol delete
@@ -122,7 +139,14 @@ class DayoffController extends Controller
 	public function create()
 	{
 		//
-		return view('dashboard.dayoff.add');
+		if (auth()->user()->hasRole(['Admin', 'Support', 'HRD', 'Management'])) {
+			// If the user has one of the specified roles, show the 'add' dayoff view without specific data
+			return view('dashboard.dayoff.add');
+		} else {
+			// If the user is not one of the specified roles, get their associated Pegawai data and pass it to the view
+			$data = Pegawai::where('kode_pegawai', Auth::user()->kode_pegawai)->firstOrFail();
+			return view('dashboard.dayoff.add', compact('data'));
+		}
 	}
 
 	public function autocomplete(Request $request)
@@ -153,7 +177,7 @@ class DayoffController extends Controller
 			'status' => 2,
 		]);
 
-		return redirect()->route('dashboard.dayoff')->with('status', 'Berhasil menambah data divisi.');
+		return redirect()->route('dashboard.dayoff')->with('status', 'Berhasil menambah pengajuan off.');
 	}
 
 	public function uploadImage(Request $request)

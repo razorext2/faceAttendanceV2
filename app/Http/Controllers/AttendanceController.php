@@ -6,13 +6,23 @@ use App\Models\Attendance;
 use App\Models\Logabsensi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
 
 class AttendanceController extends Controller
 {
 
     public function index()
     {
-        $datas = Attendance::with('pegawaiRelasi')->orderByDesc('jam_masuk')->get();
+        if (auth()->user()->hasRole(['Admin', 'Support', 'HRD', 'Management'])) {
+
+            $datas = Attendance::with('pegawaiRelasi')->orderByDesc('jam_masuk')->get();
+        } else {
+            $datas = Attendance::with('pegawaiRelasi')
+                ->where('kode_pegawai', Auth::user()->kode_pegawai)
+                ->orderByDesc('jam_masuk')
+                ->get();
+        }
+
         return view('dashboard.attendanceIn.view', compact('datas'));
     }
 

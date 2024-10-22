@@ -6,13 +6,23 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Models\AttendanceOut;
 use App\Models\Logabsensi;
+use Illuminate\Support\Facades\Auth;
 
 class AttendanceOutController extends Controller
 {
 
     public function index()
     {
-        $datas = AttendanceOut::with('pegawaiRelasi')->orderByDesc('jam_keluar')->get();
+        if (auth()->user()->hasRole(['Admin', 'Support', 'HRD', 'Management'])) {
+
+            $datas = AttendanceOut::with('pegawaiRelasi')->orderByDesc('jam_keluar')->get();
+        } else {
+            $datas = AttendanceOut::with('pegawaiRelasi')
+                ->where('kode_pegawai', Auth::user()->kode_pegawai)
+                ->orderByDesc('jam_keluar')
+                ->get();
+        }
+
         return view('dashboard.attendanceOut.view', compact('datas'));
     }
 

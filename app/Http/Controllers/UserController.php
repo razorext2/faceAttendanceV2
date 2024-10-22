@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Pegawai;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Arr;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -75,11 +77,17 @@ class UserController extends Controller
                 }
 
                 if (auth()->user()->can('users-delete')) {
+
+                    if ($data->kode_pegawai != null) {
+                        $id = $data->kode_pegawai;
+                    } else {
+                        $id = $data->id;
+                    }
                     // Tambahkan tombol delete
                     $actionButtons .= '
                         <button
-                            class="px-4 py-2 mx-1 text-sm font-medium text-gray-900 bg-transparent border border-red-800 rounded-lg hover:bg-red-600 hover:text-white focus:z-10 focus:ring-red-500 focus:bg-red-600 focus:text-white dark:bg-red-800 dark:hover:bg-red-900 dark:text-white"
-                            data-id="' . $data->id . '" data-modal-target="deleteModal" data-modal-toggle="deleteModal">
+                            class="px-4 py-2 mx-1 text-sm font-medium text-gray-900 bg-transparent border border-red-800 rounded-lg hover:bg-red-600 hover:text-white focus:z-10 focus:ring-red-500 focus:bg-red-600 focus:text-white dark:bg-red-800 dark:hover:bg-red-900 dark:text-white delete-btn"
+                            data-id="' . $id . '" data-modal-target="deleteModal" data-modal-toggle="deleteModal">
                             Delete
                         </button>';
                 }
@@ -125,7 +133,6 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|same:confirm-password',
-            'roles' => 'required'
         ]);
 
         $input = $request->all();
@@ -184,7 +191,25 @@ class UserController extends Controller
      */
     public function destroy($id): RedirectResponse
     {
-        User::find($id)->delete();
+        // User::find($id)->delete();
+        // Pegawai::find($id)->delete();
+
+        // Find the user by ID
+        if (Auth::user()->kode_pegawai != null) {
+            $user = User::where('kode_pegawai', $id)->first();
+        } else {
+            $user = User::where('id', $id)->first();
+        }
+
+        $pegawai = Pegawai::where('kode_pegawai', $id)->first();
+
+        if ($pegawai != null) {
+            $user->delete();
+            $pegawai->delete();
+        } else {
+            $user->delete();
+        }
+
         return redirect()->route('dashboard.users')
             ->with('status', 'Berhasil menghapus data user');
     }

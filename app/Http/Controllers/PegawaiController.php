@@ -14,8 +14,9 @@ use App\Models\AttendanceOut;
 use App\Models\Pegawai;
 use App\Models\Jabatan;
 use App\Models\Golongan;
+use App\Models\User;
 use Yajra\DataTables\Facades\DataTables;
-use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Hash;
 
 class PegawaiController extends Controller
 {
@@ -84,7 +85,7 @@ class PegawaiController extends Controller
                     $actionButtons .= '
                     <button
                         class="px-4 py-2 mx-1 text-sm font-medium text-gray-900 bg-transparent border border-red-800 rounded-lg hover:bg-red-600 hover:text-white focus:z-10 focus:ring-red-500 focus:bg-red-600 focus:text-white dark:bg-red-800 dark:hover:bg-red-900 dark:text-white delete-btn"
-                        data-id="' . $data->id . '" data-modal-target="deleteModal" data-modal-toggle="deleteModal">
+                        data-id="' . $data->kode_pegawai . '" data-modal-target="deleteModal" data-modal-toggle="deleteModal">
                         Delete
                     </button>';
                 }
@@ -125,6 +126,15 @@ class PegawaiController extends Controller
             'golongan' => $request->input('golongan'),
             'tgl_lahir' => $request->input('tgl_lahir')
         ]);
+
+        $user = User::create([
+            'kode_pegawai' => $request->input('kode_pegawai'),
+            'name' => $request->input('nama_lengkap'),
+            'email' => $request->input('nick_name') . '@indodacin.com',
+            'password' => Hash::make($request->input('kode_pegawai')),
+        ]);
+
+        $user->assignRole(7);
 
         $photo = $request->input('photo1');
         if (!is_null($photo)) {
@@ -191,8 +201,16 @@ class PegawaiController extends Controller
     public function destroy($id)
     {
         //
-        $pegawai = Pegawai::findOrFail($id);
-        $pegawai->delete();
+
+        $user = User::where('kode_pegawai', $id)->first();
+        $pegawai = Pegawai::where('kode_pegawai', $id)->first();
+
+        if ($user != null) {
+            $user->delete();
+            $pegawai->delete();
+        } else {
+            $pegawai->delete();
+        }
 
         return redirect()->back()->with('status', 'Berhasil menghapus data pegawai.');
     }

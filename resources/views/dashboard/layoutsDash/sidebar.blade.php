@@ -87,7 +87,7 @@
 					class="{{ Route::currentRouteName() == 'dashboard.dayoff' || Route::currentRouteName() == 'dayoff.add' || Route::currentRouteName() == 'dayoff.edit' || Route::currentRouteName() == 'dayoff.detail' ? 'text-gray-900 bg-gray-100 dark:bg-transparent dark:text-white' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent dark:hover:text-white' }} flex items-center rounded-lg p-2"
 					href="{{ route('dashboard.dayoff') }}" role="menuitem">
 					<svg
-						class="fi-sidebar-item-icon {{ Route::currentRouteName() == 'dashboard.dayoff' || Route::currentRouteName() == 'dayoff.add' || Route::currentRouteName() == 'dayoff.edit' ? 'stroke-gray-700 dark:stroke-white' : 'stroke-gray-400' }} h-6 w-6 text-gray-400"
+						class="fi-sidebar-item-icon {{ Route::currentRouteName() == 'dashboard.dayoff' || Route::currentRouteName() == 'dayoff.add' || Route::currentRouteName() == 'dayoff.edit' || Route::currentRouteName() == 'dayoff.detail' ? 'stroke-gray-700 dark:stroke-white' : 'stroke-gray-400' }} h-6 w-6 text-gray-400"
 						viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
 						<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
