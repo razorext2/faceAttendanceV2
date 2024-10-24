@@ -24,40 +24,20 @@
 <link href="https://cdn.datatables.net/buttons/3.1.2/css/buttons.dataTables.css" rel="stylesheet">
 {{-- quill --}}
 <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet">
-{{-- quill --}}
-
-<style>
-	::-webkit-scrollbar {
-		width: 5px;
-		height: 5px;
-		transition: width 0.3s ease;
-		scrollbar-width: thin;
-	}
-
-	::-webkit-scrollbar-thumb {
-		background-color: rgba(0, 0, 0, 0.1);
-		border-radius: 5px;
-		transition: opacity 0.5s ease;
-	}
-
-	::-webkit-scrollbar-thumb:hover {
-		background-color: rgba(0, 0, 0, 0.2);
-		/* Darken the scrollbar thumb on hover */
-	}
-
-	.swiper {
-		width: 600px;
-		height: 300px;
-	}
-</style>
-
+{{-- sweetalert --}}
+<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.1/dist/sweetalert2.min.css" rel="stylesheet">
+{{-- jquery --}}
 <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
 <script>
 	// On page load or when changing themes, best to add inline in `head` to avoid FOUC
-	if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
-			'(prefers-color-scheme: dark)').matches)) {
-		document.documentElement.classList.add('dark');
+	if (
+		localStorage.getItem("color-theme") === "dark" ||
+		(!("color-theme" in localStorage) &&
+			window.matchMedia("(prefers-color-scheme: dark)").matches)
+	) {
+		document.documentElement.classList.add("dark");
 	} else {
-		document.documentElement.classList.remove('dark')
+		document.documentElement.classList.remove("dark");
 	}
 </script>

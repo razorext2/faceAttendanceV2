@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 	<head>
 		@include('dashboard.layoutsDash.head')
@@ -105,6 +105,8 @@
 
 		{{-- bikin navigasi ala android --}}
 		@include('dashboard.layoutsDash.mobileDrawer')
+		<div class="dark:bg-gray-800 fixed inset-0 z-50 bg-white md:z-[9999]" id="preloader">
+		</div>
 
 		<!-- js -->
 		@include('dashboard.layoutsDash.js')

@@ -39,7 +39,7 @@
 
 					<div
 						class="dark:bg-gray-800 dark:divide-gray-500 dark:ring-gray-500 absolute right-5 top-16 z-50 list-none rounded-lg bg-white text-base shadow-sm ring-1 ring-gray-200"
-						x-show="profile" x-transition:enter="transition ease-in duration-200"
+						style="display: none;" x-show="profile" x-transition:enter="transition ease-in duration-200"
 						x-transition:enter-start="transform opacity-0 -translate-y-5"
 						x-transition:leave="transition ease-out duration-200"
 						x-transition:leave-end="transform opacity-0  -translate-y-5">
@@ -72,13 +72,14 @@
 										class="dark:hover:bg-gray-700 dark:text-red-500 dark:hover:text-red-600 rounded-md pl-3 pr-16 text-gray-800 hover:bg-gray-100"
 										:href="route('logout')"
 										onclick="event.preventDefault();
-                                                this.closest('form').submit();">
+                            this.closest('form').submit();">
 										{{ __('Log Out') }}
 									</x-dropdown-link>
 								</form>
 							</li>
 						</ul>
 					</div>
+
 				</div>
 			</div>
 		</div>
