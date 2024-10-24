@@ -14,6 +14,7 @@ use App\Http\Controllers\LoghistoryController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\CaptureController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 
@@ -132,6 +133,9 @@ Route::middleware('auth')->group(function () {
 
     // log
     Route::get('dashboard/log', [LoghistoryController::class, 'index'])->name('dashboard.log');
+
+    // record attendance
+    Route::get('dashboard/capture', [CaptureController::class, 'index'])->name('dashboard.capture');
 });
 
 require __DIR__ . '/auth.php';
@@ -139,6 +143,7 @@ require __DIR__ . '/auth.php';
 
 // api for get pegawai data
 Route::get('/api/getPegawai', [PegawaiController::class, 'getPegawai']);
+Route::get('/api/getPegawai/{id}', [PegawaiController::class, 'getPegawaiByID']);
 Route::get('/api/pegawai-images/{id}', [PegawaiController::class, 'getPegawaiImages']);
 Route::post('/api/saveImage', [PegawaiController::class, 'storeImage']);
 Route::get('/api/getPegawaiData/{label}', [PegawaiController::class, 'getPegawaiDataByLabel']);

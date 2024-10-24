@@ -17,6 +17,7 @@ use App\Models\Golongan;
 use App\Models\User;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class PegawaiController extends Controller
 {
@@ -278,6 +279,13 @@ class PegawaiController extends Controller
     {
         // cek data pegawai yang kolom storagenya tidak kosong
         $kode = Pegawai::whereNotNull('storage')->pluck('kode_pegawai');
+        return response()->json($kode);
+    }
+
+    public function getPegawaiByID($id)
+    {
+        // cek data pegawai yang kolom storagenya tidak kosong
+        $kode = Pegawai::where('kode_pegawai', Auth::user()->kode_pegawai)->pluck('kode_pegawai');
         return response()->json($kode);
     }
 
