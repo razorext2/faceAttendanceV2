@@ -10,6 +10,8 @@
 		<h2 class="mb-4 text-3xl font-bold leading-none tracking-tight md:text-4xl">Tambah Pegawai</h2>
 	@elseif (Route::currentRouteName() == 'pegawai.detail')
 		<h2 class="mb-4 text-3xl font-bold leading-none tracking-tight md:text-4xl">Detail Absensi</h2>
+	@elseif (Route::currentRouteName() == 'pegawai.timeline')
+		<h2 class="mb-4 text-3xl font-bold leading-none tracking-tight md:text-4xl">Linimasa</h2>
 		<!-- end pegawai -->
 		<!-- jabatan -->
 	@elseif (Route::currentRouteName() == 'dashboard.jabatan')
