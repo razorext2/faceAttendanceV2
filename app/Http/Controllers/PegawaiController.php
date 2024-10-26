@@ -27,6 +27,7 @@ class PegawaiController extends Controller
         $this->middleware('permission:pegawai-create', ['only' => ['create', 'store']]);
         $this->middleware('permission:pegawai-edit', ['only' => ['edit', 'update']]);
         $this->middleware('permission:pegawai-delete', ['only' => ['destroy']]);
+        $this->middleware('permission:pegawai-timeline', ['only' => ['timeline']]);
     }
 
     public function index()
@@ -63,14 +64,24 @@ class PegawaiController extends Controller
             ->addColumn('action', function ($data) {
                 $editUrl = route('pegawai.edit', $data->id);
                 $dataUrl = route('pegawai.detail', $data->id);
+                $timelineUrl = route('pegawai.timeline', $data->kode_pegawai);
 
                 // Inisialisasi variabel untuk tombol aksi
                 $actionButtons = '
-            <div class="inline-flex" role="group">
-                <a href="' . $dataUrl . '"
-                    class="px-4 py-2 mx-1 text-sm font-medium text-gray-900 bg-transparent border border-blue-800 rounded-lg hover:bg-blue-600 hover:text-white focus:z-10 focus:ring-blue-500 focus:bg-blue-600 focus:text-white dark:bg-blue-800 dark:hover:bg-blue-900 dark:text-white">
-                    Data
-                </a>';
+                <div class="inline-flex" role="group">
+                    <a href="' . $dataUrl .
+                    '"
+                        class="px-4 py-2 mx-1 text-sm font-medium text-gray-900 bg-transparent border border-blue-800 rounded-lg hover:bg-blue-600 hover:text-white focus:z-10 focus:ring-blue-500 focus:bg-blue-600 focus:text-white dark:bg-blue-800 dark:hover:bg-blue-900 dark:text-white">
+                        Detail
+                    </a>';
+
+                if (auth()->user()->can('pegawai-timeline')) {
+                    $actionButtons .= '    
+                    <a href="' . $timelineUrl . '"
+                        class="px-4 py-2 mx-1 text-sm font-medium text-gray-900 bg-transparent border border-blue-800 rounded-lg hover:bg-blue-600 hover:text-white focus:z-10 focus:ring-blue-500 focus:bg-blue-600 focus:text-white dark:bg-blue-800 dark:hover:bg-blue-900 dark:text-white">
+                        Timeline
+                    </a>';
+                }
 
                 // Cek izin edit
                 if (auth()->user()->can('pegawai-edit')) {
@@ -90,7 +101,6 @@ class PegawaiController extends Controller
                         Delete
                     </button>';
                 }
-
                 '</div>';
 
                 return $actionButtons;
@@ -243,6 +253,23 @@ class PegawaiController extends Controller
         $attendanceData = Attendance::where('kode_pegawai', $pegawai->kode_pegawai)->get();
 
         return view('dashboard.pegawai.detail', compact('pegawai', 'dd', 'startOfMonth', 'images', 'attendanceData'));
+    }
+
+    public function timeline($id)
+    {
+        $date = Carbon::now()->isoFormat('Y-MM-DD');
+
+        $data = AttendanceOut::select('latitude', 'longitude', DB::raw("'check-out' as type"), 'jam_keluar as time')
+            ->whereDate('jam_keluar', $date)
+            ->where('kode_pegawai', $id);
+
+        $data2 = Attendance::select('latitude', 'longitude', DB::raw("'check-in' as type"), 'jam_masuk as time')
+            ->whereDate('jam_masuk', $date)
+            ->where('kode_pegawai', $id)
+            ->unionAll($data)
+            ->get();
+
+        return view('dashboard.capture.timeline', compact('data2'));
     }
 
     public function getAttendanceData(Request $request)

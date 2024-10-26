@@ -45,6 +45,7 @@ Route::middleware('auth')->group(function () {
     Route::get('dashboard/pegawai/detail/{pegawai}', [PegawaiController::class, 'detail'])->name('pegawai.detail');
     // Route::post('/dashboard/pegawai/photo-update', [PegawaiController::class, 'updatePhoto'])->name('pegawai.photo');
     Route::get('/api/get-attendance-data', [PegawaiController::class, 'getAttendanceData'])->name('pegawai.getattendance');
+    Route::get('/dashboard/pegawai/timeline/{pegawai}', [PegawaiController::class, 'timeline'])->name('pegawai.timeline');
 
     // jabatan
     Route::get('/getdata-jabatan', [JabatanController::class, 'getData'])->name('getDataJabatan');
@@ -136,7 +137,6 @@ Route::middleware('auth')->group(function () {
 
     // record attendance
     Route::get('dashboard/capture', [CaptureController::class, 'index'])->name('dashboard.capture');
-    Route::get('dashboard/timeline', [CaptureController::class, 'timeline'])->name('dashboard.timeline');
 });
 
 require __DIR__ . '/auth.php';
