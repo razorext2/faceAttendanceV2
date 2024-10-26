@@ -33,7 +33,13 @@ class AttendanceController extends Controller
             $nikPegawai = $request->input('nik_pegawai');
             $timestamp = Session::get('current_date');
             $photoURL = $kodePegawai . $timestamp;
-            // $photoURL = $kodePegawai . $timestamp . '.png';
+            if (!is_null($request->input('longitude'))) {
+                $longitude = $request->input('longitude');
+                $latitude = $request->input('latitude');
+            } else {
+                $longitude = NULL;
+                $latitude = NULL;
+            }
 
 
             Attendance::create([
@@ -46,6 +52,8 @@ class AttendanceController extends Controller
                 'waktuori' => now(),
                 'status' => 1,
                 'jam_masuk' => now(), // Menggunakan helper now() untuk mendapatkan waktu saat ini
+                'longitude' => $longitude,
+                'latitude' => $latitude,
                 'photoURL' => $photoURL,
                 'created_at' => now(),
             ]);

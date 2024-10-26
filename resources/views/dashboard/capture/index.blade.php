@@ -177,41 +177,6 @@
 								window.location.href = "{{ route('dashboard.capture') }}";
 							}, 750);
 						});
-
-						// lat = specifiedLat;
-						// lng = specifiedLng;
-
-						// // Display the latitude and longitude in the span
-						// lokasiSpan.innerHTML = `${lat}, ${lng}`;
-
-						// // Calculate distance from the specified point
-						// const distance = calculateDistance(specifiedLat, specifiedLng, lat, lng);
-
-						// // Check if within the specified radius
-						// if (distance > radius) {
-						// 	// console.log(`${lat}, ${lng}`);
-						// 	Swal.fire({
-						// 		title: "Gagal!",
-						// 		html: `Anda berada ${distance.toFixed(2)} meter dari tempat yang ditentukan.`,
-						// 		timer: 1500,
-						// 		icon: "error",
-						// 		showConfirmButton: false,
-						// 	}).then(() => {
-						// 		// Show and hide elements after the alert disappears
-						// 		pegawaiKosong.style.display = "block";
-						// 		pegawaiInfo.style.display = "none";
-
-						// 		setTimeout(() => {
-						// 			window.location.href = "{{ route('dashboard.capture') }}";
-						// 		}, 750);
-						// 	});
-						// } else {
-						// 	// Dynamically load the scripts after the log
-						// 	loadScript("{{ asset('face-api.min.js') }}", function() {
-						// 		loadScript("{{ asset('selfDetect.min.js') }}", function() {});
-						// 	});
-
-						// }
 					}
 				);
 			} else {

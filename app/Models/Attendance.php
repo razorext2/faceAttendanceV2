@@ -22,6 +22,8 @@ class Attendance extends Model
         'waktuori',
         'status',
         'jam_masuk',
+        'longitude',
+        'latitude',
         'photoURL',
         'created_at',
     ];

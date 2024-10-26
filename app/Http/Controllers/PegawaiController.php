@@ -247,7 +247,12 @@ class PegawaiController extends Controller
 
     public function getAttendanceData(Request $request)
     {
-        $date = $request->query('date');
+        if ($request->query('date') != NULL) {
+            $date = $request->query('date');
+        } else {
+            $date = Carbon::now()->isoFormat('Y-MM-DD');
+        }
+
         $kode_pegawai = $request->query('kode_pegawai');
 
         $attendance = Attendance::whereDate('jam_masuk', $date)

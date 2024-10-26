@@ -24,6 +24,7 @@
         "apexcharts": "^3.53.0",
         "D": "^1.0.0",
         "leaflet": "^1.9.4",
+        "leaflet-routing-machine": "^3.2.12",
         "simple-datatables": "^9.1.0",
         "sweetalert2": "^11.14.1"
     }

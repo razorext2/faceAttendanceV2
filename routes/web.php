@@ -136,6 +136,7 @@ Route::middleware('auth')->group(function () {
 
     // record attendance
     Route::get('dashboard/capture', [CaptureController::class, 'index'])->name('dashboard.capture');
+    Route::get('dashboard/timeline', [CaptureController::class, 'timeline'])->name('dashboard.timeline');
 });
 
 require __DIR__ . '/auth.php';

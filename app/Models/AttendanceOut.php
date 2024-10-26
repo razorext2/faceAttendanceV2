@@ -22,6 +22,8 @@ class AttendanceOut extends Model
         'waktuori',
         'status',
         'jam_keluar',
+        'longitude',
+        'latitude',
         'photoURL',
         'created_at',
     ];

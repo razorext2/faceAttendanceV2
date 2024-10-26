@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 12, 2024 at 08:22 AM
+-- Generation Time: Oct 26, 2024 at 07:12 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.2.22
 
@@ -38,7 +38,10 @@ CREATE TABLE `cache` (
 --
 
 INSERT INTO `cache` (`key`, `value`, `expiration`) VALUES
-('spatie.permission.cache', 'a:3:{s:5:\"alias\";a:4:{s:1:\"a\";s:2:\"id\";s:1:\"b\";s:4:\"name\";s:1:\"c\";s:10:\"guard_name\";s:1:\"r\";s:5:\"roles\";}s:11:\"permissions\";a:36:{i:0;a:4:{s:1:\"a\";i:1;s:1:\"b\";s:10:\"users-list\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:1;a:4:{s:1:\"a\";i:2;s:1:\"b\";s:12:\"users-create\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:2;a:4:{s:1:\"a\";i:3;s:1:\"b\";s:10:\"users-edit\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:3;a:4:{s:1:\"a\";i:4;s:1:\"b\";s:12:\"users-delete\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:4;a:4:{s:1:\"a\";i:5;s:1:\"b\";s:10:\"roles-list\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:2;i:2;i:5;}}i:5;a:4:{s:1:\"a\";i:6;s:1:\"b\";s:12:\"roles-create\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:5;}}i:6;a:4:{s:1:\"a\";i:7;s:1:\"b\";s:10:\"roles-edit\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:5;}}i:7;a:4:{s:1:\"a\";i:8;s:1:\"b\";s:12:\"roles-delete\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:8;a:4:{s:1:\"a\";i:9;s:1:\"b\";s:16:\"permissions-list\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:5;}}i:9;a:4:{s:1:\"a\";i:10;s:1:\"b\";s:18:\"permissions-create\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:5;}}i:10;a:4:{s:1:\"a\";i:11;s:1:\"b\";s:16:\"permissions-edit\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:5;}}i:11;a:4:{s:1:\"a\";i:12;s:1:\"b\";s:18:\"permissions-delete\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:12;a:4:{s:1:\"a\";i:21;s:1:\"b\";s:11:\"divisi-list\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:2;i:2;i:5;}}i:13;a:4:{s:1:\"a\";i:22;s:1:\"b\";s:13:\"divisi-create\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:2;i:2;i:5;}}i:14;a:4:{s:1:\"a\";i:23;s:1:\"b\";s:11:\"divisi-edit\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:2;i:2;i:5;}}i:15;a:4:{s:1:\"a\";i:24;s:1:\"b\";s:13:\"divisi-delete\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:16;a:4:{s:1:\"a\";i:25;s:1:\"b\";s:14:\"placement-list\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:2;i:2;i:5;}}i:17;a:4:{s:1:\"a\";i:26;s:1:\"b\";s:16:\"placement-create\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:2;i:2;i:5;}}i:18;a:4:{s:1:\"a\";i:27;s:1:\"b\";s:14:\"placement-edit\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:2;i:2;i:5;}}i:19;a:4:{s:1:\"a\";i:28;s:1:\"b\";s:16:\"placement-delete\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:20;a:4:{s:1:\"a\";i:29;s:1:\"b\";s:13:\"golongan-list\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:2;i:2;i:5;}}i:21;a:4:{s:1:\"a\";i:30;s:1:\"b\";s:15:\"golongan-create\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:2;i:2;i:5;}}i:22;a:4:{s:1:\"a\";i:31;s:1:\"b\";s:13:\"golongan-edit\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:2;i:2;i:5;}}i:23;a:4:{s:1:\"a\";i:32;s:1:\"b\";s:15:\"golongan-delete\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:24;a:4:{s:1:\"a\";i:33;s:1:\"b\";s:12:\"jabatan-list\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:2;i:2;i:5;}}i:25;a:4:{s:1:\"a\";i:34;s:1:\"b\";s:14:\"jabatan-create\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:2;i:2;i:5;}}i:26;a:4:{s:1:\"a\";i:35;s:1:\"b\";s:12:\"jabatan-edit\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:2;i:2;i:5;}}i:27;a:4:{s:1:\"a\";i:36;s:1:\"b\";s:14:\"jabatan-delete\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:28;a:4:{s:1:\"a\";i:37;s:1:\"b\";s:12:\"pegawai-list\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:2;i:2;i:5;}}i:29;a:4:{s:1:\"a\";i:38;s:1:\"b\";s:14:\"pegawai-create\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:2;i:2;i:5;}}i:30;a:4:{s:1:\"a\";i:39;s:1:\"b\";s:12:\"pegawai-edit\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:2;i:2;i:5;}}i:31;a:4:{s:1:\"a\";i:40;s:1:\"b\";s:14:\"pegawai-delete\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:32;a:4:{s:1:\"a\";i:41;s:1:\"b\";s:8:\"log-list\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:5;}}i:33;a:4:{s:1:\"a\";i:42;s:1:\"b\";s:10:\"log-create\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:2;i:2;i:5;}}i:34;a:4:{s:1:\"a\";i:43;s:1:\"b\";s:8:\"log-edit\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:35;a:4:{s:1:\"a\";i:44;s:1:\"b\";s:10:\"log-delete\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}}s:5:\"roles\";a:3:{i:0;a:3:{s:1:\"a\";i:1;s:1:\"b\";s:5:\"Admin\";s:1:\"c\";s:3:\"web\";}i:1;a:3:{s:1:\"a\";i:2;s:1:\"b\";s:3:\"HRD\";s:1:\"c\";s:3:\"web\";}i:2;a:3:{s:1:\"a\";i:5;s:1:\"b\";s:7:\"Support\";s:1:\"c\";s:3:\"web\";}}}', 1728800481);
+('current_date', 's:15:\"20241026_140823\";', 1729926512),
+('spatie.permission.cache', 'a:3:{s:5:\"alias\";a:4:{s:1:\"a\";s:2:\"id\";s:1:\"b\";s:4:\"name\";s:1:\"c\";s:10:\"guard_name\";s:1:\"r\";s:5:\"roles\";}s:11:\"permissions\";a:43:{i:0;a:4:{s:1:\"a\";i:1;s:1:\"b\";s:10:\"users-list\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:1;a:4:{s:1:\"a\";i:2;s:1:\"b\";s:12:\"users-create\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:2;a:4:{s:1:\"a\";i:3;s:1:\"b\";s:10:\"users-edit\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:3;a:4:{s:1:\"a\";i:4;s:1:\"b\";s:12:\"users-delete\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:4;a:4:{s:1:\"a\";i:5;s:1:\"b\";s:10:\"roles-list\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:5;}}i:5;a:4:{s:1:\"a\";i:6;s:1:\"b\";s:12:\"roles-create\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:5;}}i:6;a:4:{s:1:\"a\";i:7;s:1:\"b\";s:10:\"roles-edit\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:5;}}i:7;a:4:{s:1:\"a\";i:8;s:1:\"b\";s:12:\"roles-delete\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:8;a:4:{s:1:\"a\";i:9;s:1:\"b\";s:16:\"permissions-list\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:5;}}i:9;a:4:{s:1:\"a\";i:10;s:1:\"b\";s:18:\"permissions-create\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:5;}}i:10;a:4:{s:1:\"a\";i:11;s:1:\"b\";s:16:\"permissions-edit\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:5;}}i:11;a:4:{s:1:\"a\";i:12;s:1:\"b\";s:18:\"permissions-delete\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:12;a:4:{s:1:\"a\";i:21;s:1:\"b\";s:11:\"divisi-list\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:4:{i:0;i:1;i:1;i:2;i:2;i:5;i:3;i:8;}}i:13;a:4:{s:1:\"a\";i:22;s:1:\"b\";s:13:\"divisi-create\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:4:{i:0;i:1;i:1;i:2;i:2;i:5;i:3;i:8;}}i:14;a:4:{s:1:\"a\";i:23;s:1:\"b\";s:11:\"divisi-edit\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:5;i:2;i:8;}}i:15;a:4:{s:1:\"a\";i:24;s:1:\"b\";s:13:\"divisi-delete\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:8;}}i:16;a:4:{s:1:\"a\";i:25;s:1:\"b\";s:14:\"placement-list\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:4:{i:0;i:1;i:1;i:2;i:2;i:5;i:3;i:8;}}i:17;a:4:{s:1:\"a\";i:26;s:1:\"b\";s:16:\"placement-create\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:4:{i:0;i:1;i:1;i:2;i:2;i:5;i:3;i:8;}}i:18;a:4:{s:1:\"a\";i:27;s:1:\"b\";s:14:\"placement-edit\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:5;i:2;i:8;}}i:19;a:4:{s:1:\"a\";i:28;s:1:\"b\";s:16:\"placement-delete\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:8;}}i:20;a:4:{s:1:\"a\";i:29;s:1:\"b\";s:13:\"golongan-list\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:4:{i:0;i:1;i:1;i:2;i:2;i:5;i:3;i:8;}}i:21;a:4:{s:1:\"a\";i:30;s:1:\"b\";s:15:\"golongan-create\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:4:{i:0;i:1;i:1;i:2;i:2;i:5;i:3;i:8;}}i:22;a:4:{s:1:\"a\";i:31;s:1:\"b\";s:13:\"golongan-edit\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:5;i:2;i:8;}}i:23;a:4:{s:1:\"a\";i:32;s:1:\"b\";s:15:\"golongan-delete\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:8;}}i:24;a:4:{s:1:\"a\";i:33;s:1:\"b\";s:12:\"jabatan-list\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:4:{i:0;i:1;i:1;i:2;i:2;i:5;i:3;i:8;}}i:25;a:4:{s:1:\"a\";i:34;s:1:\"b\";s:14:\"jabatan-create\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:4:{i:0;i:1;i:1;i:2;i:2;i:5;i:3;i:8;}}i:26;a:4:{s:1:\"a\";i:35;s:1:\"b\";s:12:\"jabatan-edit\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:5;i:2;i:8;}}i:27;a:4:{s:1:\"a\";i:36;s:1:\"b\";s:14:\"jabatan-delete\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:8;}}i:28;a:4:{s:1:\"a\";i:37;s:1:\"b\";s:12:\"pegawai-list\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:4:{i:0;i:1;i:1;i:2;i:2;i:5;i:3;i:8;}}i:29;a:4:{s:1:\"a\";i:38;s:1:\"b\";s:14:\"pegawai-create\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:4:{i:0;i:1;i:1;i:2;i:2;i:5;i:3;i:8;}}i:30;a:4:{s:1:\"a\";i:39;s:1:\"b\";s:12:\"pegawai-edit\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:5;i:2;i:8;}}i:31;a:4:{s:1:\"a\";i:40;s:1:\"b\";s:14:\"pegawai-delete\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:8;}}i:32;a:4:{s:1:\"a\";i:41;s:1:\"b\";s:8:\"log-list\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:5;i:2;i:7;}}i:33;a:4:{s:1:\"a\";i:42;s:1:\"b\";s:10:\"log-create\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:4:{i:0;i:1;i:1;i:2;i:2;i:5;i:3;i:7;}}i:34;a:4:{s:1:\"a\";i:43;s:1:\"b\";s:8:\"log-edit\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:35;a:4:{s:1:\"a\";i:44;s:1:\"b\";s:10:\"log-delete\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:36;a:4:{s:1:\"a\";i:45;s:1:\"b\";s:11:\"dayoff-list\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:7;i:2;i:8;}}i:37;a:4:{s:1:\"a\";i:46;s:1:\"b\";s:13:\"dayoff-create\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:7;i:2;i:8;}}i:38;a:4:{s:1:\"a\";i:47;s:1:\"b\";s:11:\"dayoff-edit\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:7;i:2;i:8;}}i:39;a:4:{s:1:\"a\";i:48;s:1:\"b\";s:13:\"dayoff-delete\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:8;}}i:40;a:4:{s:1:\"a\";i:49;s:1:\"b\";s:13:\"dayoff-detail\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:7;i:2;i:8;}}i:41;a:4:{s:1:\"a\";i:50;s:1:\"b\";s:14:\"dayoff-confirm\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:42;a:4:{s:1:\"a\";i:51;s:1:\"b\";s:7:\"capture\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:7;}}}s:5:\"roles\";a:5:{i:0;a:3:{s:1:\"a\";i:1;s:1:\"b\";s:5:\"Admin\";s:1:\"c\";s:3:\"web\";}i:1;a:3:{s:1:\"a\";i:5;s:1:\"b\";s:7:\"Support\";s:1:\"c\";s:3:\"web\";}i:2;a:3:{s:1:\"a\";i:2;s:1:\"b\";s:3:\"HRD\";s:1:\"c\";s:3:\"web\";}i:3;a:3:{s:1:\"a\";i:8;s:1:\"b\";s:10:\"Management\";s:1:\"c\";s:3:\"web\";}i:4;a:3:{s:1:\"a\";i:7;s:1:\"b\";s:8:\"Employee\";s:1:\"c\";s:3:\"web\";}}}', 1730003351),
+('user@indo|127.0.0.1', 'i:1;', 1729925604),
+('user@indo|127.0.0.1:timer', 'i:1729925604;', 1729925604);
 
 -- --------------------------------------------------------
 
@@ -138,7 +141,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (38, '2024_10_05_111906_create_roles_and_permissions_tables', 10),
 (39, '2024_10_05_115006_create_permission_tables', 11),
 (40, '2024_10_05_133509_create_permission_tables', 12),
-(41, '2024_10_11_090452_create_permission_tables', 13);
+(41, '2024_10_11_090452_create_permission_tables', 13),
+(42, '2024_10_14_134628_create_tb_dayoff_table', 14);
 
 -- --------------------------------------------------------
 
@@ -170,7 +174,12 @@ CREATE TABLE `model_has_roles` (
 
 INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 (1, 'App\\Models\\User', 1),
-(2, 'App\\Models\\User', 1005);
+(2, 'App\\Models\\User', 1005),
+(7, 'App\\Models\\User', 1006),
+(7, 'App\\Models\\User', 1007),
+(7, 'App\\Models\\User', 1008),
+(7, 'App\\Models\\User', 1014),
+(7, 'App\\Models\\User', 1015);
 
 -- --------------------------------------------------------
 
@@ -238,7 +247,14 @@ INSERT INTO `permissions` (`id`, `name`, `guard_name`, `created_at`, `updated_at
 (41, 'log-list', 'web', '2024-10-12 03:25:02', '2024-10-12 03:25:02'),
 (42, 'log-create', 'web', '2024-10-12 03:25:02', '2024-10-12 03:25:02'),
 (43, 'log-edit', 'web', '2024-10-12 03:25:02', '2024-10-12 03:25:02'),
-(44, 'log-delete', 'web', '2024-10-12 03:25:02', '2024-10-12 03:25:02');
+(44, 'log-delete', 'web', '2024-10-12 03:25:02', '2024-10-12 03:25:02'),
+(45, 'dayoff-list', 'web', '2024-10-14 07:15:09', '2024-10-14 07:15:09'),
+(46, 'dayoff-create', 'web', '2024-10-14 07:15:09', '2024-10-14 07:15:09'),
+(47, 'dayoff-edit', 'web', '2024-10-14 07:15:09', '2024-10-14 07:15:09'),
+(48, 'dayoff-delete', 'web', '2024-10-14 07:15:09', '2024-10-14 07:15:09'),
+(49, 'dayoff-detail', 'web', '2024-10-17 04:49:24', '2024-10-17 04:49:24'),
+(50, 'dayoff-confirm', 'web', '2024-10-22 04:26:10', '2024-10-22 04:30:02'),
+(51, 'capture', 'web', '2024-10-24 07:11:12', '2024-10-24 07:11:12');
 
 -- --------------------------------------------------------
 
@@ -280,7 +296,9 @@ CREATE TABLE `roles` (
 INSERT INTO `roles` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
 (1, 'Admin', 'web', '2024-10-11 03:25:37', '2024-10-11 03:25:37'),
 (2, 'HRD', 'web', '2024-10-11 03:25:37', '2024-10-11 03:25:37'),
-(5, 'Support', 'web', '2024-10-12 02:03:29', '2024-10-12 02:03:29');
+(5, 'Support', 'web', '2024-10-12 02:03:29', '2024-10-12 02:03:29'),
+(7, 'Employee', 'web', '2024-10-14 06:26:09', '2024-10-14 06:26:09'),
+(8, 'Management', 'web', '2024-10-17 09:28:29', '2024-10-17 09:28:29');
 
 -- --------------------------------------------------------
 
@@ -334,22 +352,22 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 (42, 1),
 (43, 1),
 (44, 1),
-(5, 2),
+(45, 1),
+(46, 1),
+(47, 1),
+(48, 1),
+(49, 1),
+(50, 1),
 (21, 2),
 (22, 2),
-(23, 2),
 (25, 2),
 (26, 2),
-(27, 2),
 (29, 2),
 (30, 2),
-(31, 2),
 (33, 2),
 (34, 2),
-(35, 2),
 (37, 2),
 (38, 2),
-(39, 2),
 (42, 2),
 (5, 5),
 (6, 5),
@@ -373,7 +391,39 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 (38, 5),
 (39, 5),
 (41, 5),
-(42, 5);
+(42, 5),
+(41, 7),
+(42, 7),
+(45, 7),
+(46, 7),
+(47, 7),
+(49, 7),
+(51, 7),
+(21, 8),
+(22, 8),
+(23, 8),
+(24, 8),
+(25, 8),
+(26, 8),
+(27, 8),
+(28, 8),
+(29, 8),
+(30, 8),
+(31, 8),
+(32, 8),
+(33, 8),
+(34, 8),
+(35, 8),
+(36, 8),
+(37, 8),
+(38, 8),
+(39, 8),
+(40, 8),
+(45, 8),
+(46, 8),
+(47, 8),
+(48, 8),
+(49, 8);
 
 -- --------------------------------------------------------
 
@@ -395,7 +445,13 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('ziecN3IeYNvnKAE1Nbc1ewCalk8ancPyVXFWKUtG', 1, '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiTWhnN1kxTzBRMWZpRjFvYTFGT0tJWTB5QmNORkloa2pjTVRpZU0yYiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDA6Imh0dHBzOi8vaW5kb2RhY2luLnRlc3QvZGFzaGJvYXJkL3BlZ2F3YWkiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO30=', 1728718167);
+('1YlwIG37nMUYsTdLLYs9JWIJFkLxHEREDlJ6B9gE', 1006, '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiSXo0QnhuU29zd1VMNGR3OGpSdFdyZmRqaTBYcXZRS1hndFpXb3dWUCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NzA6Imh0dHA6Ly83ZDAyLTIwMi0xNjItMTk1LTE0Ni5uZ3Jvay1mcmVlLmFwcC9hcGkvZ2V0UGVnYXdhaURhdGEvMjgxMDE5OTkiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjM6InVybCI7YTowOnt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTAwNjtzOjEyOiJjdXJyZW50X2RhdGUiO3M6MTU6IjIwMjQxMDI2XzEzNDE1NCI7fQ==', 1729924915),
+('5YC761Ahv4C1y5HnrADYpX3VZ6mBbTcU9qyMxOu5', 1015, '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiOXQ4WXJyRkpvYlNmNUFDT21wYkdJMXhDVFlXNVZGWkRGeGhBZ2U0bCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6ODE6Imh0dHA6Ly8xbnRnZGNjdHhxLmxvY2x4LmlvL2FwaS9nZXRQZWdhd2FpLyU3QiU3QiUyMCRkYXRhLSUzRWtvZGVfcGVnYXdhaSUyMCU3RCU3RCI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjEwMTU7fQ==', 1729925995),
+('AHSudQ4DoH2KhZz7UZmK1NlrKMigPVnSpo9yJExK', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiOWJNd3J6WXB6SVIwblBCNmpMOUlnMzRJT2lVZVJWd0FpQUVhTk5ZeSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTc6Imh0dHA6Ly83ZDAyLTIwMi0xNjItMTk1LTE0Ni5uZ3Jvay1mcmVlLmFwcC9hcGkvZ2V0UGVnYXdhaSI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1729924779),
+('h2uMqZivveeZMc50KX89ZhaA7VNdJ6ZBkI6TIM6t', 1015, '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiNUF6NWNoQ3ZnYTRDMkwxZXZwRDg1MlhTbFZRNHFBVm84aGQxUmp5ayI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTQ6Imh0dHA6Ly9qY2Q4cXZ5aWt4LmxvY2x4LmlvL2FwaS9nZXRQZWdhd2FpRGF0YS8xMzMzMTAyMyI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6MzoidXJsIjthOjA6e31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxMDE1O3M6MTI6ImN1cnJlbnRfZGF0ZSI7czoxNToiMjAyNDEwMjZfMTQwODIzIjt9', 1729926505),
+('irzsI32oZJW3eZLi19cnvrhTVFgnxksjbK9o6mgp', 1006, '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiZWFNbG5xbXZjZENVRlJGanFUb0FpMnQ4T0FoZFA3Zm90ak9mb1dYaiI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjU0OiJodHRwOi8vMW50Z2RjY3R4cS5sb2NseC5pby9hcGkvZ2V0UGVnYXdhaURhdGEvMjgxMDE5OTkiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxMDA2O3M6MTI6ImN1cnJlbnRfZGF0ZSI7czoxNToiMjAyNDEwMjZfMTM1MDQ4Ijt9', 1729925450),
+('M1cQ3DfVJSRw8dScouymj0aTZiExIKbGSrBX2axn', 1015, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoidEZoclMzWWk1cEN4N0gxSE10ak1Cd3Q4WG4wdnBoSURRYm1yTExjeSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6OTE6Imh0dHBzOi8vaW5kb2RhY2luLnRlc3QvZjZmYTQ2NTQ1NWExYTljYWE3OTg1NDg3NjM2MmU3Yzc0YjBmOTM1Zi8xMzMzMTAyMzIwMjQxMDI2XzE0MDgyMy5wbmciO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxMDE1O30=', 1729926514),
+('N23Xt2TParhZPwsvRXy2nDImc1OwXXUAz2lWODJh', 1006, '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiTjFLMDVYdkp0RktKQ1Z3ZmhYZnFUWGJUaXZ2S29GbWxUdzhyRU1tSSI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjU0OiJodHRwOi8vMW50Z2RjY3R4cS5sb2NseC5pby9hcGkvZ2V0UGVnYXdhaURhdGEvMjgxMDE5OTkiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxMDA2O3M6MTI6ImN1cnJlbnRfZGF0ZSI7czoxNToiMjAyNDEwMjZfMTM1NDExIjt9', 1729925653);
 
 -- --------------------------------------------------------
 
@@ -414,6 +470,8 @@ CREATE TABLE `tb_attendance` (
   `waktuori` datetime DEFAULT NULL,
   `status` tinyint DEFAULT NULL,
   `jam_masuk` datetime NOT NULL,
+  `longitude` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `latitude` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `photoURL` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -423,19 +481,9 @@ CREATE TABLE `tb_attendance` (
 -- Dumping data for table `tb_attendance`
 --
 
-INSERT INTO `tb_attendance` (`id`, `kode_pegawai`, `upl`, `upl68`, `uplm68`, `upljam`, `jenis`, `waktuori`, `status`, `jam_masuk`, `photoURL`, `created_at`, `updated_at`) VALUES
-(24, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-03 16:27:12', 1, '2024-10-03 16:27:12', '2810199920241003_162711', '2024-10-03 09:27:12', '2024-10-03 09:27:12'),
-(25, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-04 08:14:50', 1, '2024-10-04 08:14:50', '2810199920241004_081447', '2024-10-04 01:14:50', '2024-10-04 01:14:50'),
-(26, '30210', 0, 0, 0, 0, 'Wajah', '2024-10-04 15:00:27', 1, '2024-10-04 15:00:27', '3021020241004_150027', '2024-10-04 08:00:27', '2024-10-04 08:00:27'),
-(27, '30106', 0, 0, 0, 0, 'Wajah', '2024-10-04 15:00:33', 1, '2024-10-04 15:00:33', '3010620241004_150027', '2024-10-04 08:00:33', '2024-10-04 08:00:33'),
-(28, '30105', 0, 0, 0, 0, 'Wajah', '2024-10-04 15:00:38', 1, '2024-10-04 15:00:38', '3010520241004_150038', '2024-10-04 08:00:38', '2024-10-04 08:00:38'),
-(29, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-05 08:52:42', 1, '2024-10-05 08:52:42', '2810199920241005_085242', '2024-10-05 01:52:42', '2024-10-05 01:52:42'),
-(30, '30210', 0, 0, 0, 0, 'Wajah', '2024-10-05 10:25:08', 1, '2024-10-05 10:25:08', '3021020241005_102508', '2024-10-05 03:25:08', '2024-10-05 03:25:08'),
-(31, '30106', 0, 0, 0, 0, 'Wajah', '2024-10-05 10:25:21', 1, '2024-10-05 10:25:21', '3010620241005_102521', '2024-10-05 03:25:21', '2024-10-05 03:25:21'),
-(32, '30105', 0, 0, 0, 0, 'Wajah', '2024-10-05 10:27:55', 1, '2024-10-05 10:27:55', '3010520241005_102755', '2024-10-05 03:27:55', '2024-10-05 03:27:55'),
-(33, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-07 16:41:53', 1, '2024-10-07 16:41:53', '2810199920241007_164153', '2024-10-07 09:41:53', '2024-10-07 09:41:53'),
-(34, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-09 08:17:01', 1, '2024-10-09 08:17:01', '2810199920241009_081700', '2024-10-09 01:17:01', '2024-10-09 01:17:01'),
-(35, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-12 10:41:11', 1, '2024-10-12 10:41:11', '2810199920241012_104111', '2024-10-12 03:41:11', '2024-10-12 03:41:11');
+INSERT INTO `tb_attendance` (`id`, `kode_pegawai`, `upl`, `upl68`, `uplm68`, `upljam`, `jenis`, `waktuori`, `status`, `jam_masuk`, `longitude`, `latitude`, `photoURL`, `created_at`, `updated_at`) VALUES
+(49, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-26 08:22:04', 1, '2024-10-26 08:22:04', NULL, NULL, '2810199920241026_082204', '2024-10-26 01:22:04', '2024-10-26 01:22:04'),
+(50, '13331023', 0, 0, 0, 0, 'Wajah', '2024-10-26 14:04:29', 1, '2024-10-26 14:04:29', '108.49411453191', '-7.2222225736288', '1333102320241026_140427', '2024-10-26 07:04:29', '2024-10-26 07:04:29');
 
 -- --------------------------------------------------------
 
@@ -454,6 +502,8 @@ CREATE TABLE `tb_attendance_out` (
   `waktuori` datetime DEFAULT NULL,
   `status` tinyint DEFAULT NULL,
   `jam_keluar` datetime NOT NULL,
+  `longitude` text COLLATE utf8mb4_unicode_ci,
+  `latitude` text COLLATE utf8mb4_unicode_ci,
   `photoURL` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -463,35 +513,46 @@ CREATE TABLE `tb_attendance_out` (
 -- Dumping data for table `tb_attendance_out`
 --
 
-INSERT INTO `tb_attendance_out` (`id`, `kode_pegawai`, `upl`, `upl68`, `uplm68`, `upljam`, `jenis`, `waktuori`, `status`, `jam_keluar`, `photoURL`, `created_at`, `updated_at`) VALUES
-(86, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-03 16:27:44', 1, '2024-10-03 16:27:44', '2810199920241003_162743', '2024-10-03 09:27:44', '2024-10-03 09:27:44'),
-(87, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-04 13:59:49', 1, '2024-10-04 13:59:49', '2810199920241004_135949', '2024-10-04 06:59:49', '2024-10-04 06:59:49'),
-(88, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-04 14:30:08', 1, '2024-10-04 14:30:08', '2810199920241004_143007', '2024-10-04 07:30:08', '2024-10-04 07:30:08'),
-(89, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-04 14:32:53', 1, '2024-10-04 14:32:53', '2810199920241004_143253', '2024-10-04 07:32:53', '2024-10-04 07:32:53'),
-(90, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-04 14:39:30', 1, '2024-10-04 14:39:30', '2810199920241004_143930', '2024-10-04 07:39:30', '2024-10-04 07:39:30'),
-(91, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-04 15:00:03', 1, '2024-10-04 15:00:03', '2810199920241004_150003', '2024-10-04 08:00:03', '2024-10-04 08:00:03'),
-(92, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-05 09:44:27', 1, '2024-10-05 09:44:27', '2810199920241005_094427', '2024-10-05 02:44:27', '2024-10-05 02:44:27'),
-(93, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-05 09:53:23', 1, '2024-10-05 09:53:23', '2810199920241005_095323', '2024-10-05 02:53:23', '2024-10-05 02:53:23'),
-(94, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-05 09:58:17', 1, '2024-10-05 09:58:17', '2810199920241005_095817', '2024-10-05 02:58:17', '2024-10-05 02:58:17'),
-(95, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-05 10:02:47', 1, '2024-10-05 10:02:47', '2810199920241005_100246', '2024-10-05 03:02:47', '2024-10-05 03:02:47'),
-(96, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-05 10:18:34', 1, '2024-10-05 10:18:34', '2810199920241005_101834', '2024-10-05 03:18:34', '2024-10-05 03:18:34'),
-(97, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-05 10:19:22', 1, '2024-10-05 10:19:22', '2810199920241005_101921', '2024-10-05 03:19:22', '2024-10-05 03:19:22'),
-(98, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-05 10:20:54', 1, '2024-10-05 10:20:54', '2810199920241005_102053', '2024-10-05 03:20:54', '2024-10-05 03:20:54'),
-(99, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-05 10:21:16', 1, '2024-10-05 10:21:16', '2810199920241005_102116', '2024-10-05 03:21:16', '2024-10-05 03:21:16'),
-(100, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-05 10:22:20', 1, '2024-10-05 10:22:20', '2810199920241005_102220', '2024-10-05 03:22:20', '2024-10-05 03:22:20'),
-(101, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-05 10:23:45', 1, '2024-10-05 10:23:45', '2810199920241005_102345', '2024-10-05 03:23:45', '2024-10-05 03:23:45'),
-(102, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-05 10:24:15', 1, '2024-10-05 10:24:15', '2810199920241005_102415', '2024-10-05 03:24:15', '2024-10-05 03:24:15'),
-(103, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-05 10:26:12', 1, '2024-10-05 10:26:12', '2810199920241005_102611', '2024-10-05 03:26:12', '2024-10-05 03:26:12'),
-(104, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-05 10:27:20', 1, '2024-10-05 10:27:20', '2810199920241005_102720', '2024-10-05 03:27:20', '2024-10-05 03:27:20'),
-(105, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-05 10:27:37', 1, '2024-10-05 10:27:37', '2810199920241005_102737', '2024-10-05 03:27:37', '2024-10-05 03:27:37'),
-(106, '30106', 0, 0, 0, 0, 'Wajah', '2024-10-05 10:27:46', 1, '2024-10-05 10:27:46', '3010620241005_102746', '2024-10-05 03:27:46', '2024-10-05 03:27:46'),
-(107, '30210', 0, 0, 0, 0, 'Wajah', '2024-10-05 10:28:50', 1, '2024-10-05 10:28:50', '3021020241005_102849', '2024-10-05 03:28:50', '2024-10-05 03:28:50'),
-(108, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-05 16:31:41', 1, '2024-10-05 16:31:41', '2810199920241005_163141', '2024-10-05 09:31:41', '2024-10-05 09:31:41'),
-(109, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-07 16:42:07', 1, '2024-10-07 16:42:07', '2810199920241007_164207', '2024-10-07 09:42:07', '2024-10-07 09:42:07'),
-(110, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-09 08:18:12', 1, '2024-10-09 08:18:12', '2810199920241009_081812', '2024-10-09 01:18:12', '2024-10-09 01:18:12'),
-(111, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-09 08:19:56', 1, '2024-10-09 08:19:56', '2810199920241009_081956', '2024-10-09 01:19:56', '2024-10-09 01:19:56'),
-(112, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-09 08:20:10', 1, '2024-10-09 08:20:10', '2810199920241009_082010', '2024-10-09 01:20:10', '2024-10-09 01:20:10'),
-(113, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-09 11:23:43', 1, '2024-10-09 11:23:43', '2810199920241009_112343', '2024-10-09 04:23:43', '2024-10-09 04:23:43');
+INSERT INTO `tb_attendance_out` (`id`, `kode_pegawai`, `upl`, `upl68`, `uplm68`, `upljam`, `jenis`, `waktuori`, `status`, `jam_keluar`, `longitude`, `latitude`, `photoURL`, `created_at`, `updated_at`) VALUES
+(153, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-26 08:30:06', 1, '2024-10-26 08:30:06', '98.663134', '3.5074946', '2810199920241026_083006', '2024-10-26 01:30:06', '2024-10-26 01:30:06'),
+(154, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-26 08:31:26', 1, '2024-10-26 08:31:26', '98.703134', '3.6037496', '2810199920241026_083126', '2024-10-26 01:31:26', '2024-10-26 01:31:26'),
+(155, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-26 08:35:42', 1, '2024-10-26 08:35:42', '98.693134', '3.8037496', '2810199920241026_083542', '2024-10-26 01:35:42', '2024-10-26 01:35:42'),
+(156, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-26 08:38:08', 1, '2024-10-26 08:38:08', '98.673134', '3.6637496', '2810199920241026_083808', '2024-10-26 01:38:08', '2024-10-26 01:38:08'),
+(157, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-26 09:14:11', 1, '2024-10-26 09:14:11', '98.683134', '3.5037496', '2810199920241026_091411', '2024-10-26 02:14:11', '2024-10-26 02:14:11'),
+(159, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-26 13:41:54', 1, '2024-10-26 13:41:54', '98.6690342', '3.5915567', '2810199920241026_134154', '2024-10-26 06:41:54', '2024-10-26 06:41:54'),
+(160, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-26 13:47:11', 1, '2024-10-26 13:47:11', '103.5997866705', '-1.5533481621924', '2810199920241026_134709', '2024-10-26 06:47:11', '2024-10-26 06:47:11'),
+(161, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-26 13:50:50', 1, '2024-10-26 13:50:50', '111.66999369569', '-0.21957560603587', '2810199920241026_135048', '2024-10-26 06:50:50', '2024-10-26 06:50:50'),
+(162, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-26 13:54:13', 1, '2024-10-26 13:54:13', '125.09470528094', '1.8797259698857', '2810199920241026_135411', '2024-10-26 06:54:13', '2024-10-26 06:54:13'),
+(163, '13331023', 0, 0, 0, 0, 'Wajah', '2024-10-26 14:08:25', 1, '2024-10-26 14:08:25', '106.71728190245', '-6.5085785316488', '1333102320241026_140823', '2024-10-26 07:08:25', '2024-10-26 07:08:25');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_dayoff`
+--
+
+CREATE TABLE `tb_dayoff` (
+  `id` bigint UNSIGNED NOT NULL,
+  `id_user` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `dayoff_for` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `url` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tgl_dari` text COLLATE utf8mb4_unicode_ci,
+  `tgl_hingga` text COLLATE utf8mb4_unicode_ci,
+  `keterangan` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `status` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `tb_dayoff`
+--
+
+INSERT INTO `tb_dayoff` (`id`, `id_user`, `dayoff_for`, `url`, `tgl_dari`, `tgl_hingga`, `keterangan`, `status`, `created_at`, `updated_at`) VALUES
+(12, '28101999', 'Absen', NULL, '2024-10-15T08:29', '2024-10-16T08:29', '<p>Salam hormat,</p><p><br></p><p>Saya yang bertanda tangan dibawah ini ingin mengajukan izin tidak dapat datang ke kantor dikarenakan <strong>SAKIT PARAH SIH KEKNYA.</strong></p><p><br></p><p>Berikut saya sertakan surat sakit dan beberapa <strong>bukti </strong>bahwasanya memang benar saya sakit parah keknya:</p><p><br></p><p><strong>Surat Sakit:</strong></p><p><img src=\"/storage/uploads/iR00lyY1kvvK6eylajznD4v2NhM0j1gBF9oMMPuq.png\"></p><p><img src=\"/storage/uploads/Bdr2cb5GakrrxcVAwMlLhjkJXMLiJg4SnFMB1xqI.png\"></p><p>Foto saat berobat:</p><p><br></p>', '1', '2024-10-15 01:31:46', '2024-10-17 09:17:00'),
+(14, '14102024', 'Izin', NULL, '2024-10-22T11:10', '2024-10-23T11:10', '<p>Sakit </p>', '2', '2024-10-22 04:10:34', '2024-10-22 04:10:34'),
+(15, '14102024', 'Sakit', NULL, '2024-10-22T08:00', '2024-10-25T08:00', '<p><img src=\"/storage/uploads/GdcqjJfi5qpSnhtu7E4lMG2gGxlnAdARb6ioz8dF.png\"></p>', '2', '2024-10-22 04:45:44', '2024-10-22 04:45:44'),
+(16, '14102024', 'PC', NULL, '2024-10-22T13:31', '2024-10-22T15:31', '<div data-value=\"true\"></div><p>asdxsaycvbbbbbbbbbbbbbbbbbbbbbbbbbbyyyyysssssssssssssssssssssooooooooooooooooooooooo</p><div data-value=\"true\"></div><p><img src=\"/storage/uploads/Y52NAOVOqwDC2afjbVaPdUrWYGoDKetQgCZBBzUy.png\"></p>', '2', '2024-10-22 06:33:30', '2024-10-22 06:33:30');
 
 -- --------------------------------------------------------
 
@@ -565,7 +626,9 @@ INSERT INTO `tb_jabatan` (`id`, `nama_jabatan`, `divisi`, `penempatan`, `created
 (12, 'Service', '9', 5, '2024-09-29 21:56:58', '2024-09-29 21:57:37'),
 (13, 'Telemarketing', '9', 5, '2024-09-29 21:57:09', '2024-09-29 21:57:42'),
 (14, 'Kasir', '8', 5, '2024-09-29 21:57:55', '2024-10-09 04:00:00'),
-(15, 'Piutang', '8', 5, '2024-09-29 21:58:05', '2024-09-29 21:58:05');
+(15, 'Piutang', '8', 5, '2024-09-29 21:58:05', '2024-09-29 21:58:05'),
+(24, 'Hardware Support', '11', 5, '2024-10-14 03:18:45', '2024-10-14 03:18:45'),
+(25, 'Teknisi Office', '10', 5, '2024-10-24 02:47:04', '2024-10-24 02:47:04');
 
 -- --------------------------------------------------------
 
@@ -630,7 +693,7 @@ INSERT INTO `tb_jadwal` (`id`, `id_golongan`, `hari`, `jam_masuk`, `jam_keluar`,
 CREATE TABLE `tb_log` (
   `id` bigint UNSIGNED NOT NULL,
   `user_id` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user_action` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_action` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `ip_address` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_agent` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_location` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -1201,7 +1264,503 @@ INSERT INTO `tb_log` (`id`, `user_id`, `user_action`, `ip_address`, `user_agent`
 (554, '1', 'roles > update', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'Unknown', '2024-10-12 06:08:52', '2024-10-12 06:08:52'),
 (555, '1', 'roles > update', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'Unknown', '2024-10-12 06:10:54', '2024-10-12 06:10:54'),
 (556, '1', 'roles > update', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'Unknown', '2024-10-12 06:11:03', '2024-10-12 06:11:03'),
-(557, '1', 'roles > update', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'Unknown', '2024-10-12 06:21:22', '2024-10-12 06:21:22');
+(557, '1', 'roles > update', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'Unknown', '2024-10-12 06:21:22', '2024-10-12 06:21:22'),
+(558, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'Unknown', '2024-10-14 01:02:42', '2024-10-14 01:02:42'),
+(559, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'Unknown', '2024-10-14 01:02:42', '2024-10-14 01:02:42'),
+(560, '1', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'Unknown', '2024-10-14 01:15:48', '2024-10-14 01:15:48'),
+(561, '1', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'Unknown', '2024-10-14 01:15:48', '2024-10-14 01:15:48'),
+(562, '1', 'store-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'Unknown', '2024-10-14 01:15:49', '2024-10-14 01:15:49'),
+(563, '1', 'roles > update', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'Unknown', '2024-10-14 01:24:55', '2024-10-14 01:24:55'),
+(564, '1', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'Unknown', '2024-10-14 01:24:58', '2024-10-14 01:24:58'),
+(565, '1005', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'Unknown', '2024-10-14 01:25:05', '2024-10-14 01:25:05'),
+(566, '1005', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'Unknown', '2024-10-14 01:25:05', '2024-10-14 01:25:05'),
+(567, '1005', 'logout', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-14 02:42:56', '2024-10-14 02:42:56'),
+(568, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-14 02:43:02', '2024-10-14 02:43:02'),
+(569, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-14 02:43:02', '2024-10-14 02:43:02'),
+(570, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36 Edg/129.0.0.0', 'Unknown', '2024-10-14 03:17:14', '2024-10-14 03:17:14'),
+(571, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36 Edg/129.0.0.0', 'Unknown', '2024-10-14 03:17:14', '2024-10-14 03:17:14'),
+(572, '1', 'jabatan > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36 Edg/129.0.0.0', 'Unknown', '2024-10-14 03:18:45', '2024-10-14 03:18:45'),
+(573, '1', 'pegawai > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36 Edg/129.0.0.0', 'Unknown', '2024-10-14 03:19:49', '2024-10-14 03:19:49'),
+(574, '1', 'pegawai > update', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-14 03:22:04', '2024-10-14 03:22:04'),
+(575, '1', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-14 03:41:16', '2024-10-14 03:41:16'),
+(576, '1', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-14 03:41:16', '2024-10-14 03:41:16'),
+(577, '1', 'store-attendance-out > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-14 03:41:17', '2024-10-14 03:41:17'),
+(578, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36 Edg/129.0.0.0', 'Unknown', '2024-10-14 06:14:59', '2024-10-14 06:14:59'),
+(579, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36 Edg/129.0.0.0', 'Unknown', '2024-10-14 06:14:59', '2024-10-14 06:14:59'),
+(580, '1', 'roles > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36 Edg/129.0.0.0', 'Unknown', '2024-10-14 06:25:50', '2024-10-14 06:25:50'),
+(581, '1', 'roles > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36 Edg/129.0.0.0', 'Unknown', '2024-10-14 06:26:09', '2024-10-14 06:26:09'),
+(582, '1', 'users > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36 Edg/129.0.0.0', 'Unknown', '2024-10-14 06:27:29', '2024-10-14 06:27:29'),
+(583, '1', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36 Edg/129.0.0.0', 'Unknown', '2024-10-14 06:27:58', '2024-10-14 06:27:58'),
+(584, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36 Edg/129.0.0.0', 'Unknown', '2024-10-14 06:28:07', '2024-10-14 06:28:07'),
+(585, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36 Edg/129.0.0.0', 'Unknown', '2024-10-14 06:28:07', '2024-10-14 06:28:07'),
+(586, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'Unknown', '2024-10-14 06:39:04', '2024-10-14 06:39:04'),
+(587, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'Unknown', '2024-10-14 06:39:04', '2024-10-14 06:39:04'),
+(588, '1', 'logout', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-14 06:56:58', '2024-10-14 06:56:58'),
+(589, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-14 06:57:07', '2024-10-14 06:57:07'),
+(590, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-14 06:57:07', '2024-10-14 06:57:07'),
+(591, '1006', 'logout', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-14 06:57:58', '2024-10-14 06:57:58'),
+(592, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-14 06:58:03', '2024-10-14 06:58:03'),
+(593, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-14 06:58:03', '2024-10-14 06:58:03'),
+(594, '1', 'permissions > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'Unknown', '2024-10-14 07:15:09', '2024-10-14 07:15:09'),
+(595, '1', 'roles > update', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'Unknown', '2024-10-14 07:15:50', '2024-10-14 07:15:50'),
+(596, '1', 'dayoff > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'Unknown', '2024-10-14 07:34:15', '2024-10-14 07:34:15'),
+(597, '1', 'dayoff > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'Unknown', '2024-10-14 07:50:14', '2024-10-14 07:50:14'),
+(598, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-14 09:09:41', '2024-10-14 09:09:41'),
+(599, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-14 09:09:41', '2024-10-14 09:09:41'),
+(600, '1', 'dayoff > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'Unknown', '2024-10-14 09:35:08', '2024-10-14 09:35:08'),
+(601, '1', 'dayoff > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'Unknown', '2024-10-14 09:36:01', '2024-10-14 09:36:01'),
+(602, '1', 'dayoff > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'Unknown', '2024-10-14 09:36:47', '2024-10-14 09:36:47'),
+(603, '1', 'dayoff > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'Unknown', '2024-10-14 09:37:27', '2024-10-14 09:37:27'),
+(604, '1', 'dayoff > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'Unknown', '2024-10-14 09:38:17', '2024-10-14 09:38:17'),
+(605, '1', 'dayoff > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'Unknown', '2024-10-14 09:39:16', '2024-10-14 09:39:16'),
+(606, '1', 'dayoff > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'Unknown', '2024-10-14 09:43:42', '2024-10-14 09:43:42'),
+(607, '1', 'dayoff > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'Unknown', '2024-10-14 09:51:12', '2024-10-14 09:51:12'),
+(608, '1', 'dayoff > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'Unknown', '2024-10-14 09:55:05', '2024-10-14 09:55:05'),
+(609, '1', 'upload-image > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'Unknown', '2024-10-14 09:56:51', '2024-10-14 09:56:51'),
+(610, '1', 'dayoff > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'Unknown', '2024-10-14 09:56:57', '2024-10-14 09:56:57'),
+(611, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'Unknown', '2024-10-15 01:07:30', '2024-10-15 01:07:30'),
+(612, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'Unknown', '2024-10-15 01:07:30', '2024-10-15 01:07:30'),
+(613, '1', 'upload-image > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-15 01:31:14', '2024-10-15 01:31:14'),
+(614, '1', 'upload-image > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-15 01:31:22', '2024-10-15 01:31:22'),
+(615, '1', 'dayoff > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-15 01:31:46', '2024-10-15 01:31:46'),
+(616, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'Unknown', '2024-10-16 01:38:51', '2024-10-16 01:38:51'),
+(617, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'Unknown', '2024-10-16 01:38:51', '2024-10-16 01:38:51'),
+(618, '1', 'upload-image > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'Unknown', '2024-10-16 01:40:53', '2024-10-16 01:40:53'),
+(619, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-17 04:14:55', '2024-10-17 04:14:55'),
+(620, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-17 04:14:55', '2024-10-17 04:14:55'),
+(621, '1', 'dayoff > update', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-17 04:43:55', '2024-10-17 04:43:55'),
+(622, '1', 'dayoff > update', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-17 04:44:14', '2024-10-17 04:44:14'),
+(623, '1', 'upload-image > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-17 04:45:47', '2024-10-17 04:45:47'),
+(624, '1', 'dayoff > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-17 04:45:48', '2024-10-17 04:45:48'),
+(625, '1', 'dayoff > update', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-17 04:45:57', '2024-10-17 04:45:57'),
+(626, '1', 'dayoff > delete', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-17 04:48:49', '2024-10-17 04:48:49'),
+(627, '1', 'permissions > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-17 04:49:24', '2024-10-17 04:49:24'),
+(628, '1', 'roles > update', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-17 04:49:35', '2024-10-17 04:49:35'),
+(629, '1', 'dayoff > update', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-17 06:21:15', '2024-10-17 06:21:15'),
+(630, '1', 'dayoff > update', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-17 06:46:46', '2024-10-17 06:46:46'),
+(631, '1', 'dayoff > update', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-17 06:46:52', '2024-10-17 06:46:52'),
+(632, '1', 'dayoff > update', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-17 06:46:57', '2024-10-17 06:46:57'),
+(633, '1', 'dayoff > update', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-17 06:50:28', '2024-10-17 06:50:28'),
+(634, '1', 'dayoff > update', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-17 07:11:44', '2024-10-17 07:11:44'),
+(635, '1', 'dayoff > update', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-17 07:12:01', '2024-10-17 07:12:01'),
+(636, '1', 'dayoff > update', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-17 07:12:11', '2024-10-17 07:12:11'),
+(637, '1', 'dayoff > update', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-17 07:12:21', '2024-10-17 07:12:21'),
+(638, '1', 'dayoff > update', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-17 07:12:27', '2024-10-17 07:12:27'),
+(639, '1', 'roles > update', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-17 07:13:45', '2024-10-17 07:13:45'),
+(640, '1', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-17 07:13:52', '2024-10-17 07:13:52'),
+(641, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-17 07:13:58', '2024-10-17 07:13:58'),
+(642, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-17 07:13:58', '2024-10-17 07:13:58'),
+(643, '1006', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-17 07:15:37', '2024-10-17 07:15:37'),
+(644, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-17 07:15:43', '2024-10-17 07:15:43'),
+(645, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-17 07:15:43', '2024-10-17 07:15:43'),
+(646, '1', 'upload-image > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-17 07:41:16', '2024-10-17 07:41:16'),
+(647, '1', 'upload-image > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-17 07:44:22', '2024-10-17 07:44:22'),
+(648, '1', 'upload-image > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-17 07:46:13', '2024-10-17 07:46:13'),
+(649, '1', 'upload-image > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-17 08:44:45', '2024-10-17 08:44:45'),
+(650, '1', 'upload-image > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-17 08:44:58', '2024-10-17 08:44:58'),
+(651, '1', 'upload-image > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-17 08:45:24', '2024-10-17 08:45:24'),
+(652, '1', 'upload-image > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-17 08:46:19', '2024-10-17 08:46:19'),
+(653, '1', 'upload-image > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-17 08:54:31', '2024-10-17 08:54:31'),
+(654, '1', 'upload-image > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-17 08:58:16', '2024-10-17 08:58:16'),
+(655, '1', 'upload-image > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-17 09:01:26', '2024-10-17 09:01:26'),
+(656, '1', 'upload-image > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-17 09:01:33', '2024-10-17 09:01:33'),
+(657, '1', 'dayoff > update', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-17 09:01:37', '2024-10-17 09:01:37'),
+(658, '1', 'dayoff > update', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-17 09:01:42', '2024-10-17 09:01:42'),
+(659, '1', 'upload-image > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-17 09:08:16', '2024-10-17 09:08:16'),
+(660, '1', 'upload-image > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-17 09:09:32', '2024-10-17 09:09:32'),
+(661, '1', 'upload-image > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-17 09:12:05', '2024-10-17 09:12:05'),
+(662, '1', 'upload-image > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-17 09:12:30', '2024-10-17 09:12:30'),
+(663, '1', 'upload-image > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-17 09:12:56', '2024-10-17 09:12:56'),
+(664, '1', 'upload-image > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-17 09:13:11', '2024-10-17 09:13:11'),
+(665, '1', 'upload-image > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-17 09:13:24', '2024-10-17 09:13:24'),
+(666, '1', 'upload-image > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-17 09:14:10', '2024-10-17 09:14:10'),
+(667, '1', 'upload-image > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-17 09:16:57', '2024-10-17 09:16:57'),
+(668, '1', 'dayoff > update', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-17 09:17:00', '2024-10-17 09:17:00'),
+(669, '1', 'roles > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-17 09:28:29', '2024-10-17 09:28:29'),
+(670, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-18 02:09:08', '2024-10-18 02:09:08'),
+(671, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-18 02:09:09', '2024-10-18 02:09:09'),
+(672, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-21 06:41:22', '2024-10-21 06:41:22');
+INSERT INTO `tb_log` (`id`, `user_id`, `user_action`, `ip_address`, `user_agent`, `user_location`, `created_at`, `updated_at`) VALUES
+(673, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-21 06:41:22', '2024-10-21 06:41:22'),
+(674, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-21 07:27:18', '2024-10-21 07:27:18'),
+(675, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-21 07:27:18', '2024-10-21 07:27:18'),
+(676, '1', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-21 08:37:26', '2024-10-21 08:37:26'),
+(677, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-21 08:38:35', '2024-10-21 08:38:35'),
+(678, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-21 08:38:35', '2024-10-21 08:38:35'),
+(679, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 01:02:25', '2024-10-22 01:02:25'),
+(680, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 01:02:25', '2024-10-22 01:02:25'),
+(681, '1', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 01:50:08', '2024-10-22 01:50:08'),
+(682, '1005', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 01:54:19', '2024-10-22 01:54:19'),
+(683, '1005', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 01:54:19', '2024-10-22 01:54:19'),
+(684, '1005', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 01:56:24', '2024-10-22 01:56:24'),
+(685, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 01:56:29', '2024-10-22 01:56:29'),
+(686, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 01:56:29', '2024-10-22 01:56:29'),
+(687, '1', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 01:57:54', '2024-10-22 01:57:54'),
+(688, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 01:58:49', '2024-10-22 01:58:49'),
+(689, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 01:58:49', '2024-10-22 01:58:49'),
+(690, '1', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 02:41:16', '2024-10-22 02:41:16'),
+(691, '1', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 02:41:17', '2024-10-22 02:41:17'),
+(692, '1', 'store-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 02:41:17', '2024-10-22 02:41:17'),
+(693, '1', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 03:51:35', '2024-10-22 03:51:35'),
+(694, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 03:51:43', '2024-10-22 03:51:43'),
+(695, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 03:51:58', '2024-10-22 03:51:58'),
+(696, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 03:53:41', '2024-10-22 03:53:41'),
+(697, '1006', 'generated::qMznmdNdQePGTRKR > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 03:53:41', '2024-10-22 03:53:41'),
+(698, '1006', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 04:10:02', '2024-10-22 04:10:02'),
+(699, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 04:10:10', '2024-10-22 04:10:10'),
+(700, '1006', 'generated::qMznmdNdQePGTRKR > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 04:10:10', '2024-10-22 04:10:10'),
+(701, '1006', 'dayoff > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 04:10:34', '2024-10-22 04:10:34'),
+(702, '1006', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 04:11:11', '2024-10-22 04:11:11'),
+(703, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 04:11:17', '2024-10-22 04:11:17'),
+(704, '1006', 'generated::qMznmdNdQePGTRKR > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 04:11:17', '2024-10-22 04:11:17'),
+(705, '1006', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 04:17:48', '2024-10-22 04:17:48'),
+(706, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 04:17:53', '2024-10-22 04:17:53'),
+(707, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 04:17:53', '2024-10-22 04:17:53'),
+(708, '1', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 04:18:18', '2024-10-22 04:18:18'),
+(709, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 04:18:32', '2024-10-22 04:18:32'),
+(710, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 04:18:32', '2024-10-22 04:18:32'),
+(711, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 04:25:22', '2024-10-22 04:25:22'),
+(712, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 04:25:22', '2024-10-22 04:25:22'),
+(713, '1', 'permissions > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 04:25:50', '2024-10-22 04:25:50'),
+(714, '1', 'permissions > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 04:26:10', '2024-10-22 04:26:10'),
+(715, '1', 'roles > update', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 04:26:21', '2024-10-22 04:26:21'),
+(716, '1006', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 04:26:47', '2024-10-22 04:26:47'),
+(717, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 04:26:56', '2024-10-22 04:26:56'),
+(718, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 04:26:56', '2024-10-22 04:26:56'),
+(719, '1', 'permissions > update', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 04:30:02', '2024-10-22 04:30:02'),
+(720, '1006', 'upload-image > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 04:45:42', '2024-10-22 04:45:42'),
+(721, '1006', 'dayoff > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 04:45:44', '2024-10-22 04:45:44'),
+(722, '1006', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 04:46:00', '2024-10-22 04:46:00'),
+(723, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 04:46:05', '2024-10-22 04:46:05'),
+(724, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 04:46:05', '2024-10-22 04:46:05'),
+(725, '1', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 06:03:34', '2024-10-22 06:03:34'),
+(726, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 06:03:43', '2024-10-22 06:03:43'),
+(727, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 06:03:43', '2024-10-22 06:03:43'),
+(728, '1006', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 06:25:09', '2024-10-22 06:25:09'),
+(729, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 06:25:16', '2024-10-22 06:25:16'),
+(730, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 06:25:16', '2024-10-22 06:25:16'),
+(731, '1006', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 06:27:41', '2024-10-22 06:27:41'),
+(732, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 06:27:45', '2024-10-22 06:27:45'),
+(733, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 06:27:46', '2024-10-22 06:27:46'),
+(734, '1', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 06:27:58', '2024-10-22 06:27:58'),
+(735, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 06:28:04', '2024-10-22 06:28:04'),
+(736, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 06:28:04', '2024-10-22 06:28:04'),
+(737, '1006', 'upload-image > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 06:32:10', '2024-10-22 06:32:10'),
+(738, '1006', 'dayoff > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 06:33:30', '2024-10-22 06:33:30'),
+(739, '1006', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 06:34:33', '2024-10-22 06:34:33'),
+(740, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 06:34:38', '2024-10-22 06:34:38'),
+(741, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 06:34:38', '2024-10-22 06:34:38'),
+(742, '1', 'pegawai > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 06:57:00', '2024-10-22 06:57:00'),
+(743, '1', 'users > update', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 06:58:13', '2024-10-22 06:58:13'),
+(744, '1', 'pegawai > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 07:00:35', '2024-10-22 07:00:35'),
+(745, '1', 'pegawai > delete', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-22 07:11:44', '2024-10-22 07:11:44'),
+(746, '1', 'division > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-22 07:19:36', '2024-10-22 07:19:36'),
+(747, '1', 'division > delete', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-22 07:19:40', '2024-10-22 07:19:40'),
+(748, '1', 'pegawai > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-22 07:25:02', '2024-10-22 07:25:02'),
+(749, '1', 'users > delete', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-22 07:25:24', '2024-10-22 07:25:24'),
+(750, '1', 'users > delete', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-22 07:27:10', '2024-10-22 07:27:10'),
+(751, '1', 'users > delete', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-22 07:27:51', '2024-10-22 07:27:51'),
+(752, '1', 'users > delete', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-22 07:27:52', '2024-10-22 07:27:52'),
+(753, '1', 'users > delete', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-22 07:27:53', '2024-10-22 07:27:53'),
+(754, '1', 'users > delete', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-22 07:28:25', '2024-10-22 07:28:25'),
+(755, '1', 'users > delete', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-22 07:28:46', '2024-10-22 07:28:46'),
+(756, '1', 'users > delete', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-22 07:29:41', '2024-10-22 07:29:41'),
+(757, '1', 'users > delete', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-22 07:44:11', '2024-10-22 07:44:11'),
+(758, '1', 'users > delete', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-22 07:45:42', '2024-10-22 07:45:42'),
+(759, '1', 'pegawai > delete', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-22 07:46:58', '2024-10-22 07:46:58'),
+(760, '1', 'pegawai > delete', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-22 07:47:24', '2024-10-22 07:47:24'),
+(761, '1', 'pegawai > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 07:48:28', '2024-10-22 07:48:28'),
+(762, '1', 'users > delete', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 07:49:57', '2024-10-22 07:49:57'),
+(763, '1', 'users > delete', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 07:50:30', '2024-10-22 07:50:30'),
+(764, '1', 'users > delete', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 07:50:52', '2024-10-22 07:50:52'),
+(765, '1', 'users > delete', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 07:52:23', '2024-10-22 07:52:23'),
+(766, '1', 'users > delete', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 07:55:45', '2024-10-22 07:55:45'),
+(767, '1', 'users > delete', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 07:55:52', '2024-10-22 07:55:52'),
+(768, '1', 'users > delete', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 07:56:11', '2024-10-22 07:56:11'),
+(769, '1', 'users > delete', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 07:57:06', '2024-10-22 07:57:06'),
+(770, '1', 'pegawai > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 07:58:39', '2024-10-22 07:58:39'),
+(771, '1', 'users > delete', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 07:58:50', '2024-10-22 07:58:50'),
+(772, '1', 'pegawai > delete', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 08:01:08', '2024-10-22 08:01:08'),
+(773, '1', 'pegawai > delete', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 08:01:49', '2024-10-22 08:01:49'),
+(774, '1', 'pegawai > delete', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 08:02:09', '2024-10-22 08:02:09'),
+(775, '1', 'pegawai > delete', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 08:02:12', '2024-10-22 08:02:12'),
+(776, '1', 'pegawai > delete', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 08:02:31', '2024-10-22 08:02:31'),
+(777, '1', 'pegawai > delete', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 08:04:36', '2024-10-22 08:04:36'),
+(778, '1', 'users > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 08:05:21', '2024-10-22 08:05:21'),
+(779, '1', 'users > delete', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 08:06:48', '2024-10-22 08:06:48'),
+(780, '1', 'users > delete', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 08:07:32', '2024-10-22 08:07:32'),
+(781, '1', 'users > delete', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 08:10:08', '2024-10-22 08:10:08'),
+(782, '1', 'users > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 08:11:04', '2024-10-22 08:11:04'),
+(783, '1', 'users > delete', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 08:11:17', '2024-10-22 08:11:17'),
+(784, '1', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 08:26:17', '2024-10-22 08:26:17'),
+(785, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 08:26:24', '2024-10-22 08:26:24'),
+(786, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 08:26:24', '2024-10-22 08:26:24'),
+(787, '1006', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 08:28:11', '2024-10-22 08:28:11'),
+(788, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 08:28:15', '2024-10-22 08:28:15'),
+(789, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 08:28:15', '2024-10-22 08:28:15'),
+(790, '1', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 09:20:56', '2024-10-22 09:20:56'),
+(791, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 09:21:02', '2024-10-22 09:21:02'),
+(792, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-22 09:21:02', '2024-10-22 09:21:02'),
+(793, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-22 09:24:15', '2024-10-22 09:24:15'),
+(794, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-22 09:24:15', '2024-10-22 09:24:15'),
+(795, '1', 'logout', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-22 09:27:01', '2024-10-22 09:27:01'),
+(796, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-22 09:27:15', '2024-10-22 09:27:15'),
+(797, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-22 09:27:15', '2024-10-22 09:27:15'),
+(798, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 01:42:06', '2024-10-23 01:42:06'),
+(799, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 01:42:06', '2024-10-23 01:42:06'),
+(800, '1', 'photo > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 03:21:13', '2024-10-23 03:21:13'),
+(801, '1', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 03:50:53', '2024-10-23 03:50:53'),
+(802, '1', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 03:50:53', '2024-10-23 03:50:53'),
+(803, '1', 'store-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 03:50:53', '2024-10-23 03:50:53'),
+(804, '1', 'pegawai > update', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 04:49:34', '2024-10-23 04:49:34'),
+(805, '1', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 06:04:34', '2024-10-23 06:04:34'),
+(806, '1', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 06:04:35', '2024-10-23 06:04:35'),
+(807, '1', 'store-attendance-out > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 06:04:35', '2024-10-23 06:04:35'),
+(808, '1', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 06:12:52', '2024-10-23 06:12:52'),
+(809, '1', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 06:12:53', '2024-10-23 06:12:53'),
+(810, '1', 'store-attendance-out > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 06:12:53', '2024-10-23 06:12:53'),
+(811, '1', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 06:14:56', '2024-10-23 06:14:56'),
+(812, '1', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 06:14:56', '2024-10-23 06:14:56'),
+(813, '1', 'store-attendance-out > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 06:14:57', '2024-10-23 06:14:57'),
+(814, '1', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 06:19:41', '2024-10-23 06:19:41'),
+(815, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 06:19:49', '2024-10-23 06:19:49'),
+(816, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 06:19:49', '2024-10-23 06:19:49'),
+(817, '1006', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 06:26:09', '2024-10-23 06:26:09'),
+(818, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 06:26:18', '2024-10-23 06:26:18'),
+(819, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 06:26:18', '2024-10-23 06:26:18'),
+(820, '1', 'pegawai > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 06:27:19', '2024-10-23 06:27:19'),
+(821, '1', 'pegawai > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 06:34:33', '2024-10-23 06:34:33'),
+(822, '1', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 06:36:15', '2024-10-23 06:36:15'),
+(823, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 06:36:29', '2024-10-23 06:36:29'),
+(824, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 06:36:29', '2024-10-23 06:36:29'),
+(825, '1006', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 06:51:45', '2024-10-23 06:51:45'),
+(826, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 06:51:51', '2024-10-23 06:51:51'),
+(827, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 06:51:51', '2024-10-23 06:51:51'),
+(828, '1', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 07:23:17', '2024-10-23 07:23:17'),
+(829, '1', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 07:23:17', '2024-10-23 07:23:17'),
+(830, '1', 'store-attendance-out > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 07:23:17', '2024-10-23 07:23:17'),
+(831, '1', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 07:23:34', '2024-10-23 07:23:34'),
+(832, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 07:23:50', '2024-10-23 07:23:50'),
+(833, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 07:23:50', '2024-10-23 07:23:50'),
+(834, '1006', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 07:45:02', '2024-10-23 07:45:02'),
+(835, '1006', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 07:45:02', '2024-10-23 07:45:02'),
+(836, '1006', 'store-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 07:45:02', '2024-10-23 07:45:02'),
+(837, '1006', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 07:46:40', '2024-10-23 07:46:40'),
+(838, '1006', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 07:46:40', '2024-10-23 07:46:40'),
+(839, '1006', 'store-attendance-out > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 07:46:41', '2024-10-23 07:46:41'),
+(840, '1006', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 07:47:16', '2024-10-23 07:47:16'),
+(841, '1006', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 07:47:16', '2024-10-23 07:47:16'),
+(842, '1006', 'store-attendance-out > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 07:47:17', '2024-10-23 07:47:17'),
+(843, '1006', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 07:47:36', '2024-10-23 07:47:36'),
+(844, '1006', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 07:47:36', '2024-10-23 07:47:36'),
+(845, '1006', 'store-attendance-out > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 07:47:37', '2024-10-23 07:47:37'),
+(846, '1006', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 08:09:12', '2024-10-23 08:09:12'),
+(847, '1006', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 08:09:12', '2024-10-23 08:09:12'),
+(848, '1006', 'store-attendance-out > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 08:09:12', '2024-10-23 08:09:12'),
+(849, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 08:26:31', '2024-10-23 08:26:31'),
+(850, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 08:26:31', '2024-10-23 08:26:31'),
+(851, '1006', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 08:38:20', '2024-10-23 08:38:20'),
+(852, '1006', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 08:38:20', '2024-10-23 08:38:20'),
+(853, '1006', 'store-attendance-out > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 08:38:20', '2024-10-23 08:38:20'),
+(854, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-23 08:43:33', '2024-10-23 08:43:33'),
+(855, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-23 08:43:33', '2024-10-23 08:43:33'),
+(856, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-23 09:50:11', '2024-10-23 09:50:11'),
+(857, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-23 09:50:11', '2024-10-23 09:50:11'),
+(858, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-23 09:53:01', '2024-10-23 09:53:01'),
+(859, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-23 09:53:01', '2024-10-23 09:53:01'),
+(860, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Mobile/15E148 Safari/604.1', 'Unknown', '2024-10-23 09:55:54', '2024-10-23 09:55:54'),
+(861, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Mobile/15E148 Safari/604.1', 'Unknown', '2024-10-23 09:55:54', '2024-10-23 09:55:54'),
+(862, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 09:57:00', '2024-10-23 09:57:00'),
+(863, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'Unknown', '2024-10-23 09:57:00', '2024-10-23 09:57:00'),
+(864, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-23 09:57:49', '2024-10-23 09:57:49'),
+(865, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-23 09:57:49', '2024-10-23 09:57:49'),
+(866, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 02:09:07', '2024-10-24 02:09:07'),
+(867, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 02:09:07', '2024-10-24 02:09:07'),
+(868, '1006', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 02:18:37', '2024-10-24 02:18:37'),
+(869, '1006', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 02:18:37', '2024-10-24 02:18:37'),
+(870, '1006', 'store-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 02:18:37', '2024-10-24 02:18:37'),
+(871, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 02:41:13', '2024-10-24 02:41:13'),
+(872, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 02:41:13', '2024-10-24 02:41:13'),
+(873, '1', 'jabatan > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 02:47:04', '2024-10-24 02:47:04'),
+(874, '1', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 02:48:25', '2024-10-24 02:48:25'),
+(875, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-24 03:00:06', '2024-10-24 03:00:06'),
+(876, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-24 03:00:06', '2024-10-24 03:00:06'),
+(877, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-24 03:02:19', '2024-10-24 03:02:19'),
+(878, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-24 03:02:19', '2024-10-24 03:02:19'),
+(879, '1006', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 03:26:08', '2024-10-24 03:26:08'),
+(880, '1006', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 03:26:08', '2024-10-24 03:26:08'),
+(881, '1006', 'store-attendance-out > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 03:26:08', '2024-10-24 03:26:08'),
+(882, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-24 04:39:02', '2024-10-24 04:39:02'),
+(883, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-24 04:39:02', '2024-10-24 04:39:02'),
+(884, '1006', 'logout', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-24 04:41:06', '2024-10-24 04:41:06'),
+(885, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-24 04:41:24', '2024-10-24 04:41:24'),
+(886, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-24 04:41:24', '2024-10-24 04:41:24'),
+(887, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 04:45:40', '2024-10-24 04:45:40'),
+(888, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 04:45:40', '2024-10-24 04:45:40'),
+(889, '1', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 04:54:29', '2024-10-24 04:54:29'),
+(890, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 04:54:34', '2024-10-24 04:54:34'),
+(891, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 04:54:34', '2024-10-24 04:54:34'),
+(892, '1006', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:06:57', '2024-10-24 06:06:57'),
+(893, '1006', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:06:57', '2024-10-24 06:06:57'),
+(894, '1006', 'store-attendance-out > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:06:57', '2024-10-24 06:06:57'),
+(895, '1006', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:07:19', '2024-10-24 06:07:19'),
+(896, '1006', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:07:19', '2024-10-24 06:07:19'),
+(897, '1006', 'store-attendance-out > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:07:19', '2024-10-24 06:07:19'),
+(898, '1006', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:07:42', '2024-10-24 06:07:42'),
+(899, '1006', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:07:42', '2024-10-24 06:07:42'),
+(900, '1006', 'store-attendance-out > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:07:42', '2024-10-24 06:07:42'),
+(901, '1006', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:08:09', '2024-10-24 06:08:09');
+INSERT INTO `tb_log` (`id`, `user_id`, `user_action`, `ip_address`, `user_agent`, `user_location`, `created_at`, `updated_at`) VALUES
+(902, '1006', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:08:09', '2024-10-24 06:08:09'),
+(903, '1006', 'store-attendance-out > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:08:09', '2024-10-24 06:08:09'),
+(904, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:36:39', '2024-10-24 06:36:39'),
+(905, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:36:39', '2024-10-24 06:36:39'),
+(906, '1006', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:36:55', '2024-10-24 06:36:55'),
+(907, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:37:05', '2024-10-24 06:37:05'),
+(908, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:37:05', '2024-10-24 06:37:05'),
+(909, '1', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:37:34', '2024-10-24 06:37:34'),
+(910, '1015', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:37:47', '2024-10-24 06:37:47'),
+(911, '1015', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:37:47', '2024-10-24 06:37:47'),
+(912, '1015', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:39:02', '2024-10-24 06:39:02'),
+(913, '1015', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:39:02', '2024-10-24 06:39:02'),
+(914, '1015', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:45:47', '2024-10-24 06:45:47'),
+(915, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:46:18', '2024-10-24 06:46:18'),
+(916, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:46:18', '2024-10-24 06:46:18'),
+(917, '1006', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:47:34', '2024-10-24 06:47:34'),
+(918, '1006', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:47:34', '2024-10-24 06:47:34'),
+(919, '1006', 'store-attendance-out > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:47:35', '2024-10-24 06:47:35'),
+(920, '1006', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:48:04', '2024-10-24 06:48:04'),
+(921, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:48:09', '2024-10-24 06:48:09'),
+(922, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:48:09', '2024-10-24 06:48:09'),
+(923, '1006', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:49:30', '2024-10-24 06:49:30'),
+(924, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:49:34', '2024-10-24 06:49:34'),
+(925, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:49:34', '2024-10-24 06:49:34'),
+(926, '1', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:49:55', '2024-10-24 06:49:55'),
+(927, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:50:03', '2024-10-24 06:50:03'),
+(928, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:50:03', '2024-10-24 06:50:03'),
+(929, '1', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:51:18', '2024-10-24 06:51:18'),
+(930, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:51:27', '2024-10-24 06:51:27'),
+(931, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:51:27', '2024-10-24 06:51:27'),
+(932, '1006', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:51:37', '2024-10-24 06:51:37'),
+(933, '1006', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:52:37', '2024-10-24 06:52:37'),
+(934, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:52:48', '2024-10-24 06:52:48'),
+(935, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 06:52:48', '2024-10-24 06:52:48'),
+(936, '1015', 'login', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-24 06:55:44', '2024-10-24 06:55:44'),
+(937, '1015', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-24 06:55:44', '2024-10-24 06:55:44'),
+(938, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-24 07:00:31', '2024-10-24 07:00:31'),
+(939, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-24 07:00:31', '2024-10-24 07:00:31'),
+(940, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-24 07:01:32', '2024-10-24 07:01:32'),
+(941, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-24 07:01:32', '2024-10-24 07:01:32'),
+(942, '1', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 07:02:45', '2024-10-24 07:02:45'),
+(943, '1015', 'login', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-24 07:03:10', '2024-10-24 07:03:10'),
+(944, '1015', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-24 07:03:10', '2024-10-24 07:03:10'),
+(945, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 07:05:20', '2024-10-24 07:05:20'),
+(946, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 07:05:20', '2024-10-24 07:05:20'),
+(947, '1', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 07:10:33', '2024-10-24 07:10:33'),
+(948, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 07:10:55', '2024-10-24 07:10:55'),
+(949, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 07:10:55', '2024-10-24 07:10:55'),
+(950, '1', 'permissions > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 07:11:12', '2024-10-24 07:11:12'),
+(951, '1', 'roles > update', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 07:11:29', '2024-10-24 07:11:29'),
+(952, '1', 'roles > update', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 07:11:41', '2024-10-24 07:11:41'),
+(953, '1', 'roles > update', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 07:13:47', '2024-10-24 07:13:47'),
+(954, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 07:53:10', '2024-10-24 07:53:10'),
+(955, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 07:53:10', '2024-10-24 07:53:10'),
+(956, '1015', 'login', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-24 07:57:30', '2024-10-24 07:57:30'),
+(957, '1015', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-24 07:57:30', '2024-10-24 07:57:30'),
+(958, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 07:59:08', '2024-10-24 07:59:08'),
+(959, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 07:59:08', '2024-10-24 07:59:08'),
+(960, '1006', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 08:02:05', '2024-10-24 08:02:05'),
+(961, '1006', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 08:02:06', '2024-10-24 08:02:06'),
+(962, '1006', 'store-attendance-out > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 08:02:08', '2024-10-24 08:02:08'),
+(963, '1015', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-24 08:05:33', '2024-10-24 08:05:33'),
+(964, '1015', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-24 08:05:34', '2024-10-24 08:05:34'),
+(965, '1015', 'store-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-24 08:05:35', '2024-10-24 08:05:35'),
+(966, '1015', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 08:18:01', '2024-10-24 08:18:01'),
+(967, '1015', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-24 08:18:01', '2024-10-24 08:18:01'),
+(968, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-25 01:06:42', '2024-10-25 01:06:42'),
+(969, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-25 01:06:42', '2024-10-25 01:06:42'),
+(970, '1', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-25 01:18:26', '2024-10-25 01:18:26'),
+(971, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-25 01:18:33', '2024-10-25 01:18:33'),
+(972, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-25 01:18:33', '2024-10-25 01:18:33'),
+(973, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-25 06:36:02', '2024-10-25 06:36:02'),
+(974, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-25 06:36:02', '2024-10-25 06:36:02'),
+(975, '1', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-25 06:37:18', '2024-10-25 06:37:18'),
+(976, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-25 06:37:22', '2024-10-25 06:37:22'),
+(977, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-25 06:37:23', '2024-10-25 06:37:23'),
+(978, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 01:06:15', '2024-10-26 01:06:15'),
+(979, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 01:06:15', '2024-10-26 01:06:15'),
+(980, '1006', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 01:22:04', '2024-10-26 01:22:04'),
+(981, '1006', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 01:22:04', '2024-10-26 01:22:04'),
+(982, '1006', 'store-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 01:22:04', '2024-10-26 01:22:04'),
+(983, '1006', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 01:28:58', '2024-10-26 01:28:58'),
+(984, '1006', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 01:28:59', '2024-10-26 01:28:59'),
+(985, '1006', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 01:29:39', '2024-10-26 01:29:39'),
+(986, '1006', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 01:29:39', '2024-10-26 01:29:39'),
+(987, '1006', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 01:30:06', '2024-10-26 01:30:06'),
+(988, '1006', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 01:30:06', '2024-10-26 01:30:06'),
+(989, '1006', 'store-attendance-out > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 01:30:06', '2024-10-26 01:30:06'),
+(990, '1006', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 01:31:26', '2024-10-26 01:31:26'),
+(991, '1006', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 01:31:26', '2024-10-26 01:31:26'),
+(992, '1006', 'store-attendance-out > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 01:31:26', '2024-10-26 01:31:26'),
+(993, '1006', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 01:35:14', '2024-10-26 01:35:14'),
+(994, '1006', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 01:35:42', '2024-10-26 01:35:42'),
+(995, '1006', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 01:35:42', '2024-10-26 01:35:42'),
+(996, '1006', 'store-attendance-out > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 01:35:42', '2024-10-26 01:35:42'),
+(997, '1006', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 01:38:08', '2024-10-26 01:38:08'),
+(998, '1006', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 01:38:08', '2024-10-26 01:38:08'),
+(999, '1006', 'store-attendance-out > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 01:38:08', '2024-10-26 01:38:08'),
+(1000, '1006', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 02:14:11', '2024-10-26 02:14:11'),
+(1001, '1006', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 02:14:11', '2024-10-26 02:14:11'),
+(1002, '1006', 'store-attendance-out > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 02:14:12', '2024-10-26 02:14:12'),
+(1003, '1006', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 02:14:23', '2024-10-26 02:14:23'),
+(1004, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 02:16:42', '2024-10-26 02:16:42'),
+(1005, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 02:16:42', '2024-10-26 02:16:42'),
+(1006, '1006', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 03:04:40', '2024-10-26 03:04:40'),
+(1007, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 03:04:44', '2024-10-26 03:04:44'),
+(1008, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 03:04:44', '2024-10-26 03:04:44'),
+(1009, '1', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 03:05:14', '2024-10-26 03:05:14'),
+(1010, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 03:05:19', '2024-10-26 03:05:19'),
+(1011, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 03:05:19', '2024-10-26 03:05:19'),
+(1012, '1006', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 04:30:58', '2024-10-26 04:30:58'),
+(1013, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 04:31:03', '2024-10-26 04:31:03'),
+(1014, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 04:31:03', '2024-10-26 04:31:03'),
+(1015, '1', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 04:33:53', '2024-10-26 04:33:53'),
+(1016, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 04:34:01', '2024-10-26 04:34:01'),
+(1017, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 04:34:01', '2024-10-26 04:34:01'),
+(1018, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-26 06:41:23', '2024-10-26 06:41:23'),
+(1019, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-26 06:41:23', '2024-10-26 06:41:23'),
+(1020, '1006', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-26 06:41:54', '2024-10-26 06:41:54'),
+(1021, '1006', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-26 06:41:54', '2024-10-26 06:41:54'),
+(1022, '1006', 'store-attendance-out > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-26 06:41:55', '2024-10-26 06:41:55'),
+(1023, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-26 06:46:04', '2024-10-26 06:46:04'),
+(1024, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-26 06:46:04', '2024-10-26 06:46:04'),
+(1025, '1006', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-26 06:47:09', '2024-10-26 06:47:09'),
+(1026, '1006', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-26 06:47:10', '2024-10-26 06:47:10'),
+(1027, '1006', 'store-attendance-out > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-26 06:47:11', '2024-10-26 06:47:11'),
+(1028, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-26 06:49:27', '2024-10-26 06:49:27'),
+(1029, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-26 06:49:27', '2024-10-26 06:49:27'),
+(1030, '1006', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-26 06:50:48', '2024-10-26 06:50:48'),
+(1031, '1006', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-26 06:50:49', '2024-10-26 06:50:49'),
+(1032, '1006', 'store-attendance-out > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-26 06:50:50', '2024-10-26 06:50:50'),
+(1033, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-26 06:53:25', '2024-10-26 06:53:25'),
+(1034, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-26 06:53:25', '2024-10-26 06:53:25'),
+(1035, '1006', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-26 06:54:11', '2024-10-26 06:54:11'),
+(1036, '1006', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-26 06:54:12', '2024-10-26 06:54:12'),
+(1037, '1006', 'store-attendance-out > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-26 06:54:13', '2024-10-26 06:54:13'),
+(1038, '1006', 'logout', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-26 06:57:48', '2024-10-26 06:57:48'),
+(1039, '1015', 'login', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-26 06:58:46', '2024-10-26 06:58:46'),
+(1040, '1015', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-26 06:58:46', '2024-10-26 06:58:46'),
+(1041, '1015', 'login', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-26 07:02:32', '2024-10-26 07:02:32'),
+(1042, '1015', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-26 07:02:32', '2024-10-26 07:02:32'),
+(1043, '1015', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-26 07:04:27', '2024-10-26 07:04:27'),
+(1044, '1015', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-26 07:04:28', '2024-10-26 07:04:28'),
+(1045, '1015', 'store-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-26 07:04:29', '2024-10-26 07:04:29'),
+(1046, '1006', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 07:04:51', '2024-10-26 07:04:51'),
+(1047, '1015', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 07:05:01', '2024-10-26 07:05:01'),
+(1048, '1015', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-26 07:05:01', '2024-10-26 07:05:01'),
+(1049, '1015', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-26 07:08:23', '2024-10-26 07:08:23'),
+(1050, '1015', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-26 07:08:24', '2024-10-26 07:08:24'),
+(1051, '1015', 'store-attendance-out > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-10-26 07:08:25', '2024-10-26 07:08:25');
 
 -- --------------------------------------------------------
 
@@ -1231,12 +1790,11 @@ CREATE TABLE `tb_pegawai` (
 
 INSERT INTO `tb_pegawai` (`id`, `kode_pegawai`, `nik_pegawai`, `full_name`, `nick_name`, `no_telp`, `alamat`, `jabatan`, `golongan`, `tgl_lahir`, `storage`, `created_at`, `updated_at`) VALUES
 (1, '10025', '201911010054', 'CHAIRUNNISA', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(2, '11', '20102090074', 'HARTONO', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
 (3, '12', '202102110075', 'SAKIR', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(5, '30106', '201808060020', 'ARIYANTO', NULL, NULL, NULL, NULL, 6, NULL, 'labels/30106/', '2024-09-29 13:57:55', '2024-09-29 13:57:55'),
-(6, '30210', '00000', 'ENDRI SUSANDI', NULL, NULL, NULL, NULL, 6, NULL, 'labels/30210/', '2024-09-29 13:57:55', '2024-09-29 13:57:55'),
-(7, '30211', '200910100021', 'MISIANTO', NULL, NULL, NULL, NULL, 6, NULL, 'labels/30211/', '2024-09-29 13:57:55', '2024-09-29 13:57:55'),
-(8, '30212', '00000', 'EDI SISWANTO', NULL, NULL, NULL, NULL, 6, NULL, 'labels/30212/', '2024-09-29 13:57:55', '2024-09-29 13:57:55'),
+(5, '30106', '201808060020', 'ARIYANTO', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-09-29 13:57:55', '2024-09-29 13:57:55'),
+(6, '30210', '00000', 'ENDRI SUSANDI', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-09-29 13:57:55', '2024-09-29 13:57:55'),
+(7, '30211', '200910100021', 'MISIANTO', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-09-29 13:57:55', '2024-09-29 13:57:55'),
+(8, '30212', '00000', 'EDI SISWANTO', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-09-29 13:57:55', '2024-09-29 13:57:55'),
 (9, '30302', '201609200449', 'WAHYU PANDU BIMANTARA', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
 (10, '30364', '00000', 'IRFAN PRATAMA', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
 (11, '30402', '201101020101', 'MISRAN', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
@@ -1436,7 +1994,10 @@ INSERT INTO `tb_pegawai` (`id`, `kode_pegawai`, `nik_pegawai`, `full_name`, `nic
 (226, '31437', '0', 'Ahmad Purwondo', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
 (227, '31438', '0', 'Robiyanta', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
 (228, '31439', '0', 'harliadi', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(9999999999, '28101999', '12012810990001', 'Muhammad Abdi Mayu', 'Abdi', '082265380192', 'Tanjung Morawa', 11, 6, '1999-10-28', 'labels/28101999/', '2024-09-29 13:57:55', '2024-09-29 13:57:55');
+(230, '14102024', '1209312810990001', 'Dito Sabbihisma', 'Dito', '083189134389', 'Medan', 24, 6, '2024-04-29', 'labels/14102024/', '2024-10-14 03:19:49', '2024-10-23 04:49:34'),
+(9999999999, '28101999', '12012810990001', 'Muhammad Abdi Mayu', 'Abdi', '082265380192', 'Tanjung Morawa', 11, 6, '1999-10-28', 'labels/28101999/', '2024-09-29 13:57:55', '2024-10-23 03:21:13'),
+(10000000007, '10232024', '12093123102024000', 'Juli', 'Juli', '082265380918', 'Medan', 12, 4, '2024-09-17', 'labels/10232024/', '2024-10-23 06:27:19', '2024-10-23 06:48:39'),
+(10000000008, '13331023', '1209312810990001', 'Abdul', 'Abdul', '085275349929', 'Medan', 24, 4, '2024-09-13', 'labels/13331023/', '2024-10-23 06:34:32', '2024-10-23 06:51:43');
 
 -- --------------------------------------------------------
 
@@ -1462,7 +2023,7 @@ CREATE TABLE `tb_placement` (
 --
 
 INSERT INTO `tb_placement` (`id`, `kode_penempatan`, `penempatan`, `alamat`, `longitude`, `latitude`, `radius`, `restrict_app`, `created_at`, `updated_at`) VALUES
-(5, 'MDN01', 'Kantor Pusat', 'Jl. Glugur No 18D', '98.66902828216554', '3.591516090416829', 150, 't', '2024-09-29 20:26:07', '2024-10-03 08:16:13'),
+(5, 'MDN01', 'Kantor Pusat', 'Jl. Glugur No 18D', '98.66902828216554', '3.591516090416829', 999999000, 't', '2024-09-29 20:26:07', '2024-10-03 08:16:13'),
 (6, 'MDN02', 'Kantor Pusat 2', 'Jl. Semambu', '0.0013196468353271487', '0.0008904933929162457', 0, 'y', '2024-09-29 21:32:11', '2024-10-04 04:48:56'),
 (7, 'MDN03', 'Cabang Tembung', 'Jl. Gambir Ps. VIII No.88, Tembung', '3.40576171875', '1.142502403706165', 0, 't', '2024-09-29 21:32:41', '2024-10-04 04:49:08'),
 (8, 'MDN04', 'Cabang Titi Kuning', 'Jl. Brig Jend. Zein Hamid No.KM 7.6, Titi Kuning', '98.6690390110016', '3.5914732593566807', 150, 'y', '2024-09-29 21:33:19', '2024-10-04 04:49:15');
@@ -1475,6 +2036,7 @@ INSERT INTO `tb_placement` (`id`, `kode_penempatan`, `penempatan`, `alamat`, `lo
 
 CREATE TABLE `users` (
   `id` bigint UNSIGNED NOT NULL,
+  `kode_pegawai` bigint DEFAULT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
@@ -1488,9 +2050,12 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Muhammad Abdi Mayu', 'abdi@darkotech.id', NULL, '$2y$12$8PjfWYlAsiKTobWYA/mJcOzLDiXHh2sKfcabhkJelMx8oSftf8MOq', NULL, '2024-10-01 09:55:37', '2024-10-11 03:59:31'),
-(1005, 'HRD', 'hrd@indodacin.com', NULL, '$2y$12$r559G0XgTTGuffzDo25m3Oa58tE/6UYs3ipk.ddfmR0jA/GyJe08y', NULL, '2024-10-12 02:33:03', '2024-10-12 02:33:03');
+INSERT INTO `users` (`id`, `kode_pegawai`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, NULL, 'Muhammad Abdi Mayu', 'abdi@darkotech.id', NULL, '$2y$12$8PjfWYlAsiKTobWYA/mJcOzLDiXHh2sKfcabhkJelMx8oSftf8MOq', '1BP2HqqC4pirCfvy0PwA7LvQhfT4XG0Xf8PVjqQtXh3ohzsVqJuJhNA7Bs6h', '2024-10-01 09:55:37', '2024-10-11 03:59:31'),
+(1005, NULL, 'HRD', 'hrd@indodacin.com', NULL, '$2y$12$r559G0XgTTGuffzDo25m3Oa58tE/6UYs3ipk.ddfmR0jA/GyJe08y', NULL, '2024-10-12 02:33:03', '2024-10-12 02:33:03'),
+(1006, 28101999, 'Muhammad Abdi Mayu', 'user@indodacin.com', NULL, '$2y$12$mGyAhmMwQcW2OCA2aq/.4OImmLuBATJevl8hHkCJofp7bzc/LuSJ2', 'Up7ZoA6HzFHpbXAEHHOYYZJoVHhPRRUYmafiw1bRF3IRMnS2sb6Q44zkpEfA', '2024-10-14 06:27:29', '2024-10-14 06:27:29'),
+(1014, 10232024, 'Juli', 'Juli@indodacin.com', NULL, '$2y$12$OkOh.QbZDaEH5FHacEithOJOFzgjYbOyi01vgJHGUsnUmEkktvGwG', NULL, '2024-10-23 06:27:19', '2024-10-23 06:27:19'),
+(1015, 13331023, 'Abdul', 'Abdul@indodacin.com', NULL, '$2y$12$mGyAhmMwQcW2OCA2aq/.4OImmLuBATJevl8hHkCJofp7bzc/LuSJ2', 'm7iGU3hdwqY7vCI2aL1HB73ST5nhraF9HyRyfF8pUmAP2aoLed1MnJ6ibiVn', '2024-10-23 06:34:33', '2024-10-23 06:34:33');
 
 --
 -- Indexes for dumped tables
@@ -1607,6 +2172,12 @@ ALTER TABLE `tb_attendance_out`
   ADD KEY `kode_pegawai_3` (`kode_pegawai`);
 
 --
+-- Indexes for table `tb_dayoff`
+--
+ALTER TABLE `tb_dayoff`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tb_division`
 --
 ALTER TABLE `tb_division`
@@ -1658,7 +2229,8 @@ ALTER TABLE `tb_placement`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `users_email_unique` (`email`);
+  ADD UNIQUE KEY `users_email_unique` (`email`),
+  ADD KEY `bjkkjjk` (`kode_pegawai`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -1680,13 +2252,13 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -1698,25 +2270,31 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tb_attendance`
 --
 ALTER TABLE `tb_attendance`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `tb_attendance_out`
 --
 ALTER TABLE `tb_attendance_out`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=164;
+
+--
+-- AUTO_INCREMENT for table `tb_dayoff`
+--
+ALTER TABLE `tb_dayoff`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `tb_division`
 --
 ALTER TABLE `tb_division`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96512;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96513;
 
 --
 -- AUTO_INCREMENT for table `tb_golongan`
@@ -1728,7 +2306,7 @@ ALTER TABLE `tb_golongan`
 -- AUTO_INCREMENT for table `tb_jabatan`
 --
 ALTER TABLE `tb_jabatan`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `tb_jadwal`
@@ -1740,13 +2318,13 @@ ALTER TABLE `tb_jadwal`
 -- AUTO_INCREMENT for table `tb_log`
 --
 ALTER TABLE `tb_log`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=558;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1052;
 
 --
 -- AUTO_INCREMENT for table `tb_pegawai`
 --
 ALTER TABLE `tb_pegawai`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10000000001;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10000000009;
 
 --
 -- AUTO_INCREMENT for table `tb_placement`
@@ -1758,7 +2336,7 @@ ALTER TABLE `tb_placement`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1006;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1016;
 
 --
 -- Constraints for dumped tables
