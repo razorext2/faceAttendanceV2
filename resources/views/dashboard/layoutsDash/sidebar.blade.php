@@ -125,10 +125,10 @@
 			@can('pegawai-list')
 				<li>
 					<a
-						class="{{ Route::currentRouteName() == 'dashboard.pegawai' || Route::currentRouteName() == 'pegawai.add' || Route::currentRouteName() == 'pegawai.edit' || Route::currentRouteName() == 'pegawai.detail' ? 'text-gray-900 bg-gray-100 dark:bg-transparent dark:text-white' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent dark:hover:text-white' }} flex items-center rounded-lg p-2"
+						class="{{ Route::currentRouteName() == 'dashboard.pegawai' || Route::currentRouteName() == 'pegawai.add' || Route::currentRouteName() == 'pegawai.edit' || Route::currentRouteName() == 'pegawai.detail' || Route::currentRouteName() == 'pegawai.timeline' ? 'text-gray-900 bg-gray-100 dark:bg-transparent dark:text-white' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent dark:hover:text-white' }} flex items-center rounded-lg p-2"
 						href="{{ route('dashboard.pegawai') }}" role="menuitem">
 						<svg
-							class="fi-sidebar-item-icon {{ Route::currentRouteName() == 'dashboard.pegawai' || Route::currentRouteName() == 'pegawai.add' || Route::currentRouteName() == 'pegawai.edit' ? 'stroke-gray-700 dark:stroke-white' : 'stroke-gray-400' }} h-6 w-6 text-gray-400"
+							class="fi-sidebar-item-icon {{ Route::currentRouteName() == 'dashboard.pegawai' || Route::currentRouteName() == 'pegawai.add' || Route::currentRouteName() == 'pegawai.edit' || Route::currentRouteName() == 'pegawai.detail' || Route::currentRouteName() == 'pegawai.timeline' ? 'stroke-gray-700 dark:stroke-white' : 'stroke-gray-400' }} h-6 w-6 text-gray-400"
 							data-slot="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
 							stroke-width="1.5" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round"

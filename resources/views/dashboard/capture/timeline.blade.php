@@ -81,7 +81,6 @@
 					@endif
 				];
 
-
 				var customIcon = L.icon({
 					iconUrl: "{{ asset('assets/img/marker.png') }}", // Ganti dengan path ke ikon Anda
 					iconSize: [25, 41], // Ukuran ikon
