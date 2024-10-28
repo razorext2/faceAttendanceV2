@@ -1,246 +1,209 @@
 @extends('dashboard.layoutsDash.app')
 @section('content')
-    <form id="add-pegawai" action="{{ route('pegawai.add') }}"></form>
-    <div class="relative grid grid-cols-1 gap-6">
-        @can('pegawai-create')
-            <div
-                class="absolute z-10 max-w-xs left-6 sm:left-auto sm:right-6 lg:right-auto lg:left-6 lg:top-24 md:top-40 top-56 ">
-                <button form="add-pegawai"
-                    class="flex flex-row px-4 py-2 rounded-lg lg:px-8 ring-1 ring-green-700 hover:bg-green-300 dark:bg-green-800 dark:text-white dark:hover:bg-green-900 dark:ring-gray-500">
-                    <svg class="rotate-180 dark:fill-white" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
-                        viewBox="0 0 1024 1024" fill="#000000" class="icon" version="1.1">
-                        <path
-                            d="M669.6 849.6c8.8 8 22.4 7.2 30.4-1.6s7.2-22.4-1.6-30.4l-309.6-280c-8-7.2-8-17.6 0-24.8l309.6-270.4c8.8-8 9.6-21.6 2.4-30.4-8-8.8-21.6-9.6-30.4-2.4L360.8 480.8c-27.2 24-28 64-0.8 88.8l309.6 280z"
-                            fill="" />
-                    </svg>
-                    <span class="hidden sm:block">Tambah</span> <span class="hidden sm:block">Data</span>
-                </button>
-            </div>
-        @endcan
+	<form id="add-pegawai" action="{{ route('pegawai.add') }}"></form>
+	<div class="relative grid grid-cols-1 gap-6">
+		@can('pegawai-create')
+			<div class="absolute left-6 top-56 z-10 max-w-xs sm:left-auto sm:right-6 md:top-40 lg:left-6 lg:right-auto lg:top-24">
+				<button
+					class="dark:bg-green-800 dark:text-white dark:hover:bg-green-900 dark:ring-gray-500 flex flex-row rounded-lg px-4 py-2 ring-1 ring-green-700 hover:bg-green-300 lg:px-8"
+					form="add-pegawai">
+					<svg class="dark:fill-white rotate-180" class="icon" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+						viewBox="0 0 1024 1024" fill="#000000" version="1.1">
+						<path
+							d="M669.6 849.6c8.8 8 22.4 7.2 30.4-1.6s7.2-22.4-1.6-30.4l-309.6-280c-8-7.2-8-17.6 0-24.8l309.6-270.4c8.8-8 9.6-21.6 2.4-30.4-8-8.8-21.6-9.6-30.4-2.4L360.8 480.8c-27.2 24-28 64-0.8 88.8l309.6 280z"
+							fill="" />
+					</svg>
+					<span class="hidden sm:block">Tambah</span> <span class="hidden sm:block">Data</span>
+				</button>
+			</div>
+		@endcan
 
-        <div class="flex items-center justify-center h-auto">
-            <div
-                class="grid w-full grid-cols-2 gap-4 p-6 shadow-sm rounded-xl bg-gray-50 ring-1 ring-gray-200 dark:bg-gray-800 dark:ring-gray-500">
-                <div class="grid grid-cols-2 col-span-2 gap-4 md:col-span-2 lg:col-span-1">
-                    <div>
-                        <div class="relative">
-                            <div class="absolute inset-y-0 end-0 top-0 flex items-center pe-3.5 pointer-events-none">
-                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                    <path fill-rule="evenodd"
-                                        d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                            </div>
-                            <input type="text" id="min" name="min"
-                                class="block w-full p-4 text-sm leading-none text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="Start" required />
-                        </div>
-                    </div>
-                    <div>
-                        <div class="relative">
-                            <div class="absolute inset-y-0 end-0 top-0 flex items-center pe-3.5 pointer-events-none">
-                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                    <path fill-rule="evenodd"
-                                        d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                            </div>
-                            <input type="text" id="max" name="max"
-                                class="block w-full p-4 text-sm leading-none text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="End" required />
-                        </div>
-                    </div>
-                </div>
-                <div class="relative col-span-2 md:col-span-2 lg:col-span-1">
-                    <form id="searchForm" action="" method="get">
-                        <div class="relative">
-                            <div class="absolute inset-y-0 flex items-center pointer-events-none start-0 ps-3">
-                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                                </svg>
-                            </div>
-                            <input type="search" id="searchText"
-                                class="block w-full p-4 text-sm text-gray-900 border border-gray-300 rounded-lg ps-10 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="Search..." />
+		<div class="flex h-auto items-center justify-center">
+			<div
+				class="dark:bg-gray-800 dark:ring-gray-500 grid w-full grid-cols-2 gap-4 rounded-xl bg-gray-50 p-6 shadow-sm ring-1 ring-gray-200">
+				<div class="col-span-2 grid grid-cols-2 gap-4 md:col-span-2 lg:col-span-1">
+					<div>
+						<div class="relative">
+							<div class="pointer-events-none absolute inset-y-0 end-0 top-0 flex items-center pe-3.5">
+								<svg class="dark:text-gray-400 h-4 w-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+									fill="currentColor" viewBox="0 0 24 24">
+									<path fill-rule="evenodd"
+										d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z"
+										clip-rule="evenodd" />
+								</svg>
+							</div>
+							<input
+								class="dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full cursor-pointer rounded-lg border border-gray-300 bg-gray-50 p-4 text-sm leading-none text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+								id="min" name="min" type="text" placeholder="Start" required />
+						</div>
+					</div>
+					<div>
+						<div class="relative">
+							<div class="pointer-events-none absolute inset-y-0 end-0 top-0 flex items-center pe-3.5">
+								<svg class="dark:text-gray-400 h-4 w-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+									fill="currentColor" viewBox="0 0 24 24">
+									<path fill-rule="evenodd"
+										d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z"
+										clip-rule="evenodd" />
+								</svg>
+							</div>
+							<input
+								class="dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full cursor-pointer rounded-lg border border-gray-300 bg-gray-50 p-4 text-sm leading-none text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+								id="max" name="max" type="text" placeholder="End" required />
+						</div>
+					</div>
+				</div>
+				<div class="relative col-span-2 md:col-span-2 lg:col-span-1">
+					<form id="searchForm" action="" method="get">
+						<div class="relative">
+							<div class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3">
+								<svg class="dark:text-gray-400 h-4 w-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+									fill="none" viewBox="0 0 20 20">
+									<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+										d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+								</svg>
+							</div>
+							<input
+								class="dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-4 ps-10 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+								id="searchText" type="search" placeholder="Search..." />
 
-                            <div id="clearIcon" class="absolute inset-y-0 flex items-center cursor-pointer right-24"
-                                style="display:none;">
-                                <svg class="w-4 h-4 text-gray-500 hover:text-gray-700" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="M6 6l8 8M6 14L14 6" />
-                                </svg>
-                            </div>
-                            <div>
-                                <button type="submit" id="mySearchButton"
-                                    class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                    Search
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="col-span-2">
-                    <table id="table-pegawai"
-                        class="w-full mt-20 text-sm text-left text-gray-500 sm:mt-4 dark:text-gray-300">
-                        <thead class="text-xs uppercase">
-                            <tr>
-                                <th>
-                                    <span class="flex items-center text-gray-800 dark:text-white">
-                                        Action
-                                    </span>
-                                </th>
-                                <th>
-                                    <span class="flex items-center text-gray-800 dark:text-white">
-                                        Kode Pegawai
-                                    </span>
-                                </th>
-                                <th>
-                                    <span class="flex items-center text-gray-800 dark:text-white">
-                                        NIK
-                                    </span>
-                                </th>
-                                <th>
-                                    <span class="flex items-center text-gray-800 dark:text-white">
-                                        Full Name
-                                    </span>
-                                </th>
-                                <th>
-                                    <span class="flex items-center text-gray-800 dark:text-white">
-                                        Nick Name
-                                    </span>
-                                </th>
-                                <th>
-                                    <span class="flex items-center text-gray-800 dark:text-white">
-                                        No Telepon
-                                    </span>
-                                </th>
-                                <th>
-                                    <span class="flex items-center text-gray-800 dark:text-white">
-                                        Jabatan
-                                    </span>
-                                </th>
-                                <th>
-                                    <span class="flex items-center text-gray-800 dark:text-white">
-                                        Golongan
-                                    </span>
-                                </th>
-                                <th>
-                                    <span class="flex items-center text-gray-800 dark:text-white">
-                                        Alamat
-                                    </span>
-                                </th>
-                                <th>
-                                    <span class="flex items-center text-gray-800 dark:text-white">
-                                        Storage
-                                    </span>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
+							<div class="absolute inset-y-0 right-24 flex cursor-pointer items-center" id="clearIcon" style="display:none;">
+								<svg class="h-4 w-4 text-gray-500 hover:text-gray-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+									fill="none" viewBox="0 0 20 20">
+									<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+										d="M6 6l8 8M6 14L14 6" />
+								</svg>
+							</div>
+							<div>
+								<button
+									class="dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 absolute bottom-2.5 end-2.5 rounded-lg bg-blue-700 px-4 py-2 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300"
+									id="mySearchButton" type="submit">
+									Search
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="col-span-2">
+					<table class="dark:text-gray-300 mt-20 w-full text-left text-sm text-gray-500 sm:mt-4" id="table-pegawai">
+						<thead class="text-xs uppercase">
+							<tr>
+								<th>
+									<span class="dark:text-white flex items-center text-gray-800">
+										Action
+									</span>
+								</th>
+								<th>
+									<span class="dark:text-white flex items-center text-gray-800">
+										Kode Pegawai
+									</span>
+								</th>
+								<th>
+									<span class="dark:text-white flex items-center text-gray-800">
+										Full Name
+									</span>
+								</th>
+								<th>
+									<span class="dark:text-white flex items-center text-gray-800">
+										No Telepon
+									</span>
+								</th>
+								<th>
+									<span class="dark:text-white flex items-center text-gray-800">
+										Jabatan
+									</span>
+								</th>
+								<th>
+									<span class="dark:text-white flex items-center text-gray-800">
+										Golongan
+									</span>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
 
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
 
-    @include('dashboard.layoutsDash.modals')
+	@include('dashboard.layoutsDash.modals')
 
-    <script>
-        function showDatatables() {
-            let minDate, maxDate;
+	<script>
+		function showDatatables() {
+			let minDate, maxDate;
 
-            // Initialize DateTime pickers for min and max date inputs
-            minDate = new DateTime($('#min'), {
-                format: 'DDD'
-            });
-            maxDate = new DateTime($('#max'), {
-                format: 'DDD'
-            });
+			// Initialize DateTime pickers for min and max date inputs
+			minDate = new DateTime($('#min'), {
+				format: 'DDD'
+			});
+			maxDate = new DateTime($('#max'), {
+				format: 'DDD'
+			});
 
-            // Initialize DataTable
-            let table = $('#table-pegawai').DataTable({
-                processing: true,
-                serverSide: true,
-                responsive: true,
-                perPageSelect: [5, 25, 50, 100],
-                ajax: {
-                    url: "{{ route('getDataPegawai') }}",
-                    data: function(d) {
-                        d.minDate = minDate.val();
-                        d.maxDate = maxDate.val();
-                    }
-                },
-                columns: [{
-                        data: 'action',
-                        name: 'action'
-                    },
-                    {
-                        data: 'kode_pegawai',
-                        name: 'kode_pegawai'
-                    },
-                    {
-                        data: 'nik_pegawai',
-                        name: 'nik_pegawai'
-                    },
-                    {
-                        data: 'full_name',
-                        name: 'full_name'
-                    },
-                    {
-                        data: 'nick_name',
-                        name: 'nick_name'
-                    },
-                    {
-                        data: 'no_telp',
-                        name: 'no_telp'
-                    },
-                    {
-                        data: 'jabatan',
-                        name: 'jabatan'
-                    },
-                    {
-                        data: 'golongan',
-                        name: 'golongan'
-                    },
-                    {
-                        data: 'alamat',
-                        name: 'alamat'
-                    },
-                    {
-                        data: 'storage',
-                        name: 'storage'
-                    }
-                ],
-                dom: `<"absolute top-1 md:left-0 {{ auth()->user()->can('pegawai-create') ? 'lg:left-48 right-0' : '' }} mt-14 lg:mt-0 dark:text-white max-w-xs"B><"text-left lg:text-right dark:text-white"l><"relative overflow-x-auto w-full mt-20 lg:mt-4"t><"grid text-center gap-4 lg:grid-cols-2 mt-4 dark:text-white"<"lg:mt-3 lg:text-left"i><"lg:text-right dark:text-gray-900"p>>`,
-                buttons: [{
-                        extend: "csv",
-                        exportOptions: {
-                            stripHtml: false
-                        }
-                    },
-                    {
-                        extend: "excel",
-                        exportOptions: {
-                            stripHtml: false,
-                            decodeEntities: false
-                        }
-                    },
-                    {
-                        extend: "print",
-                        exportOptions: {
-                            columns: [2, 3, 4, 5, 6, 7, 8, 9, 10]
-                        },
-                        title: '', // Custom title in print view
-                        customize: function(win) {
-                            // Menambahkan CSS inline khusus untuk print
-                            $(win.document.head).append(`
+			// Initialize DataTable
+			let table = $('#table-pegawai').DataTable({
+				processing: true,
+				serverSide: true,
+				responsive: true,
+				perPageSelect: [5, 25, 50, 100],
+				ajax: {
+					url: "{{ route('getDataPegawai') }}",
+					data: function(d) {
+						d.minDate = minDate.val();
+						d.maxDate = maxDate.val();
+					}
+				},
+				columns: [{
+						data: 'action',
+						name: 'action'
+					},
+					{
+						data: 'kode_pegawai',
+						name: 'kode_pegawai'
+					},
+					{
+						data: 'full_name_nik',
+						name: 'full_name_nik'
+					},
+					{
+						data: 'no_telp',
+						name: 'no_telp'
+					},
+					{
+						data: 'nama_jabatan',
+						name: 'nama_jabatan'
+					},
+					{
+						data: 'nama_golongan',
+						name: 'nama_golongan'
+					}
+				],
+				dom: `<"absolute top-1 md:left-0 {{ auth()->user()->can('pegawai-create') ? 'lg:left-48 right-0' : '' }} mt-14 lg:mt-0 dark:text-white max-w-xs"B><"text-left lg:text-right dark:text-white"l><"relative overflow-x-auto w-full mt-20 lg:mt-4"t><"grid text-center gap-4 lg:grid-cols-2 mt-4 dark:text-white"<"lg:mt-3 lg:text-left"i><"lg:text-right dark:text-gray-900"p>>`,
+				buttons: [{
+						extend: "csv",
+						exportOptions: {
+							stripHtml: false
+						}
+					},
+					{
+						extend: "excel",
+						exportOptions: {
+							stripHtml: false,
+							decodeEntities: false
+						}
+					},
+					{
+						extend: "print",
+						exportOptions: {
+							columns: [2, 3, 4, 5, 6, 7, 8, 9, 10]
+						},
+						title: '', // Custom title in print view
+						customize: function(win) {
+							// Menambahkan CSS inline khusus untuk print
+							$(win.document.head).append(`
                                 <style>
                                     body {
                                         background-color: #fff;
@@ -286,12 +249,12 @@
                                 </style>
                             `);
 
-                            // Menambahkan header atau judul tambahan
-                            $(win.document.body).prepend(
-                                '<h3>Laporan Data Karyawan</h3>'
-                            );
+							// Menambahkan header atau judul tambahan
+							$(win.document.body).prepend(
+								'<h3>Laporan Data Karyawan</h3>'
+							);
 
-                            $(win.document.body).append(`
+							$(win.document.body).append(`
                                 <footer>
                                     <table style="width: auto;">
                                         <tr>
@@ -309,111 +272,111 @@
                                     </table>
                                 </footer>
                             `);
-                        },
-                    },
-                ],
-                "deferRender": true,
-                "language": {
-                    "infoFiltered": ""
-                }
-            });
+						},
+					},
+				],
+				"deferRender": true,
+				"language": {
+					"infoFiltered": ""
+				}
+			});
 
-            // Custom filtering function for date range
-            $.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
-                let min = minDate.val() ? new Date(minDate.val()) : null;
-                let max = maxDate.val() ? new Date(maxDate.val()) : null;
+			// Custom filtering function for date range
+			$.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
+				let min = minDate.val() ? new Date(minDate.val()) : null;
+				let max = maxDate.val() ? new Date(maxDate.val()) : null;
 
-                // Convert updated_at (data[4]) to date object
-                let updatedDate = new Date(data[4]).setHours(0, 0, 0, 0); // Strip time for comparison
+				// Convert updated_at (data[4]) to date object
+				let updatedDate = new Date(data[4]).setHours(0, 0, 0, 0); // Strip time for comparison
 
-                // Strip time for min and max dates
-                if (min) min = new Date(min).setHours(0, 0, 0, 0);
-                if (max) max = new Date(max).setHours(0, 0, 0, 0);
+				// Strip time for min and max dates
+				if (min) min = new Date(min).setHours(0, 0, 0, 0);
+				if (max) max = new Date(max).setHours(0, 0, 0, 0);
 
-                // Filter logic: Check if updatedDate falls within the range
-                if (
-                    (!min && !max) ||
-                    (!min && updatedDate <= max) ||
-                    (min <= updatedDate && !max) ||
-                    (min <= updatedDate && updatedDate <= max)
-                ) {
-                    return true;
-                }
-                return false;
-            });
+				// Filter logic: Check if updatedDate falls within the range
+				if (
+					(!min && !max) ||
+					(!min && updatedDate <= max) ||
+					(min <= updatedDate && !max) ||
+					(min <= updatedDate && updatedDate <= max)
+				) {
+					return true;
+				}
+				return false;
+			});
 
-            // Trigger table redraw when the date inputs change
-            $('#min, #max').on('change', function() {
-                table.draw();
-            });
+			// Trigger table redraw when the date inputs change
+			$('#min, #max').on('change', function() {
+				table.draw();
+			});
 
-            // Bind the submit event of the form
-            $('#searchForm').on('submit', function(e) {
-                e.preventDefault(); // Prevent the default form submission
-                // Execute the search on DataTable
-                table.search($('#searchText').val()).draw();
-            });
+			// Bind the submit event of the form
+			$('#searchForm').on('submit', function(e) {
+				e.preventDefault(); // Prevent the default form submission
+				// Execute the search on DataTable
+				table.search($('#searchText').val()).draw();
+			});
 
-            const searchInput = document.getElementById("searchText");
-            const clearIcon = document.getElementById("clearIcon");
+			const searchInput = document.getElementById("searchText");
+			const clearIcon = document.getElementById("clearIcon");
 
-            searchInput.addEventListener("input", function() {
-                if (searchInput.value.length > 0) {
-                    clearIcon.style.display = "flex"; // Show clear icon
-                } else {
-                    clearIcon.style.display = "none"; // Hide clear icon
-                }
-            });
+			searchInput.addEventListener("input", function() {
+				if (searchInput.value.length > 0) {
+					clearIcon.style.display = "flex"; // Show clear icon
+				} else {
+					clearIcon.style.display = "none"; // Hide clear icon
+				}
+			});
 
-            // Clear the search input and refresh the datatable when clear icon is clicked
-            clearIcon.addEventListener("click", function() {
-                searchInput.value = "";
-                clearIcon.style.display = "none";
-                // Call function to refresh DataTable
-                refreshDataTable();
-            });
+			// Clear the search input and refresh the datatable when clear icon is clicked
+			clearIcon.addEventListener("click", function() {
+				searchInput.value = "";
+				clearIcon.style.display = "none";
+				// Call function to refresh DataTable
+				refreshDataTable();
+			});
 
-            // Refresh DataTable (assuming you're using DataTables.js)
-            function refreshDataTable() {
-                // Assuming you have a DataTable instance initialized
-                // Replace 'yourDataTable' with your actual DataTable instance variable
-                $('#table-pegawai').DataTable().search('').draw(); // Clear the search and redraw table
-            }
-        }
-        // end datatables //
-        ///////////////////
+			// Refresh DataTable (assuming you're using DataTables.js)
+			function refreshDataTable() {
+				// Assuming you have a DataTable instance initialized
+				// Replace 'yourDataTable' with your actual DataTable instance variable
+				$('#table-pegawai').DataTable().search('').draw(); // Clear the search and redraw table
+			}
+		}
+		// end datatables //
+		///////////////////
 
-        function deleteModal() {
+		function deleteModal() {
 
-            const modalEl = document.getElementById('deleteModal');
-            if (modalEl) {
-                new Modal(modalEl); // Assuming you have imported Modal from Flowbite
+			const modalEl = document.getElementById('deleteModal');
+			if (modalEl) {
+				new Modal(modalEl); // Assuming you have imported Modal from Flowbite
 
-                const currentRoute = '{{ request()->segment(2) }}';
+				const currentRoute = '{{ request()->segment(2) }}';
 
-                // Delegate click event to the table
-                $('#table-pegawai').on('click', '.delete-btn', function() {
-                    // Get the id from data attribute
-                    var id = $(this).data('id');
-                    // Set the form action for deletion
-                    $('#deleteForm').attr('action', currentRoute +
-                        '/delete/' + id);
-                    // Show the modal
-                    $('#deleteModal').removeClass('hidden');
-                });
+				// Delegate click event to the table
+				$('#table-pegawai').on('click', '.delete-btn', function() {
+					// Get the id from data attribute
+					var id = $(this).data('id');
+					// Set the form action for deletion
+					$('#deleteForm').attr('action', currentRoute +
+						'/delete/' + id);
+					// Show the modal
+					$('#deleteModal').removeClass('hidden');
+				});
 
-                // Close modal
-                $('[data-modal-hide="deleteModal"]').on('click', function() {
-                    $('#deleteModal').addClass('hidden');
-                });
-            }
-        }
-        // end delete modal //
-        /////////////////////
+				// Close modal
+				$('[data-modal-hide="deleteModal"]').on('click', function() {
+					$('#deleteModal').addClass('hidden');
+				});
+			}
+		}
+		// end delete modal //
+		/////////////////////
 
-        $(document).ready(function() {
-            showDatatables();
-            deleteModal();
-        });
-    </script>
+		$(document).ready(function() {
+			showDatatables();
+			deleteModal();
+		});
+	</script>
 @endsection
