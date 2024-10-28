@@ -41,54 +41,54 @@ class GolonganController extends Controller
 
         // Apply date filtering if minDate and maxDate are provided
         if ($minDate) {
-            $query->where('updated_at', '>=', Carbon::parse($minDate)->startOfDay());
+            $query = $query->where('created_at', '>=', Carbon::parse($minDate)->startOfDay());
         }
         if ($maxDate) {
-            $query->where('updated_at', '<=', Carbon::parse($maxDate)->endOfDay());
+            $query = $query->where('created_at', '<=', Carbon::parse($maxDate)->endOfDay());
         }
 
         // Fetch the filtered data with pagination for DataTables
-        if(auth()->user()->hasAnyPermission(['golongan-edit', 'golongan-delete'])) {
-        return DataTables::of($query)
-        ->addColumn('action', function ($data) {
-            $editUrl = route('golongan.edit', $data->id);
+        if (auth()->user()->hasAnyPermission(['golongan-edit', 'golongan-delete'])) {
+            return DataTables::of($query)
+                ->addColumn('action', function ($data) {
+                    $editUrl = route('golongan.edit', $data->id);
 
-            // Inisialisasi variabel untuk tombol aksi
-            $actionButtons = '
+                    // Inisialisasi variabel untuk tombol aksi
+                    $actionButtons = '
             <div class="inline-flex" role="group">';
 
-                // Cek izin edit
-                if (auth()->user()->can('golongan-edit')) {
-                    $actionButtons .= '
+                    // Cek izin edit
+                    if (auth()->user()->can('golongan-edit')) {
+                        $actionButtons .= '
                     <a href="' . $editUrl . '"
                         class="px-4 py-2 mx-1 text-sm font-medium text-gray-900 bg-transparent border border-green-800 rounded-lg hover:bg-green-600 hover:text-white focus:z-10 focus:ring-green-500 focus:bg-green-600 focus:text-white dark:bg-green-800 dark:hover:bg-green-900 dark:text-white">
                         Edit
                     </a>';
-                }
+                    }
 
-                if(auth()->user()->can('golongan-delete')) {
-                    // Tambahkan tombol delete
-                    $actionButtons .= '
+                    if (auth()->user()->can('golongan-delete')) {
+                        // Tambahkan tombol delete
+                        $actionButtons .= '
                     <button
                         class="px-4 py-2 mx-1 text-sm font-medium text-gray-900 bg-transparent border border-red-800 rounded-lg hover:bg-red-600 hover:text-white focus:z-10 focus:ring-red-500 focus:bg-red-600 focus:text-white dark:bg-red-800 dark:hover:bg-red-900 dark:text-white delete-btn"
                         data-id="' . $data->id . '" data-modal-target="deleteModal" data-modal-toggle="deleteModal">
                         Delete
                     </button>';
-                }
-                
-            '</div>';
+                    }
 
-                return $actionButtons;
-            })
-            ->addColumn('jadwal_relasi', function ($data) {
-                if ($data->jadwalRelasi->isEmpty()) {
-                    return 'N/A';
-                }
+                    '</div>';
 
-                // Construct the HTML for the schedule
-                $schedule = '';
-                foreach ($data->jadwalRelasi as $j) {
-                    $schedule .= '
+                    return $actionButtons;
+                })
+                ->addColumn('jadwal_relasi', function ($data) {
+                    if ($data->jadwalRelasi->isEmpty()) {
+                        return 'N/A';
+                    }
+
+                    // Construct the HTML for the schedule
+                    $schedule = '';
+                    foreach ($data->jadwalRelasi as $j) {
+                        $schedule .= '
                         <div class="flex">
                             <div class="flex-none w-12">
                                 ' . $j->hari . '
@@ -97,56 +97,56 @@ class GolonganController extends Controller
                                 ( ' . $j->jam_masuk . ' - ' . $j->jam_keluar . ' )
                             </div>
                         </div>';
-                }
-                return $schedule;
-            })
-            ->editColumn('created_updated_at', function ($data) {
-                return $data->created_at . ' / ' . $data->updated_at;
-            })
-            ->addIndexColumn() // This is the DT_RowIndex
-            ->rawColumns(['jadwal_relasi', 'action'])
-            ->make(true);
+                    }
+                    return $schedule;
+                })
+                ->editColumn('created_updated_at', function ($data) {
+                    return $data->created_at . ' / ' . $data->updated_at;
+                })
+                ->addIndexColumn() // This is the DT_RowIndex
+                ->rawColumns(['jadwal_relasi', 'action'])
+                ->make(true);
         } else {
             return DataTables::of($query)
-        ->addColumn('action', function ($data) {
-            $editUrl = route('golongan.edit', $data->id);
+                ->addColumn('action', function ($data) {
+                    $editUrl = route('golongan.edit', $data->id);
 
-            // Inisialisasi variabel untuk tombol aksi
-            $actionButtons = '
+                    // Inisialisasi variabel untuk tombol aksi
+                    $actionButtons = '
             <div class="inline-flex" role="group">';
 
-                // Cek izin edit
-                if (auth()->user()->can('golongan-edit')) {
-                    $actionButtons .= '
+                    // Cek izin edit
+                    if (auth()->user()->can('golongan-edit')) {
+                        $actionButtons .= '
                     <a href="' . $editUrl . '"
                         class="px-4 py-2 mx-1 text-sm font-medium text-gray-900 bg-transparent border border-green-800 rounded-lg hover:bg-green-600 hover:text-white focus:z-10 focus:ring-green-500 focus:bg-green-600 focus:text-white dark:bg-green-800 dark:hover:bg-green-900 dark:text-white">
                         Edit
                     </a>';
-                }
+                    }
 
-                if(auth()->user()->can('golongan-delete')) {
-                    // Tambahkan tombol delete
-                    $actionButtons .= '
+                    if (auth()->user()->can('golongan-delete')) {
+                        // Tambahkan tombol delete
+                        $actionButtons .= '
                     <button
                         class="px-4 py-2 mx-1 text-sm font-medium text-gray-900 bg-transparent border border-red-800 rounded-lg hover:bg-red-600 hover:text-white focus:z-10 focus:ring-red-500 focus:bg-red-600 focus:text-white dark:bg-red-800 dark:hover:bg-red-900 dark:text-white delete-btn"
                         data-id="' . $data->id . '" data-modal-target="deleteModal" data-modal-toggle="deleteModal">
                         Delete
                     </button>';
-                }
-                
-            '</div>';
+                    }
 
-                return $actionButtons;
-            })
-            ->addColumn('jadwal_relasi', function ($data) {
-                if ($data->jadwalRelasi->isEmpty()) {
-                    return 'N/A';
-                }
+                    '</div>';
 
-                // Construct the HTML for the schedule
-                $schedule = '';
-                foreach ($data->jadwalRelasi as $j) {
-                    $schedule .= '
+                    return $actionButtons;
+                })
+                ->addColumn('jadwal_relasi', function ($data) {
+                    if ($data->jadwalRelasi->isEmpty()) {
+                        return 'N/A';
+                    }
+
+                    // Construct the HTML for the schedule
+                    $schedule = '';
+                    foreach ($data->jadwalRelasi as $j) {
+                        $schedule .= '
                         <div class="flex">
                             <div class="flex-none w-12">
                                 ' . $j->hari . '
@@ -155,15 +155,15 @@ class GolonganController extends Controller
                                 ( ' . $j->jam_masuk . ' - ' . $j->jam_keluar . ' )
                             </div>
                         </div>';
-                }
-                return $schedule;
-            })
-            ->editColumn('created_updated_at', function ($data) {
-                return $data->created_at . ' / ' . $data->updated_at;
-            })
-            ->addIndexColumn() // This is the DT_RowIndex
-            ->rawColumns(['jadwal_relasi', 'action'])
-            ->make(true);
+                    }
+                    return $schedule;
+                })
+                ->editColumn('created_updated_at', function ($data) {
+                    return $data->created_at . ' / ' . $data->updated_at;
+                })
+                ->addIndexColumn() // This is the DT_RowIndex
+                ->rawColumns(['jadwal_relasi', 'action'])
+                ->make(true);
         }
     }
 

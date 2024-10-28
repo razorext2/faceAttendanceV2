@@ -55,18 +55,18 @@ class JabatanController extends Controller
 
         // Apply date filtering if minDate and maxDate are provided
         if ($minDate) {
-            $query->where('updated_at', '>=', Carbon::parse($minDate)->startOfDay());
+            $query = $query->where('created_at', '>=', Carbon::parse($minDate)->startOfDay());
         }
         if ($maxDate) {
-            $query->where('updated_at', '<=', Carbon::parse($maxDate)->endOfDay());
+            $query = $query->where('created_at', '<=', Carbon::parse($maxDate)->endOfDay());
         }
 
         // Fetch the filtered data with pagination for DataTables
         return DataTables::of($query)
             ->addColumn('action', function ($data) {
-            $editUrl = route('jabatan.edit', $data->id);
+                $editUrl = route('jabatan.edit', $data->id);
 
-            $actionButtons = '
+                $actionButtons = '
             <div class="inline-flex" role="group">';
 
                 if (auth()->user()->can('jabatan-edit')) {
@@ -77,7 +77,7 @@ class JabatanController extends Controller
                     </a>';
                 }
 
-                if(auth()->user()->can('jabatan-delete')) {
+                if (auth()->user()->can('jabatan-delete')) {
                     $actionButtons .= '
                     <button
                         class="px-4 py-2 mx-1 text-sm font-medium text-gray-900 bg-transparent border border-red-800 rounded-lg hover:bg-red-600 hover:text-white focus:z-10 focus:ring-red-500 focus:bg-red-600 focus:text-white dark:bg-red-800 dark:hover:bg-red-900 dark:text-white delete-btn"
@@ -85,8 +85,8 @@ class JabatanController extends Controller
                         Delete
                     </button>';
                 }
-                
-            '</div>';
+
+                '</div>';
 
                 return $actionButtons;
             })

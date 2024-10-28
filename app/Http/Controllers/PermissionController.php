@@ -45,10 +45,10 @@ class PermissionController extends Controller
 
         // Apply date filtering if minDate and maxDate are provided
         if ($minDate) {
-            $query->where('updated_at', '>=', Carbon::parse($minDate)->startOfDay());
+            $query = $query->where('created_at', '>=', Carbon::parse($minDate)->startOfDay());
         }
         if ($maxDate) {
-            $query->where('updated_at', '<=', Carbon::parse($maxDate)->endOfDay());
+            $query = $query->where('created_at', '<=', Carbon::parse($maxDate)->endOfDay());
         }
 
         // Fetch the filtered data with pagination for DataTables

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Division;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
-use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
 class DivisionController extends Controller
@@ -40,14 +39,14 @@ class DivisionController extends Controller
         $maxDate = cleanDate($request->input('maxDate'));
 
         // Start building the query
-        $query = Division::get();
+        $query = Division::select('id', 'kode_divisi', 'nama_divisi', 'created_at', 'updated_at')->get();
 
         // Apply date filtering if minDate and maxDate are provided
         if ($minDate) {
-            $query->where('updated_at', '>=', Carbon::parse($minDate)->startOfDay());
+            $query = $query->where('created_at', '>=', Carbon::parse($minDate)->startOfDay());
         }
         if ($maxDate) {
-            $query->where('updated_at', '<=', Carbon::parse($maxDate)->endOfDay());
+            $query = $query->where('created_at', '<=', Carbon::parse($maxDate)->endOfDay());
         }
 
         // Fetch the filtered data with pagination for DataTables
