@@ -46,7 +46,6 @@ Route::middleware('auth')->group(function () {
     // Route::post('/dashboard/pegawai/photo-update', [PegawaiController::class, 'updatePhoto'])->name('pegawai.photo');
     Route::get('/api/get-attendance-data', [PegawaiController::class, 'getAttendanceData'])->name('pegawai.getattendance');
     Route::get('/dashboard/pegawai/timeline/{pegawai}', [PegawaiController::class, 'timeline'])->name('pegawai.timeline');
-    Route::get('/dashboard/pegawai/timeline/{pegawai}?date={tanggal}', [PegawaiController::class, 'timelineByDate'])->name('pegawai.timelinebydate');
 
     // jabatan
     Route::get('/getdata-jabatan', [JabatanController::class, 'getData'])->name('getDataJabatan');
@@ -64,7 +63,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard/attendanceOut', [AttendanceOutController::class, 'index'])->name('attendanceOut.view');
 
     // divisi
-
     Route::get('/getdata-division', [DivisionController::class, 'getData'])->name('getDataDivision');
     Route::get('dashboard/division', [DivisionController::class, 'index'])->name('dashboard.division');
     Route::get('dashboard/division/add', [DivisionController::class, 'create'])->name('division.add');
@@ -129,7 +127,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('dashboard/dayoff/delete/{dayoff}', [DayoffController::class, 'destroy'])->name('dayoff.delete');
     Route::post('/upload-image', [DayoffController::class, 'uploadImage']);
     Route::get('dashboard/dayoff/detail/{dayoff}', [DayoffController::class, 'detail'])->name('dayoff.detail');
-
     Route::put('dashboard/dayoff/detail/confirm/{dayoff}', [DayoffController::class, 'confirm'])->name('dayoff.confirm');
     Route::put('dashboard/dayoff/detail/ignore/{dayoff}', [DayoffController::class, 'ignore'])->name('dayoff.ignore');
 

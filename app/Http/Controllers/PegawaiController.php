@@ -37,22 +37,16 @@ class PegawaiController extends Controller
 
     public function getData(Request $request)
     {
-        // Function to clean the date string
         function cleanDate($dateString)
         {
-            // Use regex to remove timezone name in parentheses, leaving the GMT offset intact
             return preg_replace('/\s\(.+\)$/', '', $dateString);
         }
-
-        // Parse the minDate and maxDate from the request after cleaning
         $minDate = cleanDate($request->input('minDate'));
         $maxDate = cleanDate($request->input('maxDate'));
 
-        // batalkan penggunaan cache di database
         $query = Pegawai::with('golonganRelasi', 'jabatanRelasi')
             ->select('id', 'kode_pegawai', 'nik_pegawai', 'full_name', 'no_telp', 'jabatan', 'golongan')->get();
 
-        // Apply date filtering if minDate and maxDate are provided
         if ($minDate) {
             $query = $query->where('created_at', '>', Carbon::parse($minDate)->startOfDay());
         }
@@ -60,14 +54,11 @@ class PegawaiController extends Controller
             $query = $query->where('created_at', '<', Carbon::parse($maxDate)->endOfDay());
         }
 
-        // Fetch the filtered data with pagination for DataTables
         return DataTables::of($query)
             ->addColumn('action', function ($data) {
                 $editUrl = route('pegawai.edit', $data->id);
                 $dataUrl = route('pegawai.detail', $data->id);
                 $timelineUrl = route('pegawai.timeline', $data->kode_pegawai);
-
-                // Inisialisasi variabel untuk tombol aksi
                 $actionButtons = '
                 <div class="inline-flex text-center" role="group">
                     <a href="' . $dataUrl .
@@ -84,7 +75,6 @@ class PegawaiController extends Controller
                     </a>';
                 }
 
-                // Cek izin edit
                 if (auth()->user()->can('pegawai-edit')) {
                     $actionButtons .= '
                     <a href="' . $editUrl . '"
@@ -94,7 +84,6 @@ class PegawaiController extends Controller
                 }
 
                 if (auth()->user()->can('pegawai-delete')) {
-                    // Tambahkan tombol delete
                     $actionButtons .= '
                     <button
                         class="mx-1 group text-md font-medium rounded-lg focus:z-10 delete-btn"
@@ -103,7 +92,6 @@ class PegawaiController extends Controller
                     </button>';
                 }
                 '</div>';
-
                 return $actionButtons;
             })
             ->addColumn('full_name_nik', function ($data) {
@@ -120,7 +108,7 @@ class PegawaiController extends Controller
             ->editColumn('no_telp', function ($data) {
                 return $data->no_telp ?? 'N/A';
             })
-            ->addIndexColumn() // This is the DT_RowIndex
+            ->addIndexColumn()
             ->rawColumns(['action', 'full_name_nik'])
             ->make(true);
     }
@@ -213,14 +201,11 @@ class PegawaiController extends Controller
                 $images[] = $file->getFilename();
             }
         }
-
         return $images;
     }
 
     public function destroy($id)
     {
-        //
-
         $user = User::where('kode_pegawai', $id)->first();
         $pegawai = Pegawai::where('kode_pegawai', $id)->first();
 
@@ -237,15 +222,12 @@ class PegawaiController extends Controller
     public function detail($id)
     {
         $pegawai = Pegawai::with('jabatanRelasi')->findOrFail($id);
-
         $currentDate = Carbon::now();
-
         $startOfMonth = $currentDate->copy()->startOfMonth();
         $endOfMonth = $currentDate->copy()->endOfMonth();
         $period = CarbonPeriod::create($startOfMonth, $endOfMonth);
         $startDayOfWeek = $startOfMonth->dayOfWeek;
         $dd = [];
-
 
         for ($i = 0; $i < $startDayOfWeek; $i++) {
             $dd[] = null;
@@ -257,51 +239,33 @@ class PegawaiController extends Controller
 
         $images = $this->showImages($pegawai);
         $startOfMonth = $startOfMonth->locale('id')->isoFormat('MMMM Y');
-
         $attendanceData = Attendance::where('kode_pegawai', $pegawai->kode_pegawai)->get();
-
         return view('dashboard.pegawai.detail', compact('pegawai', 'dd', 'startOfMonth', 'images', 'attendanceData'));
     }
 
-    public function timeline($id)
+    public function timeline($id, Request $request)
     {
-        $date = Carbon::now()->isoFormat('Y-MM-DD');
+        $date = $request->query('d') ? Carbon::parse($request->query('d'))->isoFormat('Y-MM-DD') : Carbon::now()->isoFormat('Y-MM-DD');
 
         $data = AttendanceOut::select('latitude', 'longitude', DB::raw("'check-out' as type"), 'jam_keluar as time')
             ->whereDate('jam_keluar', $date)
             ->where('kode_pegawai', $id);
 
-        $data2 = Attendance::select('latitude', 'longitude', DB::raw("'check-in' as type"), 'jam_masuk as time')
+        $data2 = Attendance::with('pegawaiRelasi')->select('latitude', 'longitude', DB::raw("'check-in' as type"), 'jam_masuk as time')
             ->whereDate('jam_masuk', $date)
             ->where('kode_pegawai', $id)
             ->unionAll($data)
             ->get();
 
-        return view('dashboard.capture.timeline', compact('data2'));
-    }
+        $pegawai = Pegawai::select('kode_pegawai', 'full_name')->where('kode_pegawai', $id)->firstOrFail();
 
-    public function timelineByDate($id, Request $request)
-    {
-        // Get the 'tanggal' parameter from the query string or default to today's date
-        $date = $request->query('tanggal', Carbon::now()->format('Y-m-d'));
-
-        $data = AttendanceOut::select('latitude', 'longitude', DB::raw("'check-out' as type"), 'jam_keluar as time')
-            ->whereDate('jam_keluar', $date)
-            ->where('kode_pegawai', $id);
-
-        $data2 = Attendance::select('latitude', 'longitude', DB::raw("'check-in' as type"), 'jam_masuk as time')
-            ->whereDate('jam_masuk', $date)
-            ->where('kode_pegawai', $id)
-            ->unionAll($data)
-            ->get();
-
-        return view('dashboard.capture.timeline', compact('data2', 'date'));
+        return view('dashboard.capture.timeline', compact('data2', 'pegawai', 'id'));
     }
 
     public function getAttendanceData(Request $request)
     {
-        if ($request->query('date') != NULL) {
-            $date = $request->query('date');
+        if ($request->query('d')) {
+            $date = Carbon::parse($request->query('d'))->isoFormat('Y-MM-DD');
         } else {
             $date = Carbon::now()->isoFormat('Y-MM-DD');
         }
@@ -309,10 +273,12 @@ class PegawaiController extends Controller
         $kode_pegawai = $request->query('kode_pegawai');
 
         $attendance = Attendance::whereDate('jam_masuk', $date)
+            ->whereDate('jam_masuk', $date)
             ->where('kode_pegawai', $kode_pegawai)
             ->get();
 
         $attendanceOut = AttendanceOut::whereDate('jam_keluar', $date)
+            ->whereDate('jam_keluar', $date)
             ->where('kode_pegawai', $kode_pegawai)
             ->get();
 
@@ -352,25 +318,19 @@ class PegawaiController extends Controller
         $sanitizedStorage = basename($storage);
         $directoryPath = public_path('storage/labels/' . $sanitizedStorage);
 
-        // Cek apakah direktori ada
         if (!is_dir($directoryPath)) {
             return response()->json(['error' => 'Directory not found'], 404);
         }
 
-        // Mencari gambar dengan ekstensi yang ditentukan
         $images = glob($directoryPath . '/*.{png,jpg,jpeg,webp}', GLOB_BRACE);
 
-        // Cek apakah gambar ditemukan
         if (!empty($images)) {
-            // Jika gambar ditemukan, buat relative paths
             $relativeImagePaths = array_map(function ($path) use ($directoryPath) {
                 return str_replace(public_path(), '', $path);
             }, $images);
 
             return response()->json($relativeImagePaths);
-        } //else {
-        //     return response()->json(['error' => 'Image not found'], 404);
-        // }
+        }
     }
 
     public function storeImage(Request $request)
