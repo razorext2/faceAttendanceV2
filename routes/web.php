@@ -46,6 +46,7 @@ Route::middleware('auth')->group(function () {
     // Route::post('/dashboard/pegawai/photo-update', [PegawaiController::class, 'updatePhoto'])->name('pegawai.photo');
     Route::get('/api/get-attendance-data', [PegawaiController::class, 'getAttendanceData'])->name('pegawai.getattendance');
     Route::get('/dashboard/pegawai/timeline/{pegawai}', [PegawaiController::class, 'timeline'])->name('pegawai.timeline');
+    Route::get('/dashboard/pegawai/timeline/{pegawai}?date={tanggal}', [PegawaiController::class, 'timelineByDate'])->name('pegawai.timelinebydate');
 
     // jabatan
     Route::get('/getdata-jabatan', [JabatanController::class, 'getData'])->name('getDataJabatan');

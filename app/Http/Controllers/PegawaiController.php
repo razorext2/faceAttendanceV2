@@ -23,7 +23,7 @@ class PegawaiController extends Controller
 {
     function __construct()
     {
-        $this->middleware('permission:pegawai-list', ['only' => ['index', 'getData']]);
+        $this->middleware('permission:pegawai-list', ['only' => ['index']]);
         $this->middleware('permission:pegawai-create', ['only' => ['create', 'store']]);
         $this->middleware('permission:pegawai-edit', ['only' => ['edit', 'update']]);
         $this->middleware('permission:pegawai-delete', ['only' => ['destroy']]);
@@ -49,14 +49,15 @@ class PegawaiController extends Controller
         $maxDate = cleanDate($request->input('maxDate'));
 
         // batalkan penggunaan cache di database
-        $query = Pegawai::with('golonganRelasi', 'jabatanRelasi')->get();
+        $query = Pegawai::with('golonganRelasi', 'jabatanRelasi')
+            ->select('id', 'kode_pegawai', 'nik_pegawai', 'full_name', 'no_telp', 'jabatan', 'golongan')->get();
 
         // Apply date filtering if minDate and maxDate are provided
         if ($minDate) {
-            $query->where('updated_at', '>=', Carbon::parse($minDate)->startOfDay());
+            $query = $query->where('created_at', '>', Carbon::parse($minDate)->startOfDay());
         }
         if ($maxDate) {
-            $query->where('updated_at', '<=', Carbon::parse($maxDate)->endOfDay());
+            $query = $query->where('created_at', '<', Carbon::parse($maxDate)->endOfDay());
         }
 
         // Fetch the filtered data with pagination for DataTables
@@ -68,18 +69,18 @@ class PegawaiController extends Controller
 
                 // Inisialisasi variabel untuk tombol aksi
                 $actionButtons = '
-                <div class="inline-flex" role="group">
+                <div class="inline-flex text-center" role="group">
                     <a href="' . $dataUrl .
                     '"
-                        class="px-4 py-2 mx-1 text-sm font-medium text-gray-900 bg-transparent border border-blue-800 rounded-lg hover:bg-blue-600 hover:text-white focus:z-10 focus:ring-blue-500 focus:bg-blue-600 focus:text-white dark:bg-blue-800 dark:hover:bg-blue-900 dark:text-white">
-                        Detail
+                        class="mx-1 text-md font-medium rounded-lg focus:z-10  text-gray-800 dark:text-white">
+                         &#128203; <span class="hover:underline"> Detail </span>
                     </a>';
 
                 if (auth()->user()->can('pegawai-timeline')) {
                     $actionButtons .= '    
                     <a href="' . $timelineUrl . '"
-                        class="px-4 py-2 mx-1 text-sm font-medium text-gray-900 bg-transparent border border-blue-800 rounded-lg hover:bg-blue-600 hover:text-white focus:z-10 focus:ring-blue-500 focus:bg-blue-600 focus:text-white dark:bg-blue-800 dark:hover:bg-blue-900 dark:text-white">
-                        Timeline
+                        class="mx-1 text-md font-medium rounded-lg focus:z-10">
+                        &#8987; <span class="hover:underline" style="color: #1C64F2"> Timeline </span>
                     </a>';
                 }
 
@@ -87,8 +88,8 @@ class PegawaiController extends Controller
                 if (auth()->user()->can('pegawai-edit')) {
                     $actionButtons .= '
                     <a href="' . $editUrl . '"
-                        class="px-4 py-2 mx-1 text-sm font-medium text-gray-900 bg-transparent border border-green-800 rounded-lg hover:bg-green-600 hover:text-white focus:z-10 focus:ring-green-500 focus:bg-green-600 focus:text-white dark:bg-green-800 dark:hover:bg-green-900 dark:text-white">
-                        Edit
+                        class="mx-1 text-md font-medium rounded-lg focus:z-10">
+                         &#9999; <span class="hover:underline" style="color: #057A55"> Edit </span>
                     </a>';
                 }
 
@@ -96,24 +97,31 @@ class PegawaiController extends Controller
                     // Tambahkan tombol delete
                     $actionButtons .= '
                     <button
-                        class="px-4 py-2 mx-1 text-sm font-medium text-gray-900 bg-transparent border border-red-800 rounded-lg hover:bg-red-600 hover:text-white focus:z-10 focus:ring-red-500 focus:bg-red-600 focus:text-white dark:bg-red-800 dark:hover:bg-red-900 dark:text-white delete-btn"
+                        class="mx-1 group text-md font-medium rounded-lg focus:z-10 delete-btn"
                         data-id="' . $data->kode_pegawai . '" data-modal-target="deleteModal" data-modal-toggle="deleteModal">
-                        Delete
+                        &#x26D4; <span class="hover:underline" style="color: #E02424"> Delete </span>
                     </button>';
                 }
                 '</div>';
 
                 return $actionButtons;
             })
-
-            ->addColumn('golongan', function ($data) {
+            ->addColumn('full_name_nik', function ($data) {
+                return '
+                        <p class="text-base font-medium">' . $data->full_name . '</p>
+                        <p class="text-md"> NIK: ' . $data->nik_pegawai . '</p>';
+            })
+            ->addColumn('nama_golongan', function ($data) {
                 return $data->golonganRelasi->nama_golongan ?? 'N/A';
             })
-            ->addColumn('jabatan', function ($data) {
+            ->addColumn('nama_jabatan', function ($data) {
                 return $data->jabatanRelasi->nama_jabatan ?? 'N/A';
             })
+            ->editColumn('no_telp', function ($data) {
+                return $data->no_telp ?? 'N/A';
+            })
             ->addIndexColumn() // This is the DT_RowIndex
-            ->rawColumns(['action'])
+            ->rawColumns(['action', 'full_name_nik'])
             ->make(true);
     }
 
@@ -270,6 +278,24 @@ class PegawaiController extends Controller
             ->get();
 
         return view('dashboard.capture.timeline', compact('data2'));
+    }
+
+    public function timelineByDate($id, Request $request)
+    {
+        // Get the 'tanggal' parameter from the query string or default to today's date
+        $date = $request->query('tanggal', Carbon::now()->format('Y-m-d'));
+
+        $data = AttendanceOut::select('latitude', 'longitude', DB::raw("'check-out' as type"), 'jam_keluar as time')
+            ->whereDate('jam_keluar', $date)
+            ->where('kode_pegawai', $id);
+
+        $data2 = Attendance::select('latitude', 'longitude', DB::raw("'check-in' as type"), 'jam_masuk as time')
+            ->whereDate('jam_masuk', $date)
+            ->where('kode_pegawai', $id)
+            ->unionAll($data)
+            ->get();
+
+        return view('dashboard.capture.timeline', compact('data2', 'date'));
     }
 
     public function getAttendanceData(Request $request)

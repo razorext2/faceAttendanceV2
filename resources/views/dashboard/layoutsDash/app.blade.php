@@ -6,19 +6,6 @@
 	</head>
 
 	<body>
-		{{-- ngakalin button semua semualah pusing --}}
-		<input
-			class="dark:bg-green-800 dark:hover:bg-green-900 dark:text-white mx-1 rounded-lg border border-green-800 bg-transparent px-4 py-2 text-sm font-medium text-gray-900 hover:bg-green-600 hover:text-white focus:z-10 focus:bg-green-600 focus:text-white focus:ring-green-500"
-			type="hidden">
-
-		<input
-			class="dark:bg-red-800 dark:hover:bg-red-900 dark:text-white mx-1 rounded-lg border border-red-800 bg-transparent px-4 py-2 text-sm font-medium text-gray-900 hover:bg-red-600 hover:text-white focus:z-10 focus:bg-red-600 focus:text-white focus:ring-red-500"
-			type="hidden">
-
-		<input
-			class="dark:bg-blue-800 dark:hover:bg-blue-900 dark:text-white mx-1 rounded-lg border border-blue-800 bg-transparent px-4 py-2 text-sm font-medium text-gray-900 hover:bg-blue-600 hover:text-white focus:z-10 focus:bg-blue-600 focus:text-white focus:ring-blue-500"
-			type="hidden">
-
 		<div class="relative">
 			<img class="fixed inset-0 -z-50 h-full w-full object-cover" src="{{ asset('assets/img/hero-bg-light.webp') }}"
 				alt="Background Image" />

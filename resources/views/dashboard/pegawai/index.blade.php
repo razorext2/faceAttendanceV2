@@ -88,14 +88,10 @@
 					<table class="dark:text-gray-300 mt-20 w-full text-left text-sm text-gray-500 sm:mt-4" id="table-pegawai">
 						<thead class="text-xs uppercase">
 							<tr>
+								<th></th>
 								<th>
 									<span class="dark:text-white flex items-center text-gray-800">
-										Action
-									</span>
-								</th>
-								<th>
-									<span class="dark:text-white flex items-center text-gray-800">
-										Kode Pegawai
+										Kode
 									</span>
 								</th>
 								<th>
@@ -120,7 +116,7 @@
 								</th>
 							</tr>
 						</thead>
-						<tbody>
+						<tbody class="!text-left">
 
 						</tbody>
 					</table>
@@ -170,7 +166,7 @@
 					},
 					{
 						data: 'no_telp',
-						name: 'no_telp'
+						name: 'no_telp',
 					},
 					{
 						data: 'nama_jabatan',
@@ -179,7 +175,7 @@
 					{
 						data: 'nama_golongan',
 						name: 'nama_golongan'
-					}
+					},
 				],
 				dom: `<"absolute top-1 md:left-0 {{ auth()->user()->can('pegawai-create') ? 'lg:left-48 right-0' : '' }} mt-14 lg:mt-0 dark:text-white max-w-xs"B><"text-left lg:text-right dark:text-white"l><"relative overflow-x-auto w-full mt-20 lg:mt-4"t><"grid text-center gap-4 lg:grid-cols-2 mt-4 dark:text-white"<"lg:mt-3 lg:text-left"i><"lg:text-right dark:text-gray-900"p>>`,
 				buttons: [{
