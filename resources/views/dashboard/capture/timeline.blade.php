@@ -28,7 +28,7 @@
 			<div class="dark:bg-gray-800 dark:border-gray-500 w-full rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
 				<div class="mb-4">
 					<p class="dark:text-white text-xl font-bold leading-none text-gray-900 md:text-2xl">{{ $pegawai->full_name }}</p>
-					<p class="dark:text-white text-xl font-bold leading-none text-gray-900 md:text-2xl">
+					<p class="dark:text-white text-lg font-semibold leading-none text-gray-900 md:text-xl">
 						@if (Request::query('d'))
 							Lini masa,
 							{{ \Carbon\Carbon::parse(Request::query('d'))->locale('id')->isoFormat('D MMMM YYYY') }}
@@ -76,7 +76,7 @@
 							@if (!is_null($item->latitude) && !is_null($item->longitude))
 								{
 									coords: L.latLng({{ $item->latitude }}, {{ $item->longitude }}),
-									name: 'Lokasi {{ $index + 1 }}: {{ $item->latitude }}, {{ $item->longitude }}'
+									name: '<p>Lokasi {{ $index + 1 }}</p><p>Koordinat: {{ $item->latitude }}, {{ $item->longitude }}</p><p>Waktu: {{ $item->created_at }}</p>'
 								},
 							@endif
 						@endforeach

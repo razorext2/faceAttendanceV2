@@ -247,11 +247,11 @@ class PegawaiController extends Controller
     {
         $date = $request->query('d') ? Carbon::parse($request->query('d'))->isoFormat('Y-MM-DD') : Carbon::now()->isoFormat('Y-MM-DD');
 
-        $data = AttendanceOut::select('latitude', 'longitude', DB::raw("'check-out' as type"), 'jam_keluar as time')
+        $data = AttendanceOut::select('latitude', 'longitude', 'created_at', DB::raw("'check-out' as type"), 'jam_keluar as time')
             ->whereDate('jam_keluar', $date)
             ->where('kode_pegawai', $id);
 
-        $data2 = Attendance::with('pegawaiRelasi')->select('latitude', 'longitude', DB::raw("'check-in' as type"), 'jam_masuk as time')
+        $data2 = Attendance::with('pegawaiRelasi')->select('latitude', 'longitude', 'created_at', DB::raw("'check-in' as type"), 'jam_masuk as time')
             ->whereDate('jam_masuk', $date)
             ->where('kode_pegawai', $id)
             ->unionAll($data)

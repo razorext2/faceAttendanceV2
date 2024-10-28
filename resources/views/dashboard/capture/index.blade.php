@@ -115,15 +115,18 @@
 
 	<script>
 		var lat, lng;
-		const specifiedLat = "{{ $data->latitude }}"; // Latitude of the specified point
-		const specifiedLng = "{{ $data->longitude }}"; // Longitude of the specified point
-		const radius = "{{ $data->radius }}"; // Radius in meters
+		const specifiedLat = parseFloat("{{ $data->latitude }}"); // Latitude of the specified point
+		const specifiedLng = parseFloat("{{ $data->longitude }}"); // Longitude of the specified point
+		const radius = parseFloat("{{ $data->radius }}"); // Radius in meters
+		const movementThreshold = 50; // Minimum distance to move (in meters)
+		let lastLat, lastLng;
 
 		document.addEventListener('DOMContentLoaded', function() {
 			const lokasiSpan = document.getElementById('lokasi'); // Get the span element
+			let scriptsLoaded = false;
 
 			if (navigator.geolocation) {
-				navigator.geolocation.getCurrentPosition(
+				navigator.geolocation.watchPosition(
 					function(position) {
 						lat = position.coords.latitude;
 						lng = position.coords.longitude;
@@ -136,7 +139,6 @@
 
 						// Check if within the specified radius
 						if (distance > radius) {
-							// console.log(`${lat}, ${lng}`);
 							Swal.fire({
 								title: "Gagal!",
 								html: `Anda berada ${distance.toFixed(2)} meter dari tempat yang ditentukan.`,
@@ -144,7 +146,6 @@
 								icon: "error",
 								showConfirmButton: false,
 							}).then(() => {
-								// Show and hide elements after the alert disappears
 								pegawaiKosong.style.display = "block";
 								pegawaiInfo.style.display = "none";
 
@@ -152,12 +153,38 @@
 									window.location.href = "{{ route('dashboard.capture') }}";
 								}, 750);
 							});
-						} else {
-							// Dynamically load the scripts after the log
-							loadScript("{{ asset('face-api.min.js') }}", function() {
-								loadScript("{{ asset('selfDetect.min.js') }}", function() {});
-							});
+						} else if (lastLat !== undefined && lastLng !== undefined) {
+							// Calculate distance moved since last position
+							const movedDistance = calculateDistance(lastLat, lastLng, lat, lng);
 
+							if (movedDistance > movementThreshold) {
+								Swal.fire({
+									title: "Gagal!",
+									html: `Fake GPS terdeteksi. Silahkan matikan terlebih dahulu.`,
+									timer: 1500,
+									icon: "error",
+									showConfirmButton: false,
+								}).then(() => {
+									pegawaiKosong.style.display = "block";
+									pegawaiInfo.style.display = "none";
+
+									setTimeout(() => {
+										window.location.href = "{{ route('dashboard.capture') }}";
+									}, 750);
+								});
+								return;
+							}
+						}
+
+						// Save current position for the next check
+						lastLat = lat;
+						lastLng = lng;
+
+						if (!scriptsLoaded) { // Load scripts only if not loaded
+							scriptsLoaded = true; // Set flag to prevent reloading
+							loadScript("{{ asset('face-api.min.js') }}", function() {
+								loadScript("{{ asset('selfDetect.min.js') }}");
+							});
 						}
 					},
 
@@ -169,7 +196,6 @@
 							icon: "error",
 							showConfirmButton: false,
 						}).then(() => {
-							// Show and hide elements after the alert disappears
 							pegawaiKosong.style.display = "block";
 							pegawaiInfo.style.display = "none";
 
@@ -177,6 +203,10 @@
 								window.location.href = "{{ route('dashboard.capture') }}";
 							}, 750);
 						});
+					}, {
+						enableHighAccuracy: true,
+						timeout: 5000,
+						maximumAge: 0,
 					}
 				);
 			} else {
@@ -187,7 +217,6 @@
 					icon: "error",
 					showConfirmButton: false,
 				}).then(() => {
-					// Show and hide elements after the alert disappears
 					pegawaiKosong.style.display = "block";
 					pegawaiInfo.style.display = "none";
 
