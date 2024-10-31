@@ -38,7 +38,7 @@
 				x-transition:enter-end="transform scale-100 opacity-100" x-transition:leave="transition ease-out duration-300"
 				x-transition:leave-start="transform scale-100 opacity-100" x-transition:leave-end="transform scale-90 opacity-0">
 				<div
-					class="dark:bg-gray-800 dark:text-white dark:ring-gray-500 mb-4 flex w-full max-w-xs items-center rounded-lg bg-white p-4 text-gray-500 shadow ring-1 ring-gray-200"
+					class="dark:bg-[#18181b] dark:text-white dark:ring-gray-700 mb-4 flex w-full max-w-xs items-center rounded-lg bg-white p-4 text-gray-500 shadow ring-1 ring-gray-200"
 					id="toast-success" role="alert">
 					<div
 						class="dark:text-white inline-flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-green-100 text-green-500">
@@ -52,7 +52,7 @@
 					<div class="ms-3 mt-0.5 text-sm font-normal text-black"><x-auth-session-status class="mb-4" :status="session('status')" />
 					</div>
 					<button
-						class="dark:bg-gray-500 dark:text-gray-300 dark:ring-gray-500 dark:hover:bg-gray-300 -mx-1.5 -my-1.5 ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-900 focus:ring-2 focus:ring-gray-300"
+						class="dark:bg-gray-500 dark:text-gray-300 dark:ring-gray-700 dark:hover:bg-gray-300 -mx-1.5 -my-1.5 ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-900 focus:ring-2 focus:ring-gray-300"
 						type="button" aria-label="Close" @click="showToast = false">
 						<span class="sr-only">Close</span>
 						<svg class="h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">

@@ -1,9 +1,9 @@
 @extends('dashboard.layoutsDash.app')
 @section('content')
 	<div class="w-full">
-		<div class="grid gap-4 md:grid-cols-2">
+		<div class="grid gap-6 md:grid-cols-2">
 			<div
-				class="dark:bg-gray-800 dark:border-gray-500 w-full rounded-xl border border-gray-200 bg-white p-6 shadow-sm md:col-span-2">
+				class="dark:bg-[#18181b] dark:border-gray-700 w-full rounded-xl border border-gray-200 bg-white p-6 shadow-sm md:col-span-2">
 				<form id="dateForm" action="{{ route('pegawai.timeline', ['pegawai' => $id]) }}" method="GET">
 					@csrf
 					<label class="dark:text-white sr-only mb-2 text-sm font-medium text-gray-900" for="search">Search</label>
@@ -16,7 +16,7 @@
 							</svg>
 						</div>
 						<input
-							class="dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 px-2.5 py-4 ps-10 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+							class="dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-white px-2.5 py-4 ps-10 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
 							id="datepicker-actions" type="text" datepicker datepicker-buttons datepicker-autoselect-today
 							placeholder="Filter tanggal">
 						<button
@@ -25,7 +25,7 @@
 					</div>
 				</form>
 			</div>
-			<div class="dark:bg-gray-800 dark:border-gray-500 w-full rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+			<div class="dark:bg-[#18181b] dark:border-gray-700 w-full rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
 				<div class="mb-4">
 					<p class="dark:text-white text-xl font-bold leading-none text-gray-900 md:text-2xl">{{ $pegawai->full_name }}</p>
 					<p class="dark:text-white text-lg font-semibold leading-none text-gray-900 md:text-xl">
@@ -44,7 +44,7 @@
 			</div>
 
 			<div
-				class="dark:bg-gray-800 dark:border-gray-500 h-max w-full rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+				class="dark:bg-[#18181b] dark:border-gray-700 h-max w-full rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
 				<div class="mb-4">
 					<p class="dark:text-white text-xl font-bold leading-none text-gray-900 md:text-2xl">
 						Mapping

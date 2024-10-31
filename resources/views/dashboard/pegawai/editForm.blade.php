@@ -1,12 +1,12 @@
-<div class="grid gap-4 xl:grid-cols-4">
+<div class="grid gap-6 xl:grid-cols-4">
 	<div class="w-full space-y-6 xl:col-span-3">
 		<form id="photoForm" action="{{ route('pegawai.update', $pegawai) }}" method="POST" enctype="multipart/form-data">
 			<div
-				class="dark:bg-gray-800 dark:ring-gray-500 grid gap-4 rounded-xl bg-gray-50 p-4 shadow-sm ring-1 ring-gray-200 sm:p-6 lg:grid-cols-2">
+				class="dark:bg-[#18181b] dark:ring-gray-700 grid gap-6 rounded-xl bg-white p-4 shadow-sm ring-1 ring-gray-200 sm:p-6 lg:grid-cols-2">
 				<div class="max-w-xl">
 					<header class="flex flex-row">
 						<a
-							class="dark:bg-red-800 dark:hover:bg-red-900 dark:text-white dark:ring-gray-500 mb-4 mr-3 flex flex-row rounded-lg px-2.5 py-2.5 align-middle ring-1 ring-red-700 hover:bg-red-300 md:px-4"
+							class="dark:bg-red-800 dark:hover:bg-red-900 dark:text-white dark:ring-gray-700 mb-4 mr-3 flex flex-row rounded-lg px-2.5 py-2.5 align-middle ring-1 ring-red-700 hover:bg-red-300 md:px-4"
 							href="{{ route('dashboard.pegawai') }}">
 							<svg class="dark:fill-white" class="icon" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
 								viewBox="0 0 1024 1024" fill="#000000" version="1.1">
@@ -27,7 +27,7 @@
 
 					@csrf
 					@method('put')
-					<div class="mb-4 grid gap-4 sm:mb-5 sm:grid-cols-2 sm:gap-6">
+					<div class="mb-4 grid gap-6 sm:mb-5 sm:grid-cols-2 sm:gap-6">
 						<div class="sm:col-span-2">
 							<label class="dark:text-white mb-2 block text-sm font-medium text-gray-900" for="kode_pegawai">Kode
 								Pegawai</label>
@@ -48,7 +48,7 @@
 							<label class="dark:text-white mb-2 block text-sm font-medium text-gray-900" for="nama_lengkap">Nama
 								Lengkap</label>
 							<input
-								class="focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900"
+								class="focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 bg-white p-2.5 text-sm text-gray-900"
 								id="nama_lengkap" name="nama_lengkap" type="text" value="{{ old('full_name', $pegawai->full_name ?? '') }}"
 								placeholder="Nama lengkap" required="">
 						</div>
@@ -56,14 +56,14 @@
 							<label class="dark:text-white mb-2 block text-sm font-medium text-gray-900" for="nick_name">Nama
 								Panggilan</label>
 							<input
-								class="focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900"
+								class="focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 bg-white p-2.5 text-sm text-gray-900"
 								id="nick_name" name="nick_name" type="text" value="{{ old('nick_name', $pegawai->nick_name ?? '') }}"
 								placeholder="Nama panggilan" required="">
 						</div>
 						<div class="w-full">
 							<label class="dark:text-white mb-2 block text-sm font-medium text-gray-900" for="jabatan">Posisi</label>
 							<select
-								class="focus:ring-primary-500 focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900"
+								class="focus:ring-primary-500 focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-white p-2.5 text-sm text-gray-900"
 								id="jabatan" name="jabatan">
 								<option selected>Pilih</option>
 								@foreach ($jabatan as $jb)
@@ -77,7 +77,7 @@
 						<div class="w-full">
 							<label class="dark:text-white mb-2 block text-sm font-medium text-gray-900" for="golongan">Posisi</label>
 							<select
-								class="focus:ring-primary-500 focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900"
+								class="focus:ring-primary-500 focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-white p-2.5 text-sm text-gray-900"
 								id="golongan" name="golongan">
 								<option selected>Pilih</option>
 								@foreach ($golongan as $gol)
@@ -91,7 +91,7 @@
 						<div class="w-full">
 							<label class="dark:text-white mb-2 block text-sm font-medium text-gray-900" for="no_telp">Nomor Telepon</label>
 							<input
-								class="focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900"
+								class="focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 bg-white p-2.5 text-sm text-gray-900"
 								id="no_telp" name="no_telp" type="tel" value="{{ old('no_telp', $pegawai->no_telp ?? '') }}"
 								title="Nomor telepon harus terdiri dari 10 hingga 13 digit" placeholder="Masukkan nomor telepon" required
 								pattern="[0-9]{10,13}">
@@ -107,7 +107,7 @@
 								</svg>
 							</div>
 							<input
-								class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 ps-10 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+								class="block w-full rounded-lg border border-gray-300 bg-white p-2.5 ps-10 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
 								id="tgl_lahir" name="tgl_lahir" type="text" value="{{ old('tgl_lahir', $pegawai->tgl_lahir ?? '') }}"
 								datepicker datepicker-format="yyyy-mm-dd" placeholder="Select date">
 						</div>
@@ -115,14 +115,14 @@
 						<div class="sm:col-span-2">
 							<label class="dark:text-white mb-2 block text-sm font-medium text-gray-900" for="alamat">Alamat</label>
 							<textarea
-							 class="focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900"
+							 class="focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 bg-white p-2.5 text-sm text-gray-900"
 							 id="alamat" name="alamat" rows="4" placeholder="Masukkan alamat lengkap" required>{{ old('alamat', $pegawai->alamat ?? '') }}</textarea>
 						</div>
 
 					</div>
 					<div class="flex items-center">
 						<button
-							class="dark:bg-blue-800 dark:hover:bg-blue-900 dark:text-white dark:ring-gray-500 inline-flex items-center rounded-lg px-5 py-2.5 text-center text-sm font-medium text-gray-900 ring-1 ring-blue-700 hover:bg-blue-800 hover:text-white focus:text-white focus:ring-4 focus:ring-blue-300"
+							class="dark:bg-blue-800 dark:hover:bg-blue-900 dark:text-white dark:ring-gray-700 inline-flex items-center rounded-lg px-5 py-2.5 text-center text-sm font-medium text-gray-900 ring-1 ring-blue-700 hover:bg-blue-800 hover:text-white focus:text-white focus:ring-4 focus:ring-blue-300"
 							type="submit">
 							Update
 							<svg class="ms-2 h-3.5 w-3.5 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
@@ -140,7 +140,7 @@
 					@php
 						$path = 'assets/img/noCamera.webp';
 					@endphp
-					<div class="col-span-1 grid h-auto gap-4 text-center lg:col-span-2" data-aos="zoom-in" data-aos-delay="100">
+					<div class="col-span-1 grid h-auto gap-6 text-center lg:col-span-2" data-aos="zoom-in" data-aos-delay="100">
 						<div class="relative h-auto w-full">
 							<video class="flex h-96 w-full rounded-lg border border-gray-200 object-cover p-0 ring-1 ring-gray-50"
 								id="video" data-aos="zoom-in" data-aos-delay="100"
@@ -151,14 +151,14 @@
 
 							<div class="absolute bottom-2 right-2 z-50" data-aos="fade-right" data-aos-delay="150">
 								<button
-									class="focus:text-gray-90 dark:bg-blue-800 dark:hover:bg-blue-900 dark:text-white dark:ring-gray-500 w-full items-center rounded-lg bg-white px-5 py-2.5 text-center text-sm font-medium text-gray-900 ring-1 ring-blue-700 hover:bg-blue-800 hover:text-white focus:bg-white focus:ring-2 focus:ring-blue-300 focus:hover:text-gray-900"
+									class="focus:text-gray-90 dark:bg-blue-800 dark:hover:bg-blue-900 dark:text-white dark:ring-gray-700 w-full items-center rounded-lg bg-white px-5 py-2.5 text-center text-sm font-medium text-gray-900 ring-1 ring-blue-700 hover:bg-blue-800 hover:text-white focus:bg-white focus:ring-2 focus:ring-blue-300 focus:hover:text-gray-900"
 									id="capturePhoto" type="button">Start Kamera</button>
 								<input id="photo1Data" name="photo1" type="hidden">
 								<input id="photo2Data" name="photo2" type="hidden">
 							</div>
 						</div>
 
-						<div class="grid gap-4 lg:grid-cols-2">
+						<div class="grid gap-6 lg:grid-cols-2">
 							<div class="relative flex w-full flex-col rounded-lg md:flex-row lg:flex-col lg:gap-0" data-aos="fade-right"
 								data-aos-delay="100">
 								<div class="h-auto w-full rounded-lg md:rounded-lg lg:w-full">
@@ -184,16 +184,17 @@
 	</div>
 
 	<div class="w-full space-y-4">
-		<header class="dark:bg-gray-800 flex flex-row rounded-xl bg-gray-50 p-4 sm:p-6">
+		<header
+			class="dark:bg-[#18181b] dark:ring-gray-700 flex flex-row rounded-xl bg-white p-4 ring-1 ring-gray-200 sm:p-6">
 			<h2 class="dark:text-white text-lg font-medium text-gray-900">
 				{{ __('Foto Terdaftar') }}
 			</h2>
 		</header>
-		<div class="grid gap-4 lg:grid-cols-2 xl:grid-cols-1">
+		<div class="grid gap-6 lg:grid-cols-2 xl:grid-cols-1">
 
 			@foreach ($images as $image)
 				@if (!is_null($image))
-					<div class="dark:bg-gray-800 rounded-xl bg-gray-50 p-1">
+					<div class="dark:bg-[#18181b] dark:ring-gray-700 rounded-xl bg-white p-1 ring-1 ring-gray-200">
 						<img class="border-1 h-56 w-full rounded-xl border-gray-500 object-cover blur-sm hover:blur-none"
 							src="{{ asset('storage/' . $pegawai->storage . $image) }}" alt="">
 					</div>

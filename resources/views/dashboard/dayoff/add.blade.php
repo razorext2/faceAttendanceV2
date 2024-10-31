@@ -1,11 +1,11 @@
 @extends('dashboard.layoutsDash.app')
 @section('content')
-	<div class="w-full space-y-6 xl:w-6/12 2xl:w-1/3">
-		<div class="dark:bg-gray-800 dark:ring-gray-500 rounded-xl bg-gray-50 p-4 shadow-sm ring-1 ring-gray-200 sm:p-6">
+	<div class="w-full space-y-6">
+		<div class="dark:bg-[#18181b] dark:ring-gray-700 rounded-xl bg-white p-4 shadow-sm ring-1 ring-gray-200 sm:p-6">
 			<div class="w-full">
 				<header class="flex flex-row">
 					<a
-						class="dark:bg-red-800 dark:hover:bg-red-900 dark:text-white dark:ring-gray-500 mb-4 mr-3 flex flex-row rounded-lg px-2.5 py-2.5 align-middle ring-1 ring-red-700 hover:bg-red-300 md:px-4"
+						class="dark:bg-red-800 dark:hover:bg-red-900 dark:text-white dark:ring-gray-700 mb-4 mr-3 flex flex-row rounded-lg px-2.5 py-2.5 align-middle ring-1 ring-red-700 hover:bg-red-300 md:px-4"
 						href="{{ route('dashboard.dayoff') }}">
 						<svg class="dark:fill-white" class="icon" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
 							viewBox="0 0 1024 1024" fill="#000000" version="1.1">
@@ -26,22 +26,22 @@
 
 				<form class="mt-4" id="content-form" action="{{ route('dayoff.store') }}" method="POST">
 					@csrf
-					<div class="mb-4 grid grid-cols-2 gap-4 sm:mb-5 sm:gap-6">
+					<div class="mb-4 grid grid-cols-2 gap-6 sm:mb-5 sm:gap-6">
 
-						<div class="col-span-2 w-full">
+						<div class="w-full">
 							<label class="dark:text-white mb-2 block text-sm font-medium text-gray-900" for="name">Nama
 								Pegawai</label>
 							@if (Auth::user()->hasPermissionTo('dayoff-confirm'))
-								<input class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900"
-									id="name" name="name" type="text" placeholder="Cari nama karyawan.." required="">
+								<input class="block w-full rounded-lg border border-gray-300 bg-white p-2.5 text-sm text-gray-900" id="name"
+									name="name" type="text" placeholder="Cari nama karyawan.." required="">
 								<div class="autocomplete-results" id="autocomplete-results"></div>
 							@else
-								<input class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900"
-									id="name" name="name" type="text" value="{{ $data->full_name }}" required="" readonly>
+								<input class="block w-full rounded-lg border border-gray-300 bg-white p-2.5 text-sm text-gray-900" id="name"
+									name="name" type="text" value="{{ $data->full_name }}" required="" readonly>
 							@endif
 						</div>
 
-						<div class="col-span-2 w-full">
+						<div class="w-full">
 							<label class="dark:text-white mb-2 block text-sm font-medium text-gray-900" for="kode_pegawai">Kode
 								Pegawai</label>
 							@if (Auth::user()->hasPermissionTo('dayoff-confirm'))
@@ -58,7 +58,7 @@
 						<div class="col-span-2 w-full">
 							<label class="dark:text-white mb-2 block text-sm font-medium text-gray-900" for="dayoff_for">Peruntukan</label>
 							<select
-								class="focus:ring-primary-500 focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900"
+								class="focus:ring-primary-500 focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-white p-2.5 text-sm text-gray-900"
 								id="dayoff_for" name="dayoff_for">
 								<option selected>Pilih</option>
 								<option value="Izin"> Izin </option>
@@ -71,14 +71,14 @@
 						<div class="w-full">
 							<label class="dark:text-white mb-2 block text-sm font-medium text-gray-900" for="start-time">Start time:</label>
 							<input
-								class="dark:bg-white dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray-800 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm leading-none text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+								class="dark:bg-white dark:border-gray-700 dark:placeholder-gray-400 dark:text-gray-800 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-white p-2.5 text-sm leading-none text-gray-900 focus:border-blue-500 focus:ring-blue-500"
 								id="start-time" name="start_time" type="datetime-local" required />
 						</div>
 						<div class="w-full">
 							<label class="dark:text-white mb-2 block text-sm font-medium text-gray-900" for="end-time">End
 								time:</label>
 							<input
-								class="dark:bg-white dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray-800 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm leading-none text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+								class="dark:bg-white dark:border-gray-700 dark:placeholder-gray-400 dark:text-gray-800 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-white p-2.5 text-sm leading-none text-gray-900 focus:border-blue-500 focus:ring-blue-500"
 								id="end-time" name="end_time" type="datetime-local" required />
 						</div>
 					</div>
@@ -93,7 +93,7 @@
 
 					<div class="relative w-full">
 						<button
-							class="dark:bg-blue-800 dark:text-white dark:hover:bg-blue-900 dark:ring-gray-500 inline-flex items-center rounded-lg px-5 py-2.5 text-center text-sm font-medium text-gray-900 ring-1 ring-blue-700 hover:bg-blue-800 hover:text-white focus:text-white focus:ring-4 focus:ring-blue-300"
+							class="dark:bg-blue-800 dark:text-white dark:hover:bg-blue-900 dark:ring-gray-700 inline-flex items-center rounded-lg px-5 py-2.5 text-center text-sm font-medium text-gray-900 ring-1 ring-blue-700 hover:bg-blue-800 hover:text-white focus:text-white focus:ring-4 focus:ring-blue-300"
 							type="submit">
 							Submit
 							<svg class="ms-2 h-3.5 w-3.5 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -219,7 +219,7 @@
 										'rounded-b-lg' : '';
 
 									$('#autocomplete-results').append(`
-                                <div class="autocomplete-result bg-gray-50 border border-gray-300 dark:bg-white p-2.5 divide-y w-full ${roundedClass}" data-fullname="${pegawai.full_name}" data-id="${pegawai.kode_pegawai}">${pegawai.full_name}</div>
+                                <div class="autocomplete-result bg-white border border-gray-300 dark:bg-white p-2.5 divide-y w-full ${roundedClass}" data-fullname="${pegawai.full_name}" data-id="${pegawai.kode_pegawai}">${pegawai.full_name}</div>
                             `);
 								});
 							} else {
@@ -251,7 +251,7 @@
 
 		document.addEventListener("DOMContentLoaded", function() {
 			document.querySelector('.ql-toolbar').classList.add('dark:bg-white', 'rounded-t-lg');
-			document.querySelector('.ql-picker').classList.add('dark:bg-gray-50');
+			document.querySelector('.ql-picker').classList.add('dark:bg-white');
 			document.getElementById('editor').classList.add('!h-96', 'rounded-b-lg');
 		});
 	</script>

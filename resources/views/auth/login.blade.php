@@ -7,7 +7,7 @@
 	@endif
 
 	<div class="mx-auto w-full md:mx-0 md:w-full lg:w-9/12">
-		<div class="dark:bg-gray-800 dark:ring-1 dark:ring-gray-500 flex w-full flex-col rounded-xl bg-white p-10 shadow-xl">
+		<div class="dark:bg-[#18181b] dark:ring-1 dark:ring-gray-700 flex w-full flex-col rounded-xl bg-white p-10 shadow-xl">
 			<h2 class="dark:text-white mb-2 text-left text-2xl font-bold text-gray-800">
 				Sign In
 			</h2>
@@ -18,7 +18,7 @@
 				<div class="my-5 flex w-full flex-col" id="input">
 					<x-input-label class="dark:text-white mb-2 text-left text-gray-500" for="email" :value="__('Email')" />
 					<x-text-input class="mt-1 block w-full"
-						class="dark:border-gray-500 appearance-none rounded-lg border-2 border-gray-100 px-4 py-3 placeholder-gray-300 focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-green-600"
+						class="dark:border-gray-700 appearance-none rounded-lg border-2 border-gray-100 px-4 py-3 placeholder-gray-300 focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-green-600"
 						id="email" name="email" type="email" :value="old('email')" required autofocus autocomplete="email"
 						placeholder="Please insert your email" />
 					<x-input-error class="mt-2" :messages="$errors->get('email')" />
@@ -28,7 +28,7 @@
 					<x-input-label class="dark:text-white mb-2 text-left text-gray-500" for="password" :value="__('Password')" />
 
 					<x-text-input class="mt-1 block w-full"
-						class="dark:border-gray-500 appearance-none rounded-lg border-2 border-gray-100 px-4 py-3 placeholder-gray-300 focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-green-600"
+						class="dark:border-gray-700 appearance-none rounded-lg border-2 border-gray-100 px-4 py-3 placeholder-gray-300 focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-green-600"
 						id="password" name="password" type="password" required autocomplete="current-password"
 						placeholder="Please insert your password" />
 
@@ -37,7 +37,7 @@
 
 				<div class="mt-4 block">
 					<label class="items-left inline-flex text-left" for="remember_me">
-						<input class="dark:border-gray-500 rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500"
+						<input class="dark:border-gray-700 rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500"
 							id="remember_me" name="remember" type="checkbox">
 						<span class="dark:text-white ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
 					</label>

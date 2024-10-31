@@ -5,7 +5,7 @@
 		@can('pegawai-create')
 			<div class="absolute left-6 top-56 z-10 max-w-xs sm:left-auto sm:right-6 md:top-40 lg:left-6 lg:right-auto lg:top-24">
 				<button
-					class="dark:bg-green-800 dark:text-white dark:hover:bg-green-900 dark:ring-gray-500 flex flex-row rounded-lg px-4 py-2 ring-1 ring-green-700 hover:bg-green-300 lg:px-8"
+					class="dark:bg-green-800 dark:text-white dark:hover:bg-green-900 dark:ring-gray-700 flex flex-row rounded-lg px-4 py-2 ring-1 ring-green-700 hover:bg-green-300 lg:px-8"
 					form="add-pegawai">
 					<svg class="dark:fill-white rotate-180" class="icon" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
 						viewBox="0 0 1024 1024" fill="#000000" version="1.1">
@@ -20,7 +20,7 @@
 
 		<div class="flex h-auto items-center justify-center">
 			<div
-				class="dark:bg-gray-800 dark:ring-gray-500 grid w-full grid-cols-2 gap-4 rounded-xl bg-gray-50 p-6 shadow-sm ring-1 ring-gray-200">
+				class="dark:bg-[#18181b] dark:ring-gray-700 grid w-full grid-cols-2 gap-4 rounded-xl bg-white p-6 shadow-sm ring-1 ring-gray-200">
 				<div class="col-span-2 grid grid-cols-2 gap-4 md:col-span-2 lg:col-span-1">
 					<div>
 						<div class="relative">
@@ -33,7 +33,7 @@
 								</svg>
 							</div>
 							<input
-								class="dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full cursor-pointer rounded-lg border border-gray-300 bg-gray-50 p-4 text-sm leading-none text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+								class="dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full cursor-pointer rounded-lg border border-gray-300 bg-white p-4 text-sm leading-none text-gray-900 focus:border-blue-500 focus:ring-blue-500"
 								id="min" name="min" type="text" placeholder="Start" required />
 						</div>
 					</div>
@@ -48,7 +48,7 @@
 								</svg>
 							</div>
 							<input
-								class="dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full cursor-pointer rounded-lg border border-gray-300 bg-gray-50 p-4 text-sm leading-none text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+								class="dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full cursor-pointer rounded-lg border border-gray-300 bg-white p-4 text-sm leading-none text-gray-900 focus:border-blue-500 focus:ring-blue-500"
 								id="max" name="max" type="text" placeholder="End" required />
 						</div>
 					</div>
@@ -64,7 +64,7 @@
 								</svg>
 							</div>
 							<input
-								class="dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-4 ps-10 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+								class="dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-white p-4 ps-10 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
 								id="searchText" type="search" placeholder="Search..." />
 
 							<div class="absolute inset-y-0 right-24 flex cursor-pointer items-center" id="clearIcon" style="display:none;">
@@ -177,7 +177,7 @@
 						name: 'nama_golongan'
 					},
 				],
-				dom: `<"absolute top-1 md:left-0 {{ auth()->user()->can('pegawai-create') ? 'lg:left-48 right-0' : '' }} mt-14 lg:mt-0 dark:text-white max-w-xs"B><"text-left lg:text-right dark:text-white"l><"relative overflow-x-auto w-full mt-20 lg:mt-4"t><"grid text-center gap-4 lg:grid-cols-2 mt-4 dark:text-white"<"lg:mt-3 lg:text-left"i><"lg:text-right dark:text-gray-900"p>>`,
+				dom: `<"absolute top-1 md:left-0 {{ auth()->user()->can('pegawai-create') ? 'lg:left-48 right-0' : '' }} mt-14 lg:mt-0 dark:text-white max-w-xs"B><"text-left lg:text-right dark:text-white"l><"relative overflow-x-auto w-full mt-20 lg:mt-4"t><"grid text-center gap-6 lg:grid-cols-2 mt-4 dark:text-white"<"lg:mt-3 lg:text-left"i><"lg:text-right dark:text-gray-900"p>>`,
 				buttons: [{
 						extend: "csv",
 						exportOptions: {
@@ -194,7 +194,7 @@
 					{
 						extend: "print",
 						exportOptions: {
-							columns: [2, 3, 4, 5, 6, 7, 8, 9, 10]
+							columns: [1, 2, 3, 4, 5]
 						},
 						title: '', // Custom title in print view
 						customize: function(win) {

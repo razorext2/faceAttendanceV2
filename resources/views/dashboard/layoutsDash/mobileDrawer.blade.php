@@ -1,5 +1,5 @@
 <div class="fixed bottom-0 left-1/2 z-[51] w-full max-w-lg -translate-x-1/2 md:hidden">
-	<div class="dark:bg-gray-800 dark:border-gray-500 h-16 w-full rounded-t-2xl border-t border-gray-200 bg-white">
+	<div class="dark:bg-[#18181b] dark:border-gray-700 h-16 w-full rounded-t-2xl border-t border-gray-200 bg-white">
 		<div class="mx-auto grid h-full max-w-lg grid-cols-5">
 			<a class="group inline-flex flex-col items-center justify-center rounded-tl-2xl px-5" href="{{ route('dashboard') }}">
 				<svg
@@ -69,16 +69,16 @@
 
 <!-- drawer component -->
 <div
-	class="dark:border-gray-700 dark:bg-gray-800 fixed -bottom-20 bottom-[50px] left-0 right-0 z-50 w-full translate-y-full overflow-y-auto rounded-t-xl border-t border-gray-200 bg-white transition-transform md:hidden"
+	class="dark:border-gray-700 dark:bg-[#18181b] fixed -bottom-20 bottom-[50px] left-0 right-0 z-50 w-full translate-y-full overflow-y-auto rounded-t-xl border-t border-gray-200 bg-white transition-transform md:hidden"
 	id="drawer-swipe" aria-labelledby="drawer-swipe-label" tabindex="-1">
 	<div class="dark:hover:bg-gray-700 cursor-pointer p-4 hover:bg-gray-50" data-drawer-toggle="drawer-swipe">
 		<span class="dark:bg-gray-600 absolute left-1/2 top-3 h-1 w-8 -translate-x-1/2 rounded-xl bg-gray-300"></span>
 	</div>
-	<div class="grid grid-cols-3 gap-4 px-4 pb-[60px] pt-4 lg:grid-cols-4">
+	<div class="grid grid-cols-3 gap-6 px-4 pb-[60px] pt-4 lg:grid-cols-4">
 
 		{{-- offday --}}
 		<a
-			class="{{ Route::currentRouteName() == 'dashboard.dayoff' || Route::currentRouteName() == 'dayoff.add' || Route::currentRouteName() == 'dayoff.edit' ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-gray-800 bg-gray-50' }} dark:hover:bg-gray-600 group cursor-pointer rounded-xl p-4 hover:bg-gray-100"
+			class="{{ Route::currentRouteName() == 'dashboard.dayoff' || Route::currentRouteName() == 'dayoff.add' || Route::currentRouteName() == 'dayoff.edit' ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-[#18181b] bg-white' }} dark:hover:bg-gray-600 group cursor-pointer rounded-xl p-4 hover:bg-gray-100"
 			href="{{ route('dashboard.dayoff') }}">
 
 			<div
@@ -108,7 +108,7 @@
 
 		@can('capture')
 			<a
-				class="{{ Route::currentRouteName() == 'dashboard.capture' ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-gray-800 bg-gray-50' }} dark:hover:bg-gray-600 group cursor-pointer rounded-xl p-4 hover:bg-gray-100"
+				class="{{ Route::currentRouteName() == 'dashboard.capture' ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-[#18181b] bg-white' }} dark:hover:bg-gray-600 group cursor-pointer rounded-xl p-4 hover:bg-gray-100"
 				href="{{ route('dashboard.capture') }}">
 
 				<div
@@ -137,7 +137,7 @@
 
 		@can('pegawai-list')
 			<a
-				class="{{ Route::currentRouteName() == 'dashboard.pegawai' || Route::currentRouteName() == 'pegawai.add' || Route::currentRouteName() == 'pegawai.edit' ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-gray-800 bg-gray-50' }} dark:hover:bg-gray-600 group cursor-pointer rounded-xl p-4 hover:bg-gray-100"
+				class="{{ Route::currentRouteName() == 'dashboard.pegawai' || Route::currentRouteName() == 'pegawai.add' || Route::currentRouteName() == 'pegawai.edit' ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-[#18181b] bg-white' }} dark:hover:bg-gray-600 group cursor-pointer rounded-xl p-4 hover:bg-gray-100"
 				href="{{ route('dashboard.pegawai') }}">
 
 				<div
@@ -162,7 +162,7 @@
 
 		@can('jabatan-list')
 			<a
-				class="{{ Route::currentRouteName() == 'dashboard.jabatan' || Route::currentRouteName() == 'jabatan.add' || Route::currentRouteName() == 'jabatan.edit' ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-gray-800 bg-gray-50' }} dark:hover:bg-gray-600 group cursor-pointer rounded-xl p-4 hover:bg-gray-100"
+				class="{{ Route::currentRouteName() == 'dashboard.jabatan' || Route::currentRouteName() == 'jabatan.add' || Route::currentRouteName() == 'jabatan.edit' ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-[#18181b] bg-white' }} dark:hover:bg-gray-600 group cursor-pointer rounded-xl p-4 hover:bg-gray-100"
 				href="{{ route('dashboard.jabatan') }}">
 
 				<div
@@ -187,7 +187,7 @@
 
 		@can('golongan-list')
 			<a
-				class="{{ Route::currentRouteName() == 'dashboard.golongan' || Route::currentRouteName() == 'golongan.add' || Route::currentRouteName() == 'golongan.edit' ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-gray-800 bg-gray-50' }} dark:hover:bg-gray-600 group cursor-pointer rounded-xl p-4 hover:bg-gray-100"
+				class="{{ Route::currentRouteName() == 'dashboard.golongan' || Route::currentRouteName() == 'golongan.add' || Route::currentRouteName() == 'golongan.edit' ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-[#18181b] bg-white' }} dark:hover:bg-gray-600 group cursor-pointer rounded-xl p-4 hover:bg-gray-100"
 				href="{{ route('dashboard.golongan') }}">
 
 				<div
@@ -216,7 +216,7 @@
 
 		@can('divisi-list')
 			<a
-				class="{{ Route::currentRouteName() == 'dashboard.division' || Route::currentRouteName() == 'division.add' || Route::currentRouteName() == 'division.edit' ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-gray-800 bg-gray-50' }} dark:hover:bg-gray-600 group cursor-pointer rounded-xl p-4 hover:bg-gray-100"
+				class="{{ Route::currentRouteName() == 'dashboard.division' || Route::currentRouteName() == 'division.add' || Route::currentRouteName() == 'division.edit' ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-[#18181b] bg-white' }} dark:hover:bg-gray-600 group cursor-pointer rounded-xl p-4 hover:bg-gray-100"
 				href="{{ route('dashboard.division') }}">
 
 				<div
@@ -241,7 +241,7 @@
 
 		@can('placement-list')
 			<a
-				class="{{ Route::currentRouteName() == 'dashboard.placement' || Route::currentRouteName() == 'placement.add' || Route::currentRouteName() == 'placement.edit' ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-gray-800 bg-gray-50' }} dark:hover:bg-gray-600 group cursor-pointer rounded-xl p-4 hover:bg-gray-100"
+				class="{{ Route::currentRouteName() == 'dashboard.placement' || Route::currentRouteName() == 'placement.add' || Route::currentRouteName() == 'placement.edit' ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-[#18181b] bg-white' }} dark:hover:bg-gray-600 group cursor-pointer rounded-xl p-4 hover:bg-gray-100"
 				href="{{ route('dashboard.placement') }}">
 
 				<div
@@ -268,7 +268,7 @@
 
 		@can('users-list')
 			<a
-				class="{{ Route::currentRouteName() == 'dashboard.users' || Route::currentRouteName() == 'users.add' || Route::currentRouteName() == 'users.edit' ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-gray-800 bg-gray-50' }} dark:hover:bg-gray-600 group cursor-pointer rounded-xl p-4 hover:bg-gray-100"
+				class="{{ Route::currentRouteName() == 'dashboard.users' || Route::currentRouteName() == 'users.add' || Route::currentRouteName() == 'users.edit' ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-[#18181b] bg-white' }} dark:hover:bg-gray-600 group cursor-pointer rounded-xl p-4 hover:bg-gray-100"
 				href="{{ route('dashboard.users') }}">
 
 				<div
@@ -297,7 +297,7 @@
 
 		@can('roles-list')
 			<a
-				class="{{ Route::currentRouteName() == 'dashboard.roles' || Route::currentRouteName() == 'roles.add' || Route::currentRouteName() == 'roles.edit' ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-gray-800 bg-gray-50' }} dark:hover:bg-gray-600 group cursor-pointer rounded-xl p-4 hover:bg-gray-100"
+				class="{{ Route::currentRouteName() == 'dashboard.roles' || Route::currentRouteName() == 'roles.add' || Route::currentRouteName() == 'roles.edit' ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-[#18181b] bg-white' }} dark:hover:bg-gray-600 group cursor-pointer rounded-xl p-4 hover:bg-gray-100"
 				href="{{ route('dashboard.roles') }}">
 
 				<div
@@ -326,7 +326,7 @@
 
 		@can('permissions-list')
 			<a
-				class="{{ Route::currentRouteName() == 'dashboard.permissions' || Route::currentRouteName() == 'permissions.add' || Route::currentRouteName() == 'permissions.edit' ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-gray-800 bg-gray-50' }} dark:hover:bg-gray-600 group cursor-pointer rounded-xl p-4 hover:bg-gray-100"
+				class="{{ Route::currentRouteName() == 'dashboard.permissions' || Route::currentRouteName() == 'permissions.add' || Route::currentRouteName() == 'permissions.edit' ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-[#18181b] bg-white' }} dark:hover:bg-gray-600 group cursor-pointer rounded-xl p-4 hover:bg-gray-100"
 				href="{{ route('dashboard.permissions') }}">
 
 				<div
@@ -355,7 +355,7 @@
 
 		{{-- log --}}
 		<a
-			class="{{ Route::currentRouteName() == 'dashboard.log' ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-gray-800 bg-gray-50' }} dark:hover:bg-gray-600 group cursor-pointer rounded-xl p-4 hover:bg-gray-100"
+			class="{{ Route::currentRouteName() == 'dashboard.log' ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-[#18181b] bg-white' }} dark:hover:bg-gray-600 group cursor-pointer rounded-xl p-4 hover:bg-gray-100"
 			href="{{ route('dashboard.log') }}">
 
 			<div

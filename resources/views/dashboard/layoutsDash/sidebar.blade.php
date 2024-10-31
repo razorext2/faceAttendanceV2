@@ -1,15 +1,15 @@
 <!-- Sidebar Navigation -->
 <aside
-	class="dark:bg-gray-800 dark:border-gray-500 fixed left-0 top-0 z-40 hidden h-full w-72 -translate-x-full border-r border-gray-200 bg-white pt-16 shadow-sm transition-transform sm:translate-x-0 md:block"
+	class="dark:bg-[#09090b] fixed left-0 top-0 z-40 hidden h-full w-72 -translate-x-full bg-gray-50 pt-16 transition-transform sm:translate-x-0 md:block"
 	id="logo-sidebar" aria-label="Sidebar">
-	<div class="relative max-h-[87.5%] overflow-y-auto p-5">
+	<div class="relative mt-3 max-h-[87.5%] overflow-y-auto p-5">
 		<ul class="space-y-2 font-medium">
 			<li>
 				<a
-					class="{{ Route::currentRouteName() == 'dashboard' ? 'text-gray-900 bg-gray-100 dark:bg-transparent dark:text-white' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent dark:hover:text-white' }} group flex items-center rounded-lg p-2"
+					class="{{ Route::currentRouteName() == 'dashboard' ? 'text-red-600 font-bold bg-gray-100 dark:bg-transparent dark:text-white' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent dark:hover:text-white' }} items-centel group flex rounded-xl p-2"
 					href="{{ route('dashboard') }}" role="menuitem">
 					<svg
-						class="fi-sidebar-item-icon {{ Route::currentRouteName() == 'dashboard' ? 'stroke-gray-700 dark:stroke-white' : 'stroke-gray-400' }} h-6 w-6 text-gray-400"
+						class="fi-sidebar-item-icon {{ Route::currentRouteName() == 'dashboard' ? 'stroke-red-600 ' : 'stroke-gray-400' }} h-6 w-6 text-gray-400"
 						data-slot="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
 						stroke-width="1.5" stroke="currentColor">
 						<path stroke-linecap="round" stroke-linejoin="round"

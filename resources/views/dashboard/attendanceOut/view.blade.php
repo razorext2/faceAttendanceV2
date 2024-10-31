@@ -2,7 +2,7 @@
 @section('content')
 	<div class="grid grid-cols-1 gap-6">
 		<div
-			class="dark:bg-gray-800 dark:ring-gray-500 flex h-auto items-center justify-center rounded-xl bg-gray-50 p-4 shadow-sm ring-1 ring-gray-200">
+			class="dark:bg-[#18181b] dark:ring-gray-700 flex h-auto items-center justify-center rounded-xl bg-white p-4 shadow-sm ring-1 ring-gray-200">
 
 			<table id="filter-table">
 				<thead>
@@ -69,11 +69,11 @@
 									\Carbon\Carbon::parse($data->jam_keluar)->lt(
 										\Carbon\Carbon::parse(\Carbon\Carbon::parse($data->jam_keluar)->toDateString() . '17:00:00')))
 									<span
-										class="dark:bg-red-900 dark:text-white dark:ring-gray-500 ml-2 rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-medium text-red-800 shadow-sm ring-1 ring-gray-300">Pulang
+										class="dark:bg-red-900 dark:text-white dark:ring-gray-700 ml-2 rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-medium text-red-800 shadow-sm ring-1 ring-gray-300">Pulang
 										Cepat</span>
 								@else
 									<span
-										class="dark:bg-green-800 dark:text-white dark:ring-gray-500 ml-2 rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-800 shadow-sm ring-1 ring-gray-300">Tepat
+										class="dark:bg-green-800 dark:text-white dark:ring-gray-700 ml-2 rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-800 shadow-sm ring-1 ring-gray-300">Tepat
 										Waktu</span>
 								@endif
 							</td>

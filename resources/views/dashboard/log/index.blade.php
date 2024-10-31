@@ -3,7 +3,7 @@
 	<div class="relative grid grid-cols-1 gap-6">
 
 		<div
-			class="dark:bg-gray-800 dark:ring-gray-500 flex h-auto items-center justify-center rounded-xl bg-gray-50 px-2 pb-2 pt-16 shadow-sm ring-1 ring-gray-200 lg:p-4">
+			class="dark:bg-[#18181b] dark:ring-gray-700 flex h-auto items-center justify-center rounded-xl bg-white px-2 pb-2 pt-16 shadow-sm ring-1 ring-gray-200 lg:p-4">
 			<table id="filter-table">
 				<thead>
 					<tr>

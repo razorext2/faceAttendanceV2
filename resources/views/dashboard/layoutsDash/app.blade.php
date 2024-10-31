@@ -5,8 +5,8 @@
 		@include('dashboard.layoutsDash.head')
 	</head>
 
-	<body>
-		<div class="relative">
+	<body class="dark:bg-[#09090b] bg-gray-50">
+		{{-- <div class="relative">
 			<img class="fixed inset-0 -z-50 h-full w-full object-cover" src="{{ asset('assets/img/hero-bg-light.webp') }}"
 				alt="Background Image" />
 			<img class="fixed inset-0 -z-40 h-full w-full object-cover opacity-20 mix-blend-overlay"
@@ -14,7 +14,7 @@
 
 			<!-- Overlay -->
 			<div class="dark:opacity-85 fixed inset-0 -z-40 w-full bg-gray-800 opacity-0"></div>
-		</div>
+		</div> --}}
 
 		@if (session('status'))
 			<div
@@ -51,10 +51,9 @@
 
 		@include('dashboard.layoutsDash.navbar')
 		@include('dashboard.layoutsDash.sidebar')
-		<div class="mt-2 p-2 sm:ml-72 sm:mt-0 sm:p-4">
+		<div class="mt-2 max-w-screen-xl p-2 sm:ml-72 sm:mt-0 sm:p-4 xl:ml-[420px]">
 
-			<div
-				class="dark:border-gray-800 mb-16 mt-12 rounded-lg border-2 border-dashed border-gray-100 p-2 sm:p-4 md:mb-0 md:mt-16">
+			<div class="mb-16 mt-12 rounded-lg p-2 sm:p-4 md:mb-0 md:mt-16">
 				<!-- carousel for cards -->
 				<div class="mb-3 grid grid-cols-1 gap-6">
 					<div class="relative overflow-hidden">
@@ -65,7 +64,7 @@
 						<div class="p-auto relative m-auto flex flex-col">
 							<!-- Tombol Previous -->
 							<button
-								class="dark:bg-gray-800 dark:hover:bg-gray-900 dark:text-gray-300 dark:hover:text-white dark:border-gray-500 absolute -bottom-2.5 left-0 h-10 w-10 -translate-y-1/2 transform rounded-full border border-gray-300 bg-white p-2 text-gray-800 transition-all duration-500 hover:bg-gray-300"
+								class="dark:bg-[#18181b] dark:hover:bg-gray-900 dark:text-gray-300 dark:hover:text-white dark:border-gray-700 absolute -bottom-2.5 left-0 h-10 w-10 -translate-y-1/2 transform rounded-full border border-gray-300 bg-white p-2 text-gray-800 transition-all duration-500 hover:bg-gray-300"
 								id="prevButton">
 								&#8592;
 							</button>
@@ -78,7 +77,7 @@
 
 							<!-- Tombol Next -->
 							<button
-								class="dark:bg-gray-800 dark:hover:bg-gray-900 dark:text-gray-300 dark:hover:text-white dark:border-gray-500 absolute -bottom-2.5 right-0 h-10 w-10 -translate-y-1/2 transform rounded-full border border-gray-300 bg-white p-2 text-gray-800 transition-all duration-500 hover:bg-gray-300"
+								class="dark:bg-[#18181b] dark:hover:bg-gray-900 dark:text-gray-300 dark:hover:text-white dark:border-gray-700 absolute -bottom-2.5 right-0 h-10 w-10 -translate-y-1/2 transform rounded-full border border-gray-300 bg-white p-2 text-gray-800 transition-all duration-500 hover:bg-gray-300"
 								id="nextButton">
 								&#8594;
 							</button>
@@ -92,7 +91,7 @@
 
 		{{-- bikin navigasi ala android --}}
 		@include('dashboard.layoutsDash.mobileDrawer')
-		<div class="dark:bg-gray-800 fixed inset-0 z-50 bg-white md:z-[9999]" id="preloader">
+		<div class="dark:bg-gray-950 fixed inset-0 z-50 bg-white md:z-[9999]" id="preloader">
 		</div>
 
 		<!-- js -->

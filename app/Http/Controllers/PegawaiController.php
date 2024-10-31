@@ -63,35 +63,35 @@ class PegawaiController extends Controller
                 <div class="inline-flex text-center" role="group">
                     <a href="' . $dataUrl .
                     '"
-                        class="mx-1 text-md font-medium rounded-lg focus:z-10  text-gray-800 dark:text-white">
+                        class="mx-1 text-md font-medium rounded-lg focus:z-10 text-blue-500">
                          &#128203; <span class="hover:underline"> Detail </span>
                     </a>';
 
-                if (auth()->user()->can('pegawai-timeline')) {
-                    $actionButtons .= '    
-                    <a href="' . $timelineUrl . '"
-                        class="mx-1 text-md font-medium rounded-lg focus:z-10">
-                        &#8987; <span class="hover:underline" style="color: #1C64F2"> Timeline </span>
-                    </a>';
-                }
+                // if (auth()->user()->can('pegawai-timeline')) {
+                //     $actionButtons .= '    
+                //     <a href="' . $timelineUrl . '"
+                //         class="mx-1 text-md font-medium rounded-lg focus:z-10">
+                //         &#8987; <span class="hover:underline" style="color: #1C64F2"> Timeline </span>
+                //     </a>';
+                // }
 
-                if (auth()->user()->can('pegawai-edit')) {
-                    $actionButtons .= '
-                    <a href="' . $editUrl . '"
-                        class="mx-1 text-md font-medium rounded-lg focus:z-10">
-                         &#9999; <span class="hover:underline" style="color: #057A55"> Edit </span>
-                    </a>';
-                }
+                // if (auth()->user()->can('pegawai-edit')) {
+                //     $actionButtons .= '
+                //     <a href="' . $editUrl . '"
+                //         class="mx-1 text-md font-medium rounded-lg focus:z-10">
+                //          &#9999; <span class="hover:underline" style="color: #057A55"> Edit </span>
+                //     </a>';
+                // }
 
-                if (auth()->user()->can('pegawai-delete')) {
-                    $actionButtons .= '
-                    <button
-                        class="mx-1 group text-md font-medium rounded-lg focus:z-10 delete-btn"
-                        data-id="' . $data->kode_pegawai . '" data-modal-target="deleteModal" data-modal-toggle="deleteModal">
-                        &#x26D4; <span class="hover:underline" style="color: #E02424"> Delete </span>
-                    </button>';
-                }
-                '</div>';
+                // if (auth()->user()->can('pegawai-delete')) {
+                //     $actionButtons .= '
+                //     <button
+                //         class="mx-1 group text-md font-medium rounded-lg focus:z-10 delete-btn"
+                //         data-id="' . $data->kode_pegawai . '" data-modal-target="deleteModal" data-modal-toggle="deleteModal">
+                //         &#x26D4; <span class="hover:underline" style="color: #E02424"> Delete </span>
+                //     </button>';
+                // }
+                // '</div>';
                 return $actionButtons;
             })
             ->addColumn('full_name_nik', function ($data) {

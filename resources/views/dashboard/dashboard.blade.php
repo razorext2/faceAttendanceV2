@@ -5,7 +5,7 @@
 
 		<!-- Chart -->
 		<div class="col-span-2 mb-4 flex items-center justify-center xl:mb-0">
-			<div class="dark:bg-gray-800 dark:border-gray-500 w-full rounded-xl border border-gray-300 bg-white p-4 md:p-6">
+			<div class="dark:bg-[#18181b] dark:border-gray-700 w-full rounded-xl border border-gray-200 bg-white p-4 md:p-6">
 				<div class="mb-5 flex justify-between">
 					<div>
 						<h5 class="dark:text-white mb-2 text-3xl font-bold leading-none text-gray-900">{{ $yearNow }}
@@ -19,7 +19,7 @@
 				<div id="tooltip-chart" data-late-counts='@json($lateCounts)'
 					data-ontime-counts='@json($ontimeCounts)' data-outtime-counts="@json($outtimeCounts)"
 					data-fast-counts='@json($fastCounts)' data-dates='@json($dates)'></div>
-				<div class="dark:border-gray-500 mt-5 grid grid-cols-1 items-center justify-between border-t border-gray-200">
+				<div class="dark:border-gray-700 mt-5 grid grid-cols-1 items-center justify-between border-t border-gray-200">
 					<div class="flex items-center justify-between pt-5">
 						<a
 							class="dark:hover:bg-gray-900 inline-flex items-center rounded-xl px-3 py-2 text-sm font-semibold uppercase text-blue-600 hover:bg-gray-100 hover:text-blue-700"
@@ -49,7 +49,7 @@
 		<!-- Notification -->
 		<div class="grid grid-cols-1">
 
-			<div class="dark:bg-gray-800 dark:border-gray-500 flex flex-col rounded-xl border border-gray-300 bg-white p-4">
+			<div class="dark:bg-[#18181b] dark:border-gray-700 flex flex-col rounded-xl border border-gray-200 bg-white p-4">
 				<span>
 					<time class="text-md dark:text-white font-semibold text-gray-900">Absen Masuk,
 						{{ \Carbon\Carbon::today()->locale('id')->isoFormat('D MMMM YYYY') }}</time>
@@ -83,7 +83,7 @@
 				</ul>
 			</div>
 
-			<div class="dark:bg-gray-800 dark:border-gray-500 mt-3 flex flex-col rounded-xl border border-gray-300 bg-white p-4">
+			<div class="dark:bg-[#18181b] dark:border-gray-700 mt-3 flex flex-col rounded-xl border border-gray-200 bg-white p-4">
 				<span>
 					<time class="text-md dark:text-white font-semibold text-gray-900">Absen Keluar,
 						{{ \Carbon\Carbon::today()->locale('id')->isoFormat('D MMMM YYYY') }}</time>
@@ -112,7 +112,7 @@
 
 	<div class="grid grid-cols-1 gap-6">
 		<div
-			class="dark:bg-gray-800 dark:border-gray-500 flex h-auto items-center justify-center rounded-xl border border-gray-300 bg-white p-4 shadow-sm">
+			class="dark:bg-[#18181b] dark:border-gray-700 flex h-auto items-center justify-center rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
 			<!-- Table -->
 			<div class="relative w-full overflow-x-auto">
 				<table class="w-full text-left text-sm" id="filter-table">
@@ -178,12 +178,12 @@
 									<!-- jam masuk -->
 									@if ($attendance['jam_masuk'])
 										<span
-											class="dark:text-white dark:ring-1 dark:ring-gray-500 dark:bg-green-800 dark:hover:bg-green-900 my-1 w-full rounded-lg py-1 text-black ring-1 ring-green-400 hover:bg-green-300 md:px-1">
+											class="dark:text-white dark:ring-1 dark:ring-gray-700 dark:bg-green-800 dark:hover:bg-green-900 my-1 w-full rounded-lg py-1 text-black ring-1 ring-green-400 hover:bg-green-300 md:px-1">
 											Masuk : {{ \Carbon\Carbon::parse($attendance['jam_masuk'])->format('H:i') }}
 										</span>
 									@else
 										<span
-											class="dark:text-white dark:ring-1 dark:ring-gray-500 dark:bg-red-800 dark:hover:bg-red-900 my-1 w-full rounded-lg py-1 text-black ring-1 ring-red-400 hover:bg-red-300 md:px-1">
+											class="dark:text-white dark:ring-1 dark:ring-gray-700 dark:bg-red-800 dark:hover:bg-red-900 my-1 w-full rounded-lg py-1 text-black ring-1 ring-red-400 hover:bg-red-300 md:px-1">
 											Belum Absen
 										</span>
 									@endif
@@ -191,13 +191,13 @@
 									<!-- jam keluar -->
 									@if ($attendance['latest_jam_keluar'])
 										<span
-											class="dark:text-white dark:ring-1 dark:ring-gray-500 dark:bg-green-800 dark:hover:bg-green-900 my-1 w-full rounded-lg py-1 text-black ring-1 ring-green-400 hover:bg-green-300 md:px-1">
+											class="dark:text-white dark:ring-1 dark:ring-gray-700 dark:bg-green-800 dark:hover:bg-green-900 my-1 w-full rounded-lg py-1 text-black ring-1 ring-green-400 hover:bg-green-300 md:px-1">
 											Keluar :
 											{{ \Carbon\Carbon::parse($attendance['latest_jam_keluar'])->format('H:i') }}
 										</span>
 									@else
 										<span
-											class="dark:text-white dark:ring-1 dark:ring-gray-500 dark:bg-red-800 dark:hover:bg-red-900 my-1 w-full rounded-lg py-1 text-black ring-1 ring-red-400 hover:bg-red-300 md:px-1">
+											class="dark:text-white dark:ring-1 dark:ring-gray-700 dark:bg-red-800 dark:hover:bg-red-900 my-1 w-full rounded-lg py-1 text-black ring-1 ring-red-400 hover:bg-red-300 md:px-1">
 											Belum Absen
 										</span>
 									@endif

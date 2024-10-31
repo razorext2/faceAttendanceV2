@@ -1,13 +1,13 @@
 @extends('dashboard.layoutsDash.app')
 @section('content')
 	<div
-		class="dark:bg-gray-800/70 dark:ring-gray-500 relative rounded-xl bg-white/70 p-0 ring-1 ring-black lg:max-w-screen-lg lg:p-4"
+		class="dark:bg-[#18181b]/70 dark:ring-gray-700 relative rounded-xl bg-white/70 p-0 ring-1 ring-black lg:max-w-screen-lg lg:p-4"
 		id="Scan" data-aos="zoom-in-up" data-aos-delay="50">
 		<div class="grid h-auto w-full grid-cols-1 lg:grid-cols-3 lg:gap-4">
 
 			<div class="video-container h-auto p-3 text-center lg:col-span-2 lg:p-0" data-aos="zoom-in" data-aos-delay="100">
 				<div class="relative h-[30rem] w-full">
-					<video class="dark:ring-gray-500 flex h-full w-full rounded-lg object-cover p-0 ring-1 ring-black" id="video"
+					<video class="dark:ring-gray-700 flex h-full w-full rounded-lg object-cover p-0 ring-1 ring-black" id="video"
 						data-aos="zoom-in" data-aos-delay="100"
 						style="background: url('{{ asset('assets/img/noCamera.webp') }}') center center / cover no-repeat;" autoplay>
 					</video>
@@ -15,13 +15,13 @@
 				</div>
 				<div class="mt-3 inline-flex w-full lg:px-0">
 					<button
-						class="dark:bg-blue-800 dark:hover:bg-blue-900 dark:text-white dark:ring-gray-500 w-full rounded-lg bg-blue-400 p-2 font-bold text-white ring-1 ring-black hover:bg-blue-700"
+						class="dark:bg-blue-800 dark:hover:bg-blue-900 dark:text-white dark:ring-gray-700 w-full rounded-lg bg-blue-400 p-2 font-bold text-white ring-1 ring-black hover:bg-blue-700"
 						id="startButton">Start</button>
 				</div>
-				<div class="dark:bg-gray-800 mt-3 h-auto w-full rounded-lg lg:px-0">
-					<div class="min-h-10 dark:ring-gray-500 h-auto rounded-lg p-3 text-left ring-1 ring-black">
+				<div class="dark:bg-[#18181b] mt-3 h-auto w-full rounded-lg lg:px-0">
+					<div class="min-h-10 dark:ring-gray-700 h-auto rounded-lg p-3 text-left ring-1 ring-black">
 						<p class="dark:text-white text-sm font-bold text-black">Log</p>
-						<hr class="dark:bg-gray-800 my-2 bg-black">
+						<hr class="dark:bg-[#18181b] my-2 bg-black">
 						<pre class="dark:text-white max-h-32 overflow-y-auto scroll-smooth" id="consoleOutput"></pre>
 					</div>
 				</div>
@@ -29,27 +29,27 @@
 
 			<!-- #region -->
 			<div class="col-span-1 px-3 pb-3 md:px-3 md:pb-3 lg:col-span-1 lg:p-0" data-aos="zoom-in" data-aos-delay="100">
-				<div class="dark:ring-gray-500 dark:bg-gray-800 mb-4 rounded-lg p-2 text-center ring-1 ring-black"
+				<div class="dark:ring-gray-700 dark:bg-[#18181b] mb-4 rounded-lg p-2 text-center ring-1 ring-black"
 					data-aos="fade-left" data-aos-delay="100">
 					<p class="dark:text-white text-xl font-bold text-black">INFORMASI</p>
 				</div>
 
-				<div class="grid grid-cols-1 gap-4 md:grid-cols-1">
+				<div class="grid grid-cols-1 gap-6 md:grid-cols-1">
 
-					<div class="relative flex w-full flex-col gap-4 rounded-lg md:flex-row lg:flex-col lg:gap-0" data-aos="fade-right"
+					<div class="relative flex w-full flex-col gap-6 rounded-lg md:flex-row lg:flex-col lg:gap-0" data-aos="fade-right"
 						data-aos-delay="100">
 						<div class="h-full w-full rounded-lg md:rounded-lg lg:w-full lg:object-fill">
 							<img
-								class="dark:ring-gray-500 h-60 w-full rounded-lg object-cover ring-1 ring-black md:h-auto lg:h-full lg:object-fill"
+								class="dark:ring-gray-700 h-60 w-full rounded-lg object-cover ring-1 ring-black md:h-auto lg:h-full lg:object-fill"
 								id="canvLogo" src="{{ asset('assets/img/noImage.webp') }}" alt="">
 							<canvas
-								class="dark:ring-gray-500 absolute left-0 top-0 h-60 w-full rounded-lg object-cover ring-1 ring-black md:h-full lg:h-full"
+								class="dark:ring-gray-700 absolute left-0 top-0 h-60 w-full rounded-lg object-cover ring-1 ring-black md:h-full lg:h-full"
 								id="canvAttend"></canvas>
 						</div>
 					</div>
 
 					<div
-						class="dark:ring-gray-500 relative flex h-auto w-full flex-col rounded-lg p-4 leading-normal ring-1 ring-black lg:justify-between"
+						class="dark:ring-gray-700 relative flex h-auto w-full flex-col rounded-lg p-4 leading-normal ring-1 ring-black lg:justify-between"
 						data-aos="fade-left" data-aos-delay="100">
 						<div id="pegawaiInfo"></div>
 						<div id="pegawaiKosong">

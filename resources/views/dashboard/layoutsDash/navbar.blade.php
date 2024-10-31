@@ -1,4 +1,4 @@
-<nav class="dark:bg-gray-800 dark:border-gray-700 fixed top-0 z-50 w-full border-b border-gray-200 bg-white">
+<nav class="dark:bg-[#18181b] dark:border-[#232327] fixed top-0 z-50 w-full border-b border-gray-200 bg-white shadow-sm">
 	<div class="px-3 py-3 lg:px-5 lg:pl-3">
 		<div class="flex items-center justify-between">
 			<div class="flex items-center justify-start">
@@ -22,7 +22,7 @@
 				<div class="ms-3 flex items-center">
 					<div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between">
 
-						<button class="dark:bg-gray-800 flex rounded-full text-sm" type="button" @click="profile = !profile">
+						<button class="flex rounded-full text-sm" type="button" @click="profile = !profile">
 							<span class="sr-only">Open user menu</span>
 							<div class="me-2 hidden items-center space-x-6 rtl:space-x-reverse md:block">
 								<p class="dark:text-white text-right text-sm text-gray-800" role="none">
@@ -38,7 +38,7 @@
 					</div>
 
 					<div
-						class="dark:bg-gray-800 dark:divide-gray-500 dark:ring-gray-500 absolute right-5 top-16 z-50 list-none rounded-lg bg-white text-base shadow-sm ring-1 ring-gray-200"
+						class="dark:bg-[#18181b] dark:divide-gray-500 dark:ring-gray-500 absolute right-5 top-16 z-50 list-none rounded-lg bg-white text-base shadow-sm ring-1 ring-gray-200"
 						style="display: none;" x-show="profile" x-transition:enter="transition ease-in duration-200"
 						x-transition:enter-start="transform opacity-0 -translate-y-5"
 						x-transition:leave="transition ease-out duration-200"

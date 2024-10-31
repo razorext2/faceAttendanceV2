@@ -107,13 +107,13 @@ class DayoffController extends Controller
 				$status = $data->status;
 
 				if ($status == 1) {
-					return '<span class="px-4 py-1 text-sm font-medium text-green-800 bg-green-100 rounded-full ring-1 dark:ring-gray-500 dark:bg-green-900 ring-gray-300 dark:text-green-300"> Diterima </span>';
+					return '<span class="px-4 py-1 text-sm font-medium text-green-800 bg-green-100 rounded-full ring-1 dark:ring-gray-700 dark:bg-green-900 ring-gray-300 dark:text-green-300"> Diterima </span>';
 				} elseif ($status == 2) {
-					return '<span class="px-4 py-1 text-sm font-medium text-yellow-800 bg-yellow-100 rounded-full ring-1 dark:ring-gray-500 dark:bg-yellow-900 ring-gray-300 dark:text-yellow-300"> Diajukan </span>';
+					return '<span class="px-4 py-1 text-sm font-medium text-yellow-800 bg-yellow-100 rounded-full ring-1 dark:ring-gray-700 dark:bg-yellow-900 ring-gray-300 dark:text-yellow-300"> Diajukan </span>';
 				} elseif ($status == 3) {
-					return '<span class="px-4 py-1 text-sm font-medium text-red-800 bg-red-100 rounded-full ring-1 dark:ring-gray-500 dark:bg-red-900 ring-gray-300 dark:text-red-300"> Ditolak </span>';
+					return '<span class="px-4 py-1 text-sm font-medium text-red-800 bg-red-100 rounded-full ring-1 dark:ring-gray-700 dark:bg-red-900 ring-gray-300 dark:text-red-300"> Ditolak </span>';
 				} else {
-					return '<span class="px-4 py-1 text-sm font-medium text-red-800 bg-red-100 rounded-full ring-1 dark:ring-gray-500 dark:bg-red-900 ring-gray-300 dark:text-red-300"> Dibatalkan </span>';
+					return '<span class="px-4 py-1 text-sm font-medium text-red-800 bg-red-100 rounded-full ring-1 dark:ring-gray-700 dark:bg-red-900 ring-gray-300 dark:text-red-300"> Dibatalkan </span>';
 				}
 			})
 			->editColumn('created_updated_at', function ($data) {
