@@ -7,7 +7,7 @@
 				class="relative -left-32 top-0 z-10 w-96 rounded-xl px-5 pb-10 pt-9 text-base font-semibold opacity-0 transition-all duration-700 group-hover:-left-3 group-hover:bg-transparent group-hover:opacity-100">
 				<div class="flex flex-col">
 					<div class="flex items-center gap-1 text-gray-900">
-						<div class="dark:text-white flex items-center rounded-full bg-gray-800 px-5 py-2">
+						<div class="dark:text-white flex items-center rounded-full px-5 py-2">
 							<p class="text-lg leading-tight text-green-700">{{ $ontimeAttendance }}</p>
 						</div>
 						<p class="dark:text-white text-lg text-gray-800"> Kali</p>
@@ -37,7 +37,7 @@
 				class="relative -left-32 top-0 z-10 w-96 rounded-xl px-5 pb-10 pt-9 text-base font-semibold transition-all duration-700 group-hover:-left-3 group-hover:bg-transparent">
 				<div class="flex flex-col">
 					<div class="flex items-center gap-1 text-gray-900">
-						<div class="dark:text-white flex items-center rounded-full bg-gray-800 px-5 py-2">
+						<div class="dark:text-white flex items-center rounded-full px-5 py-2">
 							<p class="text-lg leading-tight text-red-700">{{ $terlambat }}</p>
 						</div>
 						<p class="dark:text-white text-lg text-gray-800">Kali</p>
@@ -67,7 +67,7 @@
 				class="relative -left-32 top-0 z-10 w-96 rounded-xl px-5 pb-10 pt-9 text-base font-semibold opacity-0 transition-all duration-700 group-hover:-left-3 group-hover:bg-transparent group-hover:opacity-100">
 				<div class="flex flex-col">
 					<div class="flex items-center gap-1 text-gray-900">
-						<div class="dark:text-white flex items-center rounded-full bg-gray-800 px-5 py-2">
+						<div class="dark:text-white flex items-center rounded-full px-5 py-2">
 							<p class="text-lg leading-tight text-cyan-700">{{ $outtimeAttendance }}</p>
 						</div>
 						<p class="dark:text-white text-lg text-gray-800"> Kali</p>
@@ -97,7 +97,7 @@
 				class="relative -left-32 top-0 z-10 w-96 rounded-xl px-5 pb-10 pt-9 text-base font-semibold opacity-0 transition-all duration-700 group-hover:-left-3 group-hover:bg-transparent group-hover:opacity-100">
 				<div class="flex flex-col">
 					<div class="flex items-center gap-1 text-gray-900">
-						<div class="dark:text-white flex items-center rounded-full bg-gray-800 px-5 py-2">
+						<div class="dark:text-white flex items-center rounded-full px-5 py-2">
 							<p class="text-lg leading-tight text-rose-700">{{ $kecepatan }}</p>
 						</div>
 						<p class="dark:text-white text-lg text-gray-800"> Kali</p>
