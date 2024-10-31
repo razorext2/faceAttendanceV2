@@ -118,7 +118,7 @@
 						</g>
 					</svg>
 
-					<span class="ms-3 flex-1 whitespace-nowrap text-sm">Off Day</span>
+					<span class="ms-3 flex-1 whitespace-nowrap text-sm">Time Off</span>
 				</a>
 			</li>
 

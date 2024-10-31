@@ -400,6 +400,7 @@ class PegawaiController extends Controller
 
         if (!Storage::exists($folderPath)) {
             Storage::makeDirectory($folderPath);
+            chmod(storage_path("app/{$folderPath}"), 0755);
         }
 
         $photo1Data = $request->input('photo1');

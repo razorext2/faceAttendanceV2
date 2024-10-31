@@ -83,21 +83,6 @@ class PermissionController extends Controller
             ->editColumn('created_updated_at', function ($data) {
                 return $data->created_at . ' / ' . $data->updated_at;
             })
-            // ->addColumn('permissions', function ($data) {
-            //     //
-            //     $rolePermissions = Permission::join("role_has_permissions", "role_has_permissions.permission_id", "=", "permissions.id")
-            //         ->where("role_has_permissions.role_id", $data->id)
-            //         ->get();
-
-            //     $result = '';
-
-            //     if (!empty($rolePermissions)) {
-            //         foreach ($rolePermissions as $v) {
-            //             $result .= '<div><span class="bg-green-100 text-green-800 text-xs font-  me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">' . $v->name . '</span></div>';
-            //         }
-            //     }
-            //     return '<div class="grid w-full gap-2 lg:grid-cols-3">' . $result . '</div>';
-            // })
             ->addIndexColumn() // This is the DT_RowIndex
             ->rawColumns(['action', 'created_updated_at'])
             ->make(true);

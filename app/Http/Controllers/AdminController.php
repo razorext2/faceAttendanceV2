@@ -12,6 +12,11 @@ class AdminController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function __construct()
+    {
+        $this->middleware('permission:dashboard', ['only' => ['index']]);
+    }
+
     public function index()
 
     {

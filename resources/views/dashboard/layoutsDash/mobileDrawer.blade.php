@@ -101,7 +101,7 @@
 
 			<div
 				class="{{ Route::currentRouteName() == 'dashboard.dayoff' || Route::currentRouteName() == 'dayoff.add' || Route::currentRouteName() == 'dayoff.edit' ? 'text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400 ' }} group-hover:dark:text-white text-center font-medium group-hover:text-gray-900">
-				Off Day
+				Request Time Off
 			</div>
 		</a>
 		{{-- end offday --}}

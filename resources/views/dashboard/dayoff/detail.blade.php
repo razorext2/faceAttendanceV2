@@ -67,9 +67,9 @@
 						<div
 							class="dark:bg-gray-700 dark:border-gray-500 flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-gray-100 p-3 md:col-span-2">
 							<p class="dark:text-gray-300 text-sm text-gray-600">Keterangan</p>
-							<span class="text-navy-700 dark:text-white text-base">
+							<div class="text-navy-700 dark:text-white text-wrap w-full text-base">
 								{!! $dayoff->keterangan !!}
-							</span>
+							</div>
 						</div>
 
 						<div
