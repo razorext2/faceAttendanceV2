@@ -42,10 +42,17 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard/pegawai/edit/{pegawai}', [PegawaiController::class, 'edit'])->name('pegawai.edit');
     Route::put('/dashboard/pegawai/update/{pegawai}', [PegawaiController::class, 'update'])->name('pegawai.update');
     Route::delete('/dashboard/pegawai/delete/{pegawai}', [PegawaiController::class, 'destroy'])->name('pegawai.delete');
-    Route::get('dashboard/pegawai/detail/{pegawai}', [PegawaiController::class, 'detail'])->name('pegawai.detail');
-    // Route::post('/dashboard/pegawai/photo-update', [PegawaiController::class, 'updatePhoto'])->name('pegawai.photo');
     Route::get('/api/get-attendance-data', [PegawaiController::class, 'getAttendanceData'])->name('pegawai.getattendance');
-    Route::get('/dashboard/pegawai/timeline/{pegawai}', [PegawaiController::class, 'timeline'])->name('pegawai.timeline');
+    Route::get('/dashboard/pegawai/{pegawai}/detail', [PegawaiController::class, 'detail'])->name('pegawai.detail');
+    Route::get('/dashboard/pegawai/{pegawai}/attendance', [PegawaiController::class, 'attendanceList'])->name('pegawai.attendancelist');
+    Route::get('/dashboard/pegawai/{pegawai}/payroll', [PegawaiController::class, 'payrollInfo'])->name('pegawai.payrollinfo');
+    Route::get('/dashboard/pegawai/{pegawai}/timeline', [PegawaiController::class, 'timeline'])->name('pegawai.timeline');
+
+    // allowance
+    Route::get('/dashboard/pegawai/allowance-add', function () {
+        return view('dashboard.allowance.add'); // Pastikan ini adalah view yang benar
+    })->name('allowances.create');
+
 
     // jabatan
     Route::get('/getdata-jabatan', [JabatanController::class, 'getData'])->name('getDataJabatan');

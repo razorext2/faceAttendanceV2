@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Crypt;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use App\Models\Attendance;
@@ -15,6 +16,8 @@ use App\Models\Pegawai;
 use App\Models\Jabatan;
 use App\Models\Golongan;
 use App\Models\User;
+use App\Models\Allowance;
+use App\Models\Deduction;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -56,9 +59,9 @@ class PegawaiController extends Controller
 
         return DataTables::of($query)
             ->addColumn('action', function ($data) {
-                $editUrl = route('pegawai.edit', $data->id);
-                $dataUrl = route('pegawai.detail', $data->id);
-                $timelineUrl = route('pegawai.timeline', $data->kode_pegawai);
+                $editUrl = route('pegawai.edit', Crypt::encrypt($data->id));
+                $dataUrl = route('pegawai.detail', Crypt::encrypt($data->id));
+                $timelineUrl = route('pegawai.timeline', Crypt::encrypt($data->id));
                 $actionButtons = '
                 <div class="inline-flex text-center" role="group">
                     <a href="' . $dataUrl .
@@ -219,75 +222,6 @@ class PegawaiController extends Controller
         return redirect()->back()->with('status', 'Berhasil menghapus data pegawai.');
     }
 
-    public function detail($id)
-    {
-        $pegawai = Pegawai::with('jabatanRelasi')->findOrFail($id);
-        $currentDate = Carbon::now();
-        $startOfMonth = $currentDate->copy()->startOfMonth();
-        $endOfMonth = $currentDate->copy()->endOfMonth();
-        $period = CarbonPeriod::create($startOfMonth, $endOfMonth);
-        $startDayOfWeek = $startOfMonth->dayOfWeek;
-        $dd = [];
-
-        for ($i = 0; $i < $startDayOfWeek; $i++) {
-            $dd[] = null;
-        }
-
-        foreach ($period as $date) {
-            $dd[] = $date->isoFormat('Y-MM-DD');
-        }
-
-        $images = $this->showImages($pegawai);
-        $startOfMonth = $startOfMonth->locale('id')->isoFormat('MMMM Y');
-        $attendanceData = Attendance::where('kode_pegawai', $pegawai->kode_pegawai)->get();
-        return view('dashboard.pegawai.detail', compact('pegawai', 'dd', 'startOfMonth', 'images', 'attendanceData'));
-    }
-
-    public function timeline($id, Request $request)
-    {
-        $date = $request->query('d') ? Carbon::parse($request->query('d'))->isoFormat('Y-MM-DD') : Carbon::now()->isoFormat('Y-MM-DD');
-
-        $data = AttendanceOut::select('latitude', 'longitude', 'created_at', DB::raw("'check-out' as type"), 'jam_keluar as time')
-            ->whereDate('jam_keluar', $date)
-            ->where('kode_pegawai', $id);
-
-        $data2 = Attendance::with('pegawaiRelasi')->select('latitude', 'longitude', 'created_at', DB::raw("'check-in' as type"), 'jam_masuk as time')
-            ->whereDate('jam_masuk', $date)
-            ->where('kode_pegawai', $id)
-            ->unionAll($data)
-            ->get();
-
-        $pegawai = Pegawai::select('kode_pegawai', 'full_name')->where('kode_pegawai', $id)->firstOrFail();
-
-        return view('dashboard.capture.timeline', compact('data2', 'pegawai', 'id'));
-    }
-
-    public function getAttendanceData(Request $request)
-    {
-        if ($request->query('d')) {
-            $date = Carbon::parse($request->query('d'))->isoFormat('Y-MM-DD');
-        } else {
-            $date = Carbon::now()->isoFormat('Y-MM-DD');
-        }
-
-        $kode_pegawai = $request->query('kode_pegawai');
-
-        $attendance = Attendance::whereDate('jam_masuk', $date)
-            ->whereDate('jam_masuk', $date)
-            ->where('kode_pegawai', $kode_pegawai)
-            ->get();
-
-        $attendanceOut = AttendanceOut::whereDate('jam_keluar', $date)
-            ->whereDate('jam_keluar', $date)
-            ->where('kode_pegawai', $kode_pegawai)
-            ->get();
-
-        return response()->json([
-            'attendance' => $attendance,
-            'attendanceOut' => $attendanceOut,
-        ]);
-    }
-
     public function getEmployeeByKodePegawai($kode_pegawai)
     {
         $pegawai = Pegawai::where('kode_pegawai', $kode_pegawai)->first();
@@ -433,5 +367,88 @@ class PegawaiController extends Controller
 
         $this->saveImages($request);
         return redirect()->to(route('landing.page') . '/#Scan')->with('success', 'Data berhasil diperbarui!');
+    }
+
+    public function detail($id)
+    {
+        $pegawai = Pegawai::with('jabatanRelasi')->findOrFail(Crypt::decrypt($id));
+        $currentDate = Carbon::now();
+        $startOfMonth = $currentDate->copy()->startOfMonth();
+        $endOfMonth = $currentDate->copy()->endOfMonth();
+        $period = CarbonPeriod::create($startOfMonth, $endOfMonth);
+        $startDayOfWeek = $startOfMonth->dayOfWeek;
+        $dd = [];
+
+        for ($i = 0; $i < $startDayOfWeek; $i++) {
+            $dd[] = null;
+        }
+
+        foreach ($period as $date) {
+            $dd[] = $date->isoFormat('Y-MM-DD');
+        }
+
+        $images = $this->showImages($pegawai);
+        $startOfMonth = $startOfMonth->locale('id')->isoFormat('MMMM Y');
+        $attendanceData = Attendance::where('kode_pegawai', $pegawai->kode_pegawai)->get();
+        return view('dashboard.pegawai.details.personal-info', compact('pegawai', 'dd', 'startOfMonth', 'images', 'attendanceData'));
+    }
+
+    public function attendanceList($id)
+    {
+        $pegawai = Pegawai::findOrFail(Crypt::decrypt($id));
+        return view('dashboard.pegawai.details.attendance-list', compact('pegawai'));
+    }
+
+    public function payrollInfo($id)
+    {
+        $pegawai = Pegawai::with('salaryRelasi')->findOrFail(Crypt::decrypt($id));
+        $allowance = Allowance::where('kode_pegawai', $pegawai->kode_pegawai)->get();
+        $deduction = Deduction::where('kode_pegawai', $pegawai->kode_pegawai)->get();
+        return view('dashboard.pegawai.details.payroll-info', compact('pegawai', 'allowance', 'deduction'));
+    }
+
+    public function timeline($id, Request $request)
+    {
+        $date = $request->query('date') ? Carbon::parse($request->query('date'))->isoFormat('Y-MM-DD') : Carbon::now()->isoFormat('Y-MM-DD');
+
+        $data = AttendanceOut::select('latitude', 'longitude', 'created_at', DB::raw("'check-out' as type"), 'jam_keluar as time')
+            ->whereDate('jam_keluar', $date)
+            ->where('kode_pegawai', Crypt::decrypt($id));
+
+        $data2 = Attendance::with('pegawaiRelasi')->select('latitude', 'longitude', 'created_at', DB::raw("'check-in' as type"), 'jam_masuk as time')
+            ->whereDate('jam_masuk', $date)
+            ->where('kode_pegawai', Crypt::decrypt($id))
+            ->unionAll($data)
+            ->get();
+
+        $pegawai = Pegawai::select('id', 'kode_pegawai', 'full_name')->where('kode_pegawai', Crypt::decrypt($id))->firstOrFail();
+
+        return view('dashboard.pegawai.details.timeline', compact('data2', 'pegawai'));
+    }
+
+    public function getAttendanceData(Request $request)
+    {
+        if ($request->query('date')) {
+            $date = Carbon::parse($request->query('date'))->isoFormat('Y-MM-DD');
+        } else {
+            $date = Carbon::now()->isoFormat('Y-MM-DD');
+        }
+
+        $kode_pegawai = Crypt::decrypt($request->query('id'));
+
+        $attendance = Attendance::whereDate('jam_masuk', $date)
+            ->whereDate('jam_masuk', $date)
+            ->where('kode_pegawai', $kode_pegawai)
+            ->get();
+
+        $attendanceOut = AttendanceOut::whereDate('jam_keluar', $date)
+            ->whereDate('jam_keluar', $date)
+            ->where('kode_pegawai', $kode_pegawai)
+            ->get();
+
+        return response()->json([
+            'attendance' => $attendance,
+            'attendanceOut' => $attendanceOut,
+        ]);
     }
 }

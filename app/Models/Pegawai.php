@@ -26,13 +26,11 @@ class Pegawai extends Model
     // In Pegawai.php (Model)
     public function attendanceRelasi()
     {
-        // return $this->hasOne(Attendance::class, 'kode_pegawai', 'kode_pegawai');
         return $this->hasMany(Attendance::class, 'kode_pegawai', 'kode_pegawai');
     }
 
     public function attendanceRelasiForSelfAbsence()
     {
-        // return $this->hasOne(Attendance::class, 'kode_pegawai', 'kode_pegawai');
         return $this->hasOne(Attendance::class, 'kode_pegawai', 'kode_pegawai');
     }
 
@@ -63,5 +61,20 @@ class Pegawai extends Model
     public function golonganRelasi()
     {
         return $this->belongsTo(Golongan::class, 'golongan', 'id');
+    }
+
+    public function salaryRelasi()
+    {
+        return $this->belongsTo(Salary::class, 'salary_id', 'id');
+    }
+
+    public function allowanceRelasi()
+    {
+        return $this->hasMany(Allowance::class, 'kode_pegawai', 'kode_pegawai');
+    }
+
+    public function deductionRelasi()
+    {
+        return $this->hasMany(Deduction::class, 'kode_pegawai', 'kode_pegawai');
     }
 }

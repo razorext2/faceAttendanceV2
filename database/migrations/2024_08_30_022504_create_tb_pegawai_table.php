@@ -22,6 +22,7 @@ return new class extends Migration
             $table->integer('jabatan')->nullable();
             $table->integer('golongan')->nullable();
             $table->date('tgl_lahir')->nullable();
+            $table->integer('salary')->nullable();
             $table->string('storage', 32)->nullable();
             $table->timestamps();
         });

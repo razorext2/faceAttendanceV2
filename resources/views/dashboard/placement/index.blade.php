@@ -116,11 +116,6 @@
 								</th>
 								<th>
 									<span class="dark:text-white flex items-center text-gray-800">
-										Peta
-									</span>
-								</th>
-								<th>
-									<span class="dark:text-white flex items-center text-gray-800">
 										Radius
 									</span>
 								</th>
@@ -185,10 +180,6 @@
 					{
 						data: 'alamat',
 						name: 'alamat'
-					},
-					{
-						data: 'longitude_latitude',
-						name: 'longitude_latitude'
 					},
 					{
 						data: 'radius',
