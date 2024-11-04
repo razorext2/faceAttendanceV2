@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
-	<div class="relative flex min-h-screen flex-col justify-center overflow-hidden py-32" id="Home" data-aos="fade-down">
+	<div class="relative flex min-h-screen flex-col justify-center overflow-hidden md:py-12 lg:py-32" id="Home"
+		data-aos="fade-down">
 		<div class="relative">
 			<img class="dark:opacity-80 fixed inset-0 -z-50 h-full w-full object-cover opacity-40"
 				src="{{ asset('assets/img/hero-bg-light.webp') }}" alt="Background Image" />
@@ -11,10 +12,10 @@
 			<div class="dark:opacity-70 fixed inset-0 -z-40 w-full bg-gray-800 opacity-0"></div>
 		</div>
 
-		<div class="relative z-10 mb-10 grid grid-cols-1 px-6">
+		<div class="relative z-10 mb-0 grid grid-cols-1 px-6 md:mb-10">
 			<div class="flex h-full flex-col items-center justify-center py-5 text-left md:text-center">
 				<h1 class="dark:text-white mb-4 text-4xl font-bold">Verifikasi Wajah Pegawai</h1>
-				<p class="dark:text-gray-300 text-lg">
+				<p class="dark:text-gray-300 hidden text-lg md:block">
 					Masukkan kode pegawai anda, kemudian start kamera <br />
 					Proses pengambilan gambar akan dilakukan sebanyak <span class="dark:text-white font-bold"> DUA </span> kali <br />
 				</p>

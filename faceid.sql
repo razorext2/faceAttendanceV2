@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 29, 2024 at 02:17 AM
+-- Generation Time: Nov 04, 2024 at 03:04 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.2.22
 
@@ -38,8 +38,8 @@ CREATE TABLE `cache` (
 --
 
 INSERT INTO `cache` (`key`, `value`, `expiration`) VALUES
-('current_date', 's:15:\"20241028_165450\";', 1730109299),
-('spatie.permission.cache', 'a:3:{s:5:\"alias\";a:4:{s:1:\"a\";s:2:\"id\";s:1:\"b\";s:4:\"name\";s:1:\"c\";s:10:\"guard_name\";s:1:\"r\";s:5:\"roles\";}s:11:\"permissions\";a:44:{i:0;a:4:{s:1:\"a\";i:1;s:1:\"b\";s:10:\"users-list\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:1;a:4:{s:1:\"a\";i:2;s:1:\"b\";s:12:\"users-create\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:2;a:4:{s:1:\"a\";i:3;s:1:\"b\";s:10:\"users-edit\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:3;a:4:{s:1:\"a\";i:4;s:1:\"b\";s:12:\"users-delete\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:4;a:4:{s:1:\"a\";i:5;s:1:\"b\";s:10:\"roles-list\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:5;}}i:5;a:4:{s:1:\"a\";i:6;s:1:\"b\";s:12:\"roles-create\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:5;}}i:6;a:4:{s:1:\"a\";i:7;s:1:\"b\";s:10:\"roles-edit\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:5;}}i:7;a:4:{s:1:\"a\";i:8;s:1:\"b\";s:12:\"roles-delete\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:8;a:4:{s:1:\"a\";i:9;s:1:\"b\";s:16:\"permissions-list\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:5;}}i:9;a:4:{s:1:\"a\";i:10;s:1:\"b\";s:18:\"permissions-create\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:5;}}i:10;a:4:{s:1:\"a\";i:11;s:1:\"b\";s:16:\"permissions-edit\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:5;}}i:11;a:4:{s:1:\"a\";i:12;s:1:\"b\";s:18:\"permissions-delete\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:12;a:4:{s:1:\"a\";i:21;s:1:\"b\";s:11:\"divisi-list\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:4:{i:0;i:1;i:1;i:2;i:2;i:5;i:3;i:8;}}i:13;a:4:{s:1:\"a\";i:22;s:1:\"b\";s:13:\"divisi-create\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:4:{i:0;i:1;i:1;i:2;i:2;i:5;i:3;i:8;}}i:14;a:4:{s:1:\"a\";i:23;s:1:\"b\";s:11:\"divisi-edit\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:5;i:2;i:8;}}i:15;a:4:{s:1:\"a\";i:24;s:1:\"b\";s:13:\"divisi-delete\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:8;}}i:16;a:4:{s:1:\"a\";i:25;s:1:\"b\";s:14:\"placement-list\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:4:{i:0;i:1;i:1;i:2;i:2;i:5;i:3;i:8;}}i:17;a:4:{s:1:\"a\";i:26;s:1:\"b\";s:16:\"placement-create\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:4:{i:0;i:1;i:1;i:2;i:2;i:5;i:3;i:8;}}i:18;a:4:{s:1:\"a\";i:27;s:1:\"b\";s:14:\"placement-edit\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:5;i:2;i:8;}}i:19;a:4:{s:1:\"a\";i:28;s:1:\"b\";s:16:\"placement-delete\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:8;}}i:20;a:4:{s:1:\"a\";i:29;s:1:\"b\";s:13:\"golongan-list\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:4:{i:0;i:1;i:1;i:2;i:2;i:5;i:3;i:8;}}i:21;a:4:{s:1:\"a\";i:30;s:1:\"b\";s:15:\"golongan-create\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:4:{i:0;i:1;i:1;i:2;i:2;i:5;i:3;i:8;}}i:22;a:4:{s:1:\"a\";i:31;s:1:\"b\";s:13:\"golongan-edit\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:5;i:2;i:8;}}i:23;a:4:{s:1:\"a\";i:32;s:1:\"b\";s:15:\"golongan-delete\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:8;}}i:24;a:4:{s:1:\"a\";i:33;s:1:\"b\";s:12:\"jabatan-list\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:4:{i:0;i:1;i:1;i:2;i:2;i:5;i:3;i:8;}}i:25;a:4:{s:1:\"a\";i:34;s:1:\"b\";s:14:\"jabatan-create\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:4:{i:0;i:1;i:1;i:2;i:2;i:5;i:3;i:8;}}i:26;a:4:{s:1:\"a\";i:35;s:1:\"b\";s:12:\"jabatan-edit\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:5;i:2;i:8;}}i:27;a:4:{s:1:\"a\";i:36;s:1:\"b\";s:14:\"jabatan-delete\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:8;}}i:28;a:4:{s:1:\"a\";i:37;s:1:\"b\";s:12:\"pegawai-list\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:4:{i:0;i:1;i:1;i:2;i:2;i:5;i:3;i:8;}}i:29;a:4:{s:1:\"a\";i:38;s:1:\"b\";s:14:\"pegawai-create\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:4:{i:0;i:1;i:1;i:2;i:2;i:5;i:3;i:8;}}i:30;a:4:{s:1:\"a\";i:39;s:1:\"b\";s:12:\"pegawai-edit\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:5;i:2;i:8;}}i:31;a:4:{s:1:\"a\";i:40;s:1:\"b\";s:14:\"pegawai-delete\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:8;}}i:32;a:4:{s:1:\"a\";i:41;s:1:\"b\";s:8:\"log-list\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:5;}}i:33;a:4:{s:1:\"a\";i:42;s:1:\"b\";s:10:\"log-create\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:5:{i:0;i:1;i:1;i:2;i:2;i:5;i:3;i:7;i:4;i:8;}}i:34;a:4:{s:1:\"a\";i:43;s:1:\"b\";s:8:\"log-edit\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:35;a:4:{s:1:\"a\";i:44;s:1:\"b\";s:10:\"log-delete\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:36;a:4:{s:1:\"a\";i:45;s:1:\"b\";s:11:\"dayoff-list\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:7;i:2;i:8;}}i:37;a:4:{s:1:\"a\";i:46;s:1:\"b\";s:13:\"dayoff-create\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:7;i:2;i:8;}}i:38;a:4:{s:1:\"a\";i:47;s:1:\"b\";s:11:\"dayoff-edit\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:7;i:2;i:8;}}i:39;a:4:{s:1:\"a\";i:48;s:1:\"b\";s:13:\"dayoff-delete\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:8;}}i:40;a:4:{s:1:\"a\";i:49;s:1:\"b\";s:13:\"dayoff-detail\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:7;i:2;i:8;}}i:41;a:4:{s:1:\"a\";i:50;s:1:\"b\";s:14:\"dayoff-confirm\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:42;a:4:{s:1:\"a\";i:51;s:1:\"b\";s:7:\"capture\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:7;}}i:43;a:4:{s:1:\"a\";i:53;s:1:\"b\";s:16:\"pegawai-timeline\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:2;i:2;i:5;}}}s:5:\"roles\";a:5:{i:0;a:3:{s:1:\"a\";i:1;s:1:\"b\";s:5:\"Admin\";s:1:\"c\";s:3:\"web\";}i:1;a:3:{s:1:\"a\";i:5;s:1:\"b\";s:7:\"Support\";s:1:\"c\";s:3:\"web\";}i:2;a:3:{s:1:\"a\";i:2;s:1:\"b\";s:3:\"HRD\";s:1:\"c\";s:3:\"web\";}i:3;a:3:{s:1:\"a\";i:8;s:1:\"b\";s:10:\"Management\";s:1:\"c\";s:3:\"web\";}i:4;a:3:{s:1:\"a\";i:7;s:1:\"b\";s:8:\"Employee\";s:1:\"c\";s:3:\"web\";}}}', 1730251558);
+('current_date', 's:15:\"20241104_095952\";', 1730689201),
+('spatie.permission.cache', 'a:3:{s:5:\"alias\";a:4:{s:1:\"a\";s:2:\"id\";s:1:\"b\";s:4:\"name\";s:1:\"c\";s:10:\"guard_name\";s:1:\"r\";s:5:\"roles\";}s:11:\"permissions\";a:46:{i:0;a:4:{s:1:\"a\";i:1;s:1:\"b\";s:10:\"users-list\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:1;a:4:{s:1:\"a\";i:2;s:1:\"b\";s:12:\"users-create\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:2;a:4:{s:1:\"a\";i:3;s:1:\"b\";s:10:\"users-edit\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:3;a:4:{s:1:\"a\";i:4;s:1:\"b\";s:12:\"users-delete\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:4;a:4:{s:1:\"a\";i:5;s:1:\"b\";s:10:\"roles-list\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:5;}}i:5;a:4:{s:1:\"a\";i:6;s:1:\"b\";s:12:\"roles-create\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:5;}}i:6;a:4:{s:1:\"a\";i:7;s:1:\"b\";s:10:\"roles-edit\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:5;}}i:7;a:4:{s:1:\"a\";i:8;s:1:\"b\";s:12:\"roles-delete\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:8;a:4:{s:1:\"a\";i:9;s:1:\"b\";s:16:\"permissions-list\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:5;}}i:9;a:4:{s:1:\"a\";i:10;s:1:\"b\";s:18:\"permissions-create\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:5;}}i:10;a:4:{s:1:\"a\";i:11;s:1:\"b\";s:16:\"permissions-edit\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:5;}}i:11;a:4:{s:1:\"a\";i:12;s:1:\"b\";s:18:\"permissions-delete\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:12;a:4:{s:1:\"a\";i:21;s:1:\"b\";s:11:\"divisi-list\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:4:{i:0;i:1;i:1;i:2;i:2;i:5;i:3;i:8;}}i:13;a:4:{s:1:\"a\";i:22;s:1:\"b\";s:13:\"divisi-create\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:4:{i:0;i:1;i:1;i:2;i:2;i:5;i:3;i:8;}}i:14;a:4:{s:1:\"a\";i:23;s:1:\"b\";s:11:\"divisi-edit\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:5;i:2;i:8;}}i:15;a:4:{s:1:\"a\";i:24;s:1:\"b\";s:13:\"divisi-delete\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:8;}}i:16;a:4:{s:1:\"a\";i:25;s:1:\"b\";s:14:\"placement-list\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:4:{i:0;i:1;i:1;i:2;i:2;i:5;i:3;i:8;}}i:17;a:4:{s:1:\"a\";i:26;s:1:\"b\";s:16:\"placement-create\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:4:{i:0;i:1;i:1;i:2;i:2;i:5;i:3;i:8;}}i:18;a:4:{s:1:\"a\";i:27;s:1:\"b\";s:14:\"placement-edit\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:5;i:2;i:8;}}i:19;a:4:{s:1:\"a\";i:28;s:1:\"b\";s:16:\"placement-delete\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:8;}}i:20;a:4:{s:1:\"a\";i:29;s:1:\"b\";s:13:\"golongan-list\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:4:{i:0;i:1;i:1;i:2;i:2;i:5;i:3;i:8;}}i:21;a:4:{s:1:\"a\";i:30;s:1:\"b\";s:15:\"golongan-create\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:4:{i:0;i:1;i:1;i:2;i:2;i:5;i:3;i:8;}}i:22;a:4:{s:1:\"a\";i:31;s:1:\"b\";s:13:\"golongan-edit\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:5;i:2;i:8;}}i:23;a:4:{s:1:\"a\";i:32;s:1:\"b\";s:15:\"golongan-delete\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:8;}}i:24;a:4:{s:1:\"a\";i:33;s:1:\"b\";s:12:\"jabatan-list\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:4:{i:0;i:1;i:1;i:2;i:2;i:5;i:3;i:8;}}i:25;a:4:{s:1:\"a\";i:34;s:1:\"b\";s:14:\"jabatan-create\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:4:{i:0;i:1;i:1;i:2;i:2;i:5;i:3;i:8;}}i:26;a:4:{s:1:\"a\";i:35;s:1:\"b\";s:12:\"jabatan-edit\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:5;i:2;i:8;}}i:27;a:4:{s:1:\"a\";i:36;s:1:\"b\";s:14:\"jabatan-delete\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:8;}}i:28;a:4:{s:1:\"a\";i:37;s:1:\"b\";s:12:\"pegawai-list\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:4:{i:0;i:1;i:1;i:2;i:2;i:5;i:3;i:8;}}i:29;a:4:{s:1:\"a\";i:38;s:1:\"b\";s:14:\"pegawai-create\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:4:{i:0;i:1;i:1;i:2;i:2;i:5;i:3;i:8;}}i:30;a:4:{s:1:\"a\";i:39;s:1:\"b\";s:12:\"pegawai-edit\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:5;i:2;i:8;}}i:31;a:4:{s:1:\"a\";i:40;s:1:\"b\";s:14:\"pegawai-delete\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:8;}}i:32;a:4:{s:1:\"a\";i:41;s:1:\"b\";s:8:\"log-list\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:5;}}i:33;a:4:{s:1:\"a\";i:42;s:1:\"b\";s:10:\"log-create\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:5:{i:0;i:1;i:1;i:2;i:2;i:5;i:3;i:7;i:4;i:8;}}i:34;a:4:{s:1:\"a\";i:43;s:1:\"b\";s:8:\"log-edit\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:35;a:4:{s:1:\"a\";i:44;s:1:\"b\";s:10:\"log-delete\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:36;a:4:{s:1:\"a\";i:45;s:1:\"b\";s:11:\"dayoff-list\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:7;i:2;i:8;}}i:37;a:4:{s:1:\"a\";i:46;s:1:\"b\";s:13:\"dayoff-create\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:7;i:2;i:8;}}i:38;a:4:{s:1:\"a\";i:47;s:1:\"b\";s:11:\"dayoff-edit\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:7;i:2;i:8;}}i:39;a:4:{s:1:\"a\";i:48;s:1:\"b\";s:13:\"dayoff-delete\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:8;}}i:40;a:4:{s:1:\"a\";i:49;s:1:\"b\";s:13:\"dayoff-detail\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:7;i:2;i:8;}}i:41;a:4:{s:1:\"a\";i:50;s:1:\"b\";s:14:\"dayoff-confirm\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:42;a:4:{s:1:\"a\";i:51;s:1:\"b\";s:7:\"capture\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:7;}}i:43;a:4:{s:1:\"a\";i:53;s:1:\"b\";s:16:\"pegawai-timeline\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:3:{i:0;i:1;i:1;i:2;i:2;i:5;}}i:44;a:4:{s:1:\"a\";i:54;s:1:\"b\";s:9:\"dashboard\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:5:{i:0;i:1;i:1;i:2;i:2;i:5;i:3;i:7;i:4;i:8;}}i:45;a:4:{s:1:\"a\";i:55;s:1:\"b\";s:18:\"dashboard-employee\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:7;}}}s:5:\"roles\";a:5:{i:0;a:3:{s:1:\"a\";i:1;s:1:\"b\";s:5:\"Admin\";s:1:\"c\";s:3:\"web\";}i:1;a:3:{s:1:\"a\";i:5;s:1:\"b\";s:7:\"Support\";s:1:\"c\";s:3:\"web\";}i:2;a:3:{s:1:\"a\";i:2;s:1:\"b\";s:3:\"HRD\";s:1:\"c\";s:3:\"web\";}i:3;a:3:{s:1:\"a\";i:8;s:1:\"b\";s:10:\"Management\";s:1:\"c\";s:3:\"web\";}i:4;a:3:{s:1:\"a\";i:7;s:1:\"b\";s:8:\"Employee\";s:1:\"c\";s:3:\"web\";}}}', 1730605197);
 
 -- --------------------------------------------------------
 
@@ -140,7 +140,11 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (39, '2024_10_05_115006_create_permission_tables', 11),
 (40, '2024_10_05_133509_create_permission_tables', 12),
 (41, '2024_10_11_090452_create_permission_tables', 13),
-(42, '2024_10_14_134628_create_tb_dayoff_table', 14);
+(42, '2024_10_14_134628_create_tb_dayoff_table', 14),
+(43, '2024_11_01_154937_create_tb_salary_table', 15),
+(44, '2024_11_01_164222_create_tb_allowance_table', 15),
+(45, '2024_11_01_164555_create_tb_dedcution_table', 15),
+(46, '2024_11_01_164647_create_tb_overtime_table', 15);
 
 -- --------------------------------------------------------
 
@@ -253,7 +257,9 @@ INSERT INTO `permissions` (`id`, `name`, `guard_name`, `created_at`, `updated_at
 (49, 'dayoff-detail', 'web', '2024-10-17 04:49:24', '2024-10-17 04:49:24'),
 (50, 'dayoff-confirm', 'web', '2024-10-22 04:26:10', '2024-10-22 04:30:02'),
 (51, 'capture', 'web', '2024-10-24 07:11:12', '2024-10-24 07:11:12'),
-(53, 'pegawai-timeline', 'web', '2024-10-26 08:57:07', '2024-10-26 08:57:07');
+(53, 'pegawai-timeline', 'web', '2024-10-26 08:57:07', '2024-10-26 08:57:07'),
+(54, 'dashboard', 'web', '2024-10-31 02:46:41', '2024-10-31 02:46:41'),
+(55, 'dashboard-employee', 'web', '2024-10-31 02:47:59', '2024-10-31 02:47:59');
 
 -- --------------------------------------------------------
 
@@ -358,6 +364,7 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 (49, 1),
 (50, 1),
 (53, 1),
+(54, 1),
 (21, 2),
 (22, 2),
 (25, 2),
@@ -370,6 +377,7 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 (38, 2),
 (42, 2),
 (53, 2),
+(54, 2),
 (5, 5),
 (6, 5),
 (7, 5),
@@ -394,12 +402,15 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 (41, 5),
 (42, 5),
 (53, 5),
+(54, 5),
 (42, 7),
 (45, 7),
 (46, 7),
 (47, 7),
 (49, 7),
 (51, 7),
+(54, 7),
+(55, 7),
 (21, 8),
 (22, 8),
 (23, 8),
@@ -425,7 +436,8 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 (46, 8),
 (47, 8),
 (48, 8),
-(49, 8);
+(49, 8),
+(54, 8);
 
 -- --------------------------------------------------------
 
@@ -447,8 +459,34 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('4gziS9RMUvHfLjtjC2vABWOE1pxviTmCTKLGcLJP', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiSVhFZjJYcjBvNE91MnZmYWFKZFFmdmdCV0daQ09WMjBqc0RvdDd4eCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Nzc6Imh0dHBzOi8vaW5kb2RhY2luLnRlc3QvYXBpL2dldFBlZ2F3YWkvJTdCJTdCJTIwJGRhdGEtJTNFa29kZV9wZWdhd2FpJTIwJTdEJTdEIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1730163746),
-('q4oGvB1qWVMK8ErRiOHt5ZptX4e2iU1T0UZITqMu', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiNzVHeTlMRzJMeUNaaFBpcEFxTzdINFRBaDRPMHdIR01tcG9sY1VMdSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6OTE6Imh0dHBzOi8vaW5kb2RhY2luLnRlc3QvZjZmYTQ2NTQ1NWExYTljYWE3OTg1NDg3NjM2MmU3Yzc0YjBmOTM1Zi8xMzMzMTAyMzIwMjQxMDI4XzExNTYwNy5wbmciO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO30=', 1730166720);
+('CxtiBdQNhHOwRmyhPoUuggxRp3loGTdr0ZTlL53e', NULL, '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiMnpobHU4Y0x3aG92cXhHbUNqY3VaeG9Cb0prYmtJT3lDS1V2S0RqcCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NzA6Imh0dHA6Ly9kMzE4LTIwMi0xNjItMTk1LTE0Ni5uZ3Jvay1mcmVlLmFwcC9hcGkvZ2V0UGVnYXdhaURhdGEvMjgxMDE5OTkiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjEyOiJjdXJyZW50X2RhdGUiO3M6MTU6IjIwMjQxMTA0XzA5NTk1MiI7fQ==', 1730689192),
+('rxoNPSrmCYFH2KafCpMqgCrGLVeU4LN69PEJPVMO', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoibmdFM0tpb2E0SFNJSWR4ZGJWaW1zTW90SjBrVFFjV1dzMzI0ck5nVyI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czoyNDk6Imh0dHBzOi8vaW5kb2RhY2luLnRlc3QvZGFzaGJvYXJkL3BlZ2F3YWkvZXlKcGRpSTZJbGhQV0RKNlVWWXJkRXRJSzFab2NrTldaRFpTVEVFOVBTSXNJblpoYkhWbElqb2lTRWN6YkVwQlZqWXhiV3B6YTBOWk16RmxhMHhpUVQwOUlpd2liV0ZqSWpvaU4ySm1NREExTUdKbVlUazROVGRsTWpnd01qQXhNemsyWmprMVlXRTFZVEEwWmprd05tWTBPV05pWWpCbFlUSmpabUpqT0dOaVkyWmtOek15TW1JNU9TSXNJblJoWnlJNklpSjkvcGF5cm9sbCI7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjM3OiJodHRwczovL2luZG9kYWNpbi50ZXN0L2FwaS9nZXRQZWdhd2FpIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czoxMjoiY3VycmVudF9kYXRlIjtzOjE1OiIyMDI0MTEwNF8wOTAzMDUiO30=', 1730689068),
+('wH1z3FfLsxVFbLUNyjPQS1UvG1RpC94owhVNNxsb', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiNDNPaXpkR1c2Q1hWOUJPNjhkYW9jdTFBSmJlRW1FZEx6N25jZXMySCI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjI0OToiaHR0cHM6Ly9pbmRvZGFjaW4udGVzdC9kYXNoYm9hcmQvcGVnYXdhaS9leUpwZGlJNklsaFBXREo2VVZZcmRFdElLMVpvY2tOV1pEWlNURUU5UFNJc0luWmhiSFZsSWpvaVNFY3piRXBCVmpZeGJXcHphME5aTXpGbGEweGlRVDA5SWl3aWJXRmpJam9pTjJKbU1EQTFNR0ptWVRrNE5UZGxNamd3TWpBeE16azJaamsxWVdFMVlUQTBaamt3Tm1ZME9XTmlZakJsWVRKalptSmpPR05pWTJaa056TXlNbUk1T1NJc0luUmhaeUk2SWlKOS9wYXlyb2xsIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTt9', 1730537730);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_allowance`
+--
+
+CREATE TABLE `tb_allowance` (
+  `id` bigint UNSIGNED NOT NULL,
+  `kode_pegawai` varchar(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `allowance_name` varchar(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `allowance_type` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'persen atau terbilang\r\n(5%) atau 5000',
+  `allowance_fee` bigint DEFAULT NULL COMMENT 'kalau persen, dikalikan dengan gaji. kalau terbilang ya langsung sebut berapa',
+  `allowance_period` date DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `tb_allowance`
+--
+
+INSERT INTO `tb_allowance` (`id`, `kode_pegawai`, `allowance_name`, `allowance_type`, `allowance_fee`, `allowance_period`, `created_at`, `updated_at`) VALUES
+(1, '28101999', 'Bonus', '50000', 50000, '2024-11-01', '2024-11-02 02:02:45', '2024-11-02 02:02:45'),
+(2, '28101999', 'Tunjangan Jabatan', '5', 190000, '2024-11-01', '2024-11-02 02:09:06', '2024-11-02 02:09:06');
 
 -- --------------------------------------------------------
 
@@ -484,7 +522,13 @@ INSERT INTO `tb_attendance` (`id`, `kode_pegawai`, `upl`, `upl68`, `uplm68`, `up
 (51, '13331023', 0, 0, 0, 0, 'Wajah', '2024-10-28 11:56:08', 1, '2024-10-28 11:56:08', NULL, NULL, '1333102320241028_115607', '2024-10-28 04:56:08', '2024-10-28 04:56:08'),
 (52, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-28 15:50:00', 1, '2024-10-28 15:50:00', '98.6566316', '3.6055908', '2810199920241028_155000', '2024-10-28 08:50:00', '2024-10-28 08:50:00'),
 (53, '10232024', 0, 0, 0, 0, 'Wajah', '2024-10-28 15:50:49', 1, '2024-10-28 15:50:49', NULL, NULL, '1023202420241028_155048', '2024-10-28 08:50:49', '2024-10-28 08:50:49'),
-(54, '14102024', 0, 0, 0, 0, 'Wajah', '2024-10-28 15:52:05', 1, '2024-10-28 15:52:05', NULL, NULL, '1410202420241028_155204', '2024-10-28 08:52:05', '2024-10-28 08:52:05');
+(54, '14102024', 0, 0, 0, 0, 'Wajah', '2024-10-28 15:52:05', 1, '2024-10-28 15:52:05', NULL, NULL, '1410202420241028_155204', '2024-10-28 08:52:05', '2024-10-28 08:52:05'),
+(55, '13331023', 0, 0, 0, 0, 'Wajah', '2024-10-29 16:15:51', 1, '2024-10-29 16:15:51', NULL, NULL, '1333102320241029_161551', '2024-10-29 09:15:51', '2024-10-29 09:15:51'),
+(56, '13331023', 0, 0, 0, 0, 'Wajah', '2024-10-31 09:19:49', 1, '2024-10-31 09:19:49', NULL, NULL, '1333102320241031_091949', '2024-10-31 02:19:49', '2024-10-31 02:19:49'),
+(57, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-31 09:20:41', 1, '2024-10-31 09:20:41', NULL, NULL, '2810199920241031_092041', '2024-10-31 02:20:41', '2024-10-31 02:20:41'),
+(58, '28101999', 0, 0, 0, 0, 'Wajah', '2024-11-01 15:19:28', 1, '2024-11-01 15:19:28', NULL, NULL, '2810199920241101_151928', '2024-11-01 08:19:28', '2024-11-01 08:19:28'),
+(59, '28101999', 0, 0, 0, 0, 'Wajah', '2024-11-02 10:12:23', 1, '2024-11-02 10:12:23', NULL, NULL, '2810199920241102_101222', '2024-11-02 03:12:23', '2024-11-02 03:12:23'),
+(60, '28101999', 0, 0, 0, 0, 'Wajah', '2024-11-04 09:03:05', 1, '2024-11-04 09:03:05', NULL, NULL, '2810199920241104_090305', '2024-11-04 02:03:05', '2024-11-04 02:03:05');
 
 -- --------------------------------------------------------
 
@@ -535,7 +579,16 @@ INSERT INTO `tb_attendance_out` (`id`, `kode_pegawai`, `upl`, `upl68`, `uplm68`,
 (171, '13331023', 0, 0, 0, 0, 'Wajah', '2024-10-28 16:14:07', 1, '2024-10-28 16:14:07', '112.8515625', '0.088567518487818', '1333102320241028_161407', '2024-10-28 09:14:07', '2024-10-28 09:14:08'),
 (172, '13331023', 0, 0, 0, 0, 'Wajah', '2024-10-28 16:49:23', 1, '2024-10-28 16:49:23', '98.6566316', '3.6055908', '1333102320241028_164922', '2024-10-28 09:49:23', '2024-10-28 09:49:23'),
 (173, '13331023', 0, 0, 0, 0, 'Wajah', '2024-10-28 16:53:04', 1, '2024-10-28 16:53:04', '98.6566316', '3.6055908', '1333102320241028_165304', '2024-10-28 09:53:04', '2024-10-28 09:53:04'),
-(174, '13331023', 0, 0, 0, 0, 'Wajah', '2024-10-28 16:54:51', 1, '2024-10-28 16:54:51', '98.173828125', '3.338521616727', '1333102320241028_165450', '2024-10-28 09:54:51', '2024-10-28 09:54:51');
+(174, '13331023', 0, 0, 0, 0, 'Wajah', '2024-10-28 16:54:51', 1, '2024-10-28 16:54:51', '98.173828125', '3.338521616727', '1333102320241028_165450', '2024-10-28 09:54:51', '2024-10-28 09:54:51'),
+(175, '13331023', 0, 0, 0, 0, 'Wajah', '2024-10-31 09:20:26', 1, '2024-10-31 09:20:26', NULL, NULL, '1333102320241031_092026', '2024-10-31 02:20:26', '2024-10-31 02:20:26'),
+(176, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-31 09:21:39', 1, '2024-10-31 09:21:39', NULL, NULL, '2810199920241031_092138', '2024-10-31 02:21:39', '2024-10-31 02:21:39'),
+(177, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-31 09:22:46', 1, '2024-10-31 09:22:46', NULL, NULL, '2810199920241031_092246', '2024-10-31 02:22:46', '2024-10-31 02:22:46'),
+(178, '13331023', 0, 0, 0, 0, 'Wajah', '2024-10-31 16:43:22', 1, '2024-10-31 16:43:22', NULL, NULL, '1333102320241031_164321', '2024-10-31 09:43:22', '2024-10-31 09:43:22'),
+(179, '28101999', 0, 0, 0, 0, 'Wajah', '2024-10-31 16:46:21', 1, '2024-10-31 16:46:21', '102.568359375', '-1.5809641251621', '2810199920241031_164621', '2024-10-31 09:46:21', '2024-10-31 09:46:21'),
+(180, '28101999', 0, 0, 0, 0, 'Wajah', '2024-11-01 15:20:13', 1, '2024-11-01 15:20:13', NULL, NULL, '2810199920241101_152012', '2024-11-01 08:20:13', '2024-11-01 08:20:13'),
+(181, '28101999', 0, 0, 0, 0, 'Wajah', '2024-11-02 10:13:41', 1, '2024-11-02 10:13:41', '98.6689789', '3.5913842', '2810199920241102_101339', '2024-11-02 03:13:41', '2024-11-02 03:13:41'),
+(182, '28101999', 0, 0, 0, 0, 'Wajah', '2024-11-04 09:58:10', 1, '2024-11-04 09:58:10', NULL, NULL, '2810199920241104_095810', '2024-11-04 02:58:10', '2024-11-04 02:58:10'),
+(183, '28101999', 0, 0, 0, 0, 'Wajah', '2024-11-04 09:59:52', 1, '2024-11-04 09:59:52', NULL, NULL, '2810199920241104_095952', '2024-11-04 02:59:52', '2024-11-04 02:59:52');
 
 -- --------------------------------------------------------
 
@@ -562,9 +615,34 @@ CREATE TABLE `tb_dayoff` (
 
 INSERT INTO `tb_dayoff` (`id`, `id_user`, `dayoff_for`, `url`, `tgl_dari`, `tgl_hingga`, `keterangan`, `status`, `created_at`, `updated_at`) VALUES
 (12, '28101999', 'Absen', NULL, '2024-10-15T08:29', '2024-10-16T08:29', '<p>Salam hormat,</p><p><br></p><p>Saya yang bertanda tangan dibawah ini ingin mengajukan izin tidak dapat datang ke kantor dikarenakan <strong>SAKIT PARAH SIH KEKNYA.</strong></p><p><br></p><p>Berikut saya sertakan surat sakit dan beberapa <strong>bukti </strong>bahwasanya memang benar saya sakit parah keknya:</p><p><br></p><p><strong>Surat Sakit:</strong></p><p><img src=\"/storage/uploads/iR00lyY1kvvK6eylajznD4v2NhM0j1gBF9oMMPuq.png\"></p><p><img src=\"/storage/uploads/Bdr2cb5GakrrxcVAwMlLhjkJXMLiJg4SnFMB1xqI.png\"></p><p>Foto saat berobat:</p><p><br></p>', '1', '2024-10-15 01:31:46', '2024-10-17 09:17:00'),
-(14, '14102024', 'Izin', NULL, '2024-10-22T11:10', '2024-10-23T11:10', '<p>Sakit </p>', '2', '2024-10-22 04:10:34', '2024-10-22 04:10:34'),
-(15, '14102024', 'Sakit', NULL, '2024-10-22T08:00', '2024-10-25T08:00', '<p><img src=\"/storage/uploads/GdcqjJfi5qpSnhtu7E4lMG2gGxlnAdARb6ioz8dF.png\"></p>', '2', '2024-10-22 04:45:44', '2024-10-22 04:45:44'),
-(16, '14102024', 'PC', NULL, '2024-10-22T13:31', '2024-10-22T15:31', '<div data-value=\"true\"></div><p>asdxsaycvbbbbbbbbbbbbbbbbbbbbbbbbbbyyyyysssssssssssssssssssssooooooooooooooooooooooo</p><div data-value=\"true\"></div><p><img src=\"/storage/uploads/Y52NAOVOqwDC2afjbVaPdUrWYGoDKetQgCZBBzUy.png\"></p>', '2', '2024-10-22 06:33:30', '2024-10-22 06:33:30');
+(14, '14102024', 'Izin', NULL, '2024-10-22T11:10', '2024-10-23T11:10', '<p>Sakit </p>', '1', '2024-10-22 04:10:34', '2024-10-31 01:20:39'),
+(15, '14102024', 'Sakit', NULL, '2024-10-22T08:00', '2024-10-25T08:00', '<p><img src=\"/storage/uploads/GdcqjJfi5qpSnhtu7E4lMG2gGxlnAdARb6ioz8dF.png\"></p>', '1', '2024-10-22 04:45:44', '2024-10-31 01:20:45'),
+(16, '14102024', 'PC', NULL, '2024-10-22T13:31', '2024-10-22T15:31', '<div data-value=\"true\"></div><p>asdxsaycvbbbbbbbbbbbbbbbbbbbbbbbbbbyyyyysssssssssssssssssssssooooooooooooooooooooooo</p><div data-value=\"true\"></div><p><img src=\"/storage/uploads/Y52NAOVOqwDC2afjbVaPdUrWYGoDKetQgCZBBzUy.png\"></p>', '3', '2024-10-22 06:33:30', '2024-10-31 02:15:32');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_deduction`
+--
+
+CREATE TABLE `tb_deduction` (
+  `id` bigint UNSIGNED NOT NULL,
+  `kode_pegawai` varchar(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `deduction_name` varchar(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `deduction_type` varchar(12) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `deduction_fee` bigint DEFAULT NULL,
+  `deduction_period` date DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `tb_deduction`
+--
+
+INSERT INTO `tb_deduction` (`id`, `kode_pegawai`, `deduction_name`, `deduction_type`, `deduction_fee`, `deduction_period`, `created_at`, `updated_at`) VALUES
+(1, '28101999', 'BPJS Kesehatan', '3.7', 140600, '2024-11-01', '2024-11-01 03:02:32', '2024-11-01 03:02:32'),
+(2, '28101999', 'BPJS Ketenagakerjaan', '3.7', 140600, '2024-11-01', '2024-11-01 03:05:42', '2024-11-01 03:05:42');
 
 -- --------------------------------------------------------
 
@@ -1885,7 +1963,94 @@ INSERT INTO `tb_log` (`id`, `user_id`, `user_action`, `ip_address`, `user_agent`
 (1153, '1', 'roles > update', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-29 01:25:53', '2024-10-29 01:25:53'),
 (1154, '1', 'roles > update', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-29 01:25:59', '2024-10-29 01:25:59'),
 (1155, '1', 'golongan > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-29 01:27:38', '2024-10-29 01:27:38'),
-(1156, '1', 'golongan > update', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-29 01:27:46', '2024-10-29 01:27:46');
+(1156, '1', 'golongan > update', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-29 01:27:46', '2024-10-29 01:27:46'),
+(1157, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-29 07:47:34', '2024-10-29 07:47:34'),
+(1158, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-29 07:47:34', '2024-10-29 07:47:34'),
+(1159, '1', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-29 07:49:32', '2024-10-29 07:49:32'),
+(1160, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-29 07:49:37', '2024-10-29 07:49:37'),
+(1161, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-29 07:49:37', '2024-10-29 07:49:37'),
+(1162, '1', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-29 08:29:32', '2024-10-29 08:29:32'),
+(1163, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-29 08:48:41', '2024-10-29 08:48:41'),
+(1164, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-29 08:48:41', '2024-10-29 08:48:41'),
+(1165, '1', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-29 09:15:51', '2024-10-29 09:15:51'),
+(1166, '1', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-29 09:15:51', '2024-10-29 09:15:51'),
+(1167, '1', 'store-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-29 09:15:51', '2024-10-29 09:15:51'),
+(1168, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-31 01:00:14', '2024-10-31 01:00:14'),
+(1169, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-31 01:00:14', '2024-10-31 01:00:14'),
+(1170, '1', 'dayoff > update', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-31 01:20:39', '2024-10-31 01:20:39'),
+(1171, '1', 'dayoff > update', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-31 01:20:45', '2024-10-31 01:20:45'),
+(1172, '1', 'dayoff > update', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-31 02:15:32', '2024-10-31 02:15:32'),
+(1173, '1', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-31 02:19:49', '2024-10-31 02:19:49'),
+(1174, '1', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-31 02:19:49', '2024-10-31 02:19:49'),
+(1175, '1', 'store-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-31 02:19:49', '2024-10-31 02:19:49'),
+(1176, '1', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-31 02:20:26', '2024-10-31 02:20:26'),
+(1177, '1', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-31 02:20:26', '2024-10-31 02:20:26'),
+(1178, '1', 'store-attendance-out > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-31 02:20:26', '2024-10-31 02:20:26'),
+(1179, '1', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-31 02:20:41', '2024-10-31 02:20:41'),
+(1180, '1', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-31 02:20:41', '2024-10-31 02:20:41'),
+(1181, '1', 'store-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-31 02:20:42', '2024-10-31 02:20:42'),
+(1182, '1', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-31 02:21:38', '2024-10-31 02:21:38'),
+(1183, '1', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-31 02:21:39', '2024-10-31 02:21:39'),
+(1184, '1', 'store-attendance-out > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-31 02:21:39', '2024-10-31 02:21:39'),
+(1185, '1', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-31 02:22:46', '2024-10-31 02:22:46'),
+(1186, '1', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-31 02:22:46', '2024-10-31 02:22:46'),
+(1187, '1', 'store-attendance-out > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-31 02:22:46', '2024-10-31 02:22:46'),
+(1188, '1', 'permissions > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-31 02:46:41', '2024-10-31 02:46:41'),
+(1189, '1', 'roles > update', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-31 02:47:01', '2024-10-31 02:47:01'),
+(1190, '1', 'roles > update', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-31 02:47:07', '2024-10-31 02:47:07'),
+(1191, '1', 'roles > update', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-31 02:47:11', '2024-10-31 02:47:11'),
+(1192, '1', 'roles > update', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-31 02:47:15', '2024-10-31 02:47:15'),
+(1193, '1', 'permissions > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-31 02:47:59', '2024-10-31 02:47:59'),
+(1194, '1', 'roles > update', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-31 02:48:06', '2024-10-31 02:48:06'),
+(1195, '1', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-31 09:43:21', '2024-10-31 09:43:21'),
+(1196, '1', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-31 09:43:22', '2024-10-31 09:43:22'),
+(1197, '1', 'store-attendance-out > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36', 'Unknown', '2024-10-31 09:43:22', '2024-10-31 09:43:22'),
+(1198, '1', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-31 09:43:41', '2024-10-31 09:43:41'),
+(1199, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-31 09:43:57', '2024-10-31 09:43:57'),
+(1200, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-31 09:43:57', '2024-10-31 09:43:57'),
+(1201, '1006', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-31 09:46:21', '2024-10-31 09:46:21'),
+(1202, '1006', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-31 09:46:21', '2024-10-31 09:46:21'),
+(1203, '1006', 'store-attendance-out > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-31 09:46:21', '2024-10-31 09:46:21'),
+(1204, '1006', 'logout', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-31 09:46:24', '2024-10-31 09:46:24'),
+(1205, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-31 09:46:29', '2024-10-31 09:46:29'),
+(1206, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-10-31 09:46:29', '2024-10-31 09:46:29'),
+(1207, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-11-01 01:05:05', '2024-11-01 01:05:05'),
+(1208, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-11-01 01:05:05', '2024-11-01 01:05:05'),
+(1209, '1', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-11-01 08:19:28', '2024-11-01 08:19:28'),
+(1210, '1', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-11-01 08:19:28', '2024-11-01 08:19:28'),
+(1211, '1', 'store-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-11-01 08:19:28', '2024-11-01 08:19:28'),
+(1212, '1', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-11-01 08:20:12', '2024-11-01 08:20:12'),
+(1213, '1', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-11-01 08:20:12', '2024-11-01 08:20:12'),
+(1214, '1', 'store-attendance-out > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-11-01 08:20:13', '2024-11-01 08:20:13'),
+(1215, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-11-02 01:03:39', '2024-11-02 01:03:39'),
+(1216, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-11-02 01:03:39', '2024-11-02 01:03:39'),
+(1217, '1006', 'login', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-11-02 03:12:50', '2024-11-02 03:12:50'),
+(1218, '1006', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-11-02 03:12:50', '2024-11-02 03:12:50'),
+(1219, '1006', 'api > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-11-02 03:13:39', '2024-11-02 03:13:39'),
+(1220, '1006', 'check-attendance > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-11-02 03:13:39', '2024-11-02 03:13:39'),
+(1221, '1006', 'store-attendance-out > create', '127.0.0.1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36 OPR/85.0.0.0', 'Unknown', '2024-11-02 03:13:41', '2024-11-02 03:13:41'),
+(1222, '1', 'roles > update', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-11-02 03:39:57', '2024-11-02 03:39:57'),
+(1223, '1', 'login', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-11-02 08:18:43', '2024-11-02 08:18:43'),
+(1224, '1', 'login > create', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'Unknown', '2024-11-02 08:18:43', '2024-11-02 08:18:43');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_overtime`
+--
+
+CREATE TABLE `tb_overtime` (
+  `id` bigint UNSIGNED NOT NULL,
+  `kode_pegawai` varchar(16) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `start_time` datetime DEFAULT NULL,
+  `end_time` datetime DEFAULT NULL,
+  `notes` text COLLATE utf8mb4_unicode_ci,
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `approved_by` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `fee` bigint NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -1904,6 +2069,7 @@ CREATE TABLE `tb_pegawai` (
   `jabatan` int DEFAULT NULL,
   `golongan` int DEFAULT NULL,
   `tgl_lahir` date DEFAULT NULL,
+  `salary_id` int DEFAULT NULL,
   `storage` varchar(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
@@ -1913,216 +2079,216 @@ CREATE TABLE `tb_pegawai` (
 -- Dumping data for table `tb_pegawai`
 --
 
-INSERT INTO `tb_pegawai` (`id`, `kode_pegawai`, `nik_pegawai`, `full_name`, `nick_name`, `no_telp`, `alamat`, `jabatan`, `golongan`, `tgl_lahir`, `storage`, `created_at`, `updated_at`) VALUES
-(1, '10025', '201911010054', 'CHAIRUNNISA', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(3, '12', '202102110075', 'SAKIR', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(5, '30106', '201808060020', 'ARIYANTO', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-09-29 13:57:55', '2024-09-29 13:57:55'),
-(6, '30210', '00000', 'ENDRI SUSANDI', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-09-29 13:57:55', '2024-09-29 13:57:55'),
-(7, '30211', '200910100021', 'MISIANTO', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-09-29 13:57:55', '2024-09-29 13:57:55'),
-(8, '30212', '00000', 'EDI SISWANTO', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-09-29 13:57:55', '2024-09-29 13:57:55'),
-(9, '30302', '201609200449', 'WAHYU PANDU BIMANTARA', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(10, '30364', '00000', 'IRFAN PRATAMA', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(11, '30402', '201101020101', 'MISRAN', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(12, '30412', '201109070177', 'MUHAMMAD YACUB LUBIS', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(13, '30422', '201209250273', 'SAHRUM', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(14, '30424', '00000', 'RAHMADSYAH HARAHAP', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(15, '30426', '00000', 'AGUS PRAYETNO', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(16, '30431', '202104070082', 'HANDA YULIANDA', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(17, '30460', '2021111500101', 'WAHYUNI PRATIWI SIAHAAN', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(18, '30467', '20211201006', 'ADRIYAS TARIQ KALIFA LUBIS', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(19, '30468', '2021120200105', 'INDRA HADI SUSWOYO', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(20, '30469', '2021120400106', 'DARMAWAN', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(21, '30471', '2021121700107', 'SUMIATI MANURUNG', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(22, '30472', '2022011200108', 'PRIYONO', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(23, '30477', '2022010200111', 'BOBY HARDIYAN', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(24, '30490', '1207270805990000', 'FAUZAN', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(25, '30501', '202207010042', 'DAMERIA SIMBOLON', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(26, '30504', '2022100800115', 'BASTIAN ALESSANDRO S', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(27, '30601', '00000', 'SURYADI', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(28, '30606', '201103180115', 'INDRA', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(29, '30611', '00000', 'IWAN RIANTO', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(30, '30615', '00000', 'ADEK S', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(31, '30635', '201904110042', 'ZHON PII SIREGAR', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(32, '30648', '00000', 'M. IPAN', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(33, '30702', '200903240023', 'JUNIATI', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(34, '30710', '201202290219', 'IRA YANDA NASUTION', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(35, '30711', '201503020424', 'HERWAN', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(36, '30719', '20210603005', 'NAZARUDDIN', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(37, '30720', '00000', 'DARMAWI USMAN ST', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(38, '30807', '201109090178', 'LIBUR SUSANTO', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(39, '30816', '201901080038', 'DARWINSYAH', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(40, '30834', '201602090435', 'SUJIRNO', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(41, '30905', '202105270085', 'ADI WINOTO', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(42, '31203', '2022210700133', 'HUI CUANG', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(43, '31206', '20211201007', 'REZA ANANDA LEO SAPUTRA PURBA', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(44, '31212', '00000', 'INSAN SAPUTRA SIREGAR', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(45, '31221', '00000', 'DARDA WIDARDI SIMPHO', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(46, '31224', '202318010017', 'PARIANTO', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(47, '31225', '202301250018', 'AKBAR RIYANTO', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(48, '31229', '202302130021', 'IKA RAHMAWATI', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(49, '31231', '202302210024', 'SRI ENDAYANI', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(50, '31233', '202303010026', 'DIONARDI SIMANGUNGSONG', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(51, '31234', '202303130028', 'MUHAMMAD AQRO REZA', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(52, '31235', '202303130027', 'SANTO ANRE TOGATOROP', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(53, '31237', '202303240029', 'SYAMSURIZAL', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(54, '31240', '202304290031', 'RUDI AMRULLAH', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(55, '31249', '202305290041', 'MUHAMMAD RANGGA ATSIL', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(56, '31251', '202302010025', 'RENDI GUNAWAN', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(57, '31252', '202306130042', 'ERIANTO', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(58, '31272', '202307110060', 'FIRJA AGUSTIAN LUBIS', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(59, '31273', '202307170062', 'Sudiro', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(60, '31278', '202307240067', 'Agus Maulana', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(61, '31279', '202307010054', 'RIO CHANDRA HUTAGALUNG', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(62, '31281', '202308070069', 'Boy Setiawan', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(63, '31282', '202308070071', 'MARTAHI SITUMEANG', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(64, '31285', '202308140073', 'M. Haikal Siregar', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(65, '31287', '202308210076', 'Mhd Muzamil', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(66, '31288', '202308210075', 'Mujiono', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(67, '31292', '202308250079', 'Darma Indra Harahap', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(68, '31294', '202309010082', 'YUDI DWI APRIANSYAH', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(69, '31295', '202309010083', 'Dodi Alexius Siringoringo', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(70, '31297', '202309040085', 'M. Maulana Putra', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(71, '31300', '202309180088', 'Are Mozrat Barus', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(72, '31302', '202310270090', 'MUHAMMAD IKBAL', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(73, '31305', '202311010093', 'Taufiq Qurrahman', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(74, '31307', '202311030095', 'M. RONA MUNARI', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(75, '31309', '202311130097', 'MUHAMMAD  DANI RAMADHAN SIREGAR', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(76, '31313', '202311200101', 'M. Heru Qurahman', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(77, '31314', '202311220102', 'SAIFUL ASMADI', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(78, '31315', '202312010103', 'BUDI ASMAR LUBIS', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(79, '31317', '202312040105', 'M HADI TAYEB SIREGAR', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(80, '31318', '202312050106', 'Johan', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(81, '31319', '202312050107', 'ABDUL ROSID', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(82, '31320', '202312270108', 'Manolo Daely', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(83, '31321', '202401020110', 'Abdul Sangap Berutu ', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(84, '31322', '202401020109', 'Roni', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(85, '31324', '202401030112', 'MUHAMMAD RIFAI', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(86, '31326', '202401150114', 'Anggi Syahputra Lubis', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(87, '31329', '202401170117', 'HENDRA WIJAYA KESUMA', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(88, '31330', '202401180118', 'RIAN PRATAMA', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(89, '31331', '202301180119', 'Budi Ramansah Siahaan', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(90, '31332', '202301190120', 'MUHAMMAD IFNU LUHUKAI', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(91, '31334', '202301220121', 'MUHAMMAD ASRI', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(92, '31335', '202301250123', 'Han Juhairi Siregar', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(93, '31336', '202429010126', 'Ferdiansyah', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(94, '31337', '202401290125', 'Rahmadh Awaluddin', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(95, '31338', '202401290124', 'Nael Aries Marcelino Purba', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(96, '31339', '202401300128', 'ASRUL NIZAR', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(97, '31340', '202401300127', 'AZHAR FAUZAN', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(98, '31341', '202401310129', 'Hafiz Ramadhan', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(99, '31342', '202402010130', 'Adha Afrinanda Tanjung', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(100, '31343', '202402030131', 'Stanley Stevenson', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(101, '31344', '202402050132', 'Risky', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(102, '31345', '202402120133', 'Herison Sinaga', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(103, '31346', '202402150134', 'Monica Desi Deria Gultom', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(104, '31347', '202402200135', 'Mhd Gerald Faler Handoko', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(105, '31348', '202402210136', 'Fahrul Reza Siregar', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(106, '31349', '202403010140', 'Miftakhul Huda', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(107, '31350', '202403010138', 'Tengku Imran', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(108, '31351', '202403010139', 'Irfan Syahputra', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(109, '31352', '202403010137', 'Eric Agustian Sihombing', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(110, '31353', '202403010141', 'Jusnan Hasan', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(111, '31354', '202403020143', 'Rizky Sumahadi', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(112, '31355', '202403020142', 'Krisdian Jogi Sianturi', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(113, '31356', '202403050144', 'Surya Hendrik', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(114, '3454', '202107220090', 'JANSEN HUTAGALUNG', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(115, '3456', '00000', 'AZUANDA', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(116, '3465', '00000', 'ROZUL', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(117, '34677', '00000', 'M. IKBAL', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(118, '3470', '202108030096', 'CANDRA SYAHPUTRA', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(119, '3472', '202110110098', 'WAHYU SYAHPUTRA', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(120, '7', '202009010071', 'FERA ARINI', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(121, '315', '201812100602', 'OKY SANDY SIRAIT', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(122, '55', '0', 'SUWANDI', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(123, '31357', '0', 'Ari Syahputra', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(126, '31358', '0', 'Risky Pasaribu', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(127, '31359', '0', 'Rapi Pasaribu', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(128, '31360', '0', 'Ageng Prastio', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(129, '31361', '0', 'Muhammad Ridho', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(130, '31362', '0', 'Dewa Anggoro', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(131, '31363', '0', 'Khairul Saban Harahap', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(133, '31364', '0', 'Muhammad Gunadi Siregar', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(134, '31365', '0', 'Muhammad Celpin Nasution', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(135, '31368', '0', 'Muhammad Sadriyanto', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(136, '31369', '0', 'Jekki Suprastio', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(137, '31370', '0', 'Kiki Prayetno', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(138, '31366', '0', 'M. Anja Kesuma', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(139, '31367', '0', 'Ali Sabana', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(140, '31371', '0', 'Dwi Bagus Permadi', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(141, '31373', '0', 'Raihan Sahrian Brutu', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(142, '31375', '0', 'Handoko', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(143, '31376', '202405020165', 'RENDI GUNAWAN', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(144, '31377', '0', 'Heri Wibowo', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(145, '31378', '0', 'Imam Syahputra', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(146, '31379', '0', 'Mhd Idris', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(147, '31380', '0', 'Sandi Harefa', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(148, '31381', '0', 'Syafrizal', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(149, '31372', '0', 'NOVI TRIYANTI SIAGIAN', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(150, '31384', '0', 'Wawan Agustin', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(153, '31382', '0', 'MUHAMMAD IPAN TAUFIK', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(155, '31383', '0', 'Serpina Riris Simorangkir', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(156, '31385', '0', 'Misdianto', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(158, '31386', '0', 'Dedi Hardiansyah', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(160, '31387', '0', 'BRANDU JAYA OMPUSUNGGU', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(162, '31388', '0', 'Surio Ismanto', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(165, '495', '2024024050175', 'IMAM AFANDI', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(166, '31392', '0', 'Dian Bagus Suhendardi', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(168, '31374', '0', 'DZIKRI ALFARISI', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(169, '31389', '0', 'Rusman Hadi', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(170, '31391', '0', 'Nico Ramadino', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(175, '31390', '0', 'Rudy Effendi Nasution', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(176, '31393', '0', 'Syapriandi', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(177, '31394', '0', 'Herman', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(179, '31395', '0', 'Sunaryo', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(180, '31396', '0', 'Chandra Irawan', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(182, '31397', '0', 'Tri Bayudi', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(183, '31398', '0', 'Rozul Wardani', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(184, '31399', '0', 'Budianto Basri', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(185, '31400', '0', 'Riskita Darsa', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(186, '31401', '0', 'Tri Wahyu Andika', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(187, '31402', '0', 'Ajirama', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(188, '31403', '0', 'Raja Ansari', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(189, '31404', '0', 'Arif Rahman', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(190, '31405', '0', 'Akhiruddin', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(191, '31406', '0', 'Reynal Wahyudin', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(192, '31407', '0', 'Nofriansyah Pane', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(193, '31408', '0', 'Sutrisman', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(194, '31409', '0', 'Ariyadi', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(195, '31413', '0', 'Ronald Glory Sinaga', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(196, '31410', '0', 'Dimas Sahputra', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(197, '31411', '0', 'Jefri K Daulay', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(198, '31412', '0', 'Misianto', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(201, '31414', '0', 'Ramdani', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(202, '31416', '0', 'Rahmad Hamdani Nasution', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(203, '31415', '0', 'Han Juhairi Siregar', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(204, '31417', '0', 'Tri Ardianto', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(205, '31418', '0', 'Winarto', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(206, '31419', '0', 'M SOFYAN HADI', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(207, '31420', '0', 'Eki Al Vadli', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(208, '31421', '0', 'Akbar Fitra Perdana', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(209, '31422', '0', 'Dedy Wicaksono', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(210, '31423', '0', 'Raden Mhd Azril Azhari', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(211, '31424', '0', 'Irro Siregar', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(212, '31425', '0', 'Herwan', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(213, '31426', '0', 'Rizky M. Siregar', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(214, '31428', '0', 'Daniel Darmayanto Simanjuntak', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(215, '31432', '0', 'Robani Zebua', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(216, '31427', '0', 'Agil Wahyudi', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(217, '31429', '0', 'Andre', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(218, '31430', '0', 'Parianto', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(219, '31431', '0', 'Ali Muda Pane', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(220, '507', '2024002090184', 'M. FADLY', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(221, '31433', '0', 'Edi Siswanto', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(223, '31434', '202409090234', 'Jandri Tindaon', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(224, '31435', '0', 'Agus Maulana', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(225, '31436', '0', 'Sialip Siregar', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(226, '31437', '0', 'Ahmad Purwondo', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(227, '31438', '0', 'Robiyanta', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(228, '31439', '0', 'harliadi', NULL, NULL, NULL, NULL, 6, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
-(230, '14102024', '1209312810990001', 'Dito Sabbihisma', 'Dito', '083189134389', 'Medan', 24, 6, '2024-04-29', 'labels/14102024/', '2024-10-14 03:19:49', '2024-10-23 04:49:34'),
-(9999999999, '28101999', '12012810990001', 'Muhammad Abdi Mayu', 'Abdi', '082265380192', 'Tanjung Morawa', 11, 6, '1999-10-28', 'labels/28101999/', '2024-09-29 13:57:55', '2024-10-23 03:21:13'),
-(10000000007, '10232024', '12093123102024000', 'Juli', 'Juli', '082265380918', 'Medan', 12, 4, '2024-09-17', 'labels/10232024/', '2024-10-23 06:27:19', '2024-10-23 06:48:39'),
-(10000000008, '13331023', '1209312810990001', 'Abdul', 'Abdul', '085275349929', 'Medan', 24, 4, '2024-09-13', 'labels/13331023/', '2024-10-23 06:34:32', '2024-10-23 06:51:43');
+INSERT INTO `tb_pegawai` (`id`, `kode_pegawai`, `nik_pegawai`, `full_name`, `nick_name`, `no_telp`, `alamat`, `jabatan`, `golongan`, `tgl_lahir`, `salary_id`, `storage`, `created_at`, `updated_at`) VALUES
+(1, '10025', '201911010054', 'CHAIRUNNISA', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(3, '12', '202102110075', 'SAKIR', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(5, '30106', '201808060020', 'ARIYANTO', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-09-29 13:57:55', '2024-09-29 13:57:55'),
+(6, '30210', '00000', 'ENDRI SUSANDI', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-09-29 13:57:55', '2024-09-29 13:57:55'),
+(7, '30211', '200910100021', 'MISIANTO', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-09-29 13:57:55', '2024-09-29 13:57:55'),
+(8, '30212', '00000', 'EDI SISWANTO', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-09-29 13:57:55', '2024-09-29 13:57:55'),
+(9, '30302', '201609200449', 'WAHYU PANDU BIMANTARA', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(10, '30364', '00000', 'IRFAN PRATAMA', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(11, '30402', '201101020101', 'MISRAN', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(12, '30412', '201109070177', 'MUHAMMAD YACUB LUBIS', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(13, '30422', '201209250273', 'SAHRUM', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(14, '30424', '00000', 'RAHMADSYAH HARAHAP', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(15, '30426', '00000', 'AGUS PRAYETNO', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(16, '30431', '202104070082', 'HANDA YULIANDA', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(17, '30460', '2021111500101', 'WAHYUNI PRATIWI SIAHAAN', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(18, '30467', '20211201006', 'ADRIYAS TARIQ KALIFA LUBIS', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(19, '30468', '2021120200105', 'INDRA HADI SUSWOYO', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(20, '30469', '2021120400106', 'DARMAWAN', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(21, '30471', '2021121700107', 'SUMIATI MANURUNG', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(22, '30472', '2022011200108', 'PRIYONO', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(23, '30477', '2022010200111', 'BOBY HARDIYAN', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(24, '30490', '1207270805990000', 'FAUZAN', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(25, '30501', '202207010042', 'DAMERIA SIMBOLON', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(26, '30504', '2022100800115', 'BASTIAN ALESSANDRO S', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(27, '30601', '00000', 'SURYADI', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(28, '30606', '201103180115', 'INDRA', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(29, '30611', '00000', 'IWAN RIANTO', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(30, '30615', '00000', 'ADEK S', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(31, '30635', '201904110042', 'ZHON PII SIREGAR', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(32, '30648', '00000', 'M. IPAN', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(33, '30702', '200903240023', 'JUNIATI', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(34, '30710', '201202290219', 'IRA YANDA NASUTION', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(35, '30711', '201503020424', 'HERWAN', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(36, '30719', '20210603005', 'NAZARUDDIN', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(37, '30720', '00000', 'DARMAWI USMAN ST', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(38, '30807', '201109090178', 'LIBUR SUSANTO', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(39, '30816', '201901080038', 'DARWINSYAH', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(40, '30834', '201602090435', 'SUJIRNO', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(41, '30905', '202105270085', 'ADI WINOTO', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(42, '31203', '2022210700133', 'HUI CUANG', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(43, '31206', '20211201007', 'REZA ANANDA LEO SAPUTRA PURBA', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(44, '31212', '00000', 'INSAN SAPUTRA SIREGAR', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(45, '31221', '00000', 'DARDA WIDARDI SIMPHO', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(46, '31224', '202318010017', 'PARIANTO', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(47, '31225', '202301250018', 'AKBAR RIYANTO', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(48, '31229', '202302130021', 'IKA RAHMAWATI', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(49, '31231', '202302210024', 'SRI ENDAYANI', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(50, '31233', '202303010026', 'DIONARDI SIMANGUNGSONG', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(51, '31234', '202303130028', 'MUHAMMAD AQRO REZA', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(52, '31235', '202303130027', 'SANTO ANRE TOGATOROP', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(53, '31237', '202303240029', 'SYAMSURIZAL', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(54, '31240', '202304290031', 'RUDI AMRULLAH', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(55, '31249', '202305290041', 'MUHAMMAD RANGGA ATSIL', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(56, '31251', '202302010025', 'RENDI GUNAWAN', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(57, '31252', '202306130042', 'ERIANTO', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(58, '31272', '202307110060', 'FIRJA AGUSTIAN LUBIS', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(59, '31273', '202307170062', 'Sudiro', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(60, '31278', '202307240067', 'Agus Maulana', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(61, '31279', '202307010054', 'RIO CHANDRA HUTAGALUNG', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(62, '31281', '202308070069', 'Boy Setiawan', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(63, '31282', '202308070071', 'MARTAHI SITUMEANG', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(64, '31285', '202308140073', 'M. Haikal Siregar', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(65, '31287', '202308210076', 'Mhd Muzamil', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(66, '31288', '202308210075', 'Mujiono', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(67, '31292', '202308250079', 'Darma Indra Harahap', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(68, '31294', '202309010082', 'YUDI DWI APRIANSYAH', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(69, '31295', '202309010083', 'Dodi Alexius Siringoringo', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(70, '31297', '202309040085', 'M. Maulana Putra', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(71, '31300', '202309180088', 'Are Mozrat Barus', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(72, '31302', '202310270090', 'MUHAMMAD IKBAL', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(73, '31305', '202311010093', 'Taufiq Qurrahman', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(74, '31307', '202311030095', 'M. RONA MUNARI', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(75, '31309', '202311130097', 'MUHAMMAD  DANI RAMADHAN SIREGAR', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(76, '31313', '202311200101', 'M. Heru Qurahman', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(77, '31314', '202311220102', 'SAIFUL ASMADI', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(78, '31315', '202312010103', 'BUDI ASMAR LUBIS', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(79, '31317', '202312040105', 'M HADI TAYEB SIREGAR', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(80, '31318', '202312050106', 'Johan', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(81, '31319', '202312050107', 'ABDUL ROSID', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(82, '31320', '202312270108', 'Manolo Daely', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(83, '31321', '202401020110', 'Abdul Sangap Berutu ', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(84, '31322', '202401020109', 'Roni', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(85, '31324', '202401030112', 'MUHAMMAD RIFAI', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(86, '31326', '202401150114', 'Anggi Syahputra Lubis', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(87, '31329', '202401170117', 'HENDRA WIJAYA KESUMA', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(88, '31330', '202401180118', 'RIAN PRATAMA', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(89, '31331', '202301180119', 'Budi Ramansah Siahaan', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(90, '31332', '202301190120', 'MUHAMMAD IFNU LUHUKAI', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(91, '31334', '202301220121', 'MUHAMMAD ASRI', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(92, '31335', '202301250123', 'Han Juhairi Siregar', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(93, '31336', '202429010126', 'Ferdiansyah', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(94, '31337', '202401290125', 'Rahmadh Awaluddin', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(95, '31338', '202401290124', 'Nael Aries Marcelino Purba', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(96, '31339', '202401300128', 'ASRUL NIZAR', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(97, '31340', '202401300127', 'AZHAR FAUZAN', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(98, '31341', '202401310129', 'Hafiz Ramadhan', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(99, '31342', '202402010130', 'Adha Afrinanda Tanjung', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(100, '31343', '202402030131', 'Stanley Stevenson', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(101, '31344', '202402050132', 'Risky', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(102, '31345', '202402120133', 'Herison Sinaga', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(103, '31346', '202402150134', 'Monica Desi Deria Gultom', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(104, '31347', '202402200135', 'Mhd Gerald Faler Handoko', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(105, '31348', '202402210136', 'Fahrul Reza Siregar', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(106, '31349', '202403010140', 'Miftakhul Huda', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(107, '31350', '202403010138', 'Tengku Imran', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(108, '31351', '202403010139', 'Irfan Syahputra', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(109, '31352', '202403010137', 'Eric Agustian Sihombing', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(110, '31353', '202403010141', 'Jusnan Hasan', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(111, '31354', '202403020143', 'Rizky Sumahadi', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(112, '31355', '202403020142', 'Krisdian Jogi Sianturi', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(113, '31356', '202403050144', 'Surya Hendrik', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(114, '3454', '202107220090', 'JANSEN HUTAGALUNG', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(115, '3456', '00000', 'AZUANDA', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(116, '3465', '00000', 'ROZUL', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(117, '34677', '00000', 'M. IKBAL', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(118, '3470', '202108030096', 'CANDRA SYAHPUTRA', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(119, '3472', '202110110098', 'WAHYU SYAHPUTRA', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(120, '7', '202009010071', 'FERA ARINI', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(121, '315', '201812100602', 'OKY SANDY SIRAIT', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(122, '55', '0', 'SUWANDI', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(123, '31357', '0', 'Ari Syahputra', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(126, '31358', '0', 'Risky Pasaribu', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(127, '31359', '0', 'Rapi Pasaribu', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(128, '31360', '0', 'Ageng Prastio', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(129, '31361', '0', 'Muhammad Ridho', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(130, '31362', '0', 'Dewa Anggoro', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(131, '31363', '0', 'Khairul Saban Harahap', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(133, '31364', '0', 'Muhammad Gunadi Siregar', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(134, '31365', '0', 'Muhammad Celpin Nasution', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(135, '31368', '0', 'Muhammad Sadriyanto', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(136, '31369', '0', 'Jekki Suprastio', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(137, '31370', '0', 'Kiki Prayetno', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(138, '31366', '0', 'M. Anja Kesuma', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(139, '31367', '0', 'Ali Sabana', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(140, '31371', '0', 'Dwi Bagus Permadi', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(141, '31373', '0', 'Raihan Sahrian Brutu', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(142, '31375', '0', 'Handoko', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(143, '31376', '202405020165', 'RENDI GUNAWAN', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(144, '31377', '0', 'Heri Wibowo', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(145, '31378', '0', 'Imam Syahputra', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(146, '31379', '0', 'Mhd Idris', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(147, '31380', '0', 'Sandi Harefa', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(148, '31381', '0', 'Syafrizal', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(149, '31372', '0', 'NOVI TRIYANTI SIAGIAN', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(150, '31384', '0', 'Wawan Agustin', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(153, '31382', '0', 'MUHAMMAD IPAN TAUFIK', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(155, '31383', '0', 'Serpina Riris Simorangkir', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(156, '31385', '0', 'Misdianto', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(158, '31386', '0', 'Dedi Hardiansyah', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(160, '31387', '0', 'BRANDU JAYA OMPUSUNGGU', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(162, '31388', '0', 'Surio Ismanto', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(165, '495', '2024024050175', 'IMAM AFANDI', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(166, '31392', '0', 'Dian Bagus Suhendardi', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(168, '31374', '0', 'DZIKRI ALFARISI', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(169, '31389', '0', 'Rusman Hadi', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(170, '31391', '0', 'Nico Ramadino', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(175, '31390', '0', 'Rudy Effendi Nasution', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(176, '31393', '0', 'Syapriandi', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(177, '31394', '0', 'Herman', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(179, '31395', '0', 'Sunaryo', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(180, '31396', '0', 'Chandra Irawan', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(182, '31397', '0', 'Tri Bayudi', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(183, '31398', '0', 'Rozul Wardani', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(184, '31399', '0', 'Budianto Basri', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(185, '31400', '0', 'Riskita Darsa', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(186, '31401', '0', 'Tri Wahyu Andika', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(187, '31402', '0', 'Ajirama', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(188, '31403', '0', 'Raja Ansari', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(189, '31404', '0', 'Arif Rahman', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(190, '31405', '0', 'Akhiruddin', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(191, '31406', '0', 'Reynal Wahyudin', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(192, '31407', '0', 'Nofriansyah Pane', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(193, '31408', '0', 'Sutrisman', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(194, '31409', '0', 'Ariyadi', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(195, '31413', '0', 'Ronald Glory Sinaga', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(196, '31410', '0', 'Dimas Sahputra', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(197, '31411', '0', 'Jefri K Daulay', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(198, '31412', '0', 'Misianto', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(201, '31414', '0', 'Ramdani', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(202, '31416', '0', 'Rahmad Hamdani Nasution', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(203, '31415', '0', 'Han Juhairi Siregar', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(204, '31417', '0', 'Tri Ardianto', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(205, '31418', '0', 'Winarto', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(206, '31419', '0', 'M SOFYAN HADI', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(207, '31420', '0', 'Eki Al Vadli', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(208, '31421', '0', 'Akbar Fitra Perdana', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(209, '31422', '0', 'Dedy Wicaksono', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(210, '31423', '0', 'Raden Mhd Azril Azhari', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(211, '31424', '0', 'Irro Siregar', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(212, '31425', '0', 'Herwan', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(213, '31426', '0', 'Rizky M. Siregar', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(214, '31428', '0', 'Daniel Darmayanto Simanjuntak', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(215, '31432', '0', 'Robani Zebua', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(216, '31427', '0', 'Agil Wahyudi', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(217, '31429', '0', 'Andre', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(218, '31430', '0', 'Parianto', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(219, '31431', '0', 'Ali Muda Pane', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(220, '507', '2024002090184', 'M. FADLY', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(221, '31433', '0', 'Edi Siswanto', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(223, '31434', '202409090234', 'Jandri Tindaon', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(224, '31435', '0', 'Agus Maulana', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(225, '31436', '0', 'Sialip Siregar', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(226, '31437', '0', 'Ahmad Purwondo', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(227, '31438', '0', 'Robiyanta', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(228, '31439', '0', 'harliadi', NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, '2024-10-09 02:15:35', '2024-10-09 02:15:35'),
+(230, '14102024', '1209312810990001', 'Dito Sabbihisma', 'Dito', '083189134389', 'Medan', 24, 6, '2024-04-29', NULL, NULL, '2024-10-14 03:19:49', '2024-10-23 04:49:34'),
+(231, '28101999', '12012810990001', 'Muhammad Abdi Mayu', 'Abdi', '082265380192', 'Tanjung Morawa', 11, 6, '1999-10-28', 1, 'labels/28101999/', '2024-09-29 13:57:55', '2024-11-04 02:57:47'),
+(232, '10232024', '12093123102024000', 'Juli', 'Juli', '082265380918', 'Medan', 12, 4, '2024-09-17', NULL, NULL, '2024-10-23 06:27:19', '2024-10-23 06:48:39'),
+(233, '13331023', '1209312810990001', 'Abdul', 'Abdul', '085275349929', 'Medan', 24, 4, '2024-09-13', NULL, 'labels/13331023/', '2024-10-23 06:34:32', '2024-10-23 06:51:43');
 
 -- --------------------------------------------------------
 
@@ -2156,6 +2322,29 @@ INSERT INTO `tb_placement` (`id`, `kode_penempatan`, `penempatan`, `alamat`, `lo
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tb_salary`
+--
+
+CREATE TABLE `tb_salary` (
+  `id` bigint UNSIGNED NOT NULL,
+  `kode_pegawai` varchar(12) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `payroll_type` varchar(12) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `salary_fee` double DEFAULT NULL,
+  `period` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `tb_salary`
+--
+
+INSERT INTO `tb_salary` (`id`, `kode_pegawai`, `payroll_type`, `salary_fee`, `period`, `created_at`, `updated_at`) VALUES
+(1, '28101999', 'monthly', 4000000, '11-2024', '2024-11-01 09:51:32', NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -2176,9 +2365,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `kode_pegawai`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'Muhammad Abdi Mayu', 'abdi@darkotech.id', NULL, '$2y$12$8PjfWYlAsiKTobWYA/mJcOzLDiXHh2sKfcabhkJelMx8oSftf8MOq', 'lIbUCmjgBUtTN5VtJo7QjYxYvaz3TviiATuHIs9vVgcvY1RvPhvk6R5ETQe5', '2024-10-01 09:55:37', '2024-10-11 03:59:31'),
+(1, NULL, 'Muhammad Abdi Mayu', 'abdi@darkotech.id', NULL, '$2y$12$8PjfWYlAsiKTobWYA/mJcOzLDiXHh2sKfcabhkJelMx8oSftf8MOq', 'vjveZ7yue3uk5NYoYKqlrLvRoxYfpTkAhfB6wqVNnbISlTt3fcHf7G0R3fZy', '2024-10-01 09:55:37', '2024-10-11 03:59:31'),
 (1005, NULL, 'HRD', 'hrd@indodacin.com', NULL, '$2y$12$r559G0XgTTGuffzDo25m3Oa58tE/6UYs3ipk.ddfmR0jA/GyJe08y', NULL, '2024-10-12 02:33:03', '2024-10-12 02:33:03'),
-(1006, 28101999, 'Muhammad Abdi Mayu', 'user@indodacin.com', NULL, '$2y$12$mGyAhmMwQcW2OCA2aq/.4OImmLuBATJevl8hHkCJofp7bzc/LuSJ2', 'Vj65RoaXbBorPgjjf4kNQ8hA2snm0lVUdP7VQQ1V1N4Mdts1yHUy0ENFNmlu', '2024-10-14 06:27:29', '2024-10-14 06:27:29'),
+(1006, 28101999, 'Muhammad Abdi Mayu', 'user@indodacin.com', NULL, '$2y$12$mGyAhmMwQcW2OCA2aq/.4OImmLuBATJevl8hHkCJofp7bzc/LuSJ2', 'GTQNcNFhgQM1fcnK63ZFw1wik3zw2D06GnmMarJ0YpwDvsXoEchVcDUQiHDc', '2024-10-14 06:27:29', '2024-10-14 06:27:29'),
 (1014, 10232024, 'Juli', 'Juli@indodacin.com', NULL, '$2y$12$OkOh.QbZDaEH5FHacEithOJOFzgjYbOyi01vgJHGUsnUmEkktvGwG', NULL, '2024-10-23 06:27:19', '2024-10-23 06:27:19'),
 (1015, 13331023, 'Abdul', 'Abdul@indodacin.com', NULL, '$2y$12$mGyAhmMwQcW2OCA2aq/.4OImmLuBATJevl8hHkCJofp7bzc/LuSJ2', 'oqvUMirOImPZLgpu1y6UyB3SC6kAVwfrbjlf6s4uypwJOZYmpzkW5Kf8KI1B', '2024-10-23 06:34:33', '2024-10-23 06:34:33');
 
@@ -2282,6 +2471,12 @@ ALTER TABLE `sessions`
   ADD KEY `sessions_last_activity_index` (`last_activity`);
 
 --
+-- Indexes for table `tb_allowance`
+--
+ALTER TABLE `tb_allowance`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tb_attendance`
 --
 ALTER TABLE `tb_attendance`
@@ -2300,6 +2495,12 @@ ALTER TABLE `tb_attendance_out`
 -- Indexes for table `tb_dayoff`
 --
 ALTER TABLE `tb_dayoff`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tb_deduction`
+--
+ALTER TABLE `tb_deduction`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -2336,11 +2537,19 @@ ALTER TABLE `tb_log`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tb_overtime`
+--
+ALTER TABLE `tb_overtime`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tb_pegawai`
 --
 ALTER TABLE `tb_pegawai`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `kode_pegawai` (`kode_pegawai`);
+  ADD UNIQUE KEY `kode_pegawai` (`kode_pegawai`),
+  ADD UNIQUE KEY `salary_id_2` (`salary_id`),
+  ADD KEY `salary_id` (`salary_id`);
 
 --
 -- Indexes for table `tb_placement`
@@ -2348,6 +2557,13 @@ ALTER TABLE `tb_pegawai`
 ALTER TABLE `tb_placement`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `tb_placement_kode_penempatan_unique` (`kode_penempatan`);
+
+--
+-- Indexes for table `tb_salary`
+--
+ALTER TABLE `tb_salary`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `kode_pegawai` (`kode_pegawai`);
 
 --
 -- Indexes for table `users`
@@ -2377,13 +2593,13 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -2398,22 +2614,34 @@ ALTER TABLE `roles`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
+-- AUTO_INCREMENT for table `tb_allowance`
+--
+ALTER TABLE `tb_allowance`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `tb_attendance`
 --
 ALTER TABLE `tb_attendance`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `tb_attendance_out`
 --
 ALTER TABLE `tb_attendance_out`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=175;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=184;
 
 --
 -- AUTO_INCREMENT for table `tb_dayoff`
 --
 ALTER TABLE `tb_dayoff`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `tb_deduction`
+--
+ALTER TABLE `tb_deduction`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tb_division`
@@ -2443,7 +2671,13 @@ ALTER TABLE `tb_jadwal`
 -- AUTO_INCREMENT for table `tb_log`
 --
 ALTER TABLE `tb_log`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1157;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1225;
+
+--
+-- AUTO_INCREMENT for table `tb_overtime`
+--
+ALTER TABLE `tb_overtime`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tb_pegawai`
@@ -2456,6 +2690,12 @@ ALTER TABLE `tb_pegawai`
 --
 ALTER TABLE `tb_placement`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `tb_salary`
+--
+ALTER TABLE `tb_salary`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`

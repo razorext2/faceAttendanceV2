@@ -11,20 +11,21 @@
 			<div class="dark:opacity-70 fixed inset-0 -z-40 w-full bg-gray-800 opacity-0"></div>
 		</div>
 
-		<div class="relative z-10 mb-10 hidden px-6 md:grid md:grid-cols-1" data-aos="fade-down">
-			<div class="hidden h-full items-center justify-center py-5 text-left text-black md:flex md:flex-col md:text-center">
+		<div class="relative z-10 mb-0 px-6 md:mb-10 md:grid md:grid-cols-1" data-aos="fade-down">
+			<div class="h-full items-center justify-center py-5 text-left text-black md:flex md:flex-col md:text-center">
 				<h1 class="dark:text-white mb-4 text-4xl font-bold">FaceID Attendance System</h1>
-				<p class="dark:text-gray-300 text-lg">
+				<p class="dark:text-gray-300 hidden text-lg md:block">
 					Klik tombol start, kemudian biarkan aplikasi mendeteksi wajah anda. <br />
 					Informasi mengenai anda akan muncul di bagian sebelah kanan<br />
 				</p>
-				<p class="dark:text-gray-300">Tekan tombol <span class="dark:text-white text-xl font-bold text-black">[-]</span>
+				<p class="dark:text-gray-300 hidden md:block">Tekan tombol <span
+						class="dark:text-white text-xl font-bold text-black">[-]</span>
 					untuk melihat tutorial</p>
 			</div>
 		</div>
 
 		<div
-			class="dark:bg-[#18181b]/70 dark:ring-gray-700 relative bg-white/70 p-0 ring-1 ring-black lg:mx-auto lg:rounded-lg lg:p-4"
+			class="dark:bg-[#18181b]/70 dark:ring-gray-700 relative bg-white/70 pb-8 ring-1 ring-black sm:p-0 lg:mx-auto lg:rounded-lg lg:p-4"
 			id="Scan" data-aos="zoom-in-up" data-aos-delay="50">
 			<div class="grid h-auto grid-cols-1 lg:w-[900px] lg:grid-cols-3 lg:gap-4">
 				<div class="video-container col-span-1 h-auto p-3 text-center lg:col-span-2 lg:p-0" data-aos="zoom-in"
