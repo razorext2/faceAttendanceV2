@@ -49,7 +49,7 @@
 								class="dark:bg-gray-700 dark:border-gray-700 flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-gray-100 p-3">
 								<p class="dark:text-gray-300 text-sm text-gray-600">Payroll Type</p>
 								<p class="text-navy-700 dark:text-white text-base font-medium first-letter:uppercase">
-									{{ $pegawai->salaryRelasi->payroll_type }}
+									{{ $pegawai->salaryRelasi->payroll_type ?? 'N/A' }}
 								</p>
 							</div>
 
@@ -57,7 +57,7 @@
 								class="dark:bg-gray-700 dark:border-gray-700 flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-gray-100 p-3">
 								<p class="dark:text-gray-300 text-sm text-gray-600">Base Salary</p>
 								<p class="text-navy-700 dark:text-white text-base font-medium">
-									{{ Number::currency($pegawai->salaryRelasi->salary_fee, 'IDR', 'id') }}
+									{{ $pegawai->salaryRelasi ? Number::currency($pegawai->salaryRelasi->salary_fee, 'IDR', 'id') : 'N/A' }}
 								</p>
 							</div>
 
@@ -65,7 +65,7 @@
 								class="dark:bg-gray-700 dark:border-gray-700 flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-gray-100 p-3 md:col-span-2">
 								<p class="dark:text-gray-300 text-sm text-gray-600">Periode</p>
 								<p class="text-navy-700 dark:text-white text-base font-medium">
-									{{ \Carbon\Carbon::parse('1-' . $pegawai->salaryRelasi->period)->locale('id')->isoFormat('MMMM YYYY') }}
+									{{ $pegawai->salaryRelasi? \Carbon\Carbon::parse('1-' . $pegawai->salaryRelasi->period)->locale('id')->isoFormat('MMMM YYYY'): 'N/A' }}
 								</p>
 							</div>
 
@@ -92,7 +92,7 @@
 
 			<button class="absolute bottom-0 right-0 p-1 text-sm text-blue-500 hover:underline" id="openAddModal"
 				data-modal-target="allowanceadd" data-modal-toggle="allowanceadd" type="button">
-				Add
+				Add Allowances
 			</button>
 		</div>
 
@@ -130,30 +130,40 @@
 				@php
 					$totalFee = 0;
 				@endphp
-				@foreach ($allowance as $data)
+				@if ($allowance->count() > 0)
+					@foreach ($allowance as $data)
+						<tr>
+							<td class="whitespace-nowrap font-medium">
+								<button class="text-sm text-blue-500 hover:underline" id="openEditModal" data-id="{{ $data->id }}"
+									data-modal-target="allowanceedit" data-modal-toggle="allowanceedit">
+									<span class="hover:underline"> Edit </span>
+								</button>
+							</td>
+							<td class="dark:text-white whitespace-nowrap font-medium text-gray-900">{{ $data->allowance_name }}</td>
+							<td>
+								@if ($data->allowance_type > 100)
+									{{ Number::currency($data->allowance_type, 'IDR', 'id') }}
+								@else
+									{{ $data->allowance_type . '%' }}
+								@endif
+							</td>
+							<td>{{ Carbon\Carbon::parse($data->allowance_period)->locale('id')->isoFormat('MMMM YYYY') }}</td>
+							<td>{{ Number::currency($data->allowance_fee, 'IDR', 'id') }}</td>
+							@php
+								if ($totalFee) {
+								    $totalFee += $data->allowance_fee;
+								} else {
+								    $totalFee = 0;
+								}
+							@endphp
+						</tr>
+					@endforeach
 					<tr>
-						<td class="whitespace-nowrap font-medium">
-							<a class="text-sm text-blue-500 hover:underline" href="#">Edit</a>
-						</td>
-						<td class="dark:text-white whitespace-nowrap font-medium text-gray-900">{{ $data->allowance_name }}</td>
-						<td>
-							@if ($data->allowance_type > 100)
-								{{ Number::currency($data->allowance_type, 'IDR', 'id') }}
-							@else
-								{{ $data->allowance_type . '%' }}
-							@endif
-						</td>
-						<td>{{ Carbon\Carbon::parse($data->allowance_period)->locale('id')->isoFormat('MMMM YYYY') }}</td>
-						<td>{{ Number::currency($data->allowance_fee, 'IDR', 'id') }}</td>
-						@php
-							$totalFee += $data->allowance_fee;
-						@endphp
+						<td class="font-bold" colspan="4">Total</td>
+						<td>{{ Number::currency($totalFee, 'IDR', 'id') }}</td>
 					</tr>
-				@endforeach
-				<tr>
-					<td class="font-bold" colspan="4">Total</td>
-					<td>{{ Number::currency($totalFee, 'IDR', 'id') }}</td>
-				</tr>
+				@endif
+
 			</tbody>
 		</table>
 	</div>
@@ -171,7 +181,7 @@
 			</h2>
 
 			<a class="absolute bottom-0 right-0 p-1 text-sm text-blue-500 hover:underline" href="#">
-				Add
+				Add Deductions
 			</a>
 		</div>
 
@@ -206,43 +216,53 @@
 				</tr>
 			</thead>
 			<tbody>
-				@php
-					$totalFee = 0;
-				@endphp
-				@foreach ($deduction as $data)
-					<tr>
-						<td class="whitespace-nowrap font-medium">
-							<a class="text-sm text-blue-500 hover:underline" href="#">Edit</a>
-						</td>
-						<td class="dark:text-white whitespace-nowrap font-medium text-gray-900">{{ $data->deduction_name }}</td>
-						<td>
-							@if ($data->deduction_type > 100)
-								{{ Number::currency($data->deduction_type, 'IDR', 'id') }}
-							@else
-								{{ $data->deduction_type . '%' }}
-							@endif
-						</td>
-						<td>{{ Carbon\Carbon::parse($data->deduction_period)->locale('id')->isoFormat('MMMM YYYY') }}</td>
-						<td>{{ Number::currency($data->deduction_fee, 'IDR', 'id') }}</td>
-					</tr>
-
+				@if ($deduction->count() > 0)
 					@php
-						$totalFee += $data->deduction_fee;
+						$totalFee = 0;
 					@endphp
-				@endforeach
-				<tr>
-					<td class="font-bold" colspan="4">Total</td>
-					<td>{{ Number::currency($totalFee, 'IDR', 'id') }}</td>
-				</tr>
+					@foreach ($deduction as $data)
+						<tr>
+							<td class="whitespace-nowrap font-medium">
+								<a class="text-sm text-blue-500 hover:underline" href="#">Edit</a>
+							</td>
+							<td class="dark:text-white whitespace-nowrap font-medium text-gray-900">{{ $data->deduction_name }}</td>
+							<td>
+								@if ($data->deduction_type > 100)
+									{{ Number::currency($data->deduction_type, 'IDR', 'id') }}
+								@else
+									{{ $data->deduction_type . '%' }}
+								@endif
+							</td>
+							<td>{{ Carbon\Carbon::parse($data->deduction_period)->locale('id')->isoFormat('MMMM YYYY') }}</td>
+							<td>{{ Number::currency($data->deduction_fee, 'IDR', 'id') }}</td>
+						</tr>
+
+						@php
+							$totalFee += $data->deduction_fee;
+						@endphp
+					@endforeach
+					<tr>
+						<td class="font-bold" colspan="4">Total</td>
+						<td>{{ Number::currency($totalFee, 'IDR', 'id') }}</td>
+					</tr>
+				@endif
 			</tbody>
 		</table>
 	</div>
 
 	<div
-		class="fixed left-0 right-0 top-0 z-50 h-[calc(100%-1rem)] max-h-full w-full items-center justify-center overflow-y-auto overflow-x-hidden md:inset-0"
+		class="fixed left-0 right-0 top-0 z-50 hidden h-[calc(100%-1rem)] max-h-full w-full items-center justify-center overflow-y-auto overflow-x-hidden md:inset-0"
 		id="allowanceadd" aria-hidden="true" tabindex="-1">
-		<div class="modal-body relative max-h-full w-full max-w-md p-4" id="modalBody">
+		<div class="modal-body relative max-h-full w-full max-w-md p-4" id="modalAddBody">
 			@include('dashboard.allowance.add') <!-- Modal form will be loaded here -->
+		</div>
+	</div>
+
+	<div
+		class="fixed left-0 right-0 top-0 z-50 hidden h-[calc(100%-1rem)] max-h-full w-full items-center justify-center overflow-y-auto overflow-x-hidden md:inset-0"
+		id="allowanceedit" aria-hidden="true" tabindex="-1">
+		<div class="modal-body relative max-h-full w-full max-w-md p-4" id="modalEditBody">
+			@include('dashboard.allowance.edit') <!-- Modal form will be loaded here -->
 		</div>
 	</div>
 @endsection
@@ -253,7 +273,17 @@
 			fetch('{{ route('allowances.create') }}')
 				.then(response => response.text())
 				.then(data => {
-					document.getElementById('modalBody').innerHTML = data;
+					document.getElementById('modalAddBody').innerHTML = data;
+					document.getElementById('allowanceadd').classList.remove('hidden');
+				})
+				.catch(error => console.error('Error:', error));
+		});
+
+		document.getElementById('openEditModal').addEventListener('click', function() {
+			fetch('{{ route('allowances.create') }}')
+				.then(response => response.text())
+				.then(data => {
+					document.getElementById('modalEditBody').innerHTML = data;
 					document.getElementById('allowanceadd').classList.remove('hidden');
 				})
 				.catch(error => console.error('Error:', error));

@@ -15,6 +15,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\CaptureController;
+use App\Http\Controllers\AllowanceController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 
@@ -52,6 +53,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard/pegawai/allowance-add', function () {
         return view('dashboard.allowance.add'); // Pastikan ini adalah view yang benar
     })->name('allowances.create');
+
+    Route::post('/dashboard/pegawai/allowance-store', [AllowanceController::class, 'store'])->name('allowances.store');
+
+    Route::get('/dashboard/pegawai/allowance-edit', function () {
+        return view('dashboard.allowance.edit'); // Pastikan ini adalah view yang benar
+    })->name('allowances.edit');
 
 
     // jabatan

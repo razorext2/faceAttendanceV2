@@ -3,11 +3,11 @@
 	<!-- Modal header -->
 	<div class="dark:border-gray-600 flex items-center justify-between rounded-t border-b p-4 md:p-5">
 		<h3 class="dark:text-white text-lg font-semibold text-gray-900">
-			Add new allowance
+			Edit allowance
 		</h3>
 		<button
 			class="dark:hover:bg-gray-600 dark:hover:text-white ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900"
-			data-modal-toggle="allowanceadd" type="button">
+			data-modal-toggle="allowanceedit" type="button">
 			<svg class="h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
 				<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
 					d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
