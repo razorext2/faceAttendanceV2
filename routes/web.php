@@ -50,15 +50,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard/pegawai/{pegawai}/timeline', [PegawaiController::class, 'timeline'])->name('pegawai.timeline');
 
     // allowance
-    Route::get('/dashboard/pegawai/allowance-add', function () {
-        return view('dashboard.allowance.add'); // Pastikan ini adalah view yang benar
-    })->name('allowances.create');
-
-    Route::post('/dashboard/pegawai/allowance-store', [AllowanceController::class, 'store'])->name('allowances.store');
-
-    Route::get('/dashboard/pegawai/allowance-edit', function () {
-        return view('dashboard.allowance.edit'); // Pastikan ini adalah view yang benar
-    })->name('allowances.edit');
+    // Route::get('/dashboard/pegawai/allowance-add', function () {
+    //     return view('dashboard.allowance.add'); // Pastikan ini adalah view yang benar
+    // })->name('allowances.create');
+    // Route::post('/dashboard/pegawai/allowance-store', [AllowanceController::class, 'store'])->name('allowances.store');
+    // Route::get('/dashboard/pegawai/allowance-edit', function () {
+    //     return view('dashboard.allowance.edit'); // Pastikan ini adalah view yang benar
+    // })->name('allowances.edit');
+    Route::resource('/dashboard/pegawai/allowance', AllowanceController::class);
 
 
     // jabatan
