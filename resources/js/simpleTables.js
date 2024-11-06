@@ -1,18 +1,6 @@
 import { DataTable } from "simple-datatables";
 
 if (
-    document.getElementById("allowanceTable") &&
-    typeof DataTable !== "undefined"
-) {
-    let allowanceDataTable = new DataTable("#allowanceTable", {
-        paging: true,
-        perPage: 5,
-        searchable: true,
-        sortable: true,
-    });
-}
-
-if (
     document.getElementById("deductionsTable") &&
     typeof DataTable !== "undefined"
 ) {

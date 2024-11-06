@@ -16,6 +16,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\CaptureController;
 use App\Http\Controllers\AllowanceController;
+use App\Http\Controllers\DeductionController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 
@@ -48,16 +49,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard/pegawai/{pegawai}/attendance', [PegawaiController::class, 'attendanceList'])->name('pegawai.attendancelist');
     Route::get('/dashboard/pegawai/{pegawai}/payroll', [PegawaiController::class, 'payrollInfo'])->name('pegawai.payrollinfo');
     Route::get('/dashboard/pegawai/{pegawai}/timeline', [PegawaiController::class, 'timeline'])->name('pegawai.timeline');
-
-    // allowance
-    // Route::get('/dashboard/pegawai/allowance-add', function () {
-    //     return view('dashboard.allowance.add'); // Pastikan ini adalah view yang benar
-    // })->name('allowances.create');
-    // Route::post('/dashboard/pegawai/allowance-store', [AllowanceController::class, 'store'])->name('allowances.store');
-    // Route::get('/dashboard/pegawai/allowance-edit', function () {
-    //     return view('dashboard.allowance.edit'); // Pastikan ini adalah view yang benar
-    // })->name('allowances.edit');
-    Route::resource('/dashboard/pegawai/allowance', AllowanceController::class);
+    Route::resource('/dashboard/pegawai/allowances', AllowanceController::class);
+    Route::resource('/dashboard/pegawai/deductions', DeductionController::class);
 
 
     // jabatan

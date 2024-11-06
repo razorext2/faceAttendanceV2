@@ -1,59 +1,59 @@
 <div
 	class="fixed left-0 right-0 top-0 z-50 hidden h-[calc(100%-1rem)] max-h-full w-full items-center justify-center overflow-y-auto overflow-x-hidden md:inset-0"
-	id="allowanceedit" aria-hidden="true" tabindex="-1">
+	id="deductionedit" aria-hidden="true" tabindex="-1">
 	<div class="modal-body relative max-h-full w-full max-w-md p-4" id="modalAddBody">
 		<!-- Modal content -->
 		<div class="dark:bg-gray-700 relative rounded-lg bg-white shadow">
 			<!-- Modal header -->
 			<div class="dark:border-gray-600 flex items-center justify-between rounded-t border-b p-4 md:p-5">
 				<h3 class="dark:text-white text-lg font-semibold text-gray-900">
-					Update allowance
+					Update deduction
 				</h3>
 			</div>
 
 			<!-- Modal body -->
 			<div class="p-4 md:p-5">
 				<div class="mb-4 grid grid-cols-2 gap-4">
-					<input id="allowance_id" type="hidden">
+					<input id="deduction_id" type="hidden">
 					<div class="col-span-2">
-						<label class="dark:text-white mb-2 block text-sm font-medium text-gray-900" for="allowance_name_edit">Name</label>
+						<label class="dark:text-white mb-2 block text-sm font-medium text-gray-900" for="deduction_name_edit">Name</label>
 						<input
 							class="dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600"
-							id="allowance_name_edit" type="text" placeholder="Type allowance name" required="">
-						<div class="mt-2 text-sm text-red-500" id="alert-allowance_name_edit" role="alert"></div>
+							id="deduction_name_edit" type="text" placeholder="Type deduction name" required="">
+						<div class="mt-2 text-sm text-red-500" id="alert-deduction_name_edit" role="alert"></div>
 					</div>
 					<div class="col-span-2 sm:col-span-1">
-						<label class="dark:text-white mb-2 block text-sm font-medium text-gray-900" for="allowance_type_edit">Type</label>
+						<label class="dark:text-white mb-2 block text-sm font-medium text-gray-900" for="deduction_type_edit">Type</label>
 						<select
 							class="dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
-							id="allowance_type_edit">
+							id="deduction_type_edit">
 							<option selected="">Select type</option>
 							<option value="Terbilang">Terbilang</option>
 							<option value="Persenan">% (Persenan)</option>
 						</select>
-						<div class="mt-2 text-sm text-red-500" id="alert-allowance_type_edit" role="alert"></div>
+						<div class="mt-2 text-sm text-red-500" id="alert-deduction_type_edit" role="alert"></div>
 					</div>
 
 					<div class="col-span-2 sm:col-span-1">
-						<label class="dark:text-white mb-2 block text-sm font-medium text-gray-900" for="allowance_fee_edit">Nilai</label>
+						<label class="dark:text-white mb-2 block text-sm font-medium text-gray-900" for="deduction_fee_edit">Nilai</label>
 						<input
 							class="dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600"
-							id="allowance_fee_edit" type="number" placeholder="Ex: 50000 or 5%" required="">
-						<div class="mt-2 text-sm text-red-500" id="alert-allowance_fee_edit" role="alert"></div>
+							id="deduction_fee_edit" type="number" placeholder="Ex: 50000 or 5%" required="">
+						<div class="mt-2 text-sm text-red-500" id="alert-deduction_fee_edit" role="alert"></div>
 					</div>
 
 					{{-- show if persenan is selected --}}
 					<div class="col-span-2" id="percentage-result-container">
 						<label class="dark:text-white mb-2 block text-sm font-medium text-gray-900"
-							for="calculated_allowance_edit">Fee</label>
+							for="calculated_deduction_edit">Fee</label>
 						<input
 							class="dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
-							id="calculated_allowance_edit" name="calculated_allowance" type="text" readonly placeholder="Rp. xxx.xxx">
+							id="calculated_deduction_edit" name="calculated_deduction" type="text" readonly placeholder="Rp. xxx.xxx">
 					</div>
-					{{-- end calculated allowance --}}
+					{{-- end calculated deduction --}}
 
 					<div class="col-span-2">
-						<label class="dark:text-white mb-2 block text-sm font-medium text-gray-900" for="allowance_period_edit">
+						<label class="dark:text-white mb-2 block text-sm font-medium text-gray-900" for="deduction_period_edit">
 							Periode</label>
 
 						<div class="relative max-w-sm">
@@ -66,10 +66,10 @@
 							</div>
 							<input
 								class="dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 ps-10 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600"
-								id="allowance_period_edit" type="text" datepicker datepicker-buttons datepicker-autoselect-today
+								id="deduction_period_edit" type="text" datepicker datepicker-buttons datepicker-autoselect-today
 								placeholder="Select date">
 						</div>
-						<div class="mt-2 text-sm text-red-500" id="alert-allowance_period_edit" role="alert"></div>
+						<div class="mt-2 text-sm text-red-500" id="alert-deduction_period_edit" role="alert"></div>
 
 					</div>
 				</div>
@@ -81,7 +81,7 @@
 							d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd">
 						</path>
 					</svg>
-					Update allowance
+					Update deduction
 				</button>
 			</div>
 		</div>
@@ -89,44 +89,44 @@
 </div>
 
 <script type="module">
-	const allowanceEdit = document.getElementById('allowanceedit');
-	const allowanceEditModal = new Modal(allowanceEdit);
-	const allowanceTypeInput = document.getElementById('allowance_type_edit');
+	const deductionEdit = document.getElementById('deductionedit');
+	const deductionEditModal = new Modal(deductionEdit);
+	const deductionTypeInput = document.getElementById('deduction_type_edit');
 	const percentageResultContainer = document.getElementById('percentage-result-container');
-	const calculatedAllowanceInput = document.getElementById('calculated_allowance_edit');
-	const valueInput = document.getElementById('allowance_fee_edit');
+	const calculatedDeductionInput = document.getElementById('calculated_deduction_edit');
+	const valueInput = document.getElementById('deduction_fee_edit');
 	const salary = {{ $pegawai->salaryRelasi->salary_fee ?? '0' }};
-	let allowance_fee;
+	let deduction_fee;
 	let selectedType;
 
-	$('body').on('click', '#btn-edit-allowance', function() {
-		//open allowanceEditModal
-		let allowance_id = $(this).data('id');
+	$('body').on('click', '#btn-edit-deduction', function() {
+		//open deductionEditModal
+		let deduction_id = $(this).data('id');
 		$.ajax({
-			url: `/dashboard/pegawai/allowances/${allowance_id}`,
+			url: `/dashboard/pegawai/deductions/${deduction_id}`,
 			type: 'GET',
 			cache: false,
 			success: function(response) {
-				$('#allowance_id').val(response.data.id);
-				$('#allowance_name_edit').val(response.data.allowance_name);
+				$('#deduction_id').val(response.data.id);
+				$('#deduction_name_edit').val(response.data.deduction_name);
 
-				let allowance_type = response.data.allowance_type;
-				if (allowance_type <= 100) {
-					$('#allowance_type_edit').val('Persenan');
-					$('#calculated_allowance_edit').val(
-						`Rp. ${response.data.allowance_fee.toLocaleString('id-ID')}`);
-					$('#allowance_fee_edit').val(response.data.allowance_type);
+				let deduction_type = response.data.deduction_type;
+				if (deduction_type <= 100) {
+					$('#deduction_type_edit').val('Persenan');
+					$('#calculated_deduction_edit').val(
+						`Rp. ${response.data.deduction_fee.toLocaleString('id-ID')}`);
+					$('#deduction_fee_edit').val(response.data.deduction_type);
 					selectedType = 'Persenan';
 				} else {
-					$('#allowance_type_edit').val('Terbilang');
-					$('#calculated_allowance_edit').val(
-						`Rp. ${response.data.allowance_fee.toLocaleString('id-ID')}`);
-					$('#allowance_fee_edit').val(response.data.allowance_fee);
+					$('#deduction_type_edit').val('Terbilang');
+					$('#calculated_deduction_edit').val(
+						`Rp. ${response.data.deduction_fee.toLocaleString('id-ID')}`);
+					$('#deduction_fee_edit').val(response.data.deduction_fee);
 					selectedType = 'Terbilang'
 				}
-				$('#allowance_period_edit').val(response.data.allowance_period);
+				$('#deduction_period_edit').val(response.data.deduction_period);
 
-				allowanceEditModal.show();
+				deductionEditModal.show();
 			}
 		})
 	});
@@ -134,52 +134,52 @@
 	valueInput.addEventListener('input', function() {
 		if (selectedType === "Persenan") {
 			// kalo Persenan
-			const percentage = $('#allowance_fee_edit').val();
-			const calculatedAllowance = (percentage / 100) * salary;
-			calculatedAllowanceInput.value = `Rp. ${calculatedAllowance.toLocaleString('id-ID')}`;
-			allowance_fee = calculatedAllowance;
+			const percentage = $('#deduction_fee_edit').val();
+			const calculatedDeduction = (percentage / 100) * salary;
+			calculatedDeductionInput.value = `Rp. ${calculatedDeduction.toLocaleString('id-ID')}`;
+			deduction_fee = calculatedDeduction;
 		} else {
 			// kalo terbilang
-			const fee = $('#allowance_fee_edit').val();
-			calculatedAllowanceInput.value = `Rp. ${fee.toLocaleString('id-ID')}`
-			allowance_fee = fee;
+			const fee = $('#deduction_fee_edit').val();
+			calculatedDeductionInput.value = `Rp. ${fee.toLocaleString('id-ID')}`
+			deduction_fee = fee;
 		}
 	})
 
-	allowanceTypeInput.addEventListener('change', function() {
+	deductionTypeInput.addEventListener('change', function() {
 		selectedType = this.value;
-		$('#allowance_fee_edit').val('');
-		$('#calculated_allowance_edit').val('');
+		$('#deduction_fee_edit').val('');
+		$('#calculated_deduction_edit').val('');
 		console.log(selectedType)
 		return selectedType
 	})
 
 
 
-	//action create allowance
+	//action create deduction
 	$('#update').click(function(e) {
 		e.preventDefault();
 
 		// Define variables
-		let allowance_id = $('#allowance_id').val();
+		let deduction_id = $('#deduction_id').val();
 		let kode_pegawai = $('#kode_pegawai_edit').val();
-		let allowance_name = $('#allowance_name_edit').val();
-		let allowance_type = $('#allowance_type_edit').val();
-		// let allowance_fee = $('#allowance_fee_edit').val();
-		let allowance_period = $('#allowance_period_edit').val();
+		let deduction_name = $('#deduction_name_edit').val();
+		let deduction_type = $('#deduction_type_edit').val();
+		// let deduction_fee = $('#deduction_fee_edit').val();
+		let deduction_period = $('#deduction_period_edit').val();
 		let token = $("meta[name='csrf-token']").attr("content");
 
 		// Ajax call
 		$.ajax({
-			url: `/dashboard/pegawai/allowances/${allowance_id}`,
+			url: `/dashboard/pegawai/deductions/${deduction_id}`,
 			type: "PUT",
 			cache: false,
 			data: {
 				"kode_pegawai": kode_pegawai,
-				"allowance_name": allowance_name,
-				"allowance_type": allowance_fee,
-				"allowance_fee": allowance_fee,
-				"allowance_period": allowance_period,
+				"deduction_name": deduction_name,
+				"deduction_type": deduction_fee,
+				"deduction_fee": deduction_fee,
+				"deduction_period": deduction_period,
 				"_token": token
 			},
 			success: function(response) {
@@ -192,26 +192,26 @@
 				});
 
 				// Reload DataTable
-				$('#table-allowance').DataTable().ajax.reload(null, false);
-				allowanceEditModal.hide();
+				$('#table-deduction').DataTable().ajax.reload(null, false);
+				deductionEditModal.hide();
 			},
 			error: function(error) {
 				// Handle validation errors
-				if (error.responseJSON.allowance_name[0]) {
-					$('#alert-allowance_name_edit').removeClass('none').addClass('block').html(error
-						.responseJSON.allowance_name[0]);
+				if (error.responseJSON.deduction_name[0]) {
+					$('#alert-deduction_name_edit').removeClass('none').addClass('block').html(error
+						.responseJSON.deduction_name[0]);
 				}
-				if (error.responseJSON.allowance_type[0]) {
-					$('#alert-allowance_type_edit').removeClass('none').addClass('block').html(error
-						.responseJSON.allowance_type[0]);
+				if (error.responseJSON.deduction_type[0]) {
+					$('#alert-deduction_type_edit').removeClass('none').addClass('block').html(error
+						.responseJSON.deduction_type[0]);
 				}
-				if (error.responseJSON.allowance_fee[0]) {
-					$('#alert-allowance_fee_edit').removeClass('none').addClass('block').html(error
-						.responseJSON.allowance_fee[0]);
+				if (error.responseJSON.deduction_fee[0]) {
+					$('#alert-deduction_fee_edit').removeClass('none').addClass('block').html(error
+						.responseJSON.deduction_fee[0]);
 				}
-				if (error.responseJSON.allowance_period[0]) {
-					$('#alert-allowance_period_edit').removeClass('none').addClass('block').html(error
-						.responseJSON.allowance_period[0]);
+				if (error.responseJSON.deduction_period[0]) {
+					$('#alert-deduction_period_edit').removeClass('none').addClass('block').html(error
+						.responseJSON.deduction_period[0]);
 				}
 			}
 		});

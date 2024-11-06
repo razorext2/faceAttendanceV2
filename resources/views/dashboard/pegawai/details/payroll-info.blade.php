@@ -81,9 +81,4 @@
 		class="dark:text-white dark:bg-[#18181b] dark:border-gray-700 col-span-2 mb-8 w-full rounded-xl border border-gray-200 bg-white p-6">
 		@include('dashboard.pegawai.details.components.allowances-section')
 	</div>
-
-	<div
-		class="dark:text-white dark:bg-[#18181b] dark:border-gray-700 col-span-2 mb-8 w-full rounded-xl border border-gray-200 bg-white p-6">
-		@include('dashboard.pegawai.details.components.deductions-section')
-	</div>
 @endsection

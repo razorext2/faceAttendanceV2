@@ -16,6 +16,10 @@
 			Absensi</h2>
 	@elseif (Route::currentRouteName() == 'pegawai.timeline')
 		<h2 class="dark:text-white text-2xl font-bold tracking-tight text-gray-950 sm:text-3xl">Linimasa</h2>
+	@elseif (Route::currentRouteName() == 'pegawai.payrollinfo')
+		<h2 class="dark:text-white text-2xl font-bold tracking-tight text-gray-950 sm:text-3xl">Payroll</h2>
+	@elseif (Route::currentRouteName() == 'pegawai.attendancelist')
+		<h2 class="dark:text-white text-2xl font-bold tracking-tight text-gray-950 sm:text-3xl">Attendance Summary</h2>
 		<!-- end pegawai -->
 		<!-- jabatan -->
 	@elseif (Route::currentRouteName() == 'dashboard.jabatan')

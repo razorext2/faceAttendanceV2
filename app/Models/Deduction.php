@@ -8,6 +8,7 @@ class Deduction extends Model
 {
     protected $table = 'tb_deduction';
     protected $fillable = [
+        'kode_pegawai',
         'deduction_name',
         'deduction_type',
         'deduction_fee',

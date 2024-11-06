@@ -8,12 +8,13 @@
 		Deductions
 	</h2>
 
-	<a class="absolute bottom-0 right-0 p-1 text-sm text-blue-500 hover:underline" href="#">
+	<button class="absolute bottom-0 right-0 p-1 text-sm text-blue-500 hover:underline" id="btn-create-deduction"
+		type="button">
 		Add Deductions
-	</a>
+	</button>
 </div>
 
-<table id="deductionsTable">
+<table id="table-deduction">
 	<thead>
 		<tr>
 			<th>
@@ -28,12 +29,12 @@
 			</th>
 			<th>
 				<span class="flex items-center">
-					Type (% or Terbilang)
+					Deduction Period
 				</span>
 			</th>
 			<th>
 				<span class="flex items-center">
-					Deduction Period
+					Type (% or Terbilang)
 				</span>
 			</th>
 			<th>
@@ -44,35 +45,52 @@
 		</tr>
 	</thead>
 	<tbody>
-		@if ($deduction->count() > 0)
-			@php
-				$totalFee = 0;
-			@endphp
-			@foreach ($deduction as $data)
-				<tr>
-					<td class="whitespace-nowrap font-medium">
-						<a class="text-sm text-blue-500 hover:underline" href="#">Edit</a>
-					</td>
-					<td class="dark:text-white whitespace-nowrap font-medium text-gray-900">{{ $data->deduction_name }}</td>
-					<td>
-						@if ($data->deduction_type > 100)
-							{{ Number::currency($data->deduction_type, 'IDR', 'id') }}
-						@else
-							{{ $data->deduction_type . '%' }}
-						@endif
-					</td>
-					<td>{{ Carbon\Carbon::parse($data->deduction_period)->locale('id')->isoFormat('MMMM YYYY') }}</td>
-					<td>{{ Number::currency($data->deduction_fee, 'IDR', 'id') }}</td>
-				</tr>
-
-				@php
-					$totalFee += $data->deduction_fee;
-				@endphp
-			@endforeach
-			<tr>
-				<td class="font-bold" colspan="4">Total</td>
-				<td>{{ Number::currency($totalFee, 'IDR', 'id') }}</td>
-			</tr>
-		@endif
 	</tbody>
+	<tfoot>
+		<tr>
+			<th colspan="4">Total Deduction: </th>
+			<th id="total-deduction-fee"></th>
+		</tr>
+	</tfoot>
 </table>
+
+@include('dashboard.deduction.add-modal')
+@include('dashboard.deduction.edit-modal')
+
+<script type="text/javascript">
+	function showDeductionData() {
+		// Initialize DataTable
+		let table = $('#table-deduction').DataTable({
+			processing: true,
+			serverSide: true,
+			responsive: true,
+			searchable: true,
+			ajax: "{{ url()->current() }}",
+			columns: [{
+					data: 'actions',
+					name: 'actions',
+				}, {
+					data: 'deduction_name',
+					name: 'deduction_name'
+				},
+				{
+					data: 'deduction_period',
+					name: 'deduction_period'
+				},
+				{
+					data: 'deduction_type',
+					name: 'deduction_type',
+				},
+				{
+					data: 'deduction_fee',
+					name: 'deduction_fee'
+				},
+			],
+			dom: `<"text-left dark:text-white"l>S<"relative overflow-x-auto w-full mt-20 lg:mt-4"t><"grid text-center gap-6 lg:grid-cols-2 mt-4 dark:text-white"<"lg:mt-3 lg:text-left"i><"lg:text-right dark:text-gray-900"p>>`,
+		});
+	}
+
+	$(document).ready(function() {
+		showDeductionData();
+	});
+</script>
