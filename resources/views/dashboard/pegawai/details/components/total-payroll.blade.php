@@ -79,30 +79,33 @@
 </div>
 @push('script')
 	<script>
-	let table = new DataTable('#salary-counter', {
-		responsive: true,
-		paging: false,
-		searching: false,
-		layout: {
-			topStart: {
-				buttons: [{
-					extend: 'print',
-					autoPrint: false,
-					text: 'Print salary receipt',
-					customize: function(win) {
-						// Get required data from the backend (ensure these values are defined globally or passed as needed)
-						let pegawaiName = "{{ $pegawai->full_name }}";
-						let salaryPeriod = "{{ isset($pegawai->salaryRelasi) ? \Carbon\Carbon::parse($pegawai->salaryRelasi->period)->locale('id')->isoFormat('MMMM YYYY') : 'N/A' }}";
-						let salaryFee = "{{ isset($pegawai->salaryRelasi) ? number_format($pegawai->salaryRelasi->salary_fee, 0, ',', '.') : '0' }}";
-						let previousMonth = "{{ isset($pegawai->salaryRelasi) ? \Carbon\Carbon::parse($pegawai->salaryRelasi->period)->subMonth()->locale('id')->isoFormat('MMMM YYYY') : 'N/A' }}";
+		let table = new DataTable('#salary-counter', {
+			responsive: true,
+			paging: false,
+			searching: false,
+			layout: {
+				topStart: {
+					buttons: [{
+						extend: 'print',
+						autoPrint: false,
+						text: 'Print salary receipt',
+						customize: function(win) {
+							// Get required data from the backend (ensure these values are defined globally or passed as needed)
+							let pegawaiName = "{{ $pegawai->full_name }}";
+							let salaryPeriod =
+								"{{ isset($pegawai->salaryRelasi)? \Carbon\Carbon::parse($pegawai->salaryRelasi->period)->locale('id')->isoFormat('MMMM YYYY'): 'N/A' }}";
+							let salaryFee =
+								"{{ isset($pegawai->salaryRelasi) ? number_format($pegawai->salaryRelasi->salary_fee, 0, ',', '.') : '0' }}";
+							let previousMonth =
+								"{{ isset($pegawai->salaryRelasi)? \Carbon\Carbon::parse($pegawai->salaryRelasi->period)->subMonth()->locale('id')->isoFormat('MMMM YYYY'): 'N/A' }}";
 
-						let allowances = @json($allowances);
-						let deductions = @json($deductions);
-						let total = "{{ number_format($total, 0, ',', '.') }}"; // Final total amount
+							let allowances = @json($allowances);
+							let deductions = @json($deductions);
+							let total = "{{ number_format($total, 0, ',', '.') }}"; // Final total amount
 
-						// Build the custom print content
-						let allowancesContent = allowances.length ? allowances.map((data) => 
-							`
+							// Build the custom print content
+							let allowancesContent = allowances.length ? allowances.map((data) =>
+								`
 								<tr>
 									<td class="w-1/2"> ${data.allowance_name} ${new Date(data.allowance_period).toLocaleDateString('id-ID', { month: 'long', year: 'numeric' })}</td>
 									<td class="text-left" style="width: 300px;"> : Rp. </td>
@@ -110,8 +113,8 @@
 								</tr>
 							`).join('') : '<tr><td colspan="3" class="text-center">No Allowances</td></tr>';
 
-						let deductionsContent = deductions.length ? deductions.map((data) => 
-							`
+							let deductionsContent = deductions.length ? deductions.map((data) =>
+								`
 								<tr>
 									<td class="w-1/2"> ${data.deduction_name} ${new Date(data.deduction_period).toLocaleDateString('id-ID', { month: 'long', year: 'numeric' })}</td>
 									<td class="text-left" style="width: 300px;"> : Rp. </td>
@@ -119,8 +122,8 @@
 								</tr>
 							`).join('') : '<tr><td colspan="3" class="text-center">No Deductions</td></tr>';
 
-						// Main print layout
-						$(win.document.body).html(`
+							// Main print layout
+							$(win.document.body).html(`
 							<div class="p-3 m-2 border border-gray-950 rounded-xl">
 								<div class="text-center font-semibold text-lg pb-6">
 									TANDA TERIMA GAJI
@@ -176,15 +179,14 @@
 							</div>
 						`);
 
-						// Apply custom CSS
-						$(win.document.body).css('font-family', 'Arial, sans-serif');
-						$(win.document.body).find('h2, h3').css('text-align', 'center');
-						$(win.document.body).find('p').css('margin', '5px 0');
-					}
-				}]
+							// Apply custom CSS
+							$(win.document.body).css('font-family', 'Arial, sans-serif');
+							$(win.document.body).find('h2, h3').css('text-align', 'center');
+							$(win.document.body).find('p').css('margin', '5px 0');
+						}
+					}]
+				}
 			}
-		}
-	});
-</script>
-
+		});
+	</script>
 @endpush

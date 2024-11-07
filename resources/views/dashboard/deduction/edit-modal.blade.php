@@ -98,6 +98,7 @@
 		const valueInput = document.getElementById('deduction_fee_edit');
 		const salary = {{ $pegawai->salaryRelasi->salary_fee ?? '0' }};
 		let deduction_fee;
+		let deduction_type;
 		let selectedType;
 
 		$('body').on('click', '#btn-edit-deduction', function() {
@@ -110,8 +111,12 @@
 				success: function(response) {
 					$('#deduction_id').val(response.data.id);
 					$('#deduction_name_edit').val(response.data.deduction_name);
+					$('#deduction_fee_edit').val(response.data.deduction_type);
+					$('#calculated_deduction_edit').val(response.data.deduction_fee);
 
-					let deduction_type = response.data.deduction_type;
+					deduction_type = response.data.deduction_type;
+					deduction_fee = response.data.deduction_fee;
+
 					if (deduction_type <= 100) {
 						$('#deduction_type_edit').val('Persenan');
 						$('#calculated_deduction_edit').val(
@@ -139,11 +144,13 @@
 				const calculatedDeduction = (percentage / 100) * salary;
 				calculatedDeductionInput.value = `Rp. ${calculatedDeduction.toLocaleString('id-ID')}`;
 				deduction_fee = calculatedDeduction;
+				deduction_type = percentage;
 			} else {
 				// kalo terbilang
 				const fee = $('#deduction_fee_edit').val();
 				calculatedDeductionInput.value = `Rp. ${fee.toLocaleString('id-ID')}`
 				deduction_fee = fee;
+				deduction_type = fee;
 			}
 		})
 
@@ -165,7 +172,9 @@
 			let deduction_id = $('#deduction_id').val();
 			let kode_pegawai = $('#kode_pegawai_edit').val();
 			let deduction_name = $('#deduction_name_edit').val();
-			let deduction_type = $('#deduction_type_edit').val();
+			let deduction_type_edit = deduction_type;
+			let deduction_fee_edit = deduction_fee;
+			// let deduction_type = $('#deduction_type_edit').val();
 			// let deduction_fee = $('#deduction_fee_edit').val();
 			let deduction_period = $('#deduction_period_edit').val();
 			let token = $("meta[name='csrf-token']").attr("content");
@@ -178,8 +187,8 @@
 				data: {
 					"kode_pegawai": kode_pegawai,
 					"deduction_name": deduction_name,
-					"deduction_type": deduction_fee,
-					"deduction_fee": deduction_fee,
+					"deduction_type": deduction_type_edit,
+					"deduction_fee": deduction_fee_edit,
 					"deduction_period": deduction_period,
 					"_token": token
 				},

@@ -98,6 +98,7 @@
 		const valueInput = document.getElementById('allowance_fee_edit');
 		const salary = {{ $pegawai->salaryRelasi->salary_fee ?? '0' }};
 		let allowance_fee;
+		let allowance_type;
 		let selectedType;
 
 		$('body').on('click', '#btn-edit-allowance', function() {
@@ -110,21 +111,31 @@
 				success: function(response) {
 					$('#allowance_id').val(response.data.id);
 					$('#allowance_name_edit').val(response.data.allowance_name);
+					$('#allowance_fee_edit').val(response.data.allowance_type);
+					$('#calculated_allowance_edit').val(response.data.allowance_fee);
 
-					let allowance_type = response.data.allowance_type;
+					allowance_type = response.data.allowance_type;
+					allowance_fee = response.data.allowance_fee;
+
+					// cek type 
 					if (allowance_type <= 100) {
-						$('#allowance_type_edit').val('Persenan');
+						// persenan
+						allowanceTypeInput.value = 'Persenan';
 						$('#calculated_allowance_edit').val(
 							`Rp. ${response.data.allowance_fee.toLocaleString('id-ID')}`);
 						$('#allowance_fee_edit').val(response.data.allowance_type);
 						selectedType = 'Persenan';
-					} else {
-						$('#allowance_type_edit').val('Terbilang');
+					} else if (allowance_type > 100) {
+						// terbilang 
+						allowanceTypeInput.value = 'Terbilang';
 						$('#calculated_allowance_edit').val(
 							`Rp. ${response.data.allowance_fee.toLocaleString('id-ID')}`);
 						$('#allowance_fee_edit').val(response.data.allowance_fee);
 						selectedType = 'Terbilang'
+					} else {
+						console.log('error dibagian cek type');
 					}
+
 					$('#allowance_period_edit').val(response.data.allowance_period);
 
 					allowanceEditModal.show();
@@ -139,34 +150,39 @@
 				const calculatedAllowance = (percentage / 100) * salary;
 				calculatedAllowanceInput.value = `Rp. ${calculatedAllowance.toLocaleString('id-ID')}`;
 				allowance_fee = calculatedAllowance;
-			} else {
+				allowance_type = percentage;
+			} else if (selectedType === "Terbilang") {
 				// kalo terbilang
 				const fee = $('#allowance_fee_edit').val();
 				calculatedAllowanceInput.value = `Rp. ${fee.toLocaleString('id-ID')}`
 				allowance_fee = fee;
+				allowance_type = fee;
+			} else {
+				console.log('error di bagian addEventListener(input)');
 			}
+			return allowance_fee, allowance_type;
 		})
 
 		allowanceTypeInput.addEventListener('change', function() {
 			selectedType = this.value;
 			$('#allowance_fee_edit').val('');
 			$('#calculated_allowance_edit').val('');
-			console.log(selectedType)
 			return selectedType
 		})
-
-
 
 		//action create allowance
 		$('#update-allowance').click(function(e) {
 			e.preventDefault();
 
+			// console.log(document.getElementById('#calculated_allowance_edit').value);
+			console.log($('#allowance_fee_edit').val());
+
 			// Define variables
 			let allowance_id = $('#allowance_id').val();
 			let kode_pegawai = $('#kode_pegawai_edit').val();
 			let allowance_name = $('#allowance_name_edit').val();
-			let allowance_type = $('#allowance_type_edit').val();
-			// let allowance_fee = $('#allowance_fee_edit').val();
+			let allowance_type_edit = allowance_type;
+			let allowance_fee_edit = allowance_fee;
 			let allowance_period = $('#allowance_period_edit').val();
 			let token = $("meta[name='csrf-token']").attr("content");
 
@@ -178,8 +194,8 @@
 				data: {
 					"kode_pegawai": kode_pegawai,
 					"allowance_name": allowance_name,
-					"allowance_type": allowance_fee,
-					"allowance_fee": allowance_fee,
+					"allowance_type": allowance_type_edit,
+					"allowance_fee": allowance_fee_edit,
 					"allowance_period": allowance_period,
 					"_token": token
 				},
@@ -194,6 +210,7 @@
 
 					// Reload DataTable
 					$('#table-allowance').DataTable().ajax.reload(null, false);
+
 					allowanceEditModal.hide();
 				},
 				error: function(error) {
