@@ -65,7 +65,7 @@
 								class="dark:bg-gray-700 dark:border-gray-700 flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-gray-100 p-3 md:col-span-2">
 								<p class="dark:text-gray-300 text-sm text-gray-600">Periode</p>
 								<p class="text-navy-700 dark:text-white text-base font-medium">
-									{{ $pegawai->salaryRelasi? \Carbon\Carbon::parse('1-' . $pegawai->salaryRelasi->period)->locale('id')->isoFormat('MMMM YYYY'): 'N/A' }}
+									{{ $pegawai->salaryRelasi? \Carbon\Carbon::parse($pegawai->salaryRelasi->period)->locale('id')->isoFormat('MMMM YYYY'): 'N/A' }}
 								</p>
 							</div>
 
@@ -80,5 +80,15 @@
 	<div
 		class="dark:text-white dark:bg-[#18181b] dark:border-gray-700 col-span-2 mb-8 w-full rounded-xl border border-gray-200 bg-white p-6">
 		@include('dashboard.pegawai.details.components.allowances-section')
+	</div>
+
+	<div
+		class="dark:text-white dark:bg-[#18181b] dark:border-gray-700 col-span-2 mb-8 w-full rounded-xl border border-gray-200 bg-white p-6">
+		@include('dashboard.pegawai.details.components.deductions-section')
+	</div>
+
+	<div
+		class="dark:text-white dark:bg-[#18181b] dark:border-gray-700 col-span-2 mb-8 w-full rounded-xl border border-gray-200 bg-white p-6">
+		@include('dashboard.pegawai.details.components.total-payroll')
 	</div>
 @endsection

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('allowance_name', 32)->nullable();
             $table->string('allowance_type', 12)->nullable();
             $table->bigInteger('allowance_fee')->nullable();
-            $table->date('allowance_period')->nullable();
+            $table->string('allowance_period', 32)->nullable();
             $table->timestamps();
         });
     }

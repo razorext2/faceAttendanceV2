@@ -11,61 +11,42 @@
 <script src="https://cdn.datatables.net/buttons/3.1.2/js/buttons.html5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/3.1.2/js/buttons.print.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.1/dist/sweetalert2.all.min.js"></script>
+@push('script')
+	<script>
+		const preloader = document.querySelector("#preloader");
+		preloader && window.addEventListener("load", (() => {
+			preloader.remove()
+		}));
+		const scrollContainer = document.getElementById("scrollContainer"),
+			nextButton = document.getElementById("nextButton"),
+			prevButton = document.getElementById("prevButton");
 
-<script>
-	// preloader
-	const preloader = document.querySelector('#preloader');
-	if (preloader) {
-		window.addEventListener('load', () => {
-			preloader.remove();
-		});
-	}
-	// end preloader
+		function scrollContent(e) {
+			scrollContainer.scrollBy({
+				left: 300 * e,
+				behavior: "smooth"
+			})
+		}
 
-	// next & prev button on carousel
-	const scrollContainer = document.getElementById("scrollContainer");
-	const nextButton = document.getElementById("nextButton");
-	const prevButton = document.getElementById("prevButton");
+		function updateButtonVisibility() {
+			const e = scrollContainer.scrollWidth > scrollContainer.clientWidth;
+			nextButton.style.display = prevButton.style.display = e ? "block" : "none"
+		}
+		nextButton.addEventListener("click", (() => scrollContent(1))), prevButton.addEventListener("click", (() =>
+			scrollContent(-1))), updateButtonVisibility(), window.addEventListener("resize", updateButtonVisibility);
+		const themeToggleDarkBtn = document.getElementById("theme-toggle-dark"),
+			themeToggleLightBtn = document.getElementById("theme-toggle-light");
 
-	function scrollContent(direction) {
-		scrollContainer.scrollBy({
-			left: direction * 300,
-			behavior: "smooth",
-		});
-	}
-
-	function updateButtonVisibility() {
-		const hasScroll = scrollContainer.scrollWidth > scrollContainer.clientWidth;
-		nextButton.style.display = prevButton.style.display = hasScroll ? "block" : "none";
-	}
-
-	nextButton.addEventListener("click", () => scrollContent(1));
-	prevButton.addEventListener("click", () => scrollContent(-1));
-
-	// Cek pada load pertama dan saat resize
-	updateButtonVisibility();
-	window.addEventListener("resize", updateButtonVisibility);
-
-	///////////////////////
-	// enable dark mode //
-	const themeToggleDarkBtn = document.getElementById('theme-toggle-dark');
-	const themeToggleLightBtn = document.getElementById('theme-toggle-light');
-
-	function toggleTheme(isDark) {
-		document.documentElement.classList.toggle('dark', isDark);
-		localStorage.setItem('color-theme', isDark ? 'dark' : 'light');
-		themeToggleDarkBtn.classList.toggle('text-gray-300', isDark);
-		themeToggleDarkBtn.classList.toggle('text-gray-200', !isDark);
-		themeToggleLightBtn.classList.toggle('text-gray-700', isDark);
-		themeToggleLightBtn.classList.toggle('text-red-400', !isDark);
-	}
-
-	const isDarkMode = localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window
-		.matchMedia('(prefers-color-scheme: dark)').matches);
-	toggleTheme(isDarkMode);
-
-	themeToggleDarkBtn.addEventListener('click', () => toggleTheme(true));
-	themeToggleLightBtn.addEventListener('click', () => toggleTheme(false));
-	// end enable dark mode //
-	/////////////////////////
-</script>
+		function toggleTheme(e) {
+			document.documentElement.classList.toggle("dark", e), localStorage.setItem("color-theme", e ? "dark" : "light"),
+				themeToggleDarkBtn.classList.toggle("text-gray-300", e), themeToggleDarkBtn.classList.toggle("text-gray-200", !
+					e), themeToggleLightBtn.classList.toggle("text-gray-700", e), themeToggleLightBtn.classList.toggle(
+					"text-red-400", !e)
+		}
+		const isDarkMode = "dark" === localStorage.getItem("color-theme") || !("color-theme" in localStorage) && window
+			.matchMedia("(prefers-color-scheme: dark)").matches;
+		toggleTheme(isDarkMode), themeToggleDarkBtn.addEventListener("click", (() => toggleTheme(!0))), themeToggleLightBtn
+			.addEventListener("click", (() => toggleTheme(!1)));
+	</script>
+@endpush
+@stack('script')

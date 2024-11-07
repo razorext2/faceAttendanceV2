@@ -377,7 +377,65 @@ class PegawaiController extends Controller
     public function payrollInfo($id)
     {
         $pegawai = Pegawai::with('salaryRelasi')->findOrFail(Crypt::decrypt($id));
-        return view('dashboard.pegawai.details.payroll-info', compact('pegawai'));
+        $allowance = Allowance::where('kode_pegawai', $pegawai->kode_pegawai);
+        $deduction = Deduction::where('kode_pegawai', $pegawai->kode_pegawai);
+
+        if (request()->ajax()) {
+            $tableType = request()->get('table'); // Retrieve 'allowance' or 'deduction'
+
+            if ($tableType === 'allowance') {
+                return Datatables::eloquent($allowance)
+                    ->addColumn('actions', function ($data) {
+                        return '<button class="text-sm text-blue-500 hover:underline mr-3" id="btn-edit-allowance" data-id="' . $data->id . '">
+                                <span class="hover:underline"> Edit </span>
+                            </button>
+                            <a href="javascript:void(0)" id="btn-delete-allowance" data-id="' . $data->id . '" class="text-sm text-red-500 hover:underline">Hapus</a>
+                            ';
+                    })
+                    ->editColumn('allowance_fee', function ($data) {
+                        return Number::currency($data->allowance_fee, 'IDR', 'id');
+                    })
+                    ->editColumn('allowance_type', function ($data) {
+                        return $data->allowance_type <= 100
+                            ? $data->allowance_type . ' %'
+                            : Number::currency($data->allowance_type, 'IDR', 'id');
+                    })
+                    ->editColumn('allowance_period', function ($data) {
+                        return Carbon::parse($data->allowance_period)->locale('id')->isoFormat('MMMM YYYY');
+                    })
+                    ->rawColumns(['actions'])
+                    ->orderColumn('allowance_name', 'allowance_name asc')
+                    ->toJson();
+            }
+
+            if ($tableType === 'deduction') {
+                return Datatables::eloquent($deduction)
+                    ->addColumn('actions', function ($data) {
+                        return '<button class="text-sm text-blue-500 hover:underline mr-3" id="btn-edit-deduction" data-id="' . $data->id . '">
+                                <span class="hover:underline"> Edit </span>
+                            </button>
+                            <a href="javascript:void(0)" id="btn-delete-deduction" data-id="' . $data->id . '" class="text-sm text-red-500 hover:underline">Hapus</a>';
+                    })
+                    ->editColumn('deduction_fee', function ($data) {
+                        return Number::currency($data->deduction_fee, 'IDR', 'id');
+                    })
+                    ->editColumn('deduction_type', function ($data) {
+                        return $data->deduction_type <= 100
+                            ? $data->deduction_type . ' %'
+                            : Number::currency($data->deduction_type, 'IDR', 'id');
+                    })
+                    ->editColumn('deduction_period', function ($data) {
+                        return Carbon::parse($data->deduction_period)->locale('id')->isoFormat('MMMM YYYY');
+                    })
+                    ->rawColumns(['actions'])
+                    ->orderColumn('deduction_name', 'deduction_name asc')
+                    ->toJson();
+            }
+        }
+
+        $allowances = $allowance->get();
+        $deductions = $deduction->get();
+        return view('dashboard.pegawai.details.payroll-info', compact('pegawai', 'allowances', 'deductions'));
     }
 
     public function timeline($id, Request $request)

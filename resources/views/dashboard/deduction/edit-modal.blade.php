@@ -75,7 +75,7 @@
 				</div>
 				<button
 					class="dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 inline-flex items-center rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300"
-					id="update" type="button">
+					id="update-deduction" type="button">
 					<svg class="-ms-1 me-1 h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
 						<path fill-rule="evenodd"
 							d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd">
@@ -88,132 +88,134 @@
 	</div>
 </div>
 
-<script type="module">
-	const deductionEdit = document.getElementById('deductionedit');
-	const deductionEditModal = new Modal(deductionEdit);
-	const deductionTypeInput = document.getElementById('deduction_type_edit');
-	const percentageResultContainer = document.getElementById('percentage-result-container');
-	const calculatedDeductionInput = document.getElementById('calculated_deduction_edit');
-	const valueInput = document.getElementById('deduction_fee_edit');
-	const salary = {{ $pegawai->salaryRelasi->salary_fee ?? '0' }};
-	let deduction_fee;
-	let selectedType;
+@push('script')
+	<script type="module">
+		const deductionEdit = document.getElementById('deductionedit');
+		const deductionEditModal = new Modal(deductionEdit);
+		const deductionTypeInput = document.getElementById('deduction_type_edit');
+		const percentageResultContainer = document.getElementById('percentage-result-container');
+		const calculatedDeductionInput = document.getElementById('calculated_deduction_edit');
+		const valueInput = document.getElementById('deduction_fee_edit');
+		const salary = {{ $pegawai->salaryRelasi->salary_fee ?? '0' }};
+		let deduction_fee;
+		let selectedType;
 
-	$('body').on('click', '#btn-edit-deduction', function() {
-		//open deductionEditModal
-		let deduction_id = $(this).data('id');
-		$.ajax({
-			url: `/dashboard/pegawai/deductions/${deduction_id}`,
-			type: 'GET',
-			cache: false,
-			success: function(response) {
-				$('#deduction_id').val(response.data.id);
-				$('#deduction_name_edit').val(response.data.deduction_name);
+		$('body').on('click', '#btn-edit-deduction', function() {
+			//open deductionEditModal
+			let deduction_id = $(this).data('id');
+			$.ajax({
+				url: `/dashboard/pegawai/deductions/${deduction_id}`,
+				type: 'GET',
+				cache: false,
+				success: function(response) {
+					$('#deduction_id').val(response.data.id);
+					$('#deduction_name_edit').val(response.data.deduction_name);
 
-				let deduction_type = response.data.deduction_type;
-				if (deduction_type <= 100) {
-					$('#deduction_type_edit').val('Persenan');
-					$('#calculated_deduction_edit').val(
-						`Rp. ${response.data.deduction_fee.toLocaleString('id-ID')}`);
-					$('#deduction_fee_edit').val(response.data.deduction_type);
-					selectedType = 'Persenan';
-				} else {
-					$('#deduction_type_edit').val('Terbilang');
-					$('#calculated_deduction_edit').val(
-						`Rp. ${response.data.deduction_fee.toLocaleString('id-ID')}`);
-					$('#deduction_fee_edit').val(response.data.deduction_fee);
-					selectedType = 'Terbilang'
+					let deduction_type = response.data.deduction_type;
+					if (deduction_type <= 100) {
+						$('#deduction_type_edit').val('Persenan');
+						$('#calculated_deduction_edit').val(
+							`Rp. ${response.data.deduction_fee.toLocaleString('id-ID')}`);
+						$('#deduction_fee_edit').val(response.data.deduction_type);
+						selectedType = 'Persenan';
+					} else {
+						$('#deduction_type_edit').val('Terbilang');
+						$('#calculated_deduction_edit').val(
+							`Rp. ${response.data.deduction_fee.toLocaleString('id-ID')}`);
+						$('#deduction_fee_edit').val(response.data.deduction_fee);
+						selectedType = 'Terbilang'
+					}
+					$('#deduction_period_edit').val(response.data.deduction_period);
+
+					deductionEditModal.show();
 				}
-				$('#deduction_period_edit').val(response.data.deduction_period);
+			})
+		});
 
-				deductionEditModal.show();
+		valueInput.addEventListener('input', function() {
+			if (selectedType === "Persenan") {
+				// kalo Persenan
+				const percentage = $('#deduction_fee_edit').val();
+				const calculatedDeduction = (percentage / 100) * salary;
+				calculatedDeductionInput.value = `Rp. ${calculatedDeduction.toLocaleString('id-ID')}`;
+				deduction_fee = calculatedDeduction;
+			} else {
+				// kalo terbilang
+				const fee = $('#deduction_fee_edit').val();
+				calculatedDeductionInput.value = `Rp. ${fee.toLocaleString('id-ID')}`
+				deduction_fee = fee;
 			}
 		})
-	});
 
-	valueInput.addEventListener('input', function() {
-		if (selectedType === "Persenan") {
-			// kalo Persenan
-			const percentage = $('#deduction_fee_edit').val();
-			const calculatedDeduction = (percentage / 100) * salary;
-			calculatedDeductionInput.value = `Rp. ${calculatedDeduction.toLocaleString('id-ID')}`;
-			deduction_fee = calculatedDeduction;
-		} else {
-			// kalo terbilang
-			const fee = $('#deduction_fee_edit').val();
-			calculatedDeductionInput.value = `Rp. ${fee.toLocaleString('id-ID')}`
-			deduction_fee = fee;
-		}
-	})
-
-	deductionTypeInput.addEventListener('change', function() {
-		selectedType = this.value;
-		$('#deduction_fee_edit').val('');
-		$('#calculated_deduction_edit').val('');
-		console.log(selectedType)
-		return selectedType
-	})
+		deductionTypeInput.addEventListener('change', function() {
+			selectedType = this.value;
+			$('#deduction_fee_edit').val('');
+			$('#calculated_deduction_edit').val('');
+			console.log(selectedType)
+			return selectedType
+		})
 
 
 
-	//action create deduction
-	$('#update').click(function(e) {
-		e.preventDefault();
+		//action create deduction
+		$('#update-deduction').click(function(e) {
+			e.preventDefault();
 
-		// Define variables
-		let deduction_id = $('#deduction_id').val();
-		let kode_pegawai = $('#kode_pegawai_edit').val();
-		let deduction_name = $('#deduction_name_edit').val();
-		let deduction_type = $('#deduction_type_edit').val();
-		// let deduction_fee = $('#deduction_fee_edit').val();
-		let deduction_period = $('#deduction_period_edit').val();
-		let token = $("meta[name='csrf-token']").attr("content");
+			// Define variables
+			let deduction_id = $('#deduction_id').val();
+			let kode_pegawai = $('#kode_pegawai_edit').val();
+			let deduction_name = $('#deduction_name_edit').val();
+			let deduction_type = $('#deduction_type_edit').val();
+			// let deduction_fee = $('#deduction_fee_edit').val();
+			let deduction_period = $('#deduction_period_edit').val();
+			let token = $("meta[name='csrf-token']").attr("content");
 
-		// Ajax call
-		$.ajax({
-			url: `/dashboard/pegawai/deductions/${deduction_id}`,
-			type: "PUT",
-			cache: false,
-			data: {
-				"kode_pegawai": kode_pegawai,
-				"deduction_name": deduction_name,
-				"deduction_type": deduction_fee,
-				"deduction_fee": deduction_fee,
-				"deduction_period": deduction_period,
-				"_token": token
-			},
-			success: function(response) {
-				// Show success message
-				Swal.fire({
-					icon: 'success',
-					title: `${response.message}`,
-					showConfirmButton: false,
-					timer: 3000
-				});
+			// Ajax call
+			$.ajax({
+				url: `/dashboard/pegawai/deductions/${deduction_id}`,
+				type: "PUT",
+				cache: false,
+				data: {
+					"kode_pegawai": kode_pegawai,
+					"deduction_name": deduction_name,
+					"deduction_type": deduction_fee,
+					"deduction_fee": deduction_fee,
+					"deduction_period": deduction_period,
+					"_token": token
+				},
+				success: function(response) {
+					// Show success message
+					Swal.fire({
+						icon: 'success',
+						title: `${response.message}`,
+						showConfirmButton: false,
+						timer: 3000
+					});
 
-				// Reload DataTable
-				$('#table-deduction').DataTable().ajax.reload(null, false);
-				deductionEditModal.hide();
-			},
-			error: function(error) {
-				// Handle validation errors
-				if (error.responseJSON.deduction_name[0]) {
-					$('#alert-deduction_name_edit').removeClass('none').addClass('block').html(error
-						.responseJSON.deduction_name[0]);
+					// Reload DataTable
+					$('#table-deduction').DataTable().ajax.reload(null, false);
+					deductionEditModal.hide();
+				},
+				error: function(error) {
+					// Handle validation errors
+					if (error.responseJSON.deduction_name[0]) {
+						$('#alert-deduction_name_edit').removeClass('none').addClass('block').html(error
+							.responseJSON.deduction_name[0]);
+					}
+					if (error.responseJSON.deduction_type[0]) {
+						$('#alert-deduction_type_edit').removeClass('none').addClass('block').html(error
+							.responseJSON.deduction_type[0]);
+					}
+					if (error.responseJSON.deduction_fee[0]) {
+						$('#alert-deduction_fee_edit').removeClass('none').addClass('block').html(error
+							.responseJSON.deduction_fee[0]);
+					}
+					if (error.responseJSON.deduction_period[0]) {
+						$('#alert-deduction_period_edit').removeClass('none').addClass('block').html(error
+							.responseJSON.deduction_period[0]);
+					}
 				}
-				if (error.responseJSON.deduction_type[0]) {
-					$('#alert-deduction_type_edit').removeClass('none').addClass('block').html(error
-						.responseJSON.deduction_type[0]);
-				}
-				if (error.responseJSON.deduction_fee[0]) {
-					$('#alert-deduction_fee_edit').removeClass('none').addClass('block').html(error
-						.responseJSON.deduction_fee[0]);
-				}
-				if (error.responseJSON.deduction_period[0]) {
-					$('#alert-deduction_period_edit').removeClass('none').addClass('block').html(error
-						.responseJSON.deduction_period[0]);
-				}
-			}
+			});
 		});
-	});
-</script>
+	</script>
+@endpush

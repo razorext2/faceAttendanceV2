@@ -13,37 +13,6 @@ use Illuminate\Support\Facades\Crypt;
 
 class AllowanceController extends Controller
 {
-    public function index($id)
-    {
-        $pegawai = Pegawai::with('salaryRelasi')->findOrFail(Crypt::decrypt($id));
-        if (request()->ajax()) {
-            $allowance = Allowance::where('kode_pegawai', $pegawai->kode_pegawai);
-            return Datatables::eloquent($allowance)
-                ->addColumn('actions', function ($data) {
-                    $editBtn = '<button class="text-sm text-blue-500 hover:underline" id="btn-edit-allowance" data-id="' . $data->id . '">
-									<span class="hover:underline"> Edit </span>
-								</button>';
-                    return $editBtn;
-                })
-                ->editColumn('allowance_fee', function ($data) {
-                    return Number::currency($data->allowance_fee, 'IDR', 'id');
-                })
-                ->editColumn('allowance_type', function ($data) {
-                    if ($data->allowance_type <= 100) {
-                        return $data->allowance_type . ' %';
-                    } else {
-                        return Number::currency($data->allowance_type, 'IDR', 'id');
-                    }
-                })
-                ->editColumn('allowance_period', function ($data) {
-                    return Carbon::parse($data->allowance_period)->locale('id')->isoFormat('MMMM YYYY');
-                })
-                ->rawColumns(['actions'])
-                ->orderColumn('allowance_name', 'allowance_name asc')
-                ->toJson();
-        }
-        return view('dashboard.pegawai.details.components.allowances-section');
-    }
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -117,6 +86,13 @@ class AllowanceController extends Controller
 
     public function destroy(string $id)
     {
-        //
+        //delete post by ID
+        Allowance::where('id', $id)->delete();
+
+        //return response
+        return response()->json([
+            'success' => true,
+            'message' => 'Data berhasil dihapus!.',
+        ]);
     }
 }

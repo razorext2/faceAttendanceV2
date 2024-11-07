@@ -75,7 +75,7 @@
 				</div>
 				<button
 					class="dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 inline-flex items-center rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300"
-					id="update" type="button">
+					id="update-allowance" type="button">
 					<svg class="-ms-1 me-1 h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
 						<path fill-rule="evenodd"
 							d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd">
@@ -88,132 +88,134 @@
 	</div>
 </div>
 
-<script type="module">
-	const allowanceEdit = document.getElementById('allowanceedit');
-	const allowanceEditModal = new Modal(allowanceEdit);
-	const allowanceTypeInput = document.getElementById('allowance_type_edit');
-	const percentageResultContainer = document.getElementById('percentage-result-container');
-	const calculatedAllowanceInput = document.getElementById('calculated_allowance_edit');
-	const valueInput = document.getElementById('allowance_fee_edit');
-	const salary = {{ $pegawai->salaryRelasi->salary_fee ?? '0' }};
-	let allowance_fee;
-	let selectedType;
+@push('script')
+	<script type="module">
+		const allowanceEdit = document.getElementById('allowanceedit');
+		const allowanceEditModal = new Modal(allowanceEdit);
+		const allowanceTypeInput = document.getElementById('allowance_type_edit');
+		const percentageResultContainer = document.getElementById('percentage-result-container');
+		const calculatedAllowanceInput = document.getElementById('calculated_allowance_edit');
+		const valueInput = document.getElementById('allowance_fee_edit');
+		const salary = {{ $pegawai->salaryRelasi->salary_fee ?? '0' }};
+		let allowance_fee;
+		let selectedType;
 
-	$('body').on('click', '#btn-edit-allowance', function() {
-		//open allowanceEditModal
-		let allowance_id = $(this).data('id');
-		$.ajax({
-			url: `/dashboard/pegawai/allowances/${allowance_id}`,
-			type: 'GET',
-			cache: false,
-			success: function(response) {
-				$('#allowance_id').val(response.data.id);
-				$('#allowance_name_edit').val(response.data.allowance_name);
+		$('body').on('click', '#btn-edit-allowance', function() {
+			//open allowanceEditModal
+			let allowance_id = $(this).data('id');
+			$.ajax({
+				url: `/dashboard/pegawai/allowances/${allowance_id}`,
+				type: 'GET',
+				cache: false,
+				success: function(response) {
+					$('#allowance_id').val(response.data.id);
+					$('#allowance_name_edit').val(response.data.allowance_name);
 
-				let allowance_type = response.data.allowance_type;
-				if (allowance_type <= 100) {
-					$('#allowance_type_edit').val('Persenan');
-					$('#calculated_allowance_edit').val(
-						`Rp. ${response.data.allowance_fee.toLocaleString('id-ID')}`);
-					$('#allowance_fee_edit').val(response.data.allowance_type);
-					selectedType = 'Persenan';
-				} else {
-					$('#allowance_type_edit').val('Terbilang');
-					$('#calculated_allowance_edit').val(
-						`Rp. ${response.data.allowance_fee.toLocaleString('id-ID')}`);
-					$('#allowance_fee_edit').val(response.data.allowance_fee);
-					selectedType = 'Terbilang'
+					let allowance_type = response.data.allowance_type;
+					if (allowance_type <= 100) {
+						$('#allowance_type_edit').val('Persenan');
+						$('#calculated_allowance_edit').val(
+							`Rp. ${response.data.allowance_fee.toLocaleString('id-ID')}`);
+						$('#allowance_fee_edit').val(response.data.allowance_type);
+						selectedType = 'Persenan';
+					} else {
+						$('#allowance_type_edit').val('Terbilang');
+						$('#calculated_allowance_edit').val(
+							`Rp. ${response.data.allowance_fee.toLocaleString('id-ID')}`);
+						$('#allowance_fee_edit').val(response.data.allowance_fee);
+						selectedType = 'Terbilang'
+					}
+					$('#allowance_period_edit').val(response.data.allowance_period);
+
+					allowanceEditModal.show();
 				}
-				$('#allowance_period_edit').val(response.data.allowance_period);
+			})
+		});
 
-				allowanceEditModal.show();
+		valueInput.addEventListener('input', function() {
+			if (selectedType === "Persenan") {
+				// kalo Persenan
+				const percentage = $('#allowance_fee_edit').val();
+				const calculatedAllowance = (percentage / 100) * salary;
+				calculatedAllowanceInput.value = `Rp. ${calculatedAllowance.toLocaleString('id-ID')}`;
+				allowance_fee = calculatedAllowance;
+			} else {
+				// kalo terbilang
+				const fee = $('#allowance_fee_edit').val();
+				calculatedAllowanceInput.value = `Rp. ${fee.toLocaleString('id-ID')}`
+				allowance_fee = fee;
 			}
 		})
-	});
 
-	valueInput.addEventListener('input', function() {
-		if (selectedType === "Persenan") {
-			// kalo Persenan
-			const percentage = $('#allowance_fee_edit').val();
-			const calculatedAllowance = (percentage / 100) * salary;
-			calculatedAllowanceInput.value = `Rp. ${calculatedAllowance.toLocaleString('id-ID')}`;
-			allowance_fee = calculatedAllowance;
-		} else {
-			// kalo terbilang
-			const fee = $('#allowance_fee_edit').val();
-			calculatedAllowanceInput.value = `Rp. ${fee.toLocaleString('id-ID')}`
-			allowance_fee = fee;
-		}
-	})
-
-	allowanceTypeInput.addEventListener('change', function() {
-		selectedType = this.value;
-		$('#allowance_fee_edit').val('');
-		$('#calculated_allowance_edit').val('');
-		console.log(selectedType)
-		return selectedType
-	})
+		allowanceTypeInput.addEventListener('change', function() {
+			selectedType = this.value;
+			$('#allowance_fee_edit').val('');
+			$('#calculated_allowance_edit').val('');
+			console.log(selectedType)
+			return selectedType
+		})
 
 
 
-	//action create allowance
-	$('#update').click(function(e) {
-		e.preventDefault();
+		//action create allowance
+		$('#update-allowance').click(function(e) {
+			e.preventDefault();
 
-		// Define variables
-		let allowance_id = $('#allowance_id').val();
-		let kode_pegawai = $('#kode_pegawai_edit').val();
-		let allowance_name = $('#allowance_name_edit').val();
-		let allowance_type = $('#allowance_type_edit').val();
-		// let allowance_fee = $('#allowance_fee_edit').val();
-		let allowance_period = $('#allowance_period_edit').val();
-		let token = $("meta[name='csrf-token']").attr("content");
+			// Define variables
+			let allowance_id = $('#allowance_id').val();
+			let kode_pegawai = $('#kode_pegawai_edit').val();
+			let allowance_name = $('#allowance_name_edit').val();
+			let allowance_type = $('#allowance_type_edit').val();
+			// let allowance_fee = $('#allowance_fee_edit').val();
+			let allowance_period = $('#allowance_period_edit').val();
+			let token = $("meta[name='csrf-token']").attr("content");
 
-		// Ajax call
-		$.ajax({
-			url: `/dashboard/pegawai/allowances/${allowance_id}`,
-			type: "PUT",
-			cache: false,
-			data: {
-				"kode_pegawai": kode_pegawai,
-				"allowance_name": allowance_name,
-				"allowance_type": allowance_fee,
-				"allowance_fee": allowance_fee,
-				"allowance_period": allowance_period,
-				"_token": token
-			},
-			success: function(response) {
-				// Show success message
-				Swal.fire({
-					icon: 'success',
-					title: `${response.message}`,
-					showConfirmButton: false,
-					timer: 3000
-				});
+			// Ajax call
+			$.ajax({
+				url: `/dashboard/pegawai/allowances/${allowance_id}`,
+				type: "PUT",
+				cache: false,
+				data: {
+					"kode_pegawai": kode_pegawai,
+					"allowance_name": allowance_name,
+					"allowance_type": allowance_fee,
+					"allowance_fee": allowance_fee,
+					"allowance_period": allowance_period,
+					"_token": token
+				},
+				success: function(response) {
+					// Show success message
+					Swal.fire({
+						icon: 'success',
+						title: `${response.message}`,
+						showConfirmButton: false,
+						timer: 3000
+					});
 
-				// Reload DataTable
-				$('#table-allowance').DataTable().ajax.reload(null, false);
-				allowanceEditModal.hide();
-			},
-			error: function(error) {
-				// Handle validation errors
-				if (error.responseJSON.allowance_name[0]) {
-					$('#alert-allowance_name_edit').removeClass('none').addClass('block').html(error
-						.responseJSON.allowance_name[0]);
+					// Reload DataTable
+					$('#table-allowance').DataTable().ajax.reload(null, false);
+					allowanceEditModal.hide();
+				},
+				error: function(error) {
+					// Handle validation errors
+					if (error.responseJSON.allowance_name[0]) {
+						$('#alert-allowance_name_edit').removeClass('none').addClass('block').html(error
+							.responseJSON.allowance_name[0]);
+					}
+					if (error.responseJSON.allowance_type[0]) {
+						$('#alert-allowance_type_edit').removeClass('none').addClass('block').html(error
+							.responseJSON.allowance_type[0]);
+					}
+					if (error.responseJSON.allowance_fee[0]) {
+						$('#alert-allowance_fee_edit').removeClass('none').addClass('block').html(error
+							.responseJSON.allowance_fee[0]);
+					}
+					if (error.responseJSON.allowance_period[0]) {
+						$('#alert-allowance_period_edit').removeClass('none').addClass('block').html(error
+							.responseJSON.allowance_period[0]);
+					}
 				}
-				if (error.responseJSON.allowance_type[0]) {
-					$('#alert-allowance_type_edit').removeClass('none').addClass('block').html(error
-						.responseJSON.allowance_type[0]);
-				}
-				if (error.responseJSON.allowance_fee[0]) {
-					$('#alert-allowance_fee_edit').removeClass('none').addClass('block').html(error
-						.responseJSON.allowance_fee[0]);
-				}
-				if (error.responseJSON.allowance_period[0]) {
-					$('#alert-allowance_period_edit').removeClass('none').addClass('block').html(error
-						.responseJSON.allowance_period[0]);
-				}
-			}
+			});
 		});
-	});
-</script>
+	</script>
+@endpush

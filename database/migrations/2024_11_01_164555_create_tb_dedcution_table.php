@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('deduction_name', 32)->nullable();
             $table->string('deduction_type', 12)->nullable();
             $table->bigInteger('deduction_fee')->nullable();
-            $table->date('deduction_period')->nullable();
+            $table->string('deduction_period', 32)->nullable();
             $table->timestamps();
         });
     }
