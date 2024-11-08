@@ -309,6 +309,7 @@ class PegawaiController extends Controller
 
         if (!Storage::exists($folderPath)) {
             Storage::makeDirectory($folderPath);
+            chmod(storage_path("app/public/labels"), 0755);
             chmod(storage_path("app/{$folderPath}"), 0755);
         }
 

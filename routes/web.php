@@ -21,6 +21,10 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 
 // breeze for regist, verif, login and logout
+// Route::get('/foo', function () {
+//     Artisan::call('storage:link');
+// });
+
 // landing page
 Route::get('/', function () {
     return view('home');
