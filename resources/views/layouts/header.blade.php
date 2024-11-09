@@ -2,8 +2,7 @@
 	class="dark:bg-[#18181b] dark:ring-gray-700 hidden border-gray-200 bg-white ring-1 ring-black md:block md:p-4 lg:p-8">
 	<div class="center mx-auto flex max-w-screen-xl flex-wrap items-center justify-between">
 
-		<a class="flex items-center space-x-3 rtl:space-x-reverse md:mx-auto md:mb-4 lg:mx-0 lg:mb-0"
-			href="https://indodacin.com">
+		<a class="flex items-center space-x-3 rtl:space-x-reverse md:mx-auto md:mb-4 lg:mx-0 lg:mb-0" href="#">
 			<img src="{{ asset('assets/img/logo.png') }}" alt="Indodacin Logo" loading="lazy" />
 		</a>
 
