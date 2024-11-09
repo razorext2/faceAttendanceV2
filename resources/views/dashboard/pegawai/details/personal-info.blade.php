@@ -190,7 +190,7 @@
 
 					// Mengambil data menggunakan AJAX
 					fetch(
-							`/api/get-attendance-data?date=${date}&id={{ Crypt::encrypt($pegawai->kode_pegawai) }}`
+							`/api/get-attendance-data?date=${date}&id={{ $pegawai->kode_pegawai }}`
 						)
 						.then(response => response.json())
 						.then(data => {

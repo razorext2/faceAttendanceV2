@@ -4,8 +4,7 @@
 		<div class="w-full">
 			<div class="grid gap-6 md:grid-cols-2">
 				<div class="w-full md:col-span-2">
-					<form id="dateForm" action="{{ route('pegawai.timeline', ['pegawai' => Crypt::encrypt($pegawai->kode_pegawai)]) }}"
-						method="GET">
+					<form id="dateForm" action="{{ route('pegawai.timeline', ['pegawai' => $pegawai->kode_pegawai]) }}" method="GET">
 						@csrf
 						<label class="dark:text-white sr-only mb-2 text-sm font-medium text-gray-900" for="search">Search</label>
 						<div class="relative">
@@ -131,7 +130,7 @@
 				timelineContent = document.getElementById('timelineContent');
 
 				fetch(
-						`/api/get-attendance-data?id={{ Crypt::encrypt($pegawai->kode_pegawai) }}&date={{ \Carbon\Carbon::parse(Request::query('date'))->isoFormat('Y-MM-DD') }}`
+						`/api/get-attendance-data?id={{ $pegawai->kode_pegawai }}&date={{ \Carbon\Carbon::parse(Request::query('date'))->isoFormat('Y-MM-DD') }}`
 					)
 					.then(response => response.json())
 					.then(data => {

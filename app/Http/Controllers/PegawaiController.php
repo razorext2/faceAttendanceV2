@@ -60,9 +60,9 @@ class PegawaiController extends Controller
 
         return DataTables::of($query)
             ->addColumn('action', function ($data) {
-                // $editUrl = route('pegawai.edit', Crypt::encrypt($data->id));
-                $dataUrl = route('pegawai.detail', Crypt::encrypt($data->id));
-                // $timelineUrl = route('pegawai.timeline', Crypt::encrypt($data->id));
+                // $editUrl = route('pegawai.edit', $data->id);
+                $dataUrl = route('pegawai.detail', $data->id);
+                // $timelineUrl = route('pegawai.timeline', $data->id);
                 $actionButtons = '
                 <div class="inline-flex text-center" role="group">
                     <a href="' . $dataUrl .
@@ -347,7 +347,7 @@ class PegawaiController extends Controller
 
     public function detail($id)
     {
-        $pegawai = Pegawai::with('jabatanRelasi')->findOrFail(Crypt::decrypt($id));
+        $pegawai = Pegawai::with('jabatanRelasi')->findOrFail($id);
         $currentDate = Carbon::now();
         $startOfMonth = $currentDate->copy()->startOfMonth();
         $endOfMonth = $currentDate->copy()->endOfMonth();
@@ -371,13 +371,13 @@ class PegawaiController extends Controller
 
     public function attendanceList($id)
     {
-        $pegawai = Pegawai::findOrFail(Crypt::decrypt($id));
+        $pegawai = Pegawai::findOrFail($id);
         return view('dashboard.pegawai.details.attendance-list', compact('pegawai'));
     }
 
     public function payrollInfo($id)
     {
-        $pegawai = Pegawai::with('salaryRelasi')->findOrFail(Crypt::decrypt($id));
+        $pegawai = Pegawai::with('salaryRelasi')->findOrFail($id);
         $allowance = Allowance::where('kode_pegawai', $pegawai->kode_pegawai);
         $deduction = Deduction::where('kode_pegawai', $pegawai->kode_pegawai);
 
@@ -445,15 +445,15 @@ class PegawaiController extends Controller
 
         $data = AttendanceOut::select('latitude', 'longitude', 'created_at', DB::raw("'check-out' as type"), 'jam_keluar as time')
             ->whereDate('jam_keluar', $date)
-            ->where('kode_pegawai', Crypt::decrypt($id));
+            ->where('kode_pegawai', $id);
 
         $data2 = Attendance::with('pegawaiRelasi')->select('latitude', 'longitude', 'created_at', DB::raw("'check-in' as type"), 'jam_masuk as time')
             ->whereDate('jam_masuk', $date)
-            ->where('kode_pegawai', Crypt::decrypt($id))
+            ->where('kode_pegawai', $id)
             ->unionAll($data)
             ->get();
 
-        $pegawai = Pegawai::select('id', 'kode_pegawai', 'full_name')->where('kode_pegawai', Crypt::decrypt($id))->firstOrFail();
+        $pegawai = Pegawai::select('id', 'kode_pegawai', 'full_name')->where('kode_pegawai', $id)->firstOrFail();
 
         return view('dashboard.pegawai.details.timeline', compact('data2', 'pegawai'));
     }
@@ -466,7 +466,7 @@ class PegawaiController extends Controller
             $date = Carbon::now()->isoFormat('Y-MM-DD');
         }
 
-        $kode_pegawai = Crypt::decrypt($request->query('id'));
+        $kode_pegawai = $request->query('id');
 
         $attendance = Attendance::whereDate('jam_masuk', $date)
             ->whereDate('jam_masuk', $date)
