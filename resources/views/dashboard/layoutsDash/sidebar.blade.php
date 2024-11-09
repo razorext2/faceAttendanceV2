@@ -384,7 +384,7 @@
 		</ul>
 	</div>
 
-	<div class="h-content absolute bottom-0 left-0 grid w-auto grid-cols-1 px-5 pb-5">
+	<div class="h-content dark:bg-[#09090b] absolute bottom-0 left-0 grid w-auto grid-cols-1 px-5 py-3">
 		<!-- start footer -->
 		@include('dashboard.layoutsDash.footer')
 		<!-- footer -->
