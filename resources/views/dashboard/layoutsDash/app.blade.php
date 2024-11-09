@@ -18,14 +18,16 @@
 
 		@if (session('status'))
 			<div
-				class="fixed right-0 top-[4.5rem] z-50 flex w-full max-w-sm scale-90 transform items-center divide-x rounded-lg transition duration-300"
+				class="fixed right-0 top-[4.5rem] z-50 flex w-full max-w-sm scale-90 transform items-center divide-x transition duration-300"
 				id="toast-top-right" role="alert" x-data="{ showToast: true }" x-init="setTimeout(() => showToast = false, 3000)" x-show="showToast"
 				x-transition:enter="transition ease-in duration-300" x-transition:enter-start="transform scale-90 opacity-0"
 				x-transition:enter-end="transform scale-100 opacity-100" x-transition:leave="transition ease-out duration-300"
 				x-transition:leave-start="transform scale-100 opacity-100" x-transition:leave-end="transform scale-90 opacity-0">
-				<div class="mb-4 flex w-full max-w-sm items-center rounded-lg border border-gray-200 bg-white p-4"
+				<div
+					class="dark:bg-[#09090b] dark:ring-gray-500 mb-4 flex w-full max-w-sm items-center rounded-lg bg-white p-4 shadow-sm ring-1 ring-gray-200"
 					id="toast-success" role="alert">
-					<div class="inline-flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-green-100 text-green-500">
+					<div
+						class="dark:bg-green-950 inline-flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-green-100 text-green-500">
 						<svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
 							viewBox="0 0 20 20">
 							<path
@@ -33,11 +35,11 @@
 						</svg>
 						<span class="sr-only">Check icon</span>
 					</div>
-					<div class="ms-3 mt-0.5 text-sm font-normal text-black">
+					<div class="dark:text-white ms-3 mt-0.5 text-sm font-normal text-black">
 						<x-auth-session-status :status="session('status')" />
 					</div>
 					<button
-						class="-mx-1.5 -my-1.5 ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-900 focus:ring-2 focus:ring-gray-300"
+						class="dark:bg-green-950 dark:text-green-400 -mx-1.5 -my-1.5 ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-900 focus:ring-2 focus:ring-gray-300"
 						type="button" aria-label="Close" @click="showToast = false">
 						<span class="sr-only">Close</span>
 						<svg class="h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
@@ -91,7 +93,7 @@
 
 		{{-- bikin navigasi ala android --}}
 		@include('dashboard.layoutsDash.mobileDrawer')
-		<div class="dark:bg-gray-950 fixed inset-0 z-50 bg-white md:z-[9999]" id="preloader">
+		<div class="dark:bg-[#09090b] fixed inset-0 z-50 bg-white md:z-[9999]" id="preloader">
 		</div>
 
 		<!-- js -->
