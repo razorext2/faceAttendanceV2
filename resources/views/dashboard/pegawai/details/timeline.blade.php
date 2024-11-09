@@ -203,7 +203,7 @@
 								let iconColor = 'red';
 								if (index < totalCount - 1) {
 									statusText = 'Checkpoint';
-									iconColor = 'blue';
+									iconColor = 'yellow';
 								}
 
 								checkOut += `

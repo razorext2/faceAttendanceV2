@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Number;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
