@@ -38,7 +38,7 @@
 		@include('layouts.footer')
 
 		@include('layouts.mobileDrawer')
-		<div class="dark:bg-gray-800 fixed inset-0 z-50 bg-white md:z-[9999]" id="preloader">
+		<div class="dark:bg-gray-800 fixed inset-0 z-50 bg-white md:z-[100]" id="preloader">
 		</div>
 		@include('layouts.js')
 	</body>
