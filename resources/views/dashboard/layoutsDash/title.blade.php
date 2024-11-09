@@ -80,7 +80,7 @@
 	@elseif (Route::currentRouteName() == 'profile.edit')
 		<h2 class="dark:text-white text-2xl font-bold tracking-tight text-gray-950 sm:text-3xl">
 			Profile -
-			< text-2xl font-bold tracking-tight text-gray-950 dark:text-white sm:text-3xlfont-size: 24px !important;">
+			<span class="dark:text-white sm:text-3xlfont-size: 24px !important; text-2xl font-bold tracking-tight text-gray-950">
 				{{ Auth::user()->name }}</span>
 		</h2>
 	@endif
