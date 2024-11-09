@@ -269,33 +269,35 @@
 				startCamera();
 				setTimeout(() => {
 					displayTimer(3, () => {
-						const photo1 = capturePhoto(canvas, 1280, 720);
+						const photo1 = capturePhoto(canvas, video.videoWidth, video.videoHeight);
 						photo1Data.value = photo1;
 
 						// Menunggu 3 detik sebelum menangkap foto kedua
 						setTimeout(() => {
 							displayTimer(3, () => {
-								const photo2 = capturePhoto(canvass, 1280, 720);
+								const photo2 = capturePhoto(canvass, video.videoWidth, video
+									.videoHeight);
 								photo2Data.value = photo2;
 							});
 						}, 3000); // Jeda sebelum menangkap foto kedua
 					});
 				}, 3000); // Jeda sebelum menangkap foto pertama
 
-			} else {
-				// Jika kamera sudah dimulai, langsung menangkap foto
-				displayTimer(3, () => {
-					const photo1 = capturePhoto(canvas, 1280, 720);
-					photo1Data.value = photo1;
-
-					setTimeout(() => {
-						displayTimer(3, () => {
-							const photo2 = capturePhoto(canvass, 1280, 720);
-							photo2Data.value = photo2;
-						});
-					}, 3000); // Jeda sebelum menangkap foto kedua
-				});
 			}
+			// else {
+			// 	// Jika kamera sudah dimulai, langsung menangkap foto
+			// 	displayTimer(3, () => {
+			// 		const photo1 = capturePhoto(canvas, 1280, 720);
+			// 		photo1Data.value = photo1;
+
+			// 		setTimeout(() => {
+			// 			displayTimer(3, () => {
+			// 				const photo2 = capturePhoto(canvass, 1280, 720);
+			// 				photo2Data.value = photo2;
+			// 			});
+			// 		}, 3000); // Jeda sebelum menangkap foto kedua
+			// 	});
+			// }
 		}
 
 		// Event listener untuk tombol capture
