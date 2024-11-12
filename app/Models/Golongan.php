@@ -13,8 +13,6 @@ class Golongan extends Model
     protected $fillable = [
         'nama_golongan',
         'alias',
-        'jam_masuk',
-        'jam_keluar',
     ];
 
     public function jadwalRelasi()

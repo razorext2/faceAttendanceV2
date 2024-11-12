@@ -63,6 +63,11 @@ class Pegawai extends Model
         return $this->belongsTo(Golongan::class, 'golongan', 'id');
     }
 
+    public function jadwalRelasi()
+    {
+        return $this->hasManyThrough(Jadwal::class, Golongan::class, 'id', 'id_golongan', 'golongan', 'id');
+    }
+
     public function salaryRelasi()
     {
         return $this->belongsTo(Salary::class, 'salary_id', 'id');

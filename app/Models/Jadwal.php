@@ -10,4 +10,9 @@ class Jadwal extends Model
     use HasFactory;
     protected $table = 'tb_jadwal';
     protected $fillable = ['id_golongan', 'hari', 'jam_masuk', 'jam_keluar'];
+
+    public function golonganRelasi()
+    {
+        return $this->belongsTo(Golongan::class, 'id_golongan', 'id');
+    }
 }
