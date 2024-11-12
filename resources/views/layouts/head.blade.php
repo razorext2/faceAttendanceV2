@@ -29,7 +29,7 @@
 
 @if (request()->is('/') || request()->is('/*'))
 	<script defer src="{{ asset('face-api.min.js') }}"></script>
-	<script defer src="{{ asset('script.js') }}"></script>
+	<script defer src="{{ asset('script.min.js') }}"></script>
 @endif
 <script defer src="{{ asset('keymap.js') }}"></script>
 
