@@ -3,8 +3,8 @@
 	<div class="mb-4 grid grid-cols-1 gap-4 xl:gap-6">
 
 		<div
-			class="dark:bg-[#18181b] dark:border-gray-700 grid max-h-36 w-full grid-cols-2 rounded-xl border border-gray-200 bg-white p-4 xl:p-6">
-			<div>
+			class="dark:bg-[#18181b] dark:border-gray-700 grid max-h-36 w-full grid-cols-3 rounded-xl border border-gray-200 bg-white p-4 xl:p-6">
+			<div class="col-span-2">
 				<div>
 					<div class="flex flex-row">
 						<h2 class="font-base text-sm text-gray-400">
@@ -16,7 +16,7 @@
 					</h2>
 				</div>
 				<div>
-					<p class="dark:text-white text-2xl font-medium text-gray-900">
+					<p class="dark:text-white text-2xl font-medium text-gray-900 lg:text-4xl">
 						@if ($getJadwal)
 							{{ $getJadwal->jam_masuk }} - {{ $getJadwal->jam_keluar }}
 						@else

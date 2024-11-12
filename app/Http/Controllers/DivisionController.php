@@ -137,7 +137,6 @@ class DivisionController extends Controller
      */
     public function destroy($id)
     {
-        //
         $division = Division::findOrFail($id);
         $division->delete();
 

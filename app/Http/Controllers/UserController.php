@@ -198,14 +198,14 @@ class UserController extends Controller
             $user = User::where('id', $id)->first();
         }
 
-        $pegawai = Pegawai::where('kode_pegawai', $id)->first();
+        // $pegawai = Pegawai::where('kode_pegawai', $id)->first();
 
-        if ($pegawai != null) {
-            $user->delete();
-            $pegawai->delete();
-        } else {
-            $user->delete();
-        }
+        // if ($pegawai != null) {
+        //     $user->delete();
+        //     $pegawai->delete();
+        // } else {
+        $user->delete();
+        // }
 
         return redirect()->route('dashboard.users')
             ->with('status', 'Berhasil menghapus data user');
