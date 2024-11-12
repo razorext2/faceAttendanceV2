@@ -38,7 +38,7 @@
 					</div>
 
 					<div
-						class="dark:bg-[#18181b] dark:divide-gray-500 absolute right-5 top-16 z-50 list-none rounded-lg bg-white text-base shadow-sm"
+						class="dark:bg-[#18181b] dark:divide-gray-500 absolute right-5 top-16 z-50 list-none rounded-lg bg-white text-base ring-1 ring-gray-700"
 						style="display: none;" x-show="profile" x-transition:enter="transition ease-in duration-200"
 						x-transition:enter-start="transform opacity-0 -translate-y-5"
 						x-transition:leave="transition ease-out duration-200"
