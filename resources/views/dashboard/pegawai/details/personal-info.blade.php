@@ -115,7 +115,7 @@
 						<header class="-mt-2.5 flex flex-col">
 							<h2 class="dark:text-white text-xl font-medium text-gray-900">
 								<span class="dark:text-gray-300 !text-md text-gray-700">Periode: </span>
-								{{ $startOfMonth }}
+								{{ $startOfMonthFormatted }}
 							</h2>
 							<p class="dark:text-gray-300 text-sm text-gray-700">
 								Lorem ipsum, dolor sit amet consectetur adipisicing elit, doloremque repellat atque illum

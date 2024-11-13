@@ -131,7 +131,7 @@ class PegawaiController extends Controller
         if ($makeUser == 'y') {
             $user = User::create([
                 'kode_pegawai' => $request->input('kode_pegawai'),
-                'name' => $request->input('nama_lengkap'),
+                'name' => $request->input('full_name'),
                 'email' => $request->input('nick_name') . $request->input('kode_pegawai') . '@indodacin.com',
                 'password' => Hash::make($request->input('kode_pegawai')),
             ]);
@@ -367,26 +367,24 @@ class PegawaiController extends Controller
     public function detail($id)
     {
         $pegawai = Pegawai::with('jabatanRelasi')->findOrFail($id);
+
+        // Get the start and end dates for the current month and set locale for formatting
         $currentDate = Carbon::now();
         $startOfMonth = $currentDate->copy()->startOfMonth();
         $endOfMonth = $currentDate->copy()->endOfMonth();
-        $period = CarbonPeriod::create($startOfMonth, $endOfMonth);
-        $startDayOfWeek = $startOfMonth->dayOfWeek;
-        $dd = [];
+        $startOfMonthFormatted = $startOfMonth->locale('id')->isoFormat('MMMM Y');
 
-        for ($i = 0; $i < $startDayOfWeek; $i++) {
-            $dd[] = null;
-        }
+        // Create an array of dates with padding for the start day
+        $dd = array_fill(0, $startOfMonth->dayOfWeek, null);
+        $dd = array_merge($dd, iterator_to_array(CarbonPeriod::create($startOfMonth, $endOfMonth)->map(fn($date) => $date->isoFormat('Y-MM-DD'))));
 
-        foreach ($period as $date) {
-            $dd[] = $date->isoFormat('Y-MM-DD');
-        }
-
-        $images = $this->showImages($pegawai);
-        $startOfMonth = $startOfMonth->locale('id')->isoFormat('MMMM Y');
+        // Get attendance data and images
         $attendanceData = Attendance::where('kode_pegawai', $pegawai->kode_pegawai)->get();
-        return view('dashboard.pegawai.details.personal-info', compact('pegawai', 'dd', 'startOfMonth', 'images', 'attendanceData'));
+        $images = $this->showImages($pegawai);
+
+        return view('dashboard.pegawai.details.personal-info', compact('pegawai', 'dd', 'startOfMonthFormatted', 'images', 'attendanceData'));
     }
+
 
     public function attendanceList($id)
     {
@@ -460,18 +458,24 @@ class PegawaiController extends Controller
 
     public function timeline($id, Request $request)
     {
-        $date = $request->query('date') ? Carbon::parse($request->query('date'))->isoFormat('Y-MM-DD') : Carbon::now()->isoFormat('Y-MM-DD');
+        // Ambil tanggal dari query parameter, atau gunakan tanggal sekarang jika tidak ada
+        $date = $request->query('date') ? Carbon::parse($request->query('date'))->toDateString() : Carbon::now()->toDateString();
 
+        // Query untuk data check-out
         $data = AttendanceOut::select('latitude', 'longitude', 'created_at', DB::raw("'check-out' as type"), 'jam_keluar as time')
             ->whereDate('jam_keluar', $date)
             ->where('kode_pegawai', $id);
 
-        $data2 = Attendance::with('pegawaiRelasi')->select('latitude', 'longitude', 'created_at', DB::raw("'check-in' as type"), 'jam_masuk as time')
+        // Query untuk data check-in, union dengan data check-out
+        $data2 = Attendance::with('pegawaiRelasi')
+            ->select('latitude', 'longitude', 'created_at', DB::raw("'check-in' as type"), 'jam_masuk as time')
             ->whereDate('jam_masuk', $date)
             ->where('kode_pegawai', $id)
             ->unionAll($data)
+            ->orderBy('created_at') // Urutkan berdasarkan waktu
             ->get();
 
+        // Mendapatkan informasi pegawai
         $pegawai = Pegawai::select('id', 'kode_pegawai', 'full_name')->where('kode_pegawai', $id)->firstOrFail();
 
         return view('dashboard.pegawai.details.timeline', compact('data2', 'pegawai'));
@@ -479,21 +483,14 @@ class PegawaiController extends Controller
 
     public function getAttendanceData(Request $request)
     {
-        if ($request->query('date')) {
-            $date = Carbon::parse($request->query('date'))->isoFormat('Y-MM-DD');
-        } else {
-            $date = Carbon::now()->isoFormat('Y-MM-DD');
-        }
-
+        $date = $request->query('date') ? Carbon::parse($request->query('date'))->format('Y-m-d') : Carbon::now()->format('Y-m-d');
         $kode_pegawai = $request->query('id');
 
         $attendance = Attendance::whereDate('jam_masuk', $date)
-            ->whereDate('jam_masuk', $date)
             ->where('kode_pegawai', $kode_pegawai)
             ->get();
 
         $attendanceOut = AttendanceOut::whereDate('jam_keluar', $date)
-            ->whereDate('jam_keluar', $date)
             ->where('kode_pegawai', $kode_pegawai)
             ->get();
 
