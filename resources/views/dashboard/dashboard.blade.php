@@ -8,8 +8,8 @@
 			<div class="dark:bg-[#18181b] dark:border-gray-700 w-full rounded-xl border border-gray-200 bg-white p-4 md:p-6">
 				<div class="mb-5 flex justify-between">
 					<div>
-						<h5 class="dark:text-white mb-2 text-3xl font-bold leading-none text-gray-900">{{ $yearNow }}
-						</h5>
+						<p class="dark:text-white mb-2 text-3xl font-bold leading-none text-gray-900">{{ $yearNow }}
+						</p>
 						<p class="dark:text-gray-300 text-base font-normal text-gray-500">Data 7 hari kebelakang</p>
 					</div>
 					<div class="dark:text-white flex items-center px-2.5 py-0.5 text-center text-base font-semibold text-green-500">
@@ -22,7 +22,7 @@
 				<div class="dark:border-gray-700 mt-5 grid grid-cols-1 items-center justify-between border-t border-gray-200">
 					<div class="flex items-center justify-between pt-5">
 						<a
-							class="dark:hover:bg-gray-900 inline-flex items-center rounded-xl px-3 py-2 text-sm font-semibold uppercase text-blue-600 hover:bg-gray-100 hover:text-blue-700"
+							class="dark:hover:bg-gray-900 dark:text-white dark:hover:text-blue-500 inline-flex items-center rounded-lg px-3 py-2 text-sm font-semibold uppercase text-blue-600 hover:bg-blue-200 hover:text-blue-700"
 							href="{{ route('attendanceIn.view') }}">
 							Absen masuk
 							<svg class="ms-1.5 h-2.5 w-2.5 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
@@ -32,7 +32,7 @@
 						</a>
 
 						<a
-							class="dark:hover:bg-gray-900 inline-flex items-center rounded-xl px-3 py-2 text-sm font-semibold uppercase text-red-600 hover:bg-gray-100 hover:text-red-700"
+							class="dark:hover:bg-gray-900 dark:text-white dark:hover:text-red-500 inline-flex items-center rounded-lg px-3 py-2 text-sm font-semibold uppercase text-red-600 hover:bg-red-200 hover:text-red-700"
 							href="{{ route('attendanceOut.view') }}">
 							Absen keluar
 							<svg class="ms-1.5 h-2.5 w-2.5 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
@@ -50,25 +50,28 @@
 		<div class="grid grid-cols-1">
 
 			<div class="dark:bg-[#18181b] dark:border-gray-700 flex flex-col rounded-xl border border-gray-200 bg-white p-4">
-				<span>
-					<time class="text-md dark:text-white font-semibold text-gray-900">Absen Masuk,
-						{{ \Carbon\Carbon::today()->locale('id')->isoFormat('D MMMM YYYY') }}</time>
-				</span>
+
+				<p class="font-base dark:text-gray-400 text-sm text-gray-500">
+					Absen Masuk
+				</p>
+				<p class="dark:text-white text-md font-medium text-gray-900">
+					{{ \Carbon\Carbon::today()->locale('id')->isoFormat('D MMMM YYYY') }}
+				</p>
 				<ul class="h-44 overflow-y-auto text-gray-700" aria-labelledby="dropdownUsersButton">
 
 					@if (!empty($attendance_today))
 						@foreach ($attendance_today as $at)
 							<li>
 								<p
-									class="dark:bg-green-700 dark:hover:bg-green-800 my-2 flex items-center rounded-lg bg-[#7678ed] p-2 text-xs text-white hover:bg-[#5d5ece]">
-									<img class="me-2 h-6 w-6 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+									class="dark:bg-green-700 dark:hover:bg-green-800 my-2 flex rounded-lg bg-green-500 bg-none p-2 text-xs text-white hover:bg-green-600">
+									<img class="me-3 h-6 w-6 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
 										alt="Jese image">
-									{{ $at->pegawaiRelasi->full_name ?? 'N/A' }}, melakukan absensi
-									<span
-										class="dark:bg-green-900 dark:text-green-300 mx-1 rounded bg-green-100 px-1 py-0.5 text-xs font-medium text-green-800">
-										Masuk
+									<span class="leading-relaxed">
+										{{ $at->pegawaiRelasi->full_name ?? 'N/A' }}, melakukan absensi <b
+											class="rounded bg-green-800 px-1 py-0.5 text-white">Masuk</b> pada
+										pukul
+										{{ \Carbon\Carbon::parse($at->jam_masuk)->format('H:i') }}
 									</span>
-									pada pukul {{ \Carbon\Carbon::parse($at->jam_masuk)->format('H:i') }}
 								</p>
 							</li>
 						@endforeach
@@ -84,10 +87,13 @@
 			</div>
 
 			<div class="dark:bg-[#18181b] dark:border-gray-700 mt-3 flex flex-col rounded-xl border border-gray-200 bg-white p-4">
-				<span>
-					<time class="text-md dark:text-white font-semibold text-gray-900">Absen Keluar,
-						{{ \Carbon\Carbon::today()->locale('id')->isoFormat('D MMMM YYYY') }}</time>
-				</span>
+
+				<p class="font-base text-sm text-gray-400">
+					Absen Keluar
+				</p>
+				<p class="dark:text-white text-md font-medium text-gray-900">
+					{{ \Carbon\Carbon::today()->locale('id')->isoFormat('D MMMM YYYY') }}
+				</p>
 				<ul class="h-44 overflow-y-auto text-gray-700" aria-labelledby="dropdownUsersButton">
 					@foreach ($attendance_out_today as $at)
 						<li>

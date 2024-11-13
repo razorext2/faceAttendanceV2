@@ -7,7 +7,7 @@
 			<li>
 				<a
 					class="{{ Route::currentRouteName() == 'dashboard' ? 'text-red-600 font-bold bg-gray-100 dark:bg-[#18181b]' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent hover:text-red-600' }} group flex items-center rounded-xl p-2"
-					href="{{ route('dashboard') }}" role="menuitem">
+					href="{{ route('dashboard') }}">
 					<svg
 						class="fi-sidebar-item-icon {{ Route::currentRouteName() == 'dashboard' ? 'stroke-red-600 ' : 'stroke-gray-400' }} h-6 w-6 text-gray-400 group-hover:stroke-red-600"
 						data-slot="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -22,7 +22,7 @@
 			<li x-data="{ absensi: {{ Route::is('attendanceIn.view') || Route::is('attendanceOut.view') ? 'true' : 'false' }} }">
 				<button
 					class="{{ Route::is('attendanceIn.view') || Route::is('attendanceOut.view') ? 'text-red-600 font-bold bg-gray-100 dark:bg-[#18181b]' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-[#18181b] hover:text-red-600' }} group flex w-full items-center rounded-xl p-2 text-base text-gray-900 transition duration-200"
-					type="button" aria-controls="dropdown-example" @click="absensi = !absensi" :aria-expanded="absensi">
+					type="button" aria-controls="absensi-dropdown" @click="absensi = !absensi" :aria-expanded="absensi">
 					<svg
 						class="fi-sidebar-item-icon {{ Route::is('attendanceIn.view') || Route::is('attendanceOut.view') ? 'stroke-red-600' : 'stroke-gray-400' }} h-6 w-6 text-gray-400 group-hover:stroke-red-600"
 						data-slot="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -42,7 +42,7 @@
 				</button>
 
 				<!-- Dropdown Menu -->
-				<ul class="space-y-4 py-4" id="dropdown-example" x-show="absensi"
+				<ul class="space-y-4 py-4" id="absensi-dropdown" x-show="absensi"
 					x-transition:enter="transition ease-in duration-200" x-transition:enter-start="transform opacity-0 -translate-y-5"
 					x-transition:leave="transition ease-out duration-200" x-transition:leave-end="transform opacity-0 -translate-y-5">
 					<li>
@@ -105,7 +105,7 @@
 			<li>
 				<a
 					class="{{ Route::currentRouteName() == 'dashboard.dayoff' || Route::currentRouteName() == 'dayoff.add' || Route::currentRouteName() == 'dayoff.edit' || Route::currentRouteName() == 'dayoff.detail' ? 'text-red-600 font-bold bg-gray-100 dark:bg-[#18181b]' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent hover:text-red-600' }} group flex items-center rounded-xl p-2"
-					href="{{ route('dashboard.dayoff') }}" role="menuitem">
+					href="{{ route('dashboard.dayoff') }}">
 					<svg
 						class="fi-sidebar-item-icon {{ Route::currentRouteName() == 'dashboard.dayoff' || Route::currentRouteName() == 'dayoff.add' || Route::currentRouteName() == 'dayoff.edit' || Route::currentRouteName() == 'dayoff.detail' ? 'stroke-red-600' : 'stroke-gray-400' }} h-6 w-6 text-gray-400 group-hover:stroke-red-600"
 						viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -126,7 +126,7 @@
 				<li>
 					<a
 						class="{{ Route::currentRouteName() == 'dashboard.pegawai' || Route::currentRouteName() == 'pegawai.add' || Route::currentRouteName() == 'pegawai.edit' || Route::currentRouteName() == 'pegawai.detail' || Route::currentRouteName() == 'pegawai.timeline' ? 'text-red-600 font-bold bg-gray-100 dark:bg-[#18181b]' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent hover:text-red-600' }} group flex items-center rounded-xl p-2"
-						href="{{ route('dashboard.pegawai') }}" role="menuitem">
+						href="{{ route('dashboard.pegawai') }}">
 						<svg
 							class="fi-sidebar-item-icon {{ Route::currentRouteName() == 'dashboard.pegawai' || Route::currentRouteName() == 'pegawai.add' || Route::currentRouteName() == 'pegawai.edit' || Route::currentRouteName() == 'pegawai.detail' || Route::currentRouteName() == 'pegawai.timeline' ? 'stroke-red-600' : 'stroke-gray-400' }} h-6 w-6 text-gray-400 group-hover:stroke-red-600"
 							data-slot="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -144,7 +144,7 @@
 				<li>
 					<a
 						class="{{ Route::currentRouteName() == 'dashboard.jabatan' || Route::currentRouteName() == 'jabatan.add' || Route::currentRouteName() == 'jabatan.edit' ? 'text-red-600 font-bold bg-gray-100 dark:bg-[#18181b]' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent hover:text-red-600' }} group flex items-center rounded-xl p-2"
-						href="{{ route('dashboard.jabatan') }}" role="menuitem">
+						href="{{ route('dashboard.jabatan') }}">
 						<svg
 							class="fi-sidebar-item-icon {{ Route::currentRouteName() == 'dashboard.jabatan' || Route::currentRouteName() == 'jabatan.add' || Route::currentRouteName() == 'jabatan.edit' ? 'stroke-red-600' : 'stroke-gray-400' }} h-6 w-6 text-gray-400 group-hover:stroke-red-600"
 							data-slot="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -162,7 +162,7 @@
 				<li>
 					<a
 						class="{{ Route::currentRouteName() == 'dashboard.golongan' || Route::currentRouteName() == 'golongan.add' || Route::currentRouteName() == 'golongan.edit' ? 'text-red-600 font-bold bg-gray-100 dark:bg-[#18181b]' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent hover:text-red-600' }} group flex items-center rounded-xl p-2"
-						href="{{ route('dashboard.golongan') }}" role="menuitem">
+						href="{{ route('dashboard.golongan') }}">
 						<svg
 							class="fi-sidebar-item-icon {{ Route::currentRouteName() == 'dashboard.golongan' || Route::currentRouteName() == 'golongan.add' || Route::currentRouteName() == 'golongan.edit' ? 'stroke-red-600' : 'stroke-gray-400' }} h-6 w-6 fill-none group-hover:stroke-red-600"
 							viewBox="0 0 24 24" fill="" xmlns="http://www.w3.org/2000/svg">
@@ -183,7 +183,7 @@
 				<li x-data="{ lokasi: {{ Route::is('dashboard.division') || Route::is('division.add') || Route::is('division.edit') || Route::is('dashboard.placement') || Route::is('placement.add') || Route::is('placement.edit') ? 'true' : 'false' }} }">
 					<button
 						class="{{ Route::is('dashboard.division') || Route::is('dashboard.placement') ? 'text-red-600 font-bold bg-gray-100 dark:bg-[#18181b]' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-[#18181b] hover:text-red-600' }} group flex w-full items-center rounded-xl p-2 text-base text-gray-900 transition duration-200"
-						type="button" aria-controls="dropdown-example" @click="lokasi = !lokasi" :aria-expanded="lokasi">
+						type="button" aria-controls="lokasi-dropdown" @click="lokasi = !lokasi" :aria-expanded="lokasi">
 						<svg
 							class="fi-sidebar-item-icon {{ Route::is('dashboard.division') || Route::is('dashboard.placement') ? 'fill-red-600' : 'fill-gray-400' }} h-6 w-6 text-gray-400 group-hover:fill-red-600"
 							id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
@@ -203,7 +203,7 @@
 						</svg>
 					</button>
 
-					<ul class="space-y-4 py-4" id="dropdown-example" x-show="lokasi"
+					<ul class="space-y-4 py-4" id="lokasi-dropdown" x-show="lokasi"
 						x-transition:enter="transition ease-in duration-200"
 						x-transition:enter-start="transform opacity-0 -translate-y-5"
 						x-transition:leave="transition ease-out duration-200"
@@ -264,7 +264,7 @@
 				<li x-data="{ usermanage: {{ Route::is('dashboard.users') || Route::is('users.add') || Route::is('users.edit') || Route::is('dashboard.permissions') || Route::is('permissions.add') || Route::is('permissions.edit') || Route::is('dashboard.roles') || Route::is('roles.add') || Route::is('roles.edit') ? 'true' : 'false' }} }">
 					<button
 						class="{{ Route::is('dashboard.users') || Route::is('dashboard.permissions') || Route::is('dashboard.roles') ? 'text-red-600 font-bold bg-gray-100 dark:bg-[#18181b]' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-[#18181b] hover:text-red-600' }} group flex w-full items-center rounded-xl p-2 text-base text-gray-900 transition duration-200"
-						type="button" aria-controls="dropdown-example" @click="usermanage = !usermanage" :aria-expanded="usermanage">
+						type="button" aria-controls="user-dropdown" @click="usermanage = !usermanage" :aria-expanded="usermanage">
 						<svg
 							class="fi-sidebar-item-icon {{ Route::is('dashboard.users') || Route::is('dashboard.permissions') || Route::is('dashboard.roles') ? 'stroke-red-600' : 'stroke-gray-400' }} h-6 w-6 text-gray-400 group-hover:stroke-red-600"
 							viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -291,7 +291,7 @@
 						</svg>
 					</button>
 
-					<ul class="space-y-4 py-4" id="dropdown-example" x-show="usermanage"
+					<ul class="space-y-4 py-4" id="user-dropdown" x-show="usermanage"
 						x-transition:enter="transition ease-in duration-200"
 						x-transition:enter-start="transform opacity-0 -translate-y-5"
 						x-transition:leave="transition ease-out duration-200"
