@@ -99,10 +99,26 @@ class PegawaiController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'kode_pegawai' => 'required',
+            'nik_pegawai' => 'required',
+            'full_name' => 'required',
+            'nick_name' => 'required',
+            'no_telp' => 'required',
+            'alamat' => 'required',
+            'jabatan' => 'required',
+            'golongan' => 'required',
+            'tgl_lahir' => 'required',
+        ]);
+
+        $lastID = Pegawai::latest('id')->first();
+        $newID = $lastID ? $lastID->id + 1 : 1;
+
         Pegawai::create([
+            'id' => $newID,
             'kode_pegawai' => $request->input('kode_pegawai'),
             'nik_pegawai' => $request->input('nik_pegawai'),
-            'full_name' => $request->input('nama_lengkap'),
+            'full_name' => $request->input('full_name'),
             'nick_name' => $request->input('nick_name'),
             'no_telp' => $request->input('no_telp'),
             'alamat' => $request->input('alamat'),
@@ -111,14 +127,18 @@ class PegawaiController extends Controller
             'tgl_lahir' => $request->input('tgl_lahir')
         ]);
 
-        $user = User::create([
-            'kode_pegawai' => $request->input('kode_pegawai'),
-            'name' => $request->input('nama_lengkap'),
-            'email' => $request->input('nick_name') . '@indodacin.com',
-            'password' => Hash::make($request->input('kode_pegawai')),
-        ]);
+        $makeUser = $request->input('make_user');
+        if ($makeUser == 'y') {
+            $user = User::create([
+                'kode_pegawai' => $request->input('kode_pegawai'),
+                'name' => $request->input('nama_lengkap'),
+                'email' => $request->input('nick_name') . $request->input('kode_pegawai') . '@indodacin.com',
+                'password' => Hash::make($request->input('kode_pegawai')),
+            ]);
 
-        $user->assignRole(7);
+            // assign ke role Employee
+            $user->assignRole(7);
+        }
 
         $photo = $request->input('photo1');
         if (!is_null($photo)) {
@@ -186,12 +206,12 @@ class PegawaiController extends Controller
         $user = User::where('kode_pegawai', $id)->first();
         $pegawai = Pegawai::where('kode_pegawai', $id)->first();
 
-        if ($user != null) {
-            $user->delete();
-            $pegawai->delete();
-        } else {
-            $pegawai->delete();
-        }
+        // if ($user != null) {
+        //     $user->delete();
+        //     $pegawai->delete();
+        // } else {
+        $pegawai->delete();
+        // }
 
         return redirect()->back()->with('status', 'Berhasil menghapus data pegawai.');
     }

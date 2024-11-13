@@ -43,11 +43,11 @@
 									id="nik_pegawai" name="nik_pegawai" type="text" placeholder="NIK" required="" pattern="[0-9]{1,17}">
 							</div>
 							<div class="w-full">
-								<label class="dark:text-white mb-2 block text-sm font-medium text-gray-900" for="nama_lengkap">Nama
+								<label class="dark:text-white mb-2 block text-sm font-medium text-gray-900" for="full_name">Nama
 									Lengkap</label>
 								<input
 									class="focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 bg-white p-2.5 text-sm text-gray-900"
-									id="nama_lengkap" name="nama_lengkap" type="text" placeholder="Nama lengkap" required="">
+									id="full_name" name="full_name" type="text" placeholder="Nama lengkap" required="">
 							</div>
 							<div class="w-full">
 								<label class="dark:text-white mb-2 block text-sm font-medium text-gray-900" for="nick_name">Nama
@@ -105,6 +105,17 @@
 									class="block w-full rounded-lg border border-gray-300 bg-white p-2.5 ps-10 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
 									id="tgl_lahir" name="tgl_lahir" type="text" datepicker datepicker-format="yyyy-mm-dd"
 									placeholder="Select date">
+							</div>
+
+							<div class="w-full sm:col-span-2">
+								<label class="dark:text-white mb-2 block text-sm font-medium text-gray-900" for="make_user">Buat akun
+									login?</label>
+								<select
+									class="focus:ring-primary-500 focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-white p-2.5 text-sm text-gray-900"
+									id="make_user" name="make_user">
+									<option value="t" selected>Tidak</option>
+									<option value="y">Ya</option>
+								</select>
 							</div>
 
 							<div class="sm:col-span-2">

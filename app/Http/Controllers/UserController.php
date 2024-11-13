@@ -77,15 +77,15 @@ class UserController extends Controller
 
                 if (auth()->user()->can('users-delete')) {
 
-                    if ($data->kode_pegawai != null) {
-                        $id = $data->kode_pegawai;
-                    } else {
-                        $id = $data->id;
-                    }
+                    // if ($data->kode_pegawai != null) {
+                    //     $id = $data->kode_pegawai;
+                    // } else {
+                    $id = $data->id;
+                    // }
                     // Tambahkan tombol delete
                     $actionButtons .= '
                         <button class="mx-1 group text-md font-medium rounded-lg focus:z-10 delete-btn"
-                            data-id="' . $id . '" data-modal-target="deleteModal" data-modal-toggle="deleteModal">
+                            data-id="' . $data->id . '" data-modal-target="deleteModal" data-modal-toggle="deleteModal">
                             &#x26D4; <span class="hover:underline" style="color: #E02424;"> Delete </span>
                         </button>';
                 }
@@ -192,11 +192,11 @@ class UserController extends Controller
         // Pegawai::find($id)->delete();
 
         // Find the user by ID
-        if (Auth::user()->kode_pegawai != null) {
-            $user = User::where('kode_pegawai', $id)->first();
-        } else {
-            $user = User::where('id', $id)->first();
-        }
+        // if (Auth::user()->kode_pegawai != null) {
+        //     $user = User::where('kode_pegawai', $id)->first();
+        // } else {
+        $user = User::where('id', $id)->first();
+        // }
 
         // $pegawai = Pegawai::where('kode_pegawai', $id)->first();
 
