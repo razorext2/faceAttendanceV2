@@ -1,4 +1,4 @@
-<nav class="dark:bg-[#18181b] dark:border-[#232327] fixed top-0 z-50 w-full border-b border-gray-200 bg-white shadow-sm">
+<nav class="dark:bg-[#18181b] dark:border-[#232327] fixed top-0 z-50 w-full border-b border-gray-200 bg-white">
 	<div class="px-3 py-3 lg:px-5 lg:pl-3">
 		<div class="flex items-center justify-between">
 			<div class="flex items-center justify-start">

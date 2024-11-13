@@ -84,7 +84,7 @@
 			@can('capture')
 				<li>
 					<a
-						class="{{ Route::currentRouteName() == 'dashboard.capture' ? 'text-red-600 font-bold bg-gray-100 dark:bg-[#18181b]' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent hover:text-red-600' }} flex items-center rounded-xl p-2"
+						class="{{ Route::currentRouteName() == 'dashboard.capture' ? 'text-red-600 font-bold bg-gray-100 dark:bg-[#18181b]' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent hover:text-red-600' }} group flex items-center rounded-xl p-2"
 						href="{{ route('dashboard.capture') }}" role="menuitem">
 						<svg
 							class="fi-sidebar-item-icon {{ Route::currentRouteName() == 'dashboard.capture' ? 'stroke-red-600' : 'stroke-gray-400' }} h-6 w-6 text-gray-400 group-hover:stroke-red-600"
