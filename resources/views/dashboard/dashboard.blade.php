@@ -96,19 +96,17 @@
 				</p>
 				<ul class="h-44 overflow-y-auto text-gray-700" aria-labelledby="dropdownUsersButton">
 					@foreach ($attendance_out_today as $at)
-						<li>
-							<p
-								class="dark:bg-red-700 dark:hover:bg-red-800 my-2 flex items-center rounded-lg bg-[#7678ed] p-2 text-xs text-white hover:bg-[#5d5ece]">
-								<img class="me-2 h-6 w-6 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-									alt="Jese image">
-								{{ $at->pegawaiRelasi->nick_name ?? 'N/A' }}, melakukan absensi
-								<span
-									class="dark:bg-red-900 dark:text-red-300 mx-1 rounded bg-red-100 px-1 py-0.5 text-xs font-medium text-red-800">
-									Keluar
-								</span>
-								pada pukul {{ \Carbon\Carbon::parse($at->jam_keluar)->format('H:i') }}
-							</p>
-						</li>
+						<p
+							class="dark:bg-red-700 dark:hover:bg-red-800 my-2 flex rounded-lg bg-red-500 bg-none p-2 text-xs text-white hover:bg-red-600">
+							<img class="me-3 h-6 w-6 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+								alt="Jese image">
+							<span class="leading-relaxed">
+								{{ $at->pegawaiRelasi->full_name ?? 'N/A' }}, melakukan absensi <b
+									class="rounded bg-red-800 px-1 py-0.5 text-white">Keluar</b> pada
+								pukul
+								{{ \Carbon\Carbon::parse($at->jam_keluar)->format('H:i') }}
+							</span>
+						</p>
 					@endforeach
 				</ul>
 			</div>

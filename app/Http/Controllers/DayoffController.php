@@ -17,6 +17,8 @@ class DayoffController extends Controller
 	 */
 	function __construct()
 	{
+		$this->middleware('permission:dayoff-list', ['only' => ['index']]);
+		$this->middleware('permission:dayoff-edit', ['only' => ['edit', 'update']]);
 		$this->middleware('permission:dayoff-delete', ['only' => ['destroy']]);
 		$this->middleware('permission:dayoff-confirm', ['only' => ['confirm', 'ignore']]);
 	}

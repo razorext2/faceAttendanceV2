@@ -102,25 +102,27 @@
 				</li>
 			@endcan
 
-			<li>
-				<a
-					class="{{ Route::currentRouteName() == 'dashboard.dayoff' || Route::currentRouteName() == 'dayoff.add' || Route::currentRouteName() == 'dayoff.edit' || Route::currentRouteName() == 'dayoff.detail' ? 'text-red-600 font-bold bg-gray-100 dark:bg-[#18181b]' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent hover:text-red-600' }} group flex items-center rounded-xl p-2"
-					href="{{ route('dashboard.dayoff') }}">
-					<svg
-						class="fi-sidebar-item-icon {{ Route::currentRouteName() == 'dashboard.dayoff' || Route::currentRouteName() == 'dayoff.add' || Route::currentRouteName() == 'dayoff.edit' || Route::currentRouteName() == 'dayoff.detail' ? 'stroke-red-600' : 'stroke-gray-400' }} h-6 w-6 text-gray-400 group-hover:stroke-red-600"
-						viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-						<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-						<g id="SVGRepo_iconCarrier">
-							<path
-								d="M3 5.5L5 3.5M21 5.5L19 3.5M9 9.5L15 15.5M15 9.5L9 15.5M20 12.5C20 16.9183 16.4183 20.5 12 20.5C7.58172 20.5 4 16.9183 4 12.5C4 8.08172 7.58172 4.5 12 4.5C16.4183 4.5 20 8.08172 20 12.5Z"
-								stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-						</g>
-					</svg>
+			@can('dayoff-list')
+				<li>
+					<a
+						class="{{ Route::currentRouteName() == 'dashboard.dayoff' || Route::currentRouteName() == 'dayoff.add' || Route::currentRouteName() == 'dayoff.edit' || Route::currentRouteName() == 'dayoff.detail' ? 'text-red-600 font-bold bg-gray-100 dark:bg-[#18181b]' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent hover:text-red-600' }} group flex items-center rounded-xl p-2"
+						href="{{ route('dashboard.dayoff') }}">
+						<svg
+							class="fi-sidebar-item-icon {{ Route::currentRouteName() == 'dashboard.dayoff' || Route::currentRouteName() == 'dayoff.add' || Route::currentRouteName() == 'dayoff.edit' || Route::currentRouteName() == 'dayoff.detail' ? 'stroke-red-600' : 'stroke-gray-400' }} h-6 w-6 text-gray-400 group-hover:stroke-red-600"
+							viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+							<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+							<g id="SVGRepo_iconCarrier">
+								<path
+									d="M3 5.5L5 3.5M21 5.5L19 3.5M9 9.5L15 15.5M15 9.5L9 15.5M20 12.5C20 16.9183 16.4183 20.5 12 20.5C7.58172 20.5 4 16.9183 4 12.5C4 8.08172 7.58172 4.5 12 4.5C16.4183 4.5 20 8.08172 20 12.5Z"
+									stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+							</g>
+						</svg>
 
-					<span class="ms-3 flex-1 whitespace-nowrap text-sm">Time Off</span>
-				</a>
-			</li>
+						<span class="ms-3 flex-1 whitespace-nowrap text-sm">Time Off</span>
+					</a>
+				</li>
+			@endcan
 
 			@can('pegawai-list')
 				<li>

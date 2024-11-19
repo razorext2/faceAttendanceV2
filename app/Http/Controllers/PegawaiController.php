@@ -230,15 +230,14 @@ class PegawaiController extends Controller
     public function getPegawai()
     {
         // cek data pegawai yang kolom storagenya tidak kosong
-        $kode = Pegawai::whereNotNull('storage')->pluck('kode_pegawai');
-        return response()->json($kode);
+        $data = Pegawai::whereNotNull('storage')->pluck('kode_pegawai');
+        return response()->json($data);
     }
 
-    public function getPegawaiByID($id)
+    public function getPegawaiByKode()
     {
-        // cek data pegawai yang kolom storagenya tidak kosong
-        $kode = Pegawai::where('kode_pegawai', Auth::user()->kode_pegawai)->pluck('kode_pegawai');
-        return response()->json($kode);
+        $data = Pegawai::where('kode_pegawai', Auth::user()->kode_pegawai)->pluck('kode_pegawai');
+        return response()->json($data);
     }
 
     public function getPegawaiImages($storage)

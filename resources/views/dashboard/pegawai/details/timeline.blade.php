@@ -51,7 +51,7 @@
 						</p>
 					</div>
 
-					<div class="h-[500px] rounded-lg" id="map"></div>
+					<div class="z-10 h-[500px] rounded-lg" id="map"></div>
 				</div>
 			</div>
 		</div>
