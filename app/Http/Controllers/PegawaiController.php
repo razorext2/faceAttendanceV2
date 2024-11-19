@@ -21,6 +21,7 @@ use App\Models\Deduction;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Role;
 
 class PegawaiController extends Controller
 {
@@ -94,7 +95,8 @@ class PegawaiController extends Controller
     {
         $jabatan = Jabatan::all();
         $golongan = Golongan::all();
-        return view('dashboard.pegawai.add', compact('jabatan', 'golongan'));
+        $roles = Role::pluck('name', 'name')->all();
+        return view('dashboard.pegawai.add', compact('jabatan', 'golongan', 'roles'));
     }
 
     public function store(Request $request)
@@ -132,12 +134,13 @@ class PegawaiController extends Controller
             $user = User::create([
                 'kode_pegawai' => $request->input('kode_pegawai'),
                 'name' => $request->input('full_name'),
-                'email' => $request->input('nick_name') . $request->input('kode_pegawai') . '@indodacin.com',
+                'email' =>  strtolower($request->input('nick_name')) . $request->input('kode_pegawai') . '@indodacin.com',
                 'password' => Hash::make($request->input('kode_pegawai')),
             ]);
 
             // assign ke role Employee
-            $user->assignRole(7);
+            // $user->assignRole(7);
+            $user->assignRole($request->input('roles'));
         }
 
         $photo = $request->input('photo1');

@@ -17,6 +17,7 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\CaptureController;
 use App\Http\Controllers\AllowanceController;
 use App\Http\Controllers\DeductionController;
+use App\Http\Controllers\CollectController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 
@@ -55,7 +56,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard/pegawai/{pegawai}/timeline', [PegawaiController::class, 'timeline'])->name('pegawai.timeline');
     Route::resource('/dashboard/pegawai/allowances', AllowanceController::class);
     Route::resource('/dashboard/pegawai/deductions', DeductionController::class);
-
 
     // jabatan
     Route::get('/getdata-jabatan', [JabatanController::class, 'getData'])->name('getDataJabatan');
@@ -145,6 +145,9 @@ Route::middleware('auth')->group(function () {
 
     // record attendance
     Route::get('dashboard/capture', [CaptureController::class, 'index'])->name('dashboard.capture');
+
+    // halaman buat kolektor
+    Route::resource('dashboard/collect', CollectController::class);
 });
 
 require __DIR__ . '/auth.php';

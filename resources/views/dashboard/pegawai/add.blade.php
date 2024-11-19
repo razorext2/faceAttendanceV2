@@ -112,9 +112,24 @@
 									login?</label>
 								<select
 									class="focus:ring-primary-500 focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-white p-2.5 text-sm text-gray-900"
-									id="make_user" name="make_user">
+									id="make_user" name="make_user" onchange="addRoles()">
 									<option value="t" selected>Tidak</option>
 									<option value="y">Ya</option>
+								</select>
+							</div>
+
+							<div class="col-span-2 hidden max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-in-out"
+								id="rolesSection">
+								<label class="dark:text-white mb-2 block text-sm font-medium text-gray-900" for="roles">Roles</label>
+								<select
+									class="focus:ring-primary-500 focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-white p-2.5 text-sm text-gray-900"
+									id="roles" name="roles[]">
+									<option value=""> Pilih Role </option>
+									@foreach ($roles as $value => $label)
+										<option value="{{ $value }}">
+											{{ $label }}
+										</option>
+									@endforeach
 								</select>
 							</div>
 
@@ -278,6 +293,30 @@
 					}, 3000); // Jeda sebelum menangkap foto kedua
 				});
 			}
+		}
+
+		function addRoles() {
+			let makeUser = document.getElementById('make_user').value;
+			let roles = document.getElementById('rolesSection');
+
+			if (makeUser === 'y') {
+				roles.classList.remove('hidden');
+				setTimeout(function() {
+					roles.classList.remove("opacity-0", "max-h-0");
+					roles.classList.add("opacity-100", "max-h-screen");
+				}, 10)
+			} else {
+				roles.classList.add("opacity-0", "max-h-0");
+				roles.classList.remove("opacity-100", "max-h-screen");
+				setTimeout(function() {
+					roles.classList.add('hidden');
+				}, 500)
+
+			}
+		}
+
+		window.onload = function() {
+			addRoles();
 		}
 
 		// Event listener untuk tombol capture
