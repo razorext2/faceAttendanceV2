@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\CollectResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Yajra\DataTables\Facades\DataTables;
 
 class ApiCollectorController extends Controller
 {
@@ -15,8 +16,12 @@ class ApiCollectorController extends Controller
      */
     public function index()
     {
-        $query = Collector::latest()->paginate(10);
-        return new CollectResource(true, 'List Data Collect', $query);
+        $query = Collector::with('photoCollectRelasi')->latest()->get();
+        return DataTables::of($query)
+            ->editColumn('created_updated_at', function ($data) {
+                return $data->created_at->locale('id')->isoFormat('D MMM YY H:m:s') . ' / ' . $data->updated_at->locale('id')->isoFormat('D MMM YY H:m:s');
+            })
+            ->make(true);
     }
 
     /**
@@ -24,26 +29,31 @@ class ApiCollectorController extends Controller
      */
     public function store(Request $request)
     {
-        // define validator
+        // Mendefinisikan validator
         $validator = Validator::make($request->all(), [
             'kode_pegawai' => 'required|integer|max_digits:12',
             'title' => 'required|string|max:32',
             'keterangan' => 'required|string|max:512'
         ]);
 
-        // validasi data
+        // Validasi data
         if ($validator->fails()) {
-            return response()->json($validator->errors(), 422);
+            return response()->json([
+                'success' => false,
+                'errors' => $validator->errors()
+            ], 422); // Mengirim status 422 untuk validasi gagal
         }
 
-        // tambah data jika validasi pass
+        // Menambah data jika validasi berhasil
         $query = Collector::create([
             'kode_pegawai' => $request->kode_pegawai,
             'title' => $request->title,
             'keterangan' => $request->keterangan,
         ]);
 
-        return new CollectResource(true, 'Data berhasil ditambah!', $query);
+        if ($request->isJson()) {
+            return new CollectResource(true, 'Data berhasil ditambah!', $query);
+        }
     }
 
     /**

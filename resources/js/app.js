@@ -1,2 +1,7 @@
 import "./bootstrap";
-import "flowbite"; // Ensure flowbite is imported if necessary
+import "flowbite";
+import Swal from "sweetalert2";
+import Quill from "quill";
+
+window.Quill = Quill;
+window.Swal = Swal;

@@ -107,98 +107,105 @@
 			</div>
 		</div>
 	</div>
-
-	<script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
+@endsection
+@push('script')
 	<script>
-		// Ensure you import Quill and its CSS correctly
-		const BlockEmbed = Quill.import('blots/block/embed');
+		function quillEditor() {
+			// Ensure you import Quill and its CSS correctly
+			const BlockEmbed = window.Quill.import('blots/block/embed');
 
-		// Create a custom blot
-		class CustomEmbed extends BlockEmbed {
-			static create(value) {
-				let node = super.create();
-				node.setAttribute('data-value', value);
-				return node;
-			}
-
-			static formats(node) {
-				return node.getAttribute('data-value');
-			}
-		}
-
-		// Register the custom blot
-		CustomEmbed.blotName = 'customEmbed'; // The name you want to use
-		CustomEmbed.tagName = 'div'; // HTML tag
-		Quill.register(CustomEmbed);
-
-		// Initialize Quill
-		const quill = new Quill('#editor', {
-			theme: 'snow',
-			placeholder: 'Tulis keterangan...',
-			modules: {
-				toolbar: [
-					[{
-						'header': [1, 2, false]
-					}],
-					['bold', 'italic', 'underline'],
-					['image', 'code-block'],
-					[{
-						'list': 'ordered'
-					}, {
-						'list': 'bullet'
-					}]
-				],
-			}
-		});
-
-		// Register the image handler
-		quill.getModule('toolbar').addHandler('image', imageHandler);
-
-		// Image handler function
-		function imageHandler() {
-			const input = document.createElement('input');
-			input.setAttribute('type', 'file');
-			input.setAttribute('accept', 'image/*');
-			input.click();
-
-			input.onchange = async () => {
-				const file = input.files[0];
-
-				if (file) {
-					const formData = new FormData();
-					formData.append('image', file);
-
-					// Use fetch API to upload the image
-					const response = await fetch('/upload-image', {
-						method: 'POST',
-						headers: {
-							'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute(
-								'content')
-						},
-						body: formData
-					});
-
-					if (response.ok) {
-						const data = await response.json();
-						const range = quill.getSelection();
-						if (range) {
-							quill.insertEmbed(range.index, 'image', data.url); // Insert the image into Quill
-						} else {
-							console.error('No selection in Quill to insert image');
-						}
-					} else {
-						console.error('Failed to upload image');
-					}
+			// Create a custom blot
+			class CustomEmbed extends BlockEmbed {
+				static create(value) {
+					let node = super.create();
+					node.setAttribute('data-value', value);
+					return node;
 				}
+
+				static formats(node) {
+					return node.getAttribute('data-value');
+				}
+			}
+
+			// Image handler function
+			function imageHandler() {
+				const input = document.createElement('input');
+				input.setAttribute('type', 'file');
+				input.setAttribute('accept', 'image/*');
+				input.click();
+
+				input.onchange = async () => {
+					const file = input.files[0];
+
+					if (file) {
+						const formData = new FormData();
+						formData.append('image', file);
+
+						// Use fetch API to upload the image
+						const response = await fetch('/upload-image', {
+							method: 'POST',
+							headers: {
+								'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute(
+									'content')
+							},
+							body: formData
+						});
+
+						if (response.ok) {
+							const data = await response.json();
+							const range = quill.getSelection();
+							if (range) {
+								quill.insertEmbed(range.index, 'image', data.url); // Insert the image into Quill
+							} else {
+								console.error('No selection in Quill to insert image');
+							}
+						} else {
+							console.error('Failed to upload image');
+						}
+					}
+				};
+			}
+
+			// Register the custom blot
+			CustomEmbed.blotName = 'customEmbed'; // The name you want to use
+			CustomEmbed.tagName = 'div'; // HTML tag
+			Quill.register(CustomEmbed);
+
+			// Initialize Quill
+			const quill = new Quill('#editor', {
+				theme: 'snow',
+				placeholder: 'Tulis keterangan...',
+				modules: {
+					toolbar: [
+						[{
+							'header': [1, 2, false]
+						}],
+						['bold', 'italic', 'underline'],
+						['image', 'code-block'],
+						[{
+							'list': 'ordered'
+						}, {
+							'list': 'bullet'
+						}]
+					],
+				}
+			});
+
+			document.querySelector('.ql-toolbar').classList.add('dark:bg-white', 'rounded-t-lg');
+			document.querySelector('.ql-picker').classList.add('dark:bg-white');
+			document.getElementById('editor').classList.add('!h-96', 'rounded-b-lg');
+
+			// Kirim isi dari konten ke textarea
+			document.getElementById('content-form').onsubmit = function() {
+				const content = document.getElementById('keterangan');
+				content.value = quill.root.innerHTML; // Get the HTML content
 			};
+
+			// Register the image handler
+			quill.getModule('toolbar').addHandler('image', imageHandler);
 		}
 
-		document.getElementById('content-form').onsubmit = function() {
-			const content = document.getElementById('keterangan');
-			content.value = quill.root.innerHTML; // Get the HTML content
-		};
-
-		$(document).ready(function() {
+		function searchDataHandler() {
 			$('#name').on('input', function() {
 				let query = $(this).val();
 
@@ -247,12 +254,11 @@
 
 				$('#autocomplete-results').empty(); // Kosongkan hasil setelah memilih
 			});
-		});
+		}
 
-		document.addEventListener("DOMContentLoaded", function() {
-			document.querySelector('.ql-toolbar').classList.add('dark:bg-white', 'rounded-t-lg');
-			document.querySelector('.ql-picker').classList.add('dark:bg-white');
-			document.getElementById('editor').classList.add('!h-96', 'rounded-b-lg');
+		$(document).ready(function() {
+			searchDataHandler()
+			quillEditor()
 		});
 	</script>
-@endsection
+@endpush

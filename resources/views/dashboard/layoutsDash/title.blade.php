@@ -41,6 +41,16 @@
 		<h2 class="dark:text-white text-2xl font-bold tracking-tight text-gray-950 sm:text-3xl">Edit Divisi
 		</h2>
 		<!-- end division -->
+		<!-- collect -->
+	@elseif (Route::currentRouteName() == 'collect.index')
+		<h2 class="dark:text-white text-2xl font-bold tracking-tight text-gray-950 sm:text-3xl">Laporan Kolektor</h2>
+	@elseif (Route::currentRouteName() == 'collect.create')
+		<h2 class="dark:text-white text-2xl font-bold tracking-tight text-gray-950 sm:text-3xl">Tambah
+			Laporan</h2>
+	@elseif (Route::currentRouteName() == 'collect.edit')
+		<h2 class="dark:text-white text-2xl font-bold tracking-tight text-gray-950 sm:text-3xl">Edit Laporan
+		</h2>
+		<!-- end collect -->
 		<!-- placement -->
 	@elseif (Route::currentRouteName() == 'dashboard.placement')
 		<h2 class="dark:text-white text-2xl font-bold tracking-tight text-gray-950 sm:text-3xl">Penempatan

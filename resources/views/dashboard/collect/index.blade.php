@@ -2,21 +2,21 @@
 @section('content')
 	<form id="add-collector" action="{{ route('collect.create') }}"></form>
 	<div class="relative grid grid-cols-1 gap-6">
-		@can('collect-create')
-			<div class="absolute left-2 top-48 z-10 max-w-xs sm:left-auto sm:right-6 md:top-40 lg:left-6 lg:right-auto lg:top-24">
-				<button
-					class="dark:bg-green-800 dark:text-white dark:hover:bg-green-900 dark:ring-gray-700 flex flex-row rounded-lg px-4 py-2 ring-1 ring-green-700 hover:bg-green-300 lg:px-8"
-					form="add-collector">
-					<svg class="dark:fill-white rotate-180" class="icon" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
-						viewBox="0 0 1024 1024" fill="#000000" version="1.1">
-						<path
-							d="M669.6 849.6c8.8 8 22.4 7.2 30.4-1.6s7.2-22.4-1.6-30.4l-309.6-280c-8-7.2-8-17.6 0-24.8l309.6-270.4c8.8-8 9.6-21.6 2.4-30.4-8-8.8-21.6-9.6-30.4-2.4L360.8 480.8c-27.2 24-28 64-0.8 88.8l309.6 280z"
-							fill="" />
-					</svg>
-					<span class="hidden sm:block">Tambah</span> <span class="hidden sm:block">Data</span>
-				</button>
-			</div>
-		@endcan
+		{{-- @can('collect-add') --}}
+		<div class="absolute left-2.5 top-48 z-10 max-w-xs sm:left-auto sm:right-6 md:top-40 lg:left-6 lg:right-auto lg:top-24">
+			<button
+				class="dark:bg-green-800 dark:text-white dark:hover:bg-green-900 dark:ring-gray-700 flex flex-row rounded-lg px-4 py-2 ring-1 ring-green-700 hover:bg-green-300 lg:px-8"
+				form="add-collector">
+				<svg class="dark:fill-white rotate-180" class="icon" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+					viewBox="0 0 1024 1024" fill="#000000" version="1.1">
+					<path
+						d="M669.6 849.6c8.8 8 22.4 7.2 30.4-1.6s7.2-22.4-1.6-30.4l-309.6-280c-8-7.2-8-17.6 0-24.8l309.6-270.4c8.8-8 9.6-21.6 2.4-30.4-8-8.8-21.6-9.6-30.4-2.4L360.8 480.8c-27.2 24-28 64-0.8 88.8l309.6 280z"
+						fill="" />
+				</svg>
+				<span class="hidden sm:block">Tambah</span> <span class="hidden sm:block">Data</span>
+			</button>
+		</div>
+		{{-- @endcan --}}
 		<div class="flex h-auto items-center justify-center">
 			<div
 				class="dark:bg-[#18181b] dark:ring-gray-700 grid w-full grid-cols-2 gap-2 rounded-xl bg-white p-2 shadow-sm ring-1 ring-gray-200 md:gap-4 md:p-6">
@@ -89,17 +89,17 @@
 							<tr>
 								<th>
 									<span class="dark:text-white flex items-center text-gray-800">
+										Action
+									</span>
+								</th>
+								<th>
+									<span class="dark:text-white flex items-center text-gray-800">
 										Kode Pegawai
 									</span>
 								</th>
 								<th>
 									<span class="dark:text-white flex items-center text-gray-800">
 										Judul
-									</span>
-								</th>
-								<th>
-									<span class="dark:text-white flex items-center text-gray-800">
-										Keterangan
 									</span>
 								</th>
 								<th>
@@ -126,26 +126,39 @@
 				"lengthMenu": [15, 25, 50, 75, 100, -1],
 				ajax: {
 					url: "{{ route('collectors.index') }}",
-					type: "GET"
+					type: "GET",
+					dataSrc: 'data',
 				},
 				columns: [{
-						data: 'kode_pegawai',
-						name: 'kode_pegawai'
+						data: null,
+						name: "actions",
+						render: function(data, type, row) {
+							return `
+							<div class="inline-flex" role="group">
+								<a href="collect/${row.id}/edit"class="mx-1 text-md font-medium rounded-lg focus:z-10">
+									&#9999; <span class="hover:underline" style="color: #057A55"> Edit </span>
+								</a>
+								<button class="mx-1 group text-md font-medium rounded-lg focus:z-10 delete-btn" data-id="" data-modal-target="deleteModal" data-modal-toggle="deleteModal">
+									&#x26D4; <span class="hover:underline" style="color: #E02424;"> Delete </span>
+								</button>
+							</div>
+						`
+						}
 					},
 					{
-						data: 'title',
-						name: 'title'
+						data: "kode_pegawai",
+						name: "kode_pegawai"
 					},
 					{
-						data: 'keterangan',
-						name: 'keterangan'
+						data: "title",
+						name: "title"
 					},
 					{
-						data: 'created_at',
-						name: 'created_at'
+						data: "created_updated_at",
+						name: "created_updated_at",
 					}
 				],
-				dom: `<"absolute top-1 md:left-0 {{ auth()->user()->can('collect-create') ? 'lg:left-48 right-0' : '' }} mt-14 lg:mt-0 dark:text-white max-w-xs"B><"text-left lg:text-right dark:text-white"l><"relative overflow-x-auto w-full mt-20 lg:mt-4"t><"grid text-center gap-6 lg:grid-cols-2 mt-4 dark:text-white"<"lg:mt-3 lg:text-left"i><"lg:text-right dark:text-gray-900"p>>`,
+				dom: `<"absolute top-1 md:left-0 {{ auth()->user()->can('divisi-create') ? 'lg:left-48 right-0' : '' }} mt-14 lg:mt-0 dark:text-white max-w-xs"B><"text-left lg:text-right dark:text-white"l><"relative overflow-x-auto w-full mt-20 lg:mt-4"t><"grid text-center gap-6 lg:grid-cols-2 mt-4 dark:text-white"<"lg:mt-3 lg:text-left"i><"lg:text-right dark:text-gray-900"p>>`,
 				buttons: [{
 						extend: "csv",
 						exportOptions: {

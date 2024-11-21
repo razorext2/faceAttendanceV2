@@ -20,15 +20,7 @@ class CollectController extends Controller
      */
     public function create()
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
+        return view('dashboard.collect.add');
     }
 
     /**
@@ -36,7 +28,7 @@ class CollectController extends Controller
      */
     public function show(Collector $collect)
     {
-        //
+        return view('dashboard.collect.detail');
     }
 
     /**
@@ -44,15 +36,7 @@ class CollectController extends Controller
      */
     public function edit(Collector $collect)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Collector $collect)
-    {
-        //
+        return view('dashboard.collect.edit');
     }
 
     /**

@@ -3,13 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Allowance;
-use App\Models\Pegawai;
-use Yajra\DataTables\Facades\DataTables;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Number;
-use Illuminate\Support\Facades\Crypt;
 
 class AllowanceController extends Controller
 {

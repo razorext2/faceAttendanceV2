@@ -14,4 +14,10 @@ class Collector extends Model
         'title',
         'keterangan'
     ];
+
+    // buat relasi hasMany, karena tiap data collect dapat memiliki banyak data photocollect
+    public function photoCollectRelasi()
+    {
+        return $this->hasMany(PhotoCollect::class, 'id_collect');
+    }
 }
