@@ -5,7 +5,7 @@
 		let allowance_id = $(this).data('id');
 		let token = $("meta[name='csrf-token']").attr("content");
 
-		Swal.fire({
+		window.Swal.fire({
 			title: 'Apakah Kamu Yakin?',
 			text: "ingin menghapus data ini!",
 			icon: 'warning',
@@ -25,7 +25,7 @@
 					success: function(response) {
 
 						//show success message
-						Swal.fire({
+						window.Swal.fire({
 							icon: 'success',
 							title: `${response.message}`,
 							showConfirmButton: false,

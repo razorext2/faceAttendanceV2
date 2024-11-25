@@ -3,6 +3,8 @@
 	<div class="rounded-lg" id="timeline" role="tabpanel" aria-labelledby="timeline-tab">
 		<div class="w-full">
 			<div class="grid gap-6 md:grid-cols-2">
+
+				{{-- search --}}
 				<div class="w-full md:col-span-2">
 					<form id="dateForm" action="{{ route('pegawai.timeline', ['pegawai' => $pegawai->kode_pegawai]) }}" method="GET">
 						@csrf
@@ -17,14 +19,16 @@
 							</div>
 							<input
 								class="dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-white px-2.5 py-4 ps-10 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
-								id="datepicker-actions" type="text" datepicker datepicker-buttons datepicker-autoselect-today
-								placeholder="Filter tanggal">
+								id="datepicker-actions" name="date" type="text" datepicker datepicker-buttons datepicker-autoselect-today
+								placeholder="Filter tanggal" autocomplete="off">
 							<button
 								class="dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 absolute bottom-2.5 end-2.5 rounded-lg bg-blue-700 px-4 py-2 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300"
 								type="submit">Search</button>
 						</div>
 					</form>
 				</div>
+				{{-- endsearch --}}
+
 				<div class="dark:bg-[#18181b] dark:border-gray-700 w-full rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
 					<div class="mb-4">
 						<p class="dark:text-white text-xl font-bold leading-none text-gray-900 md:text-2xl">{{ $pegawai->full_name }}</p>
@@ -39,7 +43,78 @@
 						</p>
 					</div>
 
-					<ol class="dark:border-gray-700 relative ml-3 border-s border-gray-200" id="timelineContent"></ol>
+					<ol class="dark:border-gray-700 relative ml-3 border-s border-gray-200" id="timelineContent">
+						@if ($attendances->isNotEmpty())
+							@foreach ($attendances as $data)
+								@php
+									$path = asset(sha1('libs') . '/' . $data->photoURL . '.png'); // Gabungkan URL
+
+									if (is_null($data->longitude)) {
+									    $isOnsite = true;
+									} else {
+									    $isOnsite = false;
+									}
+									for ($i = 0; $i <= $attendances->count(); $i++);
+								@endphp
+
+								<li class="relative mb-10 ms-8">
+
+									@if ($data->type == 'Check-in')
+										<span
+											class="dark:bg-green-900 absolute -start-11 flex h-6 w-6 items-center justify-center rounded-full bg-green-800">
+											<svg class="dark:text-green-300 h-2.5 w-2.5 text-green-100" aria-hidden="true"
+												xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+												<path
+													d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+											</svg>
+										</span>
+									@elseif ($data->type == 'Checkpoint')
+										<span
+											class="dark:bg-yellow-900 absolute -start-11 flex h-6 w-6 items-center justify-center rounded-full bg-yellow-800">
+											<svg class="dark:text-yellow-300 h-2.5 w-2.5 text-yellow-100" aria-hidden="true"
+												xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+												<path
+													d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+											</svg>
+										</span>
+									@else
+										<span
+											class="dark:bg-red-900 absolute -start-11 flex h-6 w-6 items-center justify-center rounded-full bg-red-800">
+											<svg class="dark:text-red-300 h-2.5 w-2.5 text-red-100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+												fill="currentColor" viewBox="0 0 20 20">
+												<path
+													d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+											</svg>
+										</span>
+									@endif
+
+									<h3 class="dark:text-white mb-1 flex items-center text-lg font-semibold text-gray-900">
+										{{ $data->type }}
+										{{-- @if ($isOnsite)
+											<span
+												class="dark:bg-green-900 dark:text-green-300 me-2 ms-3 rounded bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">
+												Onsite
+											</span>
+										@else
+											<span
+												class="dark:bg-yellow-900 dark:text-yellow-300 me-2 ms-3 rounded bg-yellow-100 px-2.5 py-0.5 text-sm font-medium text-yellow-800">Rute</span>
+										@endif --}}
+									</h3>
+									<span class="dark:text-gray-300 text-md mb-2 block font-normal leading-none text-gray-400">
+										{{ $isOnsite ? 'Tidak ada data koordinat' : $data->longitude . ', ' . $data->latitude }}
+									</span>
+									<time class="dark:text-gray-500 mb-2 block text-sm font-normal leading-none text-gray-400">
+										{{ Carbon\Carbon::parse($data->time)->locale('id')->isoFormat('DD MMM YYYY HH:mm:ss') }}
+									</time>
+									<img class="absolute !-top-2.5 right-0 h-16 w-16 rounded-lg object-cover" src="{{ $path }}"
+										alt="Foto">
+								</li>
+							@endforeach
+						@else
+							<h1 class="text-center text-lg font-semibold text-gray-500">Tidak ada data</h1>
+						@endif
+
+					</ol>
 
 				</div>
 
@@ -61,8 +136,8 @@
 		document.addEventListener('DOMContentLoaded', function() {
 			// Fungsi untuk inisialisasi peta dengan koordinat yang diberikan
 			function initializeMap() {
-				// Inisialisasi peta tanpa titik awal, kita akan menggunakan fitBounds
-				var map = L.map('map');
+				// Inisialisasi peta tanpa titik awal
+				var map = L.map('map').setView([3.591516090416829, 98.66902828216554], 13); // Default location
 
 				// Menambahkan Tile Layer dari OpenStreetMap
 				L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -72,30 +147,16 @@
 
 				// Koordinat Titik Awal, Titik Tengah, dan Titik Akhir dengan deskripsi
 				var waypoints = [
-					@if (!is_null($data2) && $data2->isNotEmpty())
-						@foreach ($data2 as $index => $item)
-							@if (!is_null($item->latitude) && !is_null($item->longitude))
-								{
-									coords: L.latLng({{ $item->latitude }}, {{ $item->longitude }}),
-									name: '<p>Lokasi {{ $index + 1 }}</p><p>Koordinat: {{ $item->latitude }}, {{ $item->longitude }}</p><p>Waktu: {{ $item->created_at }}</p>'
-								},
-							@endif
-						@endforeach
-					@endif
-
-					// Tambahkan titik default jika tidak ada data yang valid
-					@if (
-						$data2->isEmpty() ||
-							!$data2->contains(function ($item) {
-								return !is_null($item->latitude) && !is_null($item->longitude);
-							}))
+					@foreach ($attendances as $data)
 						{
-							coords: L.latLng(3.591516090416829, 98.66902828216554),
-							name: 'Lokasi Default'
-						}
-					@endif
+							coords: L.latLng({{ $data->latitude ? $data->latitude : '3.591516090416829' }},
+								{{ $data->longitude ? $data->longitude : '98.66902828216554' }}),
+							name: '{{ $data->type ?? 'Unknown Location' }}' // Ganti 'location_name' dengan nama lokasi atau deskripsi lain
+						},
+					@endforeach
 				];
 
+				// Custom icon untuk marker
 				var customIcon = L.icon({
 					iconUrl: "{{ asset('assets/img/marker.png') }}", // Ganti dengan path ke ikon Anda
 					iconSize: [25, 41], // Ukuran ikon
@@ -104,165 +165,56 @@
 					shadowSize: [41, 41] // Ukuran bayangan
 				});
 
+				// Menambahkan marker untuk setiap titik di waypoints
+				waypoints.forEach(function(point) {
+					L.marker(point.coords, {
+							icon: customIcon
+						})
+						.addTo(map)
+						.bindPopup(`<b>${point.name}</b>`);
+				});
+
 				// Menentukan bounds (batas) untuk menampilkan semua marker
-				var bounds = L.latLngBounds(waypoints.map(point => point.coords));
-				map.fitBounds(bounds); // Otomatis menyesuaikan peta agar mencakup semua titik
+				if (waypoints.length > 1) {
+					var bounds = L.latLngBounds(waypoints.map(point => point.coords));
+					map.fitBounds(bounds); // Otomatis menyesuaikan peta agar mencakup semua titik
+				}
 
 				// Menambahkan Routing dari Titik Awal ke Titik Akhir
-				L.Routing.control({
-					waypoints: waypoints.map(point => point.coords),
-					routeWhileDragging: false, // Mencegah rute diubah saat dragging
-					createMarker: function(i, waypoint, n) {
-						// Menambahkan marker dengan pop-up informasi
-						return L.marker(waypoint.latLng, {
-							icon: customIcon,
-							draggable: false // Menonaktifkan draggable pada marker
-						}).bindPopup(`<b>${waypoints[i].name}</b>`);
-					},
-					router: L.Routing.osrmv1({
-						serviceUrl: 'https://router.project-osrm.org/route/v1/'
-					}),
-					show: false // Menyembunyikan panel rute di map
-				}).addTo(map);
-			}
-
-			function getTimeline() {
-				timelineContent = document.getElementById('timelineContent');
-
-				fetch(
-						`/api/get-attendance-data?id={{ $pegawai->kode_pegawai }}&date={{ \Carbon\Carbon::parse(Request::query('date'))->isoFormat('Y-MM-DD') }}`
-					)
-					.then(response => response.json())
-					.then(data => {
-						// Membuat tabel untuk data kehadiran
-						let checkIn = '';
-						let checkOut = '';
-
-						// Membuat daftar check-in
-						if (data.attendance.length > 0) {
-							data.attendance.forEach(item => {
-								const jamMasuk = new Date(item.jam_masuk);
-								const formattedjamMasuk = jamMasuk.toLocaleTimeString(
-									'id-ID', {
-										year: 'numeric',
-										month: 'long',
-										day: 'numeric',
-									});
-
-								const photoURL = '{{ sha1('libs') }}'; // Ambil dari Blade
-								const url = item.photoURL; // URL dari item
-								const path = `{{ asset('') }}${photoURL}/${url}.png`; // Gabungkan URL
-								const long_lat = `${item.longitude}, ${item.latitude}`;
-
-								// Check if latitude or longitude is null
-								const isOnsite = item.longitude === null || item.latitude === null;
-
-								checkIn += `
-                                    <li class="mb-10 ms-8 relative">
-                                        <span class="dark:bg-green-900 absolute -start-11 flex h-6 w-6 items-center justify-center rounded-full bg-green-800">
-                                            <svg class="dark:text-green-300 h-2.5 w-2.5 text-green-100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                                fill="currentColor" viewBox="0 0 20 20">
-                                                <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
-                                            </svg>
-                                        </span>
-                                        <h3 class="dark:text-white mb-1 flex items-center text-lg font-semibold text-gray-900">
-                                            Check-in
-                                            ${isOnsite ? `<span class="bg-green-100 text-green-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300 ms-3">Onsite</span>` : '<span class="bg-yellow-100 text-yellow-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300 ms-3">Rute</span>'}
-                                        </h3>
-                                        <span class="dark:text-gray-300 mb-2 block text-md font-normal leading-none text-gray-400">
-											${isOnsite ? `Tidak ada data koordinat` : `${long_lat}`}	
-										</span>
-                                        <time class="dark:text-gray-500 mb-2 block text-sm font-normal leading-none text-gray-400">${formattedjamMasuk}</time>
-                                        <img src="${path}" alt="Foto" class="absolute right-0 !-top-2.5 object-cover w-16 h-16 rounded-lg">
-                                    </li>
-                                `;
-							});
-						}
-
-						// Membuat daftar check-out
-						if (data.attendanceOut.length > 0) {
-							const totalCount = data.attendanceOut.length; // Hitung total data
-
-							data.attendanceOut.forEach((item, index) => {
-								const jamKeluar = new Date(item.jam_keluar);
-								const formattedjamKeluar = jamKeluar.toLocaleTimeString('id-ID', {
-									year: 'numeric',
-									month: 'long',
-									day: 'numeric',
-								});
-
-								const photoURL = '{{ sha1('libs') }}'; // Ambil dari Blade
-								const url = item.photoURL; // URL dari item
-								const path = `{{ asset('') }}${photoURL}/${url}.png`; // Gabungkan URL
-								const long_lat = `${item.longitude}, ${item.latitude}`;
-
-								const isOnsite = item.longitude === null || item.latitude === null;
-
-								// Tentukan teks berdasarkan indeks
-								let statusText = 'Check-out'; // Default untuk data terakhir
-								let iconColor = 'red';
-								if (index < totalCount - 1) {
-									statusText = 'Checkpoint';
-									iconColor = 'yellow';
-								}
-
-								checkOut += `
-									<li class="mb-10 ms-8 relative">
-										<span class="dark:bg-${iconColor}-900 absolute -start-11 flex h-6 w-6 items-center justify-center rounded-full bg-${iconColor}-800">
-											<svg class="dark:text-${iconColor}-300 h-2.5 w-2.5 text-${iconColor}-100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-												fill="currentColor" viewBox="0 0 20 20">
-												<path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
-											</svg>
-										</span>
-										<h3 class="dark:text-white mb-1 flex items-center text-lg font-semibold text-gray-900">
-											${statusText}
-											${isOnsite ? `<span class="bg-green-100 text-green-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300 ms-3">Onsite</span>` : '<span class="bg-yellow-100 text-yellow-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300 ms-3">Rute</span>'}
-										</h3>
-										<span class="dark:text-gray-300 mb-2 block text-md font-normal leading-none text-gray-400">
-											${isOnsite ? `Tidak ada data koordinat` : `${long_lat}`}
-										</span>
-										<time class="dark:text-gray-500 mb-2 block text-sm font-normal leading-none text-gray-400">${formattedjamKeluar}</time>
-										<img src="${path}" alt="Foto" class="absolute right-0 !-top-2.5 object-cover w-16 h-16 rounded-lg">
-									</li>
-								`;
-							});
-
-						}
-
-						// Memperbarui konten popover dengan tabel atau menampilkan pesan "Tidak ada data"
-						if (checkIn === '' && checkOut === '') {
-							timelineContent.innerHTML = `
-                                    <h1 class="text-center text-gray-500 text-lg font-semibold">Tidak ada data</h1>
-                                `;
-						} else {
-							timelineContent.innerHTML = `
-                                ${checkIn}
-                                ${checkOut}
-                            `;
-						}
-					}).catch(error => {
-						console.error('Error fetching data:', error);
-						timelineContent.innerHTML =
-							'<p>Terjadi kesalahan saat memuat data.</p>';
-					});
+				if (waypoints.length > 1) {
+					L.Routing.control({
+						waypoints: waypoints.map(point => point.coords),
+						routeWhileDragging: false, // Mencegah rute diubah saat dragging
+						createMarker: function(i, waypoint) {
+							// Menambahkan marker dengan pop-up informasi
+							return L.marker(waypoint.latLng, {
+								icon: customIcon,
+								draggable: false // Menonaktifkan draggable pada marker
+							}).bindPopup(`<b>${waypoints[i].name}</b>`);
+						},
+						router: L.Routing.osrmv1({
+							serviceUrl: 'https://router.project-osrm.org/route/v1/'
+						}),
+						show: false // Menyembunyikan panel rute di map
+					}).addTo(map);
+				}
 			}
 
 			// Inisialisasi peta dengan koordinat default
 			initializeMap();
-			getTimeline();
 		});
 
-		document.getElementById('dateForm').addEventListener('submit', function(event) {
-			event.preventDefault(); // Prevent the default form submission
+		document.getElementById('dateForm').addEventListener('submit', function(e) {
 			const dateInput = document.getElementById('datepicker-actions').value;
-			const url = new URL(this.action);
 
 			if (dateInput) {
-				url.searchParams.set('date', dateInput); // Add or update the 'd' parameter with the date value
+				// Update action URL to include 'date' parameter
+				this.action += `?date=${dateInput}`;
+			} else {
+				// Prevent submission if date is not selected
+				e.preventDefault();
+				alert('Pilih tanggal terlebih dahulu!');
 			}
-
-			// Redirect with the new URL, including the date parameter
-			window.location.href = url;
 		});
 	</script>
 @endsection

@@ -57,8 +57,7 @@ class PermissionController extends Controller
                 $editUrl = route('permissions.edit', $data->id);
 
                 // Inisialisasi variabel untuk tombol aksi
-                $actionButtons = '
-                <div class="inline-flex rounded-md shadow-sm" role="group">';
+                $actionButtons = '<div class="inline-flex rounded-md shadow-sm" role="group">';
 
                 // Cek izin edit
                 if (auth()->user()->can('permissions-edit')) {

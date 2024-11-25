@@ -77,7 +77,7 @@
 										<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
 											d="M1 5.917 5.724 10.5 15 1.5" />
 									</svg>
-									<span>NIK: {{ $data->nik_pegawai }}</span>
+									<span>NIK: {{ $data->nik_pegawai ?? 'N/A' }}</span>
 								</li>
 								<li class="flex items-center space-x-3 rtl:space-x-reverse">
 									<svg class="h-3.5 w-3.5 flex-shrink-0 text-green-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
@@ -85,24 +85,8 @@
 										<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
 											d="M1 5.917 5.724 10.5 15 1.5" />
 									</svg>
-									<span>Nama: {{ $data->full_name }}</span>
+									<span>Nama: {{ $data->full_name ?? 'N/A' }}</span>
 								</li>
-								{{-- <li class="flex items-center space-x-3 rtl:space-x-reverse">
-									<svg class="h-3.5 w-3.5 flex-shrink-0 text-green-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-										fill="none" viewBox="0 0 16 12">
-										<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-											d="M1 5.917 5.724 10.5 15 1.5" />
-									</svg>
-									<span>Jabatan: {{ $data->nama_jabatan }}</span>
-								</li>
-								<li class="flex items-center space-x-3 rtl:space-x-reverse">
-									<svg class="h-3.5 w-3.5 flex-shrink-0 text-green-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-										fill="none" viewBox="0 0 16 12">
-										<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-											d="M1 5.917 5.724 10.5 15 1.5" />
-									</svg>
-									<span>Penempatan: {{ $data->penempatan }}</span>
-								</li> --}}
 							</ul>
 						</div>
 					</div>
@@ -116,9 +100,9 @@
 	@push('script')
 		<script>
 			var lat, lng;
-			const specifiedLat = parseFloat("{{ $data->latitude }}"); // Latitude of the specified point
-			const specifiedLng = parseFloat("{{ $data->longitude }}"); // Longitude of the specified point
-			const radius = parseFloat("{{ $data->radius }}"); // Radius in meters
+			const specifiedLat = parseFloat("{{ $data->latitude ?? 'N/A' }}"); // Latitude of the specified point
+			const specifiedLng = parseFloat("{{ $data->longitude ?? 'N/A' }}"); // Longitude of the specified point
+			const radius = parseFloat("{{ $data->radius ?? 'N/A' }}"); // Radius in meters
 			const movementThreshold = 50; // Minimum distance to move (in meters)
 			let lastLat, lastLng;
 
@@ -140,7 +124,7 @@
 
 							// Check if within the specified radius
 							if (distance > radius) {
-								Swal.fire({
+								window.Swal.fire({
 									title: "Gagal!",
 									html: `Anda berada ${distance.toFixed(2)} meter dari tempat yang ditentukan.`,
 									timer: 1500,
@@ -151,7 +135,7 @@
 									pegawaiInfo.style.display = "none";
 
 									setTimeout(() => {
-										window.location.href = "{{ route('dashboard.capture') }}";
+										window.location.href = "{{ route('capture.index') }}";
 									}, 1000);
 								});
 							} else if (lastLat !== undefined && lastLng !== undefined) {
@@ -159,7 +143,7 @@
 								const movedDistance = calculateDistance(lastLat, lastLng, lat, lng);
 
 								if (movedDistance > movementThreshold) {
-									Swal.fire({
+									window.Swal.fire({
 										title: "Gagal!",
 										html: `Fake GPS terdeteksi. Silahkan matikan terlebih dahulu.`,
 										timer: 1500,
@@ -170,8 +154,8 @@
 										pegawaiInfo.style.display = "none";
 
 										setTimeout(() => {
-											window.location.href = "{{ route('dashboard.capture') }}";
-										}, 1000);
+											window.location.href = "{{ route('capture.index') }}";
+										}, 2000);
 									});
 									return;
 								}
@@ -190,7 +174,7 @@
 						},
 
 						function(error) {
-							Swal.fire({
+							window.Swal.fire({
 								title: "Gagal!",
 								html: `Anda harus mengaktifkan izin Lokasi.`,
 								timer: 1500,
@@ -201,7 +185,7 @@
 								pegawaiInfo.style.display = "none";
 
 								setTimeout(() => {
-									window.location.href = "{{ route('dashboard.capture') }}";
+									window.location.href = "{{ route('capture.index') }}";
 								}, 1000);
 							});
 						}, {
@@ -211,7 +195,7 @@
 						}
 					);
 				} else {
-					Swal.fire({
+					window.Swal.fire({
 						title: "Gagal!",
 						html: `Browser anda tidak memiliki support Geolocation.`,
 						timer: 1500,
