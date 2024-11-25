@@ -16,7 +16,8 @@ class Collector extends Model
         'keterangan',
         'longitude',
         'latitude',
-        'status'
+        'status',
+        'notes',
     ];
 
     public static function boot()

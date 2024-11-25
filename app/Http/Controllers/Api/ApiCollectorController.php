@@ -166,11 +166,12 @@ class ApiCollectorController extends Controller
         ]);
     }
 
-    public function denyCollect($id)
+    public function denyCollect(Request $request, $id)
     {
-        $query = Collector::find($id);
+    $query = Collector::find($id);
         $query->update([
             'status' => 2,
+            'notes' => $request->notes,
         ]);
     }
 

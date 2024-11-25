@@ -66,8 +66,17 @@
 												[ 👁 ]
 											</span>
 										</a>
-										<span
-											class="dark:bg-yellow-900 dark:text-yellow-300 me-2 ms-3 rounded bg-yellow-100 p-0.5 text-sm font-medium text-yellow-800">Checkpoint</span>
+										@if ($data->status == 0)
+											<span
+												class="dark:bg-yellow-900 dark:text-yellow-300 me-2 ms-3 rounded bg-yellow-100 p-0.5 text-sm font-medium text-yellow-800">Unapproved</span>
+										@elseif($data->status == 1)
+											<span
+												class="dark:bg-green-900 dark:text-green-300 me-2 ms-3 rounded bg-green-100 p-0.5 text-sm font-medium text-green-800">Approved</span>
+										@else
+											<span
+												class="dark:bg-green-900 dark:text-green-300 me-2 ms-3 rounded bg-green-100 p-0.5 text-sm font-medium text-green-800">Unapproved</span>
+										@endif
+
 									</h3>
 									<span class="dark:text-gray-300 text-md mb-2 block font-normal leading-none text-gray-400">
 										<!-- Add any additional data from $data here -->

@@ -97,7 +97,7 @@
 					</div>
 
 					<div
-						class="dark:bg-gray-700 dark:border-gray-700 flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-white p-3">
+						class="dark:bg-gray-700 dark:border-gray-700 col-span-2 flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-white p-3">
 						<p class="dark:text-gray-300 text-sm text-gray-600">Status</p>
 						<p class="text-navy-700 dark:text-white pt-1.5 text-base font-medium">
 							@php
@@ -115,12 +115,13 @@
 					</div>
 
 					<div
-						class="dark:bg-gray-700 dark:border-gray-700 flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-white p-3">
-						<p class="dark:text-gray-300 text-sm text-gray-600">Lampiran</p>
+						class="dark:bg-gray-700 dark:border-gray-700 col-span-2 flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-white p-3">
+						<p class="dark:text-gray-300 text-sm text-gray-600">Catatan</p>
 						<p class="text-navy-700 dark:text-white text-base font-medium">
-							{{ $data->url ?? 'N/A' }}
+							{{ $data->notes ? $data->notes : 'Tidak ada catatan' }}
 						</p>
 					</div>
+
 					@can('collect-approve')
 						@if (!$data->status)
 							<div class="col-span-2 mt-2 flex flex-col justify-end" id="action">
@@ -185,12 +186,13 @@
 			})
 		}
 
-		function confirmAction() {
-			$('body').on('click', '#confirm-btn', function() {
+		async function confirmAction() {
+			$('body').on('click', '#confirm-btn', async function() { // Make the handler async to use await
 				let id = $(this).data("id");
 				let token = $("meta[name='csrf-token']").attr("content");
 
-				Swal.fire({
+				// Display SweetAlert2 dialog
+				const result = await Swal.fire({
 					title: "Konfirmasi",
 					text: "Apakah kamu yakin ingin approve laporan ini?",
 					icon: 'info',
@@ -199,47 +201,70 @@
 					denyButtonText: "Tolak",
 					cancelButtonText: "Batal",
 					confirmButtonText: "Ya",
-				}).then((result) => {
-					if (result.isConfirmed) {
-						$.ajax({
-							url: `/api/collectors/${id}/confirm`,
-							type: 'PATCH',
-							cache: false,
-							data: {
-								"_token": token
-							},
-							success: function(response) {
-								Swal.fire("Laporan berhasil diapprove!", "", "success");
-								setTimeout(() => {
-									window.location.href = window.location.href
-								}, 1000);
-							},
-							error: function() {
-								Swal.fire("Ada kegagalan pada server.", "", "error")
-							}
-						})
-					} else if (result.isDenied) {
+				});
+
+				// If the action is confirmed
+				if (result.isConfirmed) {
+					$.ajax({
+						url: `/api/collectors/${id}/confirm`,
+						type: 'PATCH',
+						cache: false,
+						data: {
+							"_token": token
+						},
+						success: function(response) {
+							Swal.fire("Laporan berhasil diapprove!", "", "success");
+							setTimeout(() => {
+								window.location.href = window.location.href;
+							}, 1000);
+						},
+						error: function() {
+							Swal.fire("Ada kegagalan pada server.", "", "error");
+						}
+					});
+				}
+				// If the action is denied
+				else if (result.isDenied) {
+					const {
+						value: text
+					} = await Swal.fire({
+						input: "textarea",
+						inputLabel: "Message",
+						inputPlaceholder: "Type your message here...",
+						inputAttributes: {
+							"aria-label": "Type your message here"
+						},
+						showCancelButton: true
+					});
+
+					// If the user enters a message, you can display it or send it to the server
+					if (text) {
+						// For now, just display the message
 						$.ajax({
 							url: `/api/collectors/${id}/deny`,
 							type: 'PATCH',
 							cache: false,
 							data: {
-								"_token": token
+								"_token": token,
+								"notes": text // Send the message with the request
 							},
 							success: function(response) {
 								Swal.fire("Laporan telah ditolak!", "", "error");
 								setTimeout(() => {
-									window.location.href = window.location.href
+									window.location.href = window.location.href;
 								}, 1000);
 							},
 							error: function() {
-								Swal.fire("Ada kegagalan pada server.", "", "error")
+								Swal.fire("Ada kegagalan pada server.", "", "error");
 							}
-						})
+						});
+					} else {
+						Swal.fire("Catatan harus diisi.	", "", "error");
 					}
-				})
-			})
+				}
+			});
 		}
+
 
 		document.addEventListener("DOMContentLoaded", function() {
 			quillText();

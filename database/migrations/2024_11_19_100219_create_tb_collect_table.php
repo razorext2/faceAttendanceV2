@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('longitude', 32);
             $table->string('latitude', 32);
             $table->boolean('status')->default(0);
+            $table->text('notes')->nullable();
             $table->foreign('kode_pegawai')->references('kode_pegawai')->on('tb_pegawai')->onDelete('cascade');
             $table->timestamps();
         });
