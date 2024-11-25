@@ -18,6 +18,7 @@ class DayoffController extends Controller
 	function __construct()
 	{
 		$this->middleware('permission:dayoff-list', ['only' => ['index']]);
+		$this->middleware('permission:dayoff-create', ['only' => ['create', 'store']]);
 		$this->middleware('permission:dayoff-edit', ['only' => ['edit', 'update']]);
 		$this->middleware('permission:dayoff-delete', ['only' => ['destroy']]);
 		$this->middleware('permission:dayoff-confirm', ['only' => ['confirm', 'ignore']]);
@@ -43,15 +44,16 @@ class DayoffController extends Controller
 		$maxDate = cleanDate($request->input('maxDate'));
 
 		// Start building the query
-		if (auth()->user()->hasRole(['Admin', 'Support', 'HRD', 'Management'])) {
+		if (!Auth::user()->kode_pegawai) {
 			// Fetch all Dayoff records with pegawaiRelasi relationship for specific roles
 			$query = Dayoff::with('pegawaiRelasi')
-				->orderByDesc('tgl_dari')
+				->latest()
 				->get();
 		} else {
 			// Fetch only Dayoff records for the currently logged-in user's pegawaiRelasi
 			$query = Dayoff::with('pegawaiRelasi')
 				->where('id_user', Auth::user()->kode_pegawai)
+				->latest()
 				->get();
 		}
 
@@ -131,7 +133,7 @@ class DayoffController extends Controller
 	public function create()
 	{
 		//
-		if (auth()->user()->hasRole(['Admin', 'Support', 'HRD', 'Management'])) {
+		if (!Auth::user()->kode_pegawai) {
 			// If the user has one of the specified roles, show the 'add' dayoff view without specific data
 			return view('dashboard.dayoff.add');
 		} else {
