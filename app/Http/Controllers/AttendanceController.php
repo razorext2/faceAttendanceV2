@@ -13,7 +13,7 @@ class AttendanceController extends Controller
 
     public function index()
     {
-        if (auth()->user()->hasRole(['Admin', 'Support', 'HRD', 'Management'])) {
+        if (Auth::check() && is_null(Auth::user()->kode_pegawai)) {
 
             $datas = Attendance::with('pegawaiRelasi')->orderByDesc('jam_masuk')->get();
         } else {

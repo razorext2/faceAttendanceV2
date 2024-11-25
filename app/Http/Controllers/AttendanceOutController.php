@@ -13,7 +13,7 @@ class AttendanceOutController extends Controller
 
     public function index()
     {
-        if (auth()->user()->hasRole(['Admin', 'Support', 'HRD', 'Management'])) {
+        if (Auth::check() && is_null(Auth::user()->kode_pegawai)) {
 
             $datas = AttendanceOut::with('pegawaiRelasi')->orderByDesc('jam_keluar')->get();
         } else {
