@@ -19,22 +19,28 @@
 						<li role="presentation">
 							<a
 								class="dark:hover:text-gray-300 {{ Route::is('pegawai.detail') ? 'text-red-600 border-b-2 hover:border-gray-300' : 'text-gray-400' }} inline-block rounded-t-lg p-4 hover:text-gray-600"
-								href="{{ route('pegawai.detail', ['pegawai' => $pegawai->id]) }}">Profile</a>
+								href="{{ route('pegawai.detail', $pegawai->id) }}">Profile</a>
 						</li>
 						<li role="presentation">
 							<a
 								class="dark:hover:text-gray-300 {{ Route::is('pegawai.attendancelist') ? 'text-red-600 border-b-2 hover:border-gray-300' : 'text-gray-400' }} inline-block rounded-t-lg p-4 hover:text-gray-600"
-								href="{{ route('pegawai.attendancelist', ['pegawai' => $pegawai->id]) }}">Attendance</a>
+								href="{{ route('pegawai.attendancelist', $pegawai->id) }}">Attendance</a>
 						</li>
 						<li role="presentation">
 							<a
 								class="dark:hover:text-gray-300 {{ Route::is('pegawai.payrollinfo') ? 'text-red-600 border-b-2 hover:border-gray-300' : 'text-gray-400' }} inline-block rounded-t-lg p-4 hover:text-gray-600"
-								href="{{ route('pegawai.payrollinfo', ['pegawai' => $pegawai->id]) }}">Payroll</a>
+								href="{{ route('pegawai.payrollinfo', $pegawai->id) }}">Payroll</a>
 						</li>
 						<li role="presentation">
 							<a
 								class="dark:hover:text-gray-300 {{ Route::is('pegawai.timeline') ? 'text-red-600 border-b-2 hover:border-gray-300' : 'text-gray-400' }} inline-block rounded-t-lg p-4 hover:text-gray-600"
-								href="{{ route('pegawai.timeline', ['pegawai' => $pegawai->kode_pegawai]) }}">Timeline</a>
+								href="{{ route('pegawai.timeline', $pegawai->kode_pegawai) }}">Timeline</a>
+						</li>
+
+						<li role="presentation">
+							<a
+								class="dark:hover:text-gray-300 {{ Route::is('pegawai.collectors') ? 'text-red-600 border-b-2 hover:border-gray-300' : 'text-gray-400' }} inline-block rounded-t-lg p-4 hover:text-gray-600"
+								href="{{ route('pegawai.collectors', $pegawai->kode_pegawai) }}">Laporan</a>
 						</li>
 					</ul>
 				</div>

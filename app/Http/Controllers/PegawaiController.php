@@ -18,6 +18,7 @@ use App\Models\Golongan;
 use App\Models\User;
 use App\Models\Allowance;
 use App\Models\Deduction;
+use App\Models\Collector;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -32,6 +33,7 @@ class PegawaiController extends Controller
         $this->middleware('permission:pegawai-edit', ['only' => ['edit', 'update']]);
         $this->middleware('permission:pegawai-delete', ['only' => ['destroy']]);
         $this->middleware('permission:pegawai-timeline', ['only' => ['timeline']]);
+        // $this->middleware('permission:pegawai-collectors', ['only' => ['collectors']]);
     }
 
     public function index()
@@ -206,16 +208,8 @@ class PegawaiController extends Controller
 
     public function destroy($id)
     {
-        $user = User::where('kode_pegawai', $id)->first();
         $pegawai = Pegawai::where('kode_pegawai', $id)->first();
-
-        // if ($user != null) {
-        //     $user->delete();
-        //     $pegawai->delete();
-        // } else {
         $pegawai->delete();
-        // }
-
         return redirect()->back()->with('status', 'Berhasil menghapus data pegawai.');
     }
 
@@ -461,26 +455,58 @@ class PegawaiController extends Controller
     public function timeline($id, Request $request)
     {
         // Ambil tanggal dari query parameter, atau gunakan tanggal sekarang jika tidak ada
-        $date = $request->query('date') ? Carbon::parse($request->query('date'))->toDateString() : Carbon::now()->toDateString();
+        // $date = $request->query('date') ? Carbon::parse($request->query('date'))->toDateString() : Carbon::now()->toDateString();
+        if ($request->query('date')) {
+            $date = Carbon::parse($request->query('date'))->isoFormat('YYYY-MM-DD');
+        } else {
+            $date = Carbon::today(); // Ambil tanggal dari query string
 
-        // Query untuk data check-out
-        $data = AttendanceOut::select('latitude', 'longitude', 'created_at', DB::raw("'check-out' as type"), 'jam_keluar as time')
+        }
+
+        // Query untuk data Check-out
+        $dataCheckout = AttendanceOut::query() // Ensure it's a query builder
+            ->select('latitude', 'longitude', 'created_at', 'photoURL', 'jam_keluar', DB::raw("'Checkpoint' as type"), 'jam_keluar as time')
             ->whereDate('jam_keluar', $date)
             ->where('kode_pegawai', $id);
 
-        // Query untuk data check-in, union dengan data check-out
-        $data2 = Attendance::with('pegawaiRelasi')
-            ->select('latitude', 'longitude', 'created_at', DB::raw("'check-in' as type"), 'jam_masuk as time')
+        // Query untuk data Check-in
+        $dataCheckin = Attendance::query() // Ensure it's a query builder
+            ->select('latitude', 'longitude', 'created_at', 'photoURL', 'jam_masuk', DB::raw("'Check-in' as type"), 'jam_masuk as time')
             ->whereDate('jam_masuk', $date)
-            ->where('kode_pegawai', $id)
-            ->unionAll($data)
-            ->orderBy('created_at') // Urutkan berdasarkan waktu
+            ->where('kode_pegawai', $id);
+
+        // Gabungkan kedua query menggunakan `unionAll`
+        $attendances = $dataCheckin->unionAll($dataCheckout)
+            ->orderBy('created_at') // Urutkan berdasarkan waktu (created_at, bisa diganti dengan time jika perlu)
             ->get();
+
+        if ($attendances->isNotEmpty()) {
+            $attendances->last()->type = 'Check-out'; // Tandai data terakhir sebagai "Check-out"
+        }
 
         // Mendapatkan informasi pegawai
         $pegawai = Pegawai::select('id', 'kode_pegawai', 'full_name')->where('kode_pegawai', $id)->firstOrFail();
 
-        return view('dashboard.pegawai.details.timeline', compact('data2', 'pegawai'));
+
+        return view('dashboard.pegawai.details.timeline', compact('attendances', 'pegawai'));
+    }
+
+    public function reportCollectors($id, Request $request)
+    {
+        if ($request->query('date')) {
+            $date = Carbon::parse($request->query('date'))->isoFormat('YYYY-MM-DD');
+        } else {
+            $date = Carbon::today(); // Ambil tanggal dari query string
+
+        }
+
+        $pegawai = Pegawai::where('kode_pegawai', $id)->firstOrFail();
+        $report = Collector::where('kode_pegawai', $id)
+            ->whereDate('created_at', $date)
+            ->get();
+
+        // Kembalikan view dengan data $pegawai
+        return view('dashboard.pegawai.details.laporan', compact('pegawai', 'report'));
     }
 
     public function getAttendanceData(Request $request)

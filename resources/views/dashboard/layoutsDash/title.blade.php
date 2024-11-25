@@ -16,6 +16,8 @@
 			Absensi</h2>
 	@elseif (Route::currentRouteName() == 'pegawai.timeline')
 		<h2 class="dark:text-white text-2xl font-bold tracking-tight text-gray-950 sm:text-3xl">Linimasa</h2>
+	@elseif (Route::currentRouteName() == 'pegawai.collectors')
+		<h2 class="dark:text-white text-2xl font-bold tracking-tight text-gray-950 sm:text-3xl">Laporan Rute</h2>
 	@elseif (Route::currentRouteName() == 'pegawai.payrollinfo')
 		<h2 class="dark:text-white text-2xl font-bold tracking-tight text-gray-950 sm:text-3xl">Payroll</h2>
 	@elseif (Route::currentRouteName() == 'pegawai.attendancelist')
@@ -42,13 +44,16 @@
 		</h2>
 		<!-- end division -->
 		<!-- collect -->
-	@elseif (Route::currentRouteName() == 'collect.index')
+	@elseif (Route::currentRouteName() == 'dashboard.collect.index')
 		<h2 class="dark:text-white text-2xl font-bold tracking-tight text-gray-950 sm:text-3xl">Laporan Kolektor</h2>
-	@elseif (Route::currentRouteName() == 'collect.create')
+	@elseif (Route::currentRouteName() == 'dashboard.collect.create')
 		<h2 class="dark:text-white text-2xl font-bold tracking-tight text-gray-950 sm:text-3xl">Tambah
 			Laporan</h2>
-	@elseif (Route::currentRouteName() == 'collect.edit')
+	@elseif (Route::currentRouteName() == 'dashboard.collect.edit')
 		<h2 class="dark:text-white text-2xl font-bold tracking-tight text-gray-950 sm:text-3xl">Edit Laporan
+		</h2>
+	@elseif (Route::currentRouteName() == 'dashboard.collect.show')
+		<h2 class="dark:text-white text-2xl font-bold tracking-tight text-gray-950 sm:text-3xl">Detail Laporan
 		</h2>
 		<!-- end collect -->
 		<!-- placement -->
@@ -83,7 +88,7 @@
 	@elseif (Route::currentRouteName() == 'attendanceOut.view')
 		<h2 class="dark:text-white text-2xl font-bold tracking-tight text-gray-950 sm:text-3xl">Absen Keluar
 		</h2>
-	@elseif (Route::currentRouteName() == 'dashboard.capture')
+	@elseif (Route::currentRouteName() == 'capture.index')
 		<h2 class="dark:text-white text-2xl font-bold tracking-tight text-gray-950 sm:text-3xl">Rekam
 			Absensi</h2>
 		<!-- end absence -->

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('tb_photo_collect', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_collect')->nullable();
-            $table->string('photourl', 64)->nullable();
+            $table->string('photourl', 255)->nullable();
             $table->foreign('id_collect')->references('id')->on('tb_collect')->onDelete('cascade');
             $table->timestamps();
         });

@@ -14,8 +14,11 @@ return new class extends Migration
         Schema::create('tb_collect', function (Blueprint $table) {
             $table->id();
             $table->string('kode_pegawai', 32)->nullable();
-            $table->string('title', 50)->nullable();
+            $table->string('title', 128)->nullable();
             $table->text('keterangan')->nullable();
+            $table->string('longitude', 32);
+            $table->string('latitude', 32);
+            $table->boolean('status')->default(0);
             $table->foreign('kode_pegawai')->references('kode_pegawai')->on('tb_pegawai')->onDelete('cascade');
             $table->timestamps();
         });

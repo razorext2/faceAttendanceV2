@@ -9,9 +9,8 @@ use Illuminate\Http\Request;
 
 class ApiPhotoCollectController extends Controller
 {
-    public function index()
+    public function store()
     {
-        $query = PhotoCollect::latest()->get();
-        return new PhotoCollectResource(true, 'List Koleksi Foto', $query);
+        //
     }
 }

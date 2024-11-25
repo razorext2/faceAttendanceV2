@@ -1,6 +1,6 @@
 @extends('dashboard.layoutsDash.app')
 @section('content')
-	<form id="add-collector" action="{{ route('collect.create') }}"></form>
+	<form id="add-collector" action="{{ route('dashboard.collect.create') }}"></form>
 	<div class="relative grid grid-cols-1 gap-6">
 		{{-- @can('collect-add') --}}
 		<div class="absolute left-2.5 top-48 z-10 max-w-xs sm:left-auto sm:right-6 md:top-40 lg:left-6 lg:right-auto lg:top-24">
@@ -89,6 +89,11 @@
 							<tr>
 								<th>
 									<span class="dark:text-white flex items-center text-gray-800">
+										#
+									</span>
+								</th>
+								<th>
+									<span class="dark:text-white flex items-center text-gray-800">
 										Action
 									</span>
 								</th>
@@ -99,14 +104,15 @@
 								</th>
 								<th>
 									<span class="dark:text-white flex items-center text-gray-800">
-										Judul
+										Tanggal laporan
 									</span>
 								</th>
 								<th>
 									<span class="dark:text-white flex items-center text-gray-800">
-										Created / Updated
+										Judul
 									</span>
 								</th>
+
 							</tr>
 						</thead>
 						<tbody>
@@ -119,28 +125,45 @@
 
 	<script>
 		function showDatatables() {
+			let kode_pegawai = "{{ Auth::user()->kode_pegawai }}";
+
+			if (!kode_pegawai) {
+				src = "{{ route('collectors.index') }}"
+			} else {
+				src = "{{ route('dashboard.collect.getdata') }}"
+			}
+
 			let table = $('#table-collector').DataTable({
 				processing: true,
 				serverSide: true,
 				responsive: true,
 				"lengthMenu": [15, 25, 50, 75, 100, -1],
 				ajax: {
-					url: "{{ route('collectors.index') }}",
+					url: src,
 					type: "GET",
 					dataSrc: 'data',
 				},
 				columns: [{
+						data: 'DT_RowIndex',
+						name: 'DT_RowIndex'
+					},
+					{
 						data: null,
 						name: "actions",
 						render: function(data, type, row) {
 							return `
 							<div class="inline-flex" role="group">
-								<a href="collect/${row.id}/edit"class="mx-1 text-md font-medium rounded-lg focus:z-10">
-									&#9999; <span class="hover:underline" style="color: #057A55"> Edit </span>
+								<a href="collect/${row.id}" class="mx-1 text-md font-medium rounded-lg focus:z-10">
+									👁 <span class="hover:underline text-blue-500"> Show </span>
 								</a>
-								<button class="mx-1 group text-md font-medium rounded-lg focus:z-10 delete-btn" data-id="" data-modal-target="deleteModal" data-modal-toggle="deleteModal">
-									&#x26D4; <span class="hover:underline" style="color: #E02424;"> Delete </span>
-								</button>
+								<a href="collect/${row.id}/edit"class="mx-1 text-md font-medium rounded-lg focus:z-10">
+									&#9999; <span class="hover:underline text-green-500"> Edit </span>
+								</a>
+								@can('collect-delete')
+								<a href="javascript:void(0)" id="delete-btn" data-id="${row.id}" class="mx-1 text-md font-medium rounded-lg focus:z-10">
+									&#x26D4; <span class="hover:underline text-red-500"> Delete </span>
+								</a>
+								@endcan
 							</div>
 						`
 						}
@@ -150,12 +173,12 @@
 						name: "kode_pegawai"
 					},
 					{
-						data: "title",
-						name: "title"
+						data: "created_at",
+						name: "created_at",
 					},
 					{
-						data: "created_updated_at",
-						name: "created_updated_at",
+						data: "title_status",
+						name: "title_status"
 					}
 				],
 				dom: `<"absolute top-1 md:left-0 {{ auth()->user()->can('divisi-create') ? 'lg:left-48 right-0' : '' }} mt-14 lg:mt-0 dark:text-white max-w-xs"B><"text-left lg:text-right dark:text-white"l><"relative overflow-x-auto w-full mt-20 lg:mt-4"t><"grid text-center gap-6 lg:grid-cols-2 mt-4 dark:text-white"<"lg:mt-3 lg:text-left"i><"lg:text-right dark:text-gray-900"p>>`,
@@ -181,8 +204,47 @@
 			});
 		}
 
+		function deleteData() {
+			$("body").on("click", "#delete-btn", function() {
+				let id = $(this).data("id");
+				let token = $("meta[name='csrf-token']").attr("content");
+
+				Swal.fire({
+					title: "Apakah Kamu Yakin?",
+					text: "Ingin menghapus data ini!",
+					icon: "warning",
+					showCancelButton: true,
+					cancelButtonText: "Tidak",
+					confirmButtonText: "Ya, Hapus!"
+				}).then((result) => {
+					if (result.isConfirmed) {
+						// fetch data to ajax
+						$.ajax({
+							url: `/api/collectors/${id}`,
+							type: "DELETE",
+							cache: false,
+							data: {
+								"_token": token
+							},
+							success: function(response) {
+								Swal.fire({
+									icon: "success",
+									title: response.message,
+									showConfirmButton: false,
+									timer: 3000
+								});
+
+								$('#table-collector').DataTable().ajax.reload(null, false);
+							}
+						})
+					}
+				})
+			})
+		}
+
 		$(document).ready(function() {
 			showDatatables();
+			deleteData();
 		});
 	</script>
 @endsection

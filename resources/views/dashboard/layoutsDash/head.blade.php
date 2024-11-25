@@ -19,7 +19,10 @@
 @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/simpleTables.js', 'resources/js/alpine.js', 'resources/js/chart.js'])
 @if (Route::is('dashboard'))
 	{{-- @vite(['resources/js/chart.js']) --}}
-@elseif (Route::is('pegawai.timeline') || Route::is('placement.add') || Route::is('placement.edit'))
+@elseif (Route::is('pegawai.timeline') ||
+		Route::is('placement.add') ||
+		Route::is('placement.edit') ||
+		Route::is('pegawai.collectors'))
 	@vite(['resources/js/leaflet.js'])
 @endif
 

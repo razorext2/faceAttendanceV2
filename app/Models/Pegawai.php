@@ -25,6 +25,11 @@ class Pegawai extends Model
     ];
 
     // In Pegawai.php (Model)
+    public function collectorReportRelasi()
+    {
+        return $this->hasMany(Collector::class, 'kode_pegawai', 'kode_pegawai');
+    }
+
     public function attendanceRelasi()
     {
         return $this->hasMany(Attendance::class, 'kode_pegawai', 'kode_pegawai');
