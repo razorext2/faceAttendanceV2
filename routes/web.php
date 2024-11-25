@@ -33,47 +33,48 @@ Route::get('/', function () {
 
 // route bisa diakses jika login
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
-    Route::get('/dashboard/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/dashboard/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/dashboard/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('dashboard', [AdminController::class, 'index'])->name('dashboard');
+    Route::get('dashboard/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('dashboard/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('dashboard/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // menu di admin
-    Route::get('/dashboard/attendance', [AttendanceController::class, 'index'])->name('dashboard.attendance');
+    Route::get('dashboard/attendance', [AttendanceController::class, 'index'])->name('dashboard.attendance');
 
     // pegawai
-    Route::get('/getdata-pegawai', [PegawaiController::class, 'getData'])->name('getDataPegawai');
-    Route::get('/dashboard/pegawai', [PegawaiController::class, 'index'])->name('dashboard.pegawai');
-    Route::get('/dashboard/pegawai/add', [PegawaiController::class, 'create'])->name('pegawai.add');
-    Route::post('/dashboard/pegawai/store', [PegawaiController::class, 'store'])->name('pegawai.store');
-    Route::get('/dashboard/pegawai/edit/{pegawai}', [PegawaiController::class, 'edit'])->name('pegawai.edit');
-    Route::put('/dashboard/pegawai/update/{pegawai}', [PegawaiController::class, 'update'])->name('pegawai.update');
-    Route::delete('/dashboard/pegawai/delete/{pegawai}', [PegawaiController::class, 'destroy'])->name('pegawai.delete');
-    Route::get('/api/get-attendance-data', [PegawaiController::class, 'getAttendanceData'])->name('pegawai.getattendance');
-    Route::get('/dashboard/pegawai/{pegawai}/detail', [PegawaiController::class, 'detail'])->name('pegawai.detail');
-    Route::get('/dashboard/pegawai/{pegawai}/attendance', [PegawaiController::class, 'attendanceList'])->name('pegawai.attendancelist');
-    Route::get('/dashboard/pegawai/{pegawai}/payroll', [PegawaiController::class, 'payrollInfo'])->name('pegawai.payrollinfo');
-    Route::get('/dashboard/pegawai/{pegawai}/timeline', [PegawaiController::class, 'timeline'])->name('pegawai.timeline');
-    Route::resource('/dashboard/pegawai/allowances', AllowanceController::class);
-    Route::resource('/dashboard/pegawai/deductions', DeductionController::class);
+    Route::get('getdata-pegawai', [PegawaiController::class, 'getData'])->name('getDataPegawai');
+    Route::get('api/get-attendance-data', [PegawaiController::class, 'getAttendanceData'])->name('pegawai.getattendance');
+    Route::get('dashboard/pegawai', [PegawaiController::class, 'index'])->name('dashboard.pegawai');
+    Route::get('dashboard/pegawai/add', [PegawaiController::class, 'create'])->name('pegawai.add');
+    Route::post('dashboard/pegawai/store', [PegawaiController::class, 'store'])->name('pegawai.store');
+    Route::get('dashboard/pegawai/edit/{pegawai}', [PegawaiController::class, 'edit'])->name('pegawai.edit');
+    Route::put('dashboard/pegawai/update/{pegawai}', [PegawaiController::class, 'update'])->name('pegawai.update');
+    Route::delete('dashboard/pegawai/delete/{pegawai}', [PegawaiController::class, 'destroy'])->name('pegawai.delete');
+    Route::get('dashboard/pegawai/{pegawai}/detail', [PegawaiController::class, 'detail'])->name('pegawai.detail');
+    Route::get('dashboard/pegawai/{pegawai}/attendance', [PegawaiController::class, 'attendanceList'])->name('pegawai.attendancelist');
+    Route::get('dashboard/pegawai/{pegawai}/payroll', [PegawaiController::class, 'payrollInfo'])->name('pegawai.payrollinfo');
+    Route::get('dashboard/pegawai/{pegawai}/timeline', [PegawaiController::class, 'timeline'])->name('pegawai.timeline');
+    Route::get('dashboard/pegawai/{pegawai}/collectors', [PegawaiController::class, 'reportCollectors'])->name('pegawai.collectors');
+    Route::resource('dashboard/pegawai/allowances', AllowanceController::class);
+    Route::resource('dashboard/pegawai/deductions', DeductionController::class);
 
     // jabatan
-    Route::get('/getdata-jabatan', [JabatanController::class, 'getData'])->name('getDataJabatan');
+    Route::get('getdata-jabatan', [JabatanController::class, 'getData'])->name('getDataJabatan');
     Route::get('dashboard/jabatan', [JabatanController::class, 'index'])->name('dashboard.jabatan');
-    Route::get('/dashboard/jabatan/add', [JabatanController::class, 'create'])->name('jabatan.add');
-    Route::post('/dashboard/jabatan/store', [JabatanController::class, 'store'])->name('jabatan.store');
-    Route::get('/dashboard/jabatan/edit/{jabatan}', [JabatanController::class, 'edit'])->name('jabatan.edit');
-    Route::put('/dashboard/jabatan/update/{jabatan}', [JabatanController::class, 'update'])->name('jabatan.update');
-    Route::delete('/dashboard/jabatan/delete/{jabatan}', [JabatanController::class, 'destroy'])->name('jabatan.delete');
+    Route::get('dashboard/jabatan/add', [JabatanController::class, 'create'])->name('jabatan.add');
+    Route::post('dashboard/jabatan/store', [JabatanController::class, 'store'])->name('jabatan.store');
+    Route::get('dashboard/jabatan/edit/{jabatan}', [JabatanController::class, 'edit'])->name('jabatan.edit');
+    Route::put('dashboard/jabatan/update/{jabatan}', [JabatanController::class, 'update'])->name('jabatan.update');
+    Route::delete('dashboard/jabatan/delete/{jabatan}', [JabatanController::class, 'destroy'])->name('jabatan.delete');
 
     // attendanceIn
-    Route::get('/dashboard/attendanceIn', [AttendanceController::class, 'index'])->name('attendanceIn.view');
+    Route::get('dashboard/attendanceIn', [AttendanceController::class, 'index'])->name('attendanceIn.view');
 
     // attendanceOut
-    Route::get('/dashboard/attendanceOut', [AttendanceOutController::class, 'index'])->name('attendanceOut.view');
+    Route::get('dashboard/attendanceOut', [AttendanceOutController::class, 'index'])->name('attendanceOut.view');
 
     // divisi
-    Route::get('/getdata-division', [DivisionController::class, 'getData'])->name('getDataDivision');
+    Route::get('getdata-division', [DivisionController::class, 'getData'])->name('getDataDivision');
     Route::get('dashboard/division', [DivisionController::class, 'index'])->name('dashboard.division');
     Route::get('dashboard/division/add', [DivisionController::class, 'create'])->name('division.add');
     Route::post('dashboard/division/store', [DivisionController::class, 'store'])->name('division.store');
@@ -82,7 +83,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('dashboard/division/delete/{division}', [DivisionController::class, 'destroy'])->name('division.delete');
 
     // placement
-    Route::get('/getdata-placement', [PlacementController::class, 'getData'])->name('getDataPlacement');
+    Route::get('getdata-placement', [PlacementController::class, 'getData'])->name('getDataPlacement');
     Route::get('dashboard/placement', [PlacementController::class, 'index'])->name('dashboard.placement');
     Route::get('dashboard/placement/add', [PlacementController::class, 'create'])->name('placement.add');
     Route::post('dashboard/placement/store', [PlacementController::class, 'store'])->name('placement.store');
@@ -91,7 +92,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('dashboard/placement/delete/{placement}', [PlacementController::class, 'destroy'])->name('placement.delete');
 
     // golongan
-    Route::get('/getdata-golongan', [GolonganController::class, 'getData'])->name('getDataGolongan');
+    Route::get('getdata-golongan', [GolonganController::class, 'getData'])->name('getDataGolongan');
     Route::get('dashboard/golongan', [GolonganController::class, 'index'])->name('dashboard.golongan');
     Route::get('dashboard/golongan/add', [GolonganController::class, 'create'])->name('golongan.add');
     Route::post('dashboard/golongan/store', [GolonganController::class, 'store'])->name('golongan.store');
@@ -100,7 +101,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('dashboard/golongan/delete/{golongan}', [GolonganController::class, 'destroy'])->name('golongan.delete');
 
     // users
-    Route::get('/getdata-users', [UserController::class, 'getData'])->name('getDataUsers');
+    Route::get('getdata-users', [UserController::class, 'getData'])->name('getDataUsers');
     Route::get('dashboard/users', [UserController::class, 'index'])->name('dashboard.users');
     Route::get('dashboard/users/add', [UserController::class, 'create'])->name('users.add');
     Route::post('dashboard/users/store', [UserController::class, 'store'])->name('users.store');
@@ -109,7 +110,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('dashboard/users/delete/{users}', [UserController::class, 'destroy'])->name('users.delete');
 
     // roles
-    Route::get('/getdata-roles', [RoleController::class, 'getData'])->name('getDataRoles');
+    Route::get('getdata-roles', [RoleController::class, 'getData'])->name('getDataRoles');
     Route::get('dashboard/roles', [RoleController::class, 'index'])->name('dashboard.roles');
     Route::get('dashboard/roles/add', [RoleController::class, 'create'])->name('roles.add');
     Route::post('dashboard/roles/store', [RoleController::class, 'store'])->name('roles.store');
@@ -118,7 +119,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('dashboard/roles/delete/{roles}', [RoleController::class, 'destroy'])->name('roles.delete');
 
     // permissions
-    Route::get('/getdata-permissions', [PermissionController::class, 'getData'])->name('getDataPermissions');
+    Route::get('getdata-permissions', [PermissionController::class, 'getData'])->name('getDataPermissions');
     Route::get('dashboard/permissions', [PermissionController::class, 'index'])->name('dashboard.permissions');
     Route::get('dashboard/permissions/add', [PermissionController::class, 'create'])->name('permissions.add');
     Route::post('dashboard/permissions/store', [PermissionController::class, 'store'])->name('permissions.store');
@@ -127,15 +128,15 @@ Route::middleware('auth')->group(function () {
     Route::delete('dashboard/permissions/delete/{permissions}', [PermissionController::class, 'destroy'])->name('permissions.delete');
 
     // dayoff
-    Route::get('/dashboard/dayoff/autocomplete', [DayoffController::class, 'autocomplete'])->name('autocomplete');
-    Route::get('/getdata-dayoff', [DayoffController::class, 'getData'])->name('getDataDayoff');
+    Route::get('dashboard/dayoff/autocomplete', [DayoffController::class, 'autocomplete'])->name('autocomplete');
+    Route::get('getdata-dayoff', [DayoffController::class, 'getData'])->name('getDataDayoff');
     Route::get('dashboard/dayoff', [DayoffController::class, 'index'])->name('dashboard.dayoff');
     Route::get('dashboard/dayoff/add', [DayoffController::class, 'create'])->name('dayoff.add');
     Route::post('dashboard/dayoff/store', [DayoffController::class, 'store'])->name('dayoff.store');
     Route::get('dashboard/dayoff/edit/{dayoff}', [DayoffController::class, 'edit'])->name('dayoff.edit');
     Route::put('dashboard/dayoff/update/{dayoff}', [DayoffController::class, 'update'])->name('dayoff.update');
     Route::delete('dashboard/dayoff/delete/{dayoff}', [DayoffController::class, 'destroy'])->name('dayoff.delete');
-    Route::post('/upload-image', [DayoffController::class, 'uploadImage']);
+    Route::post('upload-image', [DayoffController::class, 'uploadImage']);
     Route::get('dashboard/dayoff/detail/{dayoff}', [DayoffController::class, 'detail'])->name('dayoff.detail');
     Route::put('dashboard/dayoff/detail/confirm/{dayoff}', [DayoffController::class, 'confirm'])->name('dayoff.confirm');
     Route::put('dashboard/dayoff/detail/ignore/{dayoff}', [DayoffController::class, 'ignore'])->name('dayoff.ignore');
@@ -144,10 +145,14 @@ Route::middleware('auth')->group(function () {
     Route::get('dashboard/log', [LoghistoryController::class, 'index'])->name('dashboard.log');
 
     // record attendance
-    Route::get('dashboard/capture', [CaptureController::class, 'index'])->name('dashboard.capture');
+    Route::get('dashboard/capture', [CaptureController::class, 'index'])->name('capture.index');
 
-    // halaman buat kolektor
-    Route::resource('dashboard/collect', CollectController::class);
+    // ini dulu ya brader yang digrouping
+    Route::prefix('dashboard')->as('dashboard.')->group(function () {
+        // halaman buat kolektor
+        Route::resource('collect', CollectController::class);
+        Route::get('get/collect', [CollectController::class, 'getData'])->name('collect.getdata');
+    });
 });
 
 require __DIR__ . '/auth.php';
