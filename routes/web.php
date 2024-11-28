@@ -27,8 +27,10 @@ use Illuminate\Support\Facades\Storage;
 // });
 
 // landing page
+// turn off for a while, redirect to dashboard
 Route::get('/', function () {
-    return view('home');
+    // return view('home');
+    return redirect('login');
 })->name('landing.page');
 
 // route bisa diakses jika login
