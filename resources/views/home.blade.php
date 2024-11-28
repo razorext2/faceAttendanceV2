@@ -1,5 +1,4 @@
-@extends('layouts.app')
-@section('content')
+<x-landing.layout>
 	<div class="relative flex min-h-screen flex-col justify-center overflow-hidden md:py-12 lg:py-32" id="Home">
 		<div class="relative">
 			<img class="dark:opacity-80 fixed inset-0 -z-50 h-full w-full object-cover opacity-40"
@@ -150,18 +149,10 @@
 							</div>
 						</div>
 
-						{{-- <div class="w-full mt-3 rounded-lg h-52 lg:hidden lg:px-0 dark:bg-[#18181b]">
-                            <div class="h-auto p-3 text-left rounded-lg ring-1 min-h-10 ring-black dark:ring-gray-700">
-                                <p class="text-sm font-bold text-black dark:text-white">Log</p>
-                                <hr class="my-2 bg-black dark:bg-[#18181b]">
-                                <pre id="consoleOutput" class="overflow-y-auto max-h-32 scroll-smooth dark:text-white"></pre>
-                            </div>
-                        </div> --}}
-
 					</div>
 				</div>
 
 			</div>
 		</div>
 	</div>
-@endsection
+</x-landing.layout>

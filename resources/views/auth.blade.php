@@ -49,7 +49,8 @@
 						</svg>
 						<span class="sr-only">Check icon</span>
 					</div>
-					<div class="ms-3 mt-0.5 text-sm font-normal text-black"><x-auth-session-status class="mb-4" :status="session('status')" />
+					<div class="ms-3 mt-0.5 text-sm font-normal text-black"><x-auth.auth-session-status class="mb-4"
+							:status="session('status')" />
 					</div>
 					<button
 						class="dark:bg-gray-500 dark:text-gray-300 dark:ring-gray-700 dark:hover:bg-gray-300 -mx-1.5 -my-1.5 ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-900 focus:ring-2 focus:ring-gray-300"

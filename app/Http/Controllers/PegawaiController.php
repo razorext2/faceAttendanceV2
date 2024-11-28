@@ -310,11 +310,6 @@ class PegawaiController extends Controller
         ]);
     }
 
-    public function photoRegist()
-    {
-        return view('regist');
-    }
-
     public function saveImages(Request $request)
     {
         $kodePegawai = $request->input('kode_pegawai');
