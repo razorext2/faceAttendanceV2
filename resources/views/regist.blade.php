@@ -43,7 +43,7 @@
 						<input id="photo2Data" name="photo2" type="hidden">
 
 						<div class="mt-3 inline-flex w-full gap-2" data-aos="fade-right" data-aos-delay="150">
-							<x-landing.button-primary class="w-full" id="capturePhoto">Start Kamera</x-landing.button-primary>
+							<x-landing.button-primary class="w-full" id="capturePhoto" type="button">Start Kamera</x-landing.button-primary>
 							<x-landing.button-confirm class="w-full" type="submit">Upload Photos</x-landing.button-confirm>
 						</div>
 
