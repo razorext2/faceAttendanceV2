@@ -152,5 +152,10 @@
 	</div>
 @endsection
 @push('script')
+	<script>
+		apiURL = "{{ route('collectors.store') }}";
+		indexURL = "{{ route('dashboard.collect.index') }}";
+		createURL = "{{ route('dashboard.collect.create') }}";
+	</script>
 	@vite(['resources/js/collect/backStreamcamera.js'])
 @endpush

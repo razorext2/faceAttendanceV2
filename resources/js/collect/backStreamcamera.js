@@ -83,7 +83,7 @@ function addDataHandler() {
 
     // ajax request
     $.ajax({
-      url: "{{ route('collectors.store') }}", // Sesuaikan dengan URL route Anda
+      url: apiURL, // Sesuaikan dengan URL route Anda
       type: "POST",
       dataType: "json",
       data: formData,
@@ -100,7 +100,7 @@ function addDataHandler() {
 
         // redirect
         setTimeout(() => {
-          window.location.href = "{{ route('dashboard.collect.index') }}";
+          window.location.href = indexURL;
         }, 1000);
       },
       error: function (xhr, status, error) {
@@ -301,7 +301,7 @@ function getLocation() {
           showConfirmButton: false,
         }).then(() => {
           setTimeout(() => {
-            window.location.href = "{{ route('dashboard.collect.create') }}"
+            window.location.href = createURL;
           })
         })
       }
@@ -316,7 +316,7 @@ function getLocation() {
       showConfirmButton: false,
     }).then(() => {
       setTimeout(() => {
-        window.location.href = "{{ route('dashboard.collect.index') }}";
+        window.location.href = indexURL;
       }, 1000);
     })
   }
