@@ -14,6 +14,8 @@ export default defineConfig({
                 "resources/js/chart.js",
                 "resources/js/simpleTables.js",
                 "resources/js/leaflet.js",
+                // registration
+                "resources/js/landing/main.js",
             ],
             refresh: true,
         }),

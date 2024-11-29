@@ -1,0 +1,4 @@
+<button id="{{ $id }}"
+	{{ $attributes->merge(['class' => 'dark:bg-red-800 dark:hover:bg-red-900 dark:text-white dark:ring-gray-700 rounded-lg bg-red-400 p-2 font-bold text-white ring-1 ring-black hover:bg-red-700']) }}>
+	{{ $slot }}
+</button>

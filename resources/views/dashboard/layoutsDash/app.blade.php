@@ -36,7 +36,7 @@
 						<span class="sr-only">Check icon</span>
 					</div>
 					<div class="dark:text-white ms-3 mt-0.5 text-sm font-normal text-black">
-						<x-auth-session-status :status="session('status')" />
+						<x-auth.auth-session-status :status="session('status')" />
 					</div>
 					<button
 						class="dark:bg-green-950 dark:text-green-400 -mx-1.5 -my-1.5 ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-900 focus:ring-2 focus:ring-gray-300"

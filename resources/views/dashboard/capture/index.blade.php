@@ -99,139 +99,14 @@
 
 	@push('script')
 		<script>
-			var lat, lng;
+			let lastLat, lastLng, lat, lng;
+			const faceApiUrl = "{{ asset('face-api.min.js') }}";
+			const selfDetectUrl = "{{ asset('selfDetect.min.js') }}";
 			const specifiedLat = parseFloat("{{ $data->latitude ?? 'N/A' }}"); // Latitude of the specified point
 			const specifiedLng = parseFloat("{{ $data->longitude ?? 'N/A' }}"); // Longitude of the specified point
 			const radius = parseFloat("{{ $data->radius ?? 'N/A' }}"); // Radius in meters
 			const movementThreshold = 50; // Minimum distance to move (in meters)
-			let lastLat, lastLng;
-
-			document.addEventListener('DOMContentLoaded', function() {
-				const lokasiSpan = document.getElementById('lokasi'); // Get the span element
-				let scriptsLoaded = false;
-
-				if (navigator.geolocation) {
-					navigator.geolocation.watchPosition(
-						function(position) {
-							lat = position.coords.latitude;
-							lng = position.coords.longitude;
-
-							// Display the latitude and longitude in the span
-							lokasiSpan.innerHTML = `${lat}, ${lng}`;
-
-							// Calculate distance from the specified point
-							const distance = calculateDistance(specifiedLat, specifiedLng, lat, lng);
-
-							// Check if within the specified radius
-							if (distance > radius) {
-								window.Swal.fire({
-									title: "Gagal!",
-									html: `Anda berada ${distance.toFixed(2)} meter dari tempat yang ditentukan.`,
-									timer: 1500,
-									icon: "error",
-									showConfirmButton: false,
-								}).then(() => {
-									pegawaiKosong.style.display = "block";
-									pegawaiInfo.style.display = "none";
-
-									setTimeout(() => {
-										window.location.href = "{{ route('capture.index') }}";
-									}, 1000);
-								});
-							} else if (lastLat !== undefined && lastLng !== undefined) {
-								// Calculate distance moved since last position
-								const movedDistance = calculateDistance(lastLat, lastLng, lat, lng);
-
-								if (movedDistance > movementThreshold) {
-									window.Swal.fire({
-										title: "Gagal!",
-										html: `Fake GPS terdeteksi. Silahkan matikan terlebih dahulu.`,
-										timer: 1500,
-										icon: "error",
-										showConfirmButton: false,
-									}).then(() => {
-										pegawaiKosong.style.display = "block";
-										pegawaiInfo.style.display = "none";
-
-										setTimeout(() => {
-											window.location.href = "{{ route('capture.index') }}";
-										}, 2000);
-									});
-									return;
-								}
-							}
-
-							// Save current position for the next check
-							lastLat = lat;
-							lastLng = lng;
-
-							if (!scriptsLoaded) { // Load scripts only if not loaded
-								scriptsLoaded = true; // Set flag to prevent reloading
-								loadScript("{{ asset('face-api.min.js') }}", function() {
-									loadScript("{{ asset('selfDetect.min.js') }}");
-								});
-							}
-						},
-
-						function(error) {
-							window.Swal.fire({
-								title: "Gagal!",
-								html: `Anda harus mengaktifkan izin Lokasi.`,
-								timer: 1500,
-								icon: "error",
-								showConfirmButton: false,
-							}).then(() => {
-								pegawaiKosong.style.display = "block";
-								pegawaiInfo.style.display = "none";
-
-								setTimeout(() => {
-									window.location.href = "{{ route('capture.index') }}";
-								}, 1000);
-							});
-						}, {
-							enableHighAccuracy: true,
-							timeout: 1000,
-							maximumAge: 0,
-						}
-					);
-				} else {
-					window.Swal.fire({
-						title: "Gagal!",
-						html: `Browser anda tidak memiliki support Geolocation.`,
-						timer: 1500,
-						icon: "error",
-						showConfirmButton: false,
-					}).then(() => {
-						pegawaiKosong.style.display = "block";
-						pegawaiInfo.style.display = "none";
-
-						setTimeout(() => {
-							window.location.href = "{{ route('dashboard') }}";
-						}, 1000);
-					});
-				}
-			});
-
-			function loadScript(url, callback) {
-				const script = document.createElement("script");
-				script.src = url;
-				script.defer = true;
-				script.onload = callback;
-				document.head.appendChild(script);
-			}
-
-			// Function to calculate distance between two coordinates using Haversine formula
-			function calculateDistance(lat1, lng1, lat2, lng2) {
-				const R = 6371000; // Radius of Earth in meters
-				const dLat = (lat2 - lat1) * (Math.PI / 180);
-				const dLng = (lng2 - lng1) * (Math.PI / 180);
-				const a =
-					Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-					Math.cos(lat1 * (Math.PI / 180)) * Math.cos(lat2 * (Math.PI / 180)) *
-					Math.sin(dLng / 2) * Math.sin(dLng / 2);
-				const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-				return R * c; // Distance in meters
-			}
 		</script>
+		@vite(['resources/js/capture/main.js'])
 	@endpush
 @endsection

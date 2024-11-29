@@ -1,8 +1,10 @@
+@props(['title' => ''])
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 	<head>
-		@include('components.landing.partials.head')
+		@include('components.landing.partials.head', ['title' => $title])
 	</head>
 
 	<body>

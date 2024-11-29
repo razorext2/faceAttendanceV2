@@ -20,16 +20,14 @@
 			id="mega-menu-full">
 			<ul
 				class="dark:bg-[#18181b] dark:border-gray-700 mt-4 flex flex-col items-center rounded-lg border border-gray-100 bg-white p-4 rtl:space-x-reverse md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-white md:p-0">
-
 				<x-landing.nav-link href="/" :active="request()->is('/')">Home</x-landing.nav-link>
 				<x-landing.nav-link href="photo-regist" :active="request()->is('photo-regist')">Registrasi</x-landing.nav-link>
-				<x-landing.nav-link href="#Scan" :active="request()->is('#Scan')">Absen</x-landing.nav-link>
+				<x-landing.nav-link href="#scan" :active="request()->is('#scan')">Absen</x-landing.nav-link>
 				<x-landing.nav-guide></x-landing.nav-guide>
 				<x-landing.nav-link href="login" :active="request()->is('login')">Login</x-landing.nav-link>
 			</ul>
 			<div class="md:grid md:grid-cols-2">
 				<x-button-dark></x-button-dark>
-
 				<x-button-light></x-button-light>
 			</div>
 		</div>
