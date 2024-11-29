@@ -22,7 +22,10 @@ class CollectController extends Controller
         $query = Collector::with('photoCollectRelasi')->where('kode_pegawai', '=', Auth::user()->kode_pegawai)->latest()->get();
 
         return DataTables::of($query)
-            ->editColumn('created_at', function ($data) {
+            ->editColumn('kode_pegawai', function ($data) {
+                return $data->pegawaiRelasi->full_name . ' [' . $data->kode_pegawai . ']';
+            })
+            ->editColumn('created_updated_at', function ($data) {
                 return $data->created_at->locale('id')->isoFormat('D MMMM YY HH:mm:ss');
             })
             ->editColumn('title_status', function ($data) {
@@ -31,8 +34,10 @@ class CollectController extends Controller
 
                 if ($data->status === 0) {
                     $el .= '<span class="bg-yellow-100 ms-2 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Pending</span>';
+                } elseif ($data->status === 1) {
+                    $el .= '<span class="bg-green-100 ms-2 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Approved</span>';
                 } else {
-                    $el .= '<span class="bg-green-100 ms-2 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Approve</span>';
+                    $el .= '<span class="bg-red-100 ms-2 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">Rejected</span>';
                 }
 
                 '</div>';

@@ -99,7 +99,7 @@
 								</th>
 								<th>
 									<span class="dark:text-white flex items-center text-gray-800">
-										Kode Pegawai
+										Nama Pegawai
 									</span>
 								</th>
 								<th>
@@ -173,8 +173,8 @@
 						name: "kode_pegawai"
 					},
 					{
-						data: "created_at",
-						name: "created_at",
+						data: "created_updated_at",
+						name: "created_updated_at",
 					},
 					{
 						data: "title_status",
