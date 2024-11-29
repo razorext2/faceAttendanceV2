@@ -16,6 +16,7 @@ export default defineConfig({
                 "resources/js/leaflet.js",
                 // registration
                 "resources/js/landing/main.js",
+                "resources/js/capture/main.js",
             ],
             refresh: true,
         }),
