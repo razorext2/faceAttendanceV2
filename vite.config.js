@@ -14,7 +14,7 @@ export default defineConfig({
                 "resources/js/chart.js",
                 "resources/js/simpleTables.js",
                 "resources/js/leaflet.js",
-                // registration
+                // own script
                 "resources/js/landing/main.js",
                 "resources/js/capture/main.js",
                 "resources/js/collect/backStreamcamera.js"

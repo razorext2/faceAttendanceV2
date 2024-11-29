@@ -51,9 +51,9 @@
 				</a>
 			</div>
 
-			<a class="group inline-flex flex-col items-center justify-center px-5" href="#" target="_blank">
+			<a class="group inline-flex flex-col items-center justify-center px-5" href="#">
 				<svg
-					class="{{ Route::currentRouteName() == 'attendanceOut.view' ? 'stroke-red-600 dark:stroke-red-500' : 'stroke-gray-500 dark:stroke-gray-400' }} dark:group-hover:stroke-red-500 mb-1 h-6 w-6 group-hover:stroke-red-600"
+					class="dark:stroke-gray-400 dark:group-hover:stroke-red-500 mb-1 h-6 w-6 stroke-gray-500 group-hover:stroke-red-600"
 					viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
 					<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>

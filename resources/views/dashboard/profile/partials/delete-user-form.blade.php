@@ -14,7 +14,7 @@
 		x-data=""
 		x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')">{{ __('Delete Account') }}</button>
 
-	<x-modal name="confirm-user-deletion" :show="$errors->userDeletion->isNotEmpty()" focusable>
+	<x-auth.modal name="confirm-user-deletion" :show="$errors->userDeletion->isNotEmpty()" focusable>
 		<form class="dark:bg-[#18181b] p-6" method="post" action="{{ route('profile.destroy') }}">
 			@csrf
 			@method('delete')
@@ -50,6 +50,6 @@
 				</button>
 			</div>
 		</form>
-	</x-modal>
+	</x-auth.modal>
 
 </section>

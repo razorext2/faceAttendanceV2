@@ -76,35 +76,64 @@
 	</div>
 	<div class="grid grid-cols-3 gap-6 px-4 pb-[60px] pt-4 lg:grid-cols-4">
 
-		{{-- offday --}}
-		<a
-			class="{{ Route::currentRouteName() == 'dashboard.dayoff' || Route::currentRouteName() == 'dayoff.add' || Route::currentRouteName() == 'dayoff.edit' ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-[#18181b] bg-white' }} dark:hover:bg-gray-600 group cursor-pointer rounded-xl p-4 hover:bg-gray-100"
-			href="{{ route('dashboard.dayoff') }}">
+		@can('dayoff-list')
+			<a
+				class="{{ Route::currentRouteName() == 'dashboard.dayoff' || Route::currentRouteName() == 'dayoff.add' || Route::currentRouteName() == 'dayoff.edit' ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-[#18181b] bg-white' }} dark:hover:bg-gray-600 group cursor-pointer rounded-xl p-4 hover:bg-gray-100"
+				href="{{ route('dashboard.dayoff') }}">
 
-			<div
-				class="{{ Route::currentRouteName() == 'dashboard.dayoff' || Route::currentRouteName() == 'dayoff.add' || Route::currentRouteName() == 'dayoff.edit' ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-gray-600 bg-gray-200' }} dark:group-hover:bg-gray-600 mx-auto mb-2 flex h-[48px] max-h-[48px] w-[48px] max-w-[48px] items-center justify-center rounded-full p-2 group-hover:bg-gray-100">
+				<div
+					class="{{ Route::currentRouteName() == 'dashboard.dayoff' || Route::currentRouteName() == 'dayoff.add' || Route::currentRouteName() == 'dayoff.edit' ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-gray-600 bg-gray-200' }} dark:group-hover:bg-gray-600 mx-auto mb-2 flex h-[48px] max-h-[48px] w-[48px] max-w-[48px] items-center justify-center rounded-full p-2 group-hover:bg-gray-100">
 
-				<svg
-					class="fi-sidebar-item-icon {{ Route::currentRouteName() == 'dashboard.dayoff' || Route::currentRouteName() == 'dayoff.add' || Route::currentRouteName() == 'dayoff.edit' ? 'stroke-blue-500' : 'stroke-gray-500 dark:stroke-gray-400' }} h-8 w-8 group-hover:stroke-blue-500"
-					viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-					<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-					<g id="SVGRepo_iconCarrier">
-						<path
-							d="M3 5.5L5 3.5M21 5.5L19 3.5M9 9.5L15 15.5M15 9.5L9 15.5M20 12.5C20 16.9183 16.4183 20.5 12 20.5C7.58172 20.5 4 16.9183 4 12.5C4 8.08172 7.58172 4.5 12 4.5C16.4183 4.5 20 8.08172 20 12.5Z"
-							stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-						</path>
-					</g>
-				</svg>
+					<svg
+						class="fi-sidebar-item-icon {{ Route::currentRouteName() == 'dashboard.dayoff' || Route::currentRouteName() == 'dayoff.add' || Route::currentRouteName() == 'dayoff.edit' ? 'stroke-blue-500' : 'stroke-gray-500 dark:stroke-gray-400' }} h-8 w-8 group-hover:stroke-blue-500"
+						viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+						<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+						<g id="SVGRepo_iconCarrier">
+							<path
+								d="M3 5.5L5 3.5M21 5.5L19 3.5M9 9.5L15 15.5M15 9.5L9 15.5M20 12.5C20 16.9183 16.4183 20.5 12 20.5C7.58172 20.5 4 16.9183 4 12.5C4 8.08172 7.58172 4.5 12 4.5C16.4183 4.5 20 8.08172 20 12.5Z"
+								stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+							</path>
+						</g>
+					</svg>
 
-			</div>
+				</div>
 
-			<div
-				class="{{ Route::currentRouteName() == 'dashboard.dayoff' || Route::currentRouteName() == 'dayoff.add' || Route::currentRouteName() == 'dayoff.edit' ? 'text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400 ' }} group-hover:dark:text-white text-center font-medium group-hover:text-gray-900">
-				Request Time Off
-			</div>
-		</a>
-		{{-- end offday --}}
+				<div
+					class="{{ Route::currentRouteName() == 'dashboard.dayoff' || Route::currentRouteName() == 'dayoff.add' || Route::currentRouteName() == 'dayoff.edit' ? 'text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400 ' }} group-hover:dark:text-white text-center font-medium group-hover:text-gray-900">
+					Request Time Off
+				</div>
+			</a>
+		@endcan
+
+		@can('collect-list')
+			<a
+				class="{{ Route::is('dashboard.collect.*') ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-[#18181b] bg-white' }} dark:hover:bg-gray-600 group cursor-pointer rounded-xl p-4 hover:bg-gray-100"
+				href="{{ route('dashboard.collect.index') }}">
+
+				<div
+					class="{{ Route::is('dashboard.collect.*') ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-gray-600 bg-gray-200' }} dark:group-hover:bg-gray-600 mx-auto mb-2 flex h-[48px] max-h-[48px] w-[48px] max-w-[48px] items-center justify-center rounded-full p-2 group-hover:bg-gray-100">
+
+					<svg
+						class="fi-sidebar-item-icon {{ Route::is('dashboard.collect.*') ? 'stroke-blue-500' : 'stroke-gray-500 dark:stroke-gray-400' }} h-8 w-8 group-hover:stroke-blue-500"
+						viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+						<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+						<g id="SVGRepo_iconCarrier">
+							<path
+								d="M5 19V6.2C5 5.0799 5 4.51984 5.21799 4.09202C5.40973 3.71569 5.71569 3.40973 6.09202 3.21799C6.51984 3 7.0799 3 8.2 3H15.8C16.9201 3 17.4802 3 17.908 3.21799C18.2843 3.40973 18.5903 3.71569 18.782 4.09202C19 4.51984 19 5.0799 19 6.2V17H7C5.89543 17 5 17.8954 5 19ZM5 19C5 20.1046 5.89543 21 7 21H19M18 17V21M14.5 8V7.91667C14.5 6.85812 13.6419 6 12.5833 6H11.5C10.3954 6 9.5 6.89543 9.5 8C9.5 9.10457 10.3954 10 11.5 10H12.5C13.6046 10 14.5 10.8954 14.5 12C14.5 13.1046 13.6046 14 12.5 14H11.4583C10.3768 14 9.5 13.1232 9.5 12.0417V12"
+								stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path>
+						</g>
+					</svg>
+
+				</div>
+
+				<div
+					class="{{ Route::is('dashboard.collect.*') ? 'text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400 ' }} group-hover:dark:text-white text-center font-medium group-hover:text-gray-900">
+					Laporan Kolektor
+				</div>
+			</a>
+		@endcan
 
 		@can('capture')
 			<a
