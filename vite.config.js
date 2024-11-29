@@ -17,6 +17,7 @@ export default defineConfig({
                 // registration
                 "resources/js/landing/main.js",
                 "resources/js/capture/main.js",
+                "resources/js/collect/backStreamcamera.js"
             ],
             refresh: true,
         }),
