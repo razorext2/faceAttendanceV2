@@ -16,8 +16,8 @@
 					data-aos-delay="100">
 					<x-landing.stream-attend></x-landing.stream-attend>
 					<div class="mt-3 inline-flex w-full gap-2 lg:px-0">
-						<x-landing.button-primary class="w-full" id="startButton">Start</x-landing.button-primary>
-						<x-landing.button-danger class="w-full" id="endAttendance">Stop</x-landing.button-danger>
+						<x-landing.button-primary class="w-full" id="startButton" type="button">Start</x-landing.button-primary>
+						<x-landing.button-danger class="w-full" id="endAttendance" type="button">Stop</x-landing.button-danger>
 					</div>
 					<x-landing.console-log></x-landing.console-log>
 				</div>
