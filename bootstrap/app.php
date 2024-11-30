@@ -7,7 +7,6 @@ use Illuminate\Foundation\Configuration\Middleware;
 use App\Http\Middleware\TrackUserActivity;
 // track log
 use App\Http\Middleware\LogUserActions;
-use App\Http\Middleware\UpgradeToHttpsUnderNgrok;
 use ErlandMuchasaj\LaravelGzip\Middleware\GzipEncodeResponse;
 use Spatie\Permission\Middleware\RoleMiddleware;
 use Spatie\Permission\Middleware\PermissionMiddleware;
@@ -31,7 +30,6 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->prepend(GzipEncodeResponse::class);
         $middleware->append(TrackUserActivity::class);
         $middleware->append(LogUserActions::class);
-        $middleware->append(UpgradeToHttpsUnderNgrok::class);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
