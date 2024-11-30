@@ -6,16 +6,6 @@
 	</head>
 
 	<body class="dark:bg-[#09090b] bg-gray-50">
-		{{-- <div class="relative">
-			<img class="fixed inset-0 -z-50 h-full w-full object-cover" src="{{ asset('assets/img/hero-bg-light.webp') }}"
-				alt="Background Image" />
-			<img class="fixed inset-0 -z-40 h-full w-full object-cover opacity-20 mix-blend-overlay"
-				src="{{ asset('assets/img/grid.webp') }}" alt="Background Image" />
-
-			<!-- Overlay -->
-			<div class="dark:opacity-85 fixed inset-0 -z-40 w-full bg-gray-800 opacity-0"></div>
-		</div> --}}
-
 		@if (session('status'))
 			<div
 				class="fixed right-0 top-[4.5rem] z-50 flex w-full max-w-sm scale-90 transform items-center divide-x transition duration-300"
@@ -92,7 +82,7 @@
 		</div>
 
 		{{-- bikin navigasi ala android --}}
-		@include('dashboard.layoutsDash.mobileDrawer')
+		<x-dashboard.mobile-drawer></x-dashboard.mobile-drawer>
 		<div class="dark:bg-[#09090b] fixed inset-0 z-50 bg-white md:z-[9999]" id="preloader">
 		</div>
 
