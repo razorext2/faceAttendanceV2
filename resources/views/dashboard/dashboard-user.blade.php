@@ -187,7 +187,7 @@
 					@can('collect-list')
 						<a
 							class="dark:bg-gray-700 dark:border-gray-700 dark:text-white hover:dark:bg-gray-800 group mb-2 flex h-full w-auto transform cursor-pointer flex-col items-center justify-center rounded-xl border border-gray-200 bg-gray-50 p-2 text-blue-700 shadow transition duration-75 ease-in hover:scale-95 hover:bg-gray-100 hover:shadow-md"
-							href="{{ route('dashboard.collect.index') }}">
+							href="{{ route('collect.index') }}">
 							<svg class="fi-sidebar-item-icon dark:stroke-white h-7 w-7 stroke-blue-700" viewBox="0 0 24 24" fill="none"
 								xmlns="http://www.w3.org/2000/svg">
 								<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
