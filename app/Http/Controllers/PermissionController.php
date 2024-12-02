@@ -109,7 +109,7 @@ class PermissionController extends Controller
             Permission::create(['name' => $permissionName]);
         }
 
-        return redirect()->route('dashboard.permissions')->with('status', 'Berhasil menambah data role');;
+        return redirect()->route('permissions.index')->with('status', 'Berhasil menambah data role');;
     }
 
     /**
@@ -134,7 +134,7 @@ class PermissionController extends Controller
         $permission->name = $request->input('name');
         $permission->save();
 
-        return redirect()->route('dashboard.permissions')
+        return redirect()->route('permissions.index')
             ->with('status', 'Berhasil mengubah data permission');
     }
 
@@ -144,7 +144,7 @@ class PermissionController extends Controller
     public function destroy(string $id)
     {
         DB::table("permissions")->where('id', $id)->delete();
-        return redirect()->route('dashboard.permissions')
+        return redirect()->route('permissions.index')
             ->with('status', 'Berhasil menghapus data permission');
     }
 }

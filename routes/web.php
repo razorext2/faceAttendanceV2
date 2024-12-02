@@ -125,13 +125,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('dashboard/roles/delete/{roles}', [RoleController::class, 'destroy'])->name('roles.delete');
 
     // permissions
-    Route::get('getdata-permissions', [PermissionController::class, 'getData'])->name('getDataPermissions');
-    Route::get('dashboard/permissions', [PermissionController::class, 'index'])->name('dashboard.permissions');
-    Route::get('dashboard/permissions/add', [PermissionController::class, 'create'])->name('permissions.add');
-    Route::post('dashboard/permissions/store', [PermissionController::class, 'store'])->name('permissions.store');
-    Route::get('dashboard/permissions/edit/{permissions}', [PermissionController::class, 'edit'])->name('permissions.edit');
-    Route::put('dashboard/permissions/update/{permissions}', [PermissionController::class, 'update'])->name('permissions.update');
-    Route::delete('dashboard/permissions/delete/{permissions}', [PermissionController::class, 'destroy'])->name('permissions.delete');
+    // Route::get('getdata-permissions', [PermissionController::class, 'getData'])->name('getDataPermissions');
+    // Route::get('dashboard/permissions', [PermissionController::class, 'index'])->name('dashboard.permissions');
+    // Route::get('dashboard/permissions/add', [PermissionController::class, 'create'])->name('permissions.add');
+    // Route::post('dashboard/permissions/store', [PermissionController::class, 'store'])->name('permissions.store');
+    // Route::get('dashboard/permissions/edit/{permissions}', [PermissionController::class, 'edit'])->name('permissions.edit');
+    // Route::put('dashboard/permissions/update/{permissions}', [PermissionController::class, 'update'])->name('permissions.update');
+    // Route::delete('dashboard/permissions/delete/{permissions}', [PermissionController::class, 'destroy'])->name('permissions.delete');
 
     // log
     Route::get('dashboard/log', [LoghistoryController::class, 'index'])->name('dashboard.log');
@@ -141,17 +141,21 @@ Route::middleware('auth')->group(function () {
 
     // ini dulu ya brader yang digrouping
     Route::prefix('dashboard')->as('')->group(function () {
-        // halaman buat kolektor
+        // route kolektor
         Route::get('collect/get', [CollectController::class, 'getData'])->name('collect.getdata');
         Route::resource('collect', CollectController::class);
 
-        // halaman buat dayoff
+        // route dayoff
         Route::get('dayoff/get', [DayoffController::class, 'getData'])->name('dayoff.getdata');
         Route::post('dayoff/upload-image', [DayoffController::class, 'uploadImage'])->name('dayoff.uploadimage');
         Route::get('dayoff/autocomplete', [DayoffController::class, 'autocomplete'])->name('dayoff.autocomplete');
         Route::put('dayoff/confirm/{dayoff}', [DayoffController::class, 'confirm'])->name('dayoff.confirm');
         Route::put('dayoff/ignore/{dayoff}', [DayoffController::class, 'ignore'])->name('dayoff.ignore');
         Route::resource('dayoff', DayoffController::class);
+
+        // route permission
+        Route::get('permissions/get', [PermissionController::class, 'getData'])->name('permissions.getdata');
+        Route::resource('permissions', PermissionController::class);
     });
 });
 

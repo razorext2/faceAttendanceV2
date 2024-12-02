@@ -285,12 +285,12 @@
 			@endif
 
 			@if (auth()->user()->hasAnyPermission(['users-list', 'roles-list', 'permissions-list']))
-				<li x-data="{ usermanage: {{ Route::is('dashboard.users') || Route::is('users.add') || Route::is('users.edit') || Route::is('dashboard.permissions') || Route::is('permissions.add') || Route::is('permissions.edit') || Route::is('dashboard.roles') || Route::is('roles.add') || Route::is('roles.edit') ? 'true' : 'false' }} }">
+				<li x-data="{ usermanage: {{ Route::is('dashboard.users') || Route::is('users.add') || Route::is('users.edit') || Route::is('permissions.*') || Route::is('dashboard.roles') || Route::is('roles.add') || Route::is('roles.edit') ? 'true' : 'false' }} }">
 					<button
-						class="{{ Route::is('dashboard.users') || Route::is('dashboard.permissions') || Route::is('dashboard.roles') ? 'text-red-600 font-bold bg-gray-100 dark:bg-[#18181b]' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-[#18181b] hover:text-red-600' }} group flex w-full items-center rounded-xl p-2 text-base text-gray-900 transition duration-200"
+						class="{{ Route::is('dashboard.users') || Route::is('permissions.*') || Route::is('dashboard.roles') ? 'text-red-600 font-bold bg-gray-100 dark:bg-[#18181b]' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-[#18181b] hover:text-red-600' }} group flex w-full items-center rounded-xl p-2 text-base text-gray-900 transition duration-200"
 						type="button" aria-controls="user-dropdown" @click="usermanage = !usermanage" :aria-expanded="usermanage">
 						<svg
-							class="fi-sidebar-item-icon {{ Route::is('dashboard.users') || Route::is('dashboard.permissions') || Route::is('dashboard.roles') ? 'stroke-red-600' : 'stroke-gray-400' }} h-6 w-6 text-gray-400 group-hover:stroke-red-600"
+							class="fi-sidebar-item-icon {{ Route::is('dashboard.users') || Route::is('permissions.*') || Route::is('dashboard.roles') ? 'stroke-red-600' : 'stroke-gray-400' }} h-6 w-6 text-gray-400 group-hover:stroke-red-600"
 							viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
 							<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -366,10 +366,10 @@
 						@can('permissions-list')
 							<li>
 								<a
-									class="{{ Route::is('dashboard.permissions') || Route::is('permissions.add') || Route::is('permissions.edit') ? 'text-red-600 font-bold bg-gray-100 dark:bg-[#18181b]' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent hover:text-red-600' }} group flex w-full items-center rounded-xl p-2 pl-11"
-									href="{{ route('dashboard.permissions') }}">
+									class="{{ Route::is('permissions.*') ? 'text-red-600 font-bold bg-gray-100 dark:bg-[#18181b]' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent hover:text-red-600' }} group flex w-full items-center rounded-xl p-2 pl-11"
+									href="{{ route('permissions.index') }}">
 									<svg
-										class="fi-sidebar-item-icon {{ Route::currentRouteName() == 'dashboard.permissions' || Route::currentRouteName() == 'permissions.add' || Route::currentRouteName() == 'permissions.edit' ? 'stroke-red-600' : 'stroke-gray-400' }} h-6 w-6 group-hover:stroke-red-600"
+										class="fi-sidebar-item-icon {{ Route::is('permissions.*') ? 'stroke-red-600' : 'stroke-gray-400' }} h-6 w-6 group-hover:stroke-red-600"
 										viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
 										<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -383,6 +383,7 @@
 								</a>
 							</li>
 						@endcan
+
 					</ul>
 				</li>
 			@endif

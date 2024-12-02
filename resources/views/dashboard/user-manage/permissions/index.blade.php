@@ -1,6 +1,6 @@
 @extends('dashboard.layoutsDash.app')
 @section('content')
-	<form id="add-permissions" action="{{ route('permissions.add') }}"></form>
+	<form id="add-permissions" action="{{ route('permissions.create') }}"></form>
 
 	<div class="relative grid grid-cols-1 gap-6">
 		@can('permissions-create')
@@ -139,7 +139,7 @@
 				responsive: true,
 				perPageSelect: [5, 25, 50, 100],
 				ajax: {
-					url: "{{ route('getDataPermissions') }}",
+					url: "{{ route('permissions.getdata') }}",
 					data: function(d) {
 						d.minDate = minDate.val();
 						d.maxDate = maxDate.val();
@@ -263,7 +263,7 @@
 					var id = $(this).data('id');
 					// Set the form action for deletion
 					$('#deleteForm').attr('action', currentRoute +
-						'/delete/' + id);
+						'/' + id);
 					// Show the modal
 					$('#deleteModal').removeClass('hidden');
 				});
