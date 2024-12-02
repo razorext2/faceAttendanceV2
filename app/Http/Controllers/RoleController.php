@@ -120,7 +120,7 @@ class RoleController extends Controller
         $role = Role::create(['name' => $request->input('name')]);
         $role->syncPermissions($permissionsID);
 
-        return redirect()->route('dashboard.roles')->with('status', 'Berhasil menambah data role');;
+        return redirect()->route('roles.index')->with('status', 'Berhasil menambah data role');;
     }
 
     /**
@@ -160,7 +160,7 @@ class RoleController extends Controller
 
         $role->syncPermissions($permissionsID);
 
-        return redirect()->route('dashboard.roles')
+        return redirect()->route('roles.index')
             ->with('status', 'Berhasil mengubah data role');
     }
 
@@ -170,7 +170,7 @@ class RoleController extends Controller
     public function destroy(string $id)
     {
         DB::table("roles")->where('id', $id)->delete();
-        return redirect()->route('dashboard.roles')
+        return redirect()->route('roles.index')
             ->with('status', 'Berhasil menghapus data role');
     }
 }

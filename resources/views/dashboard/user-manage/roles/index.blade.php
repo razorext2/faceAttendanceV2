@@ -1,6 +1,6 @@
 @extends('dashboard.layoutsDash.app')
 @section('content')
-	<form id="add-roles" action="{{ route('roles.add') }}"></form>
+	<form id="add-roles" action="{{ route('roles.create') }}"></form>
 
 	<div class="relative grid grid-cols-1 gap-6">
 		@can('roles-create')
@@ -139,7 +139,7 @@
 				responsive: true,
 				perPageSelect: [5, 25, 50, 100],
 				ajax: {
-					url: "{{ route('getDataRoles') }}",
+					url: "{{ route('roles.getdata') }}",
 					data: function(d) {
 						d.minDate = minDate.val();
 						d.maxDate = maxDate.val();
@@ -153,10 +153,6 @@
 						data: 'name',
 						name: 'name'
 					},
-					// {
-					//     data: 'permissions',
-					//     name: 'permissions'
-					// },
 					{
 						data: 'created_updated_at',
 						name: 'created_updated_at'
@@ -263,7 +259,7 @@
 					var id = $(this).data('id');
 					// Set the form action for deletion
 					$('#deleteForm').attr('action', currentRoute +
-						'/delete/' + id);
+						'/' + id);
 					// Show the modal
 					$('#deleteModal').removeClass('hidden');
 				});

@@ -311,14 +311,14 @@
 
 		@can('roles-list')
 			<a
-				class="{{ Route::currentRouteName() == 'dashboard.roles' || Route::currentRouteName() == 'roles.add' || Route::currentRouteName() == 'roles.edit' ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-[#18181b] bg-white' }} dark:hover:bg-gray-600 group cursor-pointer rounded-xl p-4 hover:bg-gray-100"
-				href="{{ route('dashboard.roles') }}">
+				class="{{ Route::is('roles.*') ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-[#18181b] bg-white' }} dark:hover:bg-gray-600 group cursor-pointer rounded-xl p-4 hover:bg-gray-100"
+				href="{{ route('roles.index') }}">
 
 				<div
-					class="{{ Route::currentRouteName() == 'dashboard.roles' || Route::currentRouteName() == 'roles.add' || Route::currentRouteName() == 'roles.edit' ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-gray-600 bg-gray-200' }} dark:group-hover:bg-gray-600 mx-auto mb-2 flex h-[48px] max-h-[48px] w-[48px] max-w-[48px] items-center justify-center rounded-full p-2 group-hover:bg-gray-100">
+					class="{{ Route::is('roles.*') ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-gray-600 bg-gray-200' }} dark:group-hover:bg-gray-600 mx-auto mb-2 flex h-[48px] max-h-[48px] w-[48px] max-w-[48px] items-center justify-center rounded-full p-2 group-hover:bg-gray-100">
 
 					<svg
-						class="fi-sidebar-item-icon {{ Route::currentRouteName() == 'dashboard.roles' || Route::currentRouteName() == 'roles.add' || Route::currentRouteName() == 'roles.edit' ? 'stroke-blue-500' : 'stroke-gray-500 dark:stroke-gray-400' }} h-8 w-8 group-hover:stroke-blue-500"
+						class="fi-sidebar-item-icon {{ Route::is('roles.*') ? 'stroke-blue-500' : 'stroke-gray-500 dark:stroke-gray-400' }} h-8 w-8 group-hover:stroke-blue-500"
 						viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
 						<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -332,7 +332,7 @@
 				</div>
 
 				<div
-					class="{{ Route::currentRouteName() == 'dashboard.roles' || Route::currentRouteName() == 'roles.add' || Route::currentRouteName() == 'roles.edit' ? 'text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400 ' }} group-hover:dark:text-white text-center font-medium group-hover:text-gray-900">
+					class="{{ Route::is('roles.*') ? 'text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400 ' }} group-hover:dark:text-white text-center font-medium group-hover:text-gray-900">
 					Roles
 				</div>
 			</a>
