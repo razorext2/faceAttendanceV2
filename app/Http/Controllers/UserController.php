@@ -138,7 +138,7 @@ class UserController extends Controller
         $user = User::create($input);
         $user->assignRole($request->input('roles'));
 
-        return redirect()->route('dashboard.users')
+        return redirect()->route('users.index')
             ->with('status', 'Berhasil menambah data user');
     }
 
@@ -179,7 +179,7 @@ class UserController extends Controller
 
         $user->assignRole($request->input('roles'));
 
-        return redirect()->route('dashboard.users')
+        return redirect()->route('users.index')
             ->with('status', 'Berhasil mengubah data user');
     }
 
@@ -188,26 +188,11 @@ class UserController extends Controller
      */
     public function destroy($id): RedirectResponse
     {
-        // User::find($id)->delete();
-        // Pegawai::find($id)->delete();
 
-        // Find the user by ID
-        // if (Auth::user()->kode_pegawai != null) {
-        //     $user = User::where('kode_pegawai', $id)->first();
-        // } else {
         $user = User::where('id', $id)->first();
-        // }
-
-        // $pegawai = Pegawai::where('kode_pegawai', $id)->first();
-
-        // if ($pegawai != null) {
-        //     $user->delete();
-        //     $pegawai->delete();
-        // } else {
         $user->delete();
-        // }
 
-        return redirect()->route('dashboard.users')
+        return redirect()->route('users.index')
             ->with('status', 'Berhasil menghapus data user');
     }
 }

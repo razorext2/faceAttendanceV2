@@ -324,10 +324,10 @@
 						@can('users-list')
 							<li>
 								<a
-									class="{{ Route::is('dashboard.users') || Route::is('users.add') || Route::is('users.edit') ? 'text-red-600 font-bold bg-gray-100 dark:bg-[#18181b]' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent hover:text-red-600' }} group flex w-full items-center rounded-xl p-2 pl-11"
-									href="{{ route('dashboard.users') }}">
+									class="{{ Route::is('users.*') ? 'text-red-600 font-bold bg-gray-100 dark:bg-[#18181b]' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent hover:text-red-600' }} group flex w-full items-center rounded-xl p-2 pl-11"
+									href="{{ route('users.index') }}">
 									<svg
-										class="fi-sidebar-item-icon {{ Route::currentRouteName() == 'dashboard.users' || Route::currentRouteName() == 'users.add' || Route::currentRouteName() == 'users.edit' ? 'stroke-red-600' : 'stroke-gray-400' }} h-6 w-6 group-hover:stroke-red-600"
+										class="fi-sidebar-item-icon {{ Route::is('users.*') ? 'stroke-red-600' : 'stroke-gray-400' }} h-6 w-6 group-hover:stroke-red-600"
 										viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
 										<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>

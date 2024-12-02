@@ -1,6 +1,6 @@
 @extends('dashboard.layoutsDash.app')
 @section('content')
-	<form id="add-users" action="{{ route('users.add') }}"></form>
+	<form id="add-users" action="{{ route('users.create') }}"></form>
 
 	<div class="relative grid grid-cols-1 gap-6">
 		@can('users-create')
@@ -144,7 +144,7 @@
 				responsive: true,
 				perPageSelect: [5, 25, 50, 100],
 				ajax: {
-					url: "{{ route('getDataUsers') }}",
+					url: "{{ route('users.getdata') }}",
 					data: function(d) {
 						d.minDate = minDate.val();
 						d.maxDate = maxDate.val();
@@ -272,7 +272,7 @@
 					var id = $(this).data('id');
 					// Set the form action for deletion
 					$('#deleteForm').attr('action', currentRoute +
-						'/delete/' + id);
+						'/' + id);
 					// Show the modal
 					$('#deleteModal').removeClass('hidden');
 				});

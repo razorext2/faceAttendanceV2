@@ -107,13 +107,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('dashboard/golongan/delete/{golongan}', [GolonganController::class, 'destroy'])->name('golongan.delete');
 
     // users
-    Route::get('getdata-users', [UserController::class, 'getData'])->name('getDataUsers');
-    Route::get('dashboard/users', [UserController::class, 'index'])->name('dashboard.users');
-    Route::get('dashboard/users/add', [UserController::class, 'create'])->name('users.add');
-    Route::post('dashboard/users/store', [UserController::class, 'store'])->name('users.store');
-    Route::get('dashboard/users/edit/{users}', [UserController::class, 'edit'])->name('users.edit');
-    Route::put('dashboard/users/update/{users}', [UserController::class, 'update'])->name('users.update');
-    Route::delete('dashboard/users/delete/{users}', [UserController::class, 'destroy'])->name('users.delete');
+    // Route::get('getdata-users', [UserController::class, 'getData'])->name('getDataUsers');
+    // Route::get('dashboard/users', [UserController::class, 'index'])->name('dashboard.users');
+    // Route::get('dashboard/users/add', [UserController::class, 'create'])->name('users.add');
+    // Route::post('dashboard/users/store', [UserController::class, 'store'])->name('users.store');
+    // Route::get('dashboard/users/edit/{users}', [UserController::class, 'edit'])->name('users.edit');
+    // Route::put('dashboard/users/update/{users}', [UserController::class, 'update'])->name('users.update');
+    // Route::delete('dashboard/users/delete/{users}', [UserController::class, 'destroy'])->name('users.delete');
 
     // log
     Route::get('dashboard/log', [LoghistoryController::class, 'index'])->name('dashboard.log');
@@ -142,6 +142,10 @@ Route::middleware('auth')->group(function () {
         // route roles
         Route::get('roles/get', [RoleController::class, 'getData'])->name('roles.getdata');
         Route::resource('roles', RoleController::class);
+
+        // route users
+        Route::get('users/get', [UserController::class, 'getData'])->name('users.getdata');
+        Route::resource('users', UserController::class);
     });
 });
 
