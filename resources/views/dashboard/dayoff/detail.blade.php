@@ -7,7 +7,7 @@
 				<header class="flex flex-row">
 					<a
 						class="dark:bg-red-800 dark:hover:bg-red-900 dark:text-white dark:ring-gray-700 mr-3 flex flex-row rounded-lg px-2.5 py-2.5 align-middle ring-1 ring-red-700 hover:bg-red-300 md:px-4"
-						href="{{ route('dashboard.dayoff') }}">
+						href="{{ route('dayoff.index') }}">
 						<svg class="dark:fill-white" class="icon" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
 							viewBox="0 0 1024 1024" fill="#000000" version="1.1">
 							<path

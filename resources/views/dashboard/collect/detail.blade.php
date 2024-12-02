@@ -57,14 +57,6 @@
 						</p>
 					</div>
 
-					{{-- <div
-						class="dark:bg-gray-700 dark:border-gray-700 flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-white p-3 md:col-span-2">
-						<p class="dark:text-gray-300 text-sm text-gray-600">Judul Laporan</p>
-						<p class="text-navy-700 dark:text-white text-base font-medium">
-							{{ $data->title ?? 'N/A' }}
-						</p>
-					</div> --}}
-
 					<div
 						class="dark:bg-gray-700 dark:border-gray-700 flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-white p-3 md:col-span-2">
 						<p class="dark:text-gray-300 mb-2 text-sm text-gray-600">Dokumentasi</p>
@@ -78,8 +70,6 @@
 												class="h-36 w-36 rounded-xl object-cover blur-sm transition duration-300 ease-in-out hover:scale-105 hover:blur-0"
 												id="documentations" data-url="{{ asset($photo->photourl) }}" src="{{ asset($photo->photourl) }}"
 												alt="" onclick="javascript:void(0)">
-											{{-- <button class="absolute left-1/2 top-1/2 z-50 h-6 w-6 translate-x-0 rounded-full bg-white hover:scale-110">
-												👁 </button> --}}
 										</div>
 									@endforeach
 								@endif
@@ -175,8 +165,6 @@
 				let url = $(this).data("url");
 
 				Swal.fire({
-					// imageWidth: 800,
-					// imageUrl: `${url}`,
 					showCancelButton: false,
 					showConfirmButton: false,
 					html: `
@@ -264,7 +252,6 @@
 				}
 			});
 		}
-
 
 		document.addEventListener("DOMContentLoaded", function() {
 			quillText();

@@ -133,20 +133,6 @@ Route::middleware('auth')->group(function () {
     Route::put('dashboard/permissions/update/{permissions}', [PermissionController::class, 'update'])->name('permissions.update');
     Route::delete('dashboard/permissions/delete/{permissions}', [PermissionController::class, 'destroy'])->name('permissions.delete');
 
-    // dayoff
-    Route::get('dashboard/dayoff/autocomplete', [DayoffController::class, 'autocomplete'])->name('autocomplete');
-    Route::get('getdata-dayoff', [DayoffController::class, 'getData'])->name('getDataDayoff');
-    Route::get('dashboard/dayoff', [DayoffController::class, 'index'])->name('dashboard.dayoff');
-    Route::get('dashboard/dayoff/add', [DayoffController::class, 'create'])->name('dayoff.add');
-    Route::post('dashboard/dayoff/store', [DayoffController::class, 'store'])->name('dayoff.store');
-    Route::get('dashboard/dayoff/edit/{dayoff}', [DayoffController::class, 'edit'])->name('dayoff.edit');
-    Route::put('dashboard/dayoff/update/{dayoff}', [DayoffController::class, 'update'])->name('dayoff.update');
-    Route::delete('dashboard/dayoff/delete/{dayoff}', [DayoffController::class, 'destroy'])->name('dayoff.delete');
-    Route::post('upload-image', [DayoffController::class, 'uploadImage']);
-    Route::get('dashboard/dayoff/detail/{dayoff}', [DayoffController::class, 'detail'])->name('dayoff.detail');
-    Route::put('dashboard/dayoff/detail/confirm/{dayoff}', [DayoffController::class, 'confirm'])->name('dayoff.confirm');
-    Route::put('dashboard/dayoff/detail/ignore/{dayoff}', [DayoffController::class, 'ignore'])->name('dayoff.ignore');
-
     // log
     Route::get('dashboard/log', [LoghistoryController::class, 'index'])->name('dashboard.log');
 
@@ -156,8 +142,16 @@ Route::middleware('auth')->group(function () {
     // ini dulu ya brader yang digrouping
     Route::prefix('dashboard')->as('')->group(function () {
         // halaman buat kolektor
+        Route::get('collect/get', [CollectController::class, 'getData'])->name('collect.getdata');
         Route::resource('collect', CollectController::class);
-        Route::get('get/collect', [CollectController::class, 'getData'])->name('collect.getdata');
+
+        // halaman buat dayoff
+        Route::get('dayoff/get', [DayoffController::class, 'getData'])->name('dayoff.getdata');
+        Route::post('dayoff/upload-image', [DayoffController::class, 'uploadImage'])->name('dayoff.uploadimage');
+        Route::get('dayoff/autocomplete', [DayoffController::class, 'autocomplete'])->name('dayoff.autocomplete');
+        Route::put('dayoff/confirm/{dayoff}', [DayoffController::class, 'confirm'])->name('dayoff.confirm');
+        Route::put('dayoff/ignore/{dayoff}', [DayoffController::class, 'ignore'])->name('dayoff.ignore');
+        Route::resource('dayoff', DayoffController::class);
     });
 });
 

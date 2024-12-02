@@ -72,7 +72,7 @@ class DayoffController extends Controller
 			})
 			->addColumn('action', function ($data) {
 				$editUrl = route('dayoff.edit', $data->id);
-				$detailUrl = route('dayoff.detail', $data->id);
+				$detailUrl = route('dayoff.show', $data->id);
 
 				// Inisialisasi variabel untuk tombol aksi
 				$actionButtons = '
@@ -171,7 +171,7 @@ class DayoffController extends Controller
 			'status' => 2,
 		]);
 
-		return redirect()->route('dashboard.dayoff')->with('status', 'Berhasil menambah pengajuan off.');
+		return redirect()->route('dayoff.index')->with('status', 'Berhasil menambah pengajuan off.');
 	}
 
 	public function uploadImage(Request $request)
@@ -193,7 +193,7 @@ class DayoffController extends Controller
 	/**
 	 * Display the specified resource.
 	 */
-	public function detail($id)
+	public function show($id)
 	{
 		//
 		$dayoff = Dayoff::with('pegawaiRelasi')->findOrFail($id);
@@ -226,21 +226,21 @@ class DayoffController extends Controller
 			'keterangan' => $request->input('keterangan'),
 		]);
 
-		return redirect()->route('dashboard.dayoff')->with('status', 'Berhasil mengubah pengajuan');
+		return redirect()->route('dayoff.index')->with('status', 'Berhasil mengubah pengajuan');
 	}
 
 	public function confirm(Dayoff $dayoff)
 	{
 		$dayoff->update(['status' => 1]);
 
-		return redirect()->route('dashboard.dayoff')->with('status', 'Berhasil menyetujui pengajuan');
+		return redirect()->route('dayoff.index')->with('status', 'Berhasil menyetujui pengajuan');
 	}
 
 	public function ignore(Dayoff $dayoff)
 	{
 		$dayoff->update(['status' => 3]);
 
-		return redirect()->route('dashboard.dayoff')->with('status', 'Berhasil menolak pengajuan');
+		return redirect()->route('dayoff.index')->with('status', 'Berhasil menolak pengajuan');
 	}
 
 	/**

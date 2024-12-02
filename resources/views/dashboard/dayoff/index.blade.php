@@ -1,6 +1,6 @@
 @extends('dashboard.layoutsDash.app')
 @section('content')
-	<form id="add-dayoff" action="{{ route('dayoff.add') }}"></form>
+	<form id="add-dayoff" action="{{ route('dayoff.create') }}"></form>
 
 	<div class="relative grid grid-cols-1 gap-6">
 		@can('dayoff-create')
@@ -154,7 +154,7 @@
 				responsive: true,
 				perPageSelect: [5, 25, 50, 100],
 				ajax: {
-					url: "{{ route('getDataDayoff') }}",
+					url: "{{ route('dayoff.getdata') }}",
 					data: function(d) {
 						d.minDate = minDate.val();
 						d.maxDate = maxDate.val();
@@ -289,8 +289,7 @@
 					// Get the id from data attribute
 					var id = $(this).data('id');
 					// Set the form action for deletion
-					$('#deleteForm').attr('action', currentRoute +
-						'/delete/' + id);
+					$('#deleteForm').attr('action', currentRoute + '/' + id);
 					// Show the modal
 					$('#deleteModal').removeClass('hidden');
 				});
