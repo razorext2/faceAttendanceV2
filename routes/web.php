@@ -45,9 +45,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('dashboard/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('dashboard/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    // menu di admin
-    Route::get('dashboard/attendance', [AttendanceController::class, 'index'])->name('dashboard.attendance');
-
     // pegawai
     Route::get('getdata-pegawai', [PegawaiController::class, 'getData'])->name('getDataPegawai');
     Route::get('api/get-attendance-data', [PegawaiController::class, 'getAttendanceData'])->name('pegawai.getattendance');
@@ -65,38 +62,20 @@ Route::middleware('auth')->group(function () {
     Route::resource('dashboard/pegawai/allowances', AllowanceController::class);
     Route::resource('dashboard/pegawai/deductions', DeductionController::class);
 
-    // jabatan
-    Route::get('getdata-jabatan', [JabatanController::class, 'getData'])->name('getDataJabatan');
-    Route::get('dashboard/jabatan', [JabatanController::class, 'index'])->name('dashboard.jabatan');
-    Route::get('dashboard/jabatan/add', [JabatanController::class, 'create'])->name('jabatan.add');
-    Route::post('dashboard/jabatan/store', [JabatanController::class, 'store'])->name('jabatan.store');
-    Route::get('dashboard/jabatan/edit/{jabatan}', [JabatanController::class, 'edit'])->name('jabatan.edit');
-    Route::put('dashboard/jabatan/update/{jabatan}', [JabatanController::class, 'update'])->name('jabatan.update');
-    Route::delete('dashboard/jabatan/delete/{jabatan}', [JabatanController::class, 'destroy'])->name('jabatan.delete');
-
-    // attendanceIn
-    Route::get('dashboard/attendanceIn', [AttendanceController::class, 'index'])->name('attendanceIn.view');
-
-    // attendanceOut
-    Route::get('dashboard/attendanceOut', [AttendanceOutController::class, 'index'])->name('attendanceOut.view');
-
-    // divisi
-    // Route::get('getdata-division', [DivisionController::class, 'getData'])->name('getDataDivision');
-    // Route::get('dashboard/division', [DivisionController::class, 'index'])->name('dashboard.division');
-    // Route::get('dashboard/division/add', [DivisionController::class, 'create'])->name('division.add');
-    // Route::post('dashboard/division/store', [DivisionController::class, 'store'])->name('division.store');
-    // Route::get('dashboard/division/edit/{division}', [DivisionController::class, 'edit'])->name('division.edit');
-    // Route::put('dashboard/division/update/{division}', [DivisionController::class, 'update'])->name('division.update');
-    // Route::delete('dashboard/division/delete/{division}', [DivisionController::class, 'destroy'])->name('division.delete');
-
-    // log
-    Route::get('dashboard/log', [LoghistoryController::class, 'index'])->name('dashboard.log');
-
-    // record attendance
-    Route::get('dashboard/capture', [CaptureController::class, 'index'])->name('capture.index');
-
     // ini dulu ya brader yang digrouping
     Route::prefix('dashboard')->as('')->group(function () {
+        // attendanceIn
+        Route::get('attendanceIn', [AttendanceController::class, 'index'])->name('attendanceIn.index');
+
+        // attendanceOut
+        Route::get('attendanceOut', [AttendanceOutController::class, 'index'])->name('attendanceOut.index');
+
+        // log
+        Route::get('log', [LoghistoryController::class, 'index'])->name('log.index');
+
+        // record attendance
+        Route::get('capture', [CaptureController::class, 'index'])->name('capture.index');
+
         // route kolektor
         Route::get('collect/get', [CollectController::class, 'getData'])->name('collect.getdata');
         Route::resource('collect', CollectController::class);
@@ -132,6 +111,10 @@ Route::middleware('auth')->group(function () {
         // route division
         Route::get('division/get', [DivisionController::class, 'getData'])->name('division.getdata');
         Route::resource('division', DivisionController::class);
+
+        // route jabatan
+        Route::get('jabatan/get', [JabatanController::class, 'getData'])->name('jabatan.getdata');
+        Route::resource('jabatan', JabatanController::class);
     });
 });
 

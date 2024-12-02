@@ -7,7 +7,7 @@
 					d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z" />
 			</x-drawer.button>
 
-			<x-drawer.button href="{{ route('attendanceIn.view') }}" :label="'Masuk'" :active="Route::is('attendanceIn.view')">
+			<x-drawer.button href="{{ route('attendanceIn.index') }}" :label="'Masuk'" :active="Route::is('attendanceIn.index')">
 				<path fill-rule="evenodd"
 					d="M3 4.25A2.25 2.25 0 0 1 5.25 2h5.5A2.25 2.25 0 0 1 13 4.25v2a.75.75 0 0 1-1.5 0v-2a.75.75 0 0 0-.75-.75h-5.5a.75.75 0 0 0-.75.75v11.5c0 .414.336.75.75.75h5.5a.75.75 0 0 0 .75-.75v-2a.75.75 0 0 1 1.5 0v2A2.25 2.25 0 0 1 10.75 18h-5.5A2.25 2.25 0 0 1 3 15.75V4.25Z"
 					clip-rule="evenodd"></path>
@@ -34,7 +34,7 @@
 				</button>
 			</div>
 
-			<x-drawer.button href="{{ route('attendanceOut.view') }}" :label="'Keluar'" :active="Route::is('attendanceOut.view')">
+			<x-drawer.button href="{{ route('attendanceOut.index') }}" :label="'Keluar'" :active="Route::is('attendanceOut.index')">
 				<path fill-rule="evenodd"
 					d="M3 4.25A2.25 2.25 0 0 1 5.25 2h5.5A2.25 2.25 0 0 1 13 4.25v2a.75.75 0 0 1-1.5 0v-2a.75.75 0 0 0-.75-.75h-5.5a.75.75 0 0 0-.75.75v11.5c0 .414.336.75.75.75h5.5a.75.75 0 0 0 .75-.75v-2a.75.75 0 0 1 1.5 0v2A2.25 2.25 0 0 1 10.75 18h-5.5A2.25 2.25 0 0 1 3 15.75V4.25Z"
 					clip-rule="evenodd"></path>
@@ -176,14 +176,14 @@
 
 		@can('jabatan-list')
 			<a
-				class="{{ Route::currentRouteName() == 'dashboard.jabatan' || Route::currentRouteName() == 'jabatan.add' || Route::currentRouteName() == 'jabatan.edit' ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-[#18181b] bg-white' }} dark:hover:bg-gray-600 group cursor-pointer rounded-xl p-4 hover:bg-gray-100"
-				href="{{ route('dashboard.jabatan') }}">
+				class="{{ Route::is('route.*') ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-[#18181b] bg-white' }} dark:hover:bg-gray-600 group cursor-pointer rounded-xl p-4 hover:bg-gray-100"
+				href="{{ route('jabatan.index') }}">
 
 				<div
-					class="{{ Route::currentRouteName() == 'dashboard.jabatan' || Route::currentRouteName() == 'jabatan.add' || Route::currentRouteName() == 'jabatan.edit' ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-gray-600 bg-gray-200' }} dark:group-hover:bg-gray-600 mx-auto mb-2 flex h-[48px] max-h-[48px] w-[48px] max-w-[48px] items-center justify-center rounded-full p-2 group-hover:bg-gray-100">
+					class="{{ Route::is('route.*') ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-gray-600 bg-gray-200' }} dark:group-hover:bg-gray-600 mx-auto mb-2 flex h-[48px] max-h-[48px] w-[48px] max-w-[48px] items-center justify-center rounded-full p-2 group-hover:bg-gray-100">
 
 					<svg
-						class="fi-sidebar-item-icon {{ Route::currentRouteName() == 'dashboard.jabatan' || Route::currentRouteName() == 'jabatan.add' || Route::currentRouteName() == 'jabatan.edit' ? 'stroke-blue-500' : 'stroke-gray-500 dark:stroke-gray-400' }} h-8 w-8 group-hover:stroke-blue-500"
+						class="fi-sidebar-item-icon {{ Route::is('route.*') ? 'stroke-blue-500' : 'stroke-gray-500 dark:stroke-gray-400' }} h-8 w-8 group-hover:stroke-blue-500"
 						data-slot="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="1.7">
 						<path stroke-linecap="round" stroke-linejoin="round"
 							d="M6 6.878V6a2.25 2.25 0 0 1 2.25-2.25h7.5A2.25 2.25 0 0 1 18 6v.878m-12 0c.235-.083.487-.128.75-.128h10.5c.263 0 .515.045.75.128m-12 0A2.25 2.25 0 0 0 4.5 9v.878m13.5-3A2.25 2.25 0 0 1 19.5 9v.878m0 0a2.246 2.246 0 0 0-.75-.128H5.25c-.263 0-.515.045-.75.128m15 0A2.25 2.25 0 0 1 21 12v6a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 18v-6c0-.98.626-1.813 1.5-2.122">
@@ -193,7 +193,7 @@
 				</div>
 
 				<div
-					class="{{ Route::currentRouteName() == 'dashboard.jabatan' || Route::currentRouteName() == 'jabatan.add' || Route::currentRouteName() == 'jabatan.edit' ? 'text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400 ' }} group-hover:dark:text-white text-center font-medium group-hover:text-gray-900">
+					class="{{ Route::is('route.*') ? 'text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400 ' }} group-hover:dark:text-white text-center font-medium group-hover:text-gray-900">
 					Jabatan
 				</div>
 			</a>
@@ -369,14 +369,14 @@
 
 		{{-- log --}}
 		<a
-			class="{{ Route::currentRouteName() == 'dashboard.log' ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-[#18181b] bg-white' }} dark:hover:bg-gray-600 group cursor-pointer rounded-xl p-4 hover:bg-gray-100"
-			href="{{ route('dashboard.log') }}">
+			class="{{ Route::is('log.*') ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-[#18181b] bg-white' }} dark:hover:bg-gray-600 group cursor-pointer rounded-xl p-4 hover:bg-gray-100"
+			href="{{ route('log.index') }}">
 
 			<div
-				class="{{ Route::currentRouteName() == 'dashboard.log' ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-gray-600 bg-gray-200' }} dark:group-hover:bg-gray-600 mx-auto mb-2 flex h-[48px] max-h-[48px] w-[48px] max-w-[48px] items-center justify-center rounded-full p-2 group-hover:bg-gray-100">
+				class="{{ Route::is('log.*') ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-gray-600 bg-gray-200' }} dark:group-hover:bg-gray-600 mx-auto mb-2 flex h-[48px] max-h-[48px] w-[48px] max-w-[48px] items-center justify-center rounded-full p-2 group-hover:bg-gray-100">
 
 				<svg
-					class="fi-sidebar-item-icon {{ Route::currentRouteName() == 'dashboard.log' ? 'stroke-blue-500' : 'stroke-gray-500 dark:stroke-gray-400' }} h-8 w-8 group-hover:stroke-blue-500"
+					class="fi-sidebar-item-icon {{ Route::is('log.*') ? 'stroke-blue-500' : 'stroke-gray-500 dark:stroke-gray-400' }} h-8 w-8 group-hover:stroke-blue-500"
 					data-slot="icon" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke-width="1.8"
 					stroke="currentColor">
 					<path stroke-linecap="round" stroke-linejoin="round"
@@ -387,7 +387,7 @@
 			</div>
 
 			<div
-				class="{{ Route::currentRouteName() == 'dashboard.log' ? 'text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400 ' }} group-hover:dark:text-white text-center font-medium group-hover:text-gray-900">
+				class="{{ Route::is('log.*') ? 'text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400 ' }} group-hover:dark:text-white text-center font-medium group-hover:text-gray-900">
 				Log History
 			</div>
 		</a>

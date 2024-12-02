@@ -6,10 +6,10 @@
 		<ul class="space-y-2 font-medium">
 			<li>
 				<a
-					class="{{ Route::currentRouteName() == 'dashboard' ? 'text-red-600 font-bold bg-gray-100 dark:bg-[#18181b]' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent hover:text-red-600' }} group flex items-center rounded-xl p-2"
+					class="{{ Route::is('dashboard') ? 'text-red-600 font-bold bg-gray-100 dark:bg-[#18181b]' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent hover:text-red-600' }} group flex items-center rounded-xl p-2"
 					href="{{ route('dashboard') }}">
 					<svg
-						class="fi-sidebar-item-icon {{ Route::currentRouteName() == 'dashboard' ? 'stroke-red-600 ' : 'stroke-gray-400' }} h-6 w-6 text-gray-400 group-hover:stroke-red-600"
+						class="fi-sidebar-item-icon {{ Route::is('dashboard') ? 'stroke-red-600 ' : 'stroke-gray-400' }} h-6 w-6 text-gray-400 group-hover:stroke-red-600"
 						data-slot="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
 						stroke-width="1.5" stroke="currentColor">
 						<path stroke-linecap="round" stroke-linejoin="round"
@@ -19,12 +19,12 @@
 					<span class="ms-3 text-sm">Dashboard</span>
 				</a>
 			</li>
-			<li x-data="{ absensi: {{ Route::is('attendanceIn.view') || Route::is('attendanceOut.view') ? 'true' : 'false' }} }">
+			<li x-data="{ absensi: {{ Route::is('attendanceIn.index') || Route::is('attendanceOut.index') ? 'true' : 'false' }} }">
 				<button
-					class="{{ Route::is('attendanceIn.view') || Route::is('attendanceOut.view') ? 'text-red-600 font-bold bg-gray-100 dark:bg-[#18181b]' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-[#18181b] hover:text-red-600' }} group flex w-full items-center rounded-xl p-2 text-base text-gray-900 transition duration-200"
+					class="{{ Route::is('attendanceIn.index') || Route::is('attendanceOut.index') ? 'text-red-600 font-bold bg-gray-100 dark:bg-[#18181b]' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-[#18181b] hover:text-red-600' }} group flex w-full items-center rounded-xl p-2 text-base text-gray-900 transition duration-200"
 					type="button" aria-controls="absensi-dropdown" @click="absensi = !absensi" :aria-expanded="absensi">
 					<svg
-						class="fi-sidebar-item-icon {{ Route::is('attendanceIn.view') || Route::is('attendanceOut.view') ? 'stroke-red-600' : 'stroke-gray-400' }} h-6 w-6 text-gray-400 group-hover:stroke-red-600"
+						class="fi-sidebar-item-icon {{ Route::is('attendanceIn.index') || Route::is('attendanceOut.index') ? 'stroke-red-600' : 'stroke-gray-400' }} h-6 w-6 text-gray-400 group-hover:stroke-red-600"
 						data-slot="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
 						stroke-width="1.5" stroke="currentColor">
 						<path stroke-linecap="round" stroke-linejoin="round"
@@ -47,10 +47,10 @@
 					x-transition:leave="transition ease-out duration-200" x-transition:leave-end="transform opacity-0 -translate-y-5">
 					<li>
 						<a
-							class="{{ Route::is('attendanceIn.view') ? 'text-red-600 font-bold bg-gray-100 dark:bg-[#18181b]' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent hover:text-red-600' }} group flex w-full items-center rounded-xl p-2 pl-11"
-							href="{{ route('attendanceIn.view') }}">
+							class="{{ Route::is('attendanceIn.index') ? 'text-red-600 font-bold bg-gray-100 dark:bg-[#18181b]' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent hover:text-red-600' }} group flex w-full items-center rounded-xl p-2 pl-11"
+							href="{{ route('attendanceIn.index') }}">
 							<svg
-								class="fi-btn-icon {{ Route::currentRouteName() == 'attendanceIn.view' ? 'fill-red-600' : 'fill-gray-400' }} h-5 w-5 rotate-180 text-gray-400 group-hover:fill-red-600"
+								class="fi-btn-icon {{ Route::currentRouteName() == 'attendanceIn.index' ? 'fill-red-600' : 'fill-gray-400' }} h-5 w-5 rotate-180 text-gray-400 group-hover:fill-red-600"
 								aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
 								<path fill-rule="evenodd"
 									d="M3 4.25A2.25 2.25 0 0 1 5.25 2h5.5A2.25 2.25 0 0 1 13 4.25v2a.75.75 0 0 1-1.5 0v-2a.75.75 0 0 0-.75-.75h-5.5a.75.75 0 0 0-.75.75v11.5c0 .414.336.75.75.75h5.5a.75.75 0 0 0 .75-.75v-2a.75.75 0 0 1 1.5 0v2A2.25 2.25 0 0 1 10.75 18h-5.5A2.25 2.25 0 0 1 3 15.75V4.25Z"
@@ -64,10 +64,10 @@
 					</li>
 					<li>
 						<a
-							class="{{ Route::is('attendanceOut.view') ? 'text-red-600 font-bold bg-gray-100 dark:bg-[#18181b]' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent hover:text-red-600' }} group flex w-full items-center rounded-xl p-2 pl-11"
-							href="{{ route('attendanceOut.view') }}">
+							class="{{ Route::is('attendanceOut.index') ? 'text-red-600 font-bold bg-gray-100 dark:bg-[#18181b]' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent hover:text-red-600' }} group flex w-full items-center rounded-xl p-2 pl-11"
+							href="{{ route('attendanceOut.index') }}">
 							<svg
-								class="fi-btn-icon {{ Route::currentRouteName() == 'attendanceOut.view' ? 'fill-red-600' : 'fill-gray-400' }} h-5 w-5 text-gray-400 group-hover:fill-red-600"
+								class="fi-btn-icon {{ Route::currentRouteName() == 'attendanceOut.index' ? 'fill-red-600' : 'fill-gray-400' }} h-5 w-5 text-gray-400 group-hover:fill-red-600"
 								aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
 								<path fill-rule="evenodd"
 									d="M3 4.25A2.25 2.25 0 0 1 5.25 2h5.5A2.25 2.25 0 0 1 13 4.25v2a.75.75 0 0 1-1.5 0v-2a.75.75 0 0 0-.75-.75h-5.5a.75.75 0 0 0-.75.75v11.5c0 .414.336.75.75.75h5.5a.75.75 0 0 0 .75-.75v-2a.75.75 0 0 1 1.5 0v2A2.25 2.25 0 0 1 10.75 18h-5.5A2.25 2.25 0 0 1 3 15.75V4.25Z"
@@ -167,10 +167,10 @@
 			@can('jabatan-list')
 				<li>
 					<a
-						class="{{ Route::currentRouteName() == 'dashboard.jabatan' || Route::currentRouteName() == 'jabatan.add' || Route::currentRouteName() == 'jabatan.edit' ? 'text-red-600 font-bold bg-gray-100 dark:bg-[#18181b]' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent hover:text-red-600' }} group flex items-center rounded-xl p-2"
-						href="{{ route('dashboard.jabatan') }}">
+						class="{{ Route::is('jabatan.*') ? 'text-red-600 font-bold bg-gray-100 dark:bg-[#18181b]' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent hover:text-red-600' }} group flex items-center rounded-xl p-2"
+						href="{{ route('jabatan.index') }}">
 						<svg
-							class="fi-sidebar-item-icon {{ Route::currentRouteName() == 'dashboard.jabatan' || Route::currentRouteName() == 'jabatan.add' || Route::currentRouteName() == 'jabatan.edit' ? 'stroke-red-600' : 'stroke-gray-400' }} h-6 w-6 text-gray-400 group-hover:stroke-red-600"
+							class="fi-sidebar-item-icon {{ Route::is('jabatan.*') ? 'stroke-red-600' : 'stroke-gray-400' }} h-6 w-6 text-gray-400 group-hover:stroke-red-600"
 							data-slot="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
 							stroke-width="1.5" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round"
@@ -391,10 +391,10 @@
 			@can('log-list')
 				<li>
 					<a
-						class="{{ Route::is('dashboard.log') ? 'text-red-600 font-bold bg-gray-100 dark:bg-[#18181b]' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent hover:text-red-600' }} group flex items-center rounded-xl p-2"
-						href="{{ route('dashboard.log') }}">
+						class="{{ Route::is('log.*') ? 'text-red-600 font-bold bg-gray-100 dark:bg-[#18181b]' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent hover:text-red-600' }} group flex items-center rounded-xl p-2"
+						href="{{ route('log.index') }}">
 						<svg
-							class="fi-sidebar-item-icon {{ Route::currentRouteName() == 'dashboard.log' || Route::currentRouteName() == 'log.add' || Route::currentRouteName() == 'log.edit' ? 'stroke-red-600' : 'stroke-gray-400' }} h-6 w-6 text-gray-400 group-hover:stroke-red-600"
+							class="fi-sidebar-item-icon {{ Route::is('log.*') ? 'stroke-red-600' : 'stroke-gray-400' }} h-6 w-6 text-gray-400 group-hover:stroke-red-600"
 							data-slot="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
 							stroke-width="1.5" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round"
