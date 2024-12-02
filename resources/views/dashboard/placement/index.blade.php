@@ -1,6 +1,6 @@
 @extends('dashboard.layoutsDash.app')
 @section('content')
-	<form id="add-placement" action="{{ route('placement.add') }}"></form>
+	<form id="add-placement" action="{{ route('placement.create') }}"></form>
 
 	<div class="relative grid grid-cols-1 gap-6">
 		@can('placement-create')
@@ -155,7 +155,7 @@
 				responsive: true,
 				perPageSelect: [5, 25, 50, 100],
 				ajax: {
-					url: "{{ route('getDataPlacement') }}",
+					url: "{{ route('placement.getdata') }}",
 					data: function(d) {
 						d.minDate = minDate.val();
 						d.maxDate = maxDate.val();
@@ -291,7 +291,7 @@
 					var id = $(this).data('id');
 					// Set the form action for deletion
 					$('#deleteForm').attr('action', currentRoute +
-						'/delete/' + id);
+						'/' + id);
 					// Show the modal
 					$('#deleteModal').removeClass('hidden');
 				});

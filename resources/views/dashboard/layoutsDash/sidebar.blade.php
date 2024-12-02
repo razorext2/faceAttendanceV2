@@ -204,12 +204,12 @@
 			@endcan
 
 			@if (auth()->user()->hasAnyPermission(['divisi-list', 'placement-list']))
-				<li x-data="{ lokasi: {{ Route::is('dashboard.division') || Route::is('division.add') || Route::is('division.edit') || Route::is('dashboard.placement') || Route::is('placement.add') || Route::is('placement.edit') ? 'true' : 'false' }} }">
+				<li x-data="{ lokasi: {{ Route::is('division.*') || Route::is('placement.*') ? 'true' : 'false' }} }">
 					<button
-						class="{{ Route::is('dashboard.division') || Route::is('dashboard.placement') ? 'text-red-600 font-bold bg-gray-100 dark:bg-[#18181b]' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-[#18181b] hover:text-red-600' }} group flex w-full items-center rounded-xl p-2 text-base text-gray-900 transition duration-200"
+						class="{{ Route::is('division.*') || Route::is('placement.*') ? 'text-red-600 font-bold bg-gray-100 dark:bg-[#18181b]' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-[#18181b] hover:text-red-600' }} group flex w-full items-center rounded-xl p-2 text-base text-gray-900 transition duration-200"
 						type="button" aria-controls="lokasi-dropdown" @click="lokasi = !lokasi" :aria-expanded="lokasi">
 						<svg
-							class="fi-sidebar-item-icon {{ Route::is('dashboard.division') || Route::is('dashboard.placement') ? 'fill-red-600' : 'fill-gray-400' }} h-6 w-6 text-gray-400 group-hover:fill-red-600"
+							class="fi-sidebar-item-icon {{ Route::is('division.*') || Route::is('placement.*') ? 'fill-red-600' : 'fill-gray-400' }} h-6 w-6 text-gray-400 group-hover:fill-red-600"
 							id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
 							viewBox="0 0 368.666 368.666" xml:space="preserve">
 							<path
@@ -235,10 +235,10 @@
 						@can('divisi-list')
 							<li>
 								<a
-									class="{{ Route::is('dashboard.division') || Route::is('division.add') || Route::is('division.edit') ? 'text-red-600 font-bold bg-gray-100 dark:bg-[#18181b]' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent hover:text-red-600' }} group flex w-full items-center rounded-xl p-2 pl-11"
-									href="{{ route('dashboard.division') }}">
+									class="{{ Route::is('division.*') ? 'text-red-600 font-bold bg-gray-100 dark:bg-[#18181b]' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent hover:text-red-600' }} group flex w-full items-center rounded-xl p-2 pl-11"
+									href="{{ route('division.index') }}">
 									<svg
-										class="fi-sidebar-item-icon {{ Route::currentRouteName() == 'dashboard.division' || Route::currentRouteName() == 'division.add' || Route::currentRouteName() == 'division.edit' ? 'fill-red-600' : 'fill-gray-400' }} h-6 w-6 group-hover:fill-red-600"
+										class="fi-sidebar-item-icon {{ Route::is('division.*') ? 'fill-red-600' : 'fill-gray-400' }} h-6 w-6 group-hover:fill-red-600"
 										id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
 										viewBox="0 0 28.05 28.05" xml:space="preserve">
 										<path
@@ -252,10 +252,10 @@
 						@can('placement-list')
 							<li>
 								<a
-									class="{{ Route::is('dashboard.placement') || Route::is('placement.add') || Route::is('placement.edit') ? 'text-red-600 font-bold bg-gray-100 dark:bg-[#18181b]' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent hover:text-red-600' }} group flex w-full items-center rounded-xl p-2 pl-11"
-									href="{{ route('dashboard.placement') }}">
+									class="{{ Route::is('placement.*') ? 'text-red-600 font-bold bg-gray-100 dark:bg-[#18181b]' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent hover:text-red-600' }} group flex w-full items-center rounded-xl p-2 pl-11"
+									href="{{ route('placement.index') }}">
 									<svg
-										class="fi-sidebar-item-icon {{ Route::currentRouteName() == 'dashboard.placement' || Route::currentRouteName() == 'placement.add' || Route::currentRouteName() == 'placement.edit' ? 'fill-red-600' : 'fill-gray-400' }} h-6 w-6 group-hover:fill-red-600"
+										class="fi-sidebar-item-icon {{ Route::is('placement.*') ? 'fill-red-600' : 'fill-gray-400' }} h-6 w-6 group-hover:fill-red-600"
 										id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
 										viewBox="0 0 512 512" xml:space="preserve">
 

@@ -18,6 +18,7 @@ use App\Http\Controllers\CaptureController;
 use App\Http\Controllers\AllowanceController;
 use App\Http\Controllers\DeductionController;
 use App\Http\Controllers\CollectController;
+use App\Models\Placement;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 
@@ -80,31 +81,13 @@ Route::middleware('auth')->group(function () {
     Route::get('dashboard/attendanceOut', [AttendanceOutController::class, 'index'])->name('attendanceOut.view');
 
     // divisi
-    Route::get('getdata-division', [DivisionController::class, 'getData'])->name('getDataDivision');
-    Route::get('dashboard/division', [DivisionController::class, 'index'])->name('dashboard.division');
-    Route::get('dashboard/division/add', [DivisionController::class, 'create'])->name('division.add');
-    Route::post('dashboard/division/store', [DivisionController::class, 'store'])->name('division.store');
-    Route::get('dashboard/division/edit/{division}', [DivisionController::class, 'edit'])->name('division.edit');
-    Route::put('dashboard/division/update/{division}', [DivisionController::class, 'update'])->name('division.update');
-    Route::delete('dashboard/division/delete/{division}', [DivisionController::class, 'destroy'])->name('division.delete');
-
-    // placement
-    Route::get('getdata-placement', [PlacementController::class, 'getData'])->name('getDataPlacement');
-    Route::get('dashboard/placement', [PlacementController::class, 'index'])->name('dashboard.placement');
-    Route::get('dashboard/placement/add', [PlacementController::class, 'create'])->name('placement.add');
-    Route::post('dashboard/placement/store', [PlacementController::class, 'store'])->name('placement.store');
-    Route::get('dashboard/placement/edit/{placement}', [PlacementController::class, 'edit'])->name('placement.edit');
-    Route::put('dashboard/placement/update/{placement}', [PlacementController::class, 'update'])->name('placement.update');
-    Route::delete('dashboard/placement/delete/{placement}', [PlacementController::class, 'destroy'])->name('placement.delete');
-
-    // golongan
-    // Route::get('getdata-golongan', [GolonganController::class, 'getData'])->name('getDataGolongan');
-    // Route::get('dashboard/golongan', [GolonganController::class, 'index'])->name('dashboard.golongan');
-    // Route::get('dashboard/golongan/add', [GolonganController::class, 'create'])->name('golongan.add');
-    // Route::post('dashboard/golongan/store', [GolonganController::class, 'store'])->name('golongan.store');
-    // Route::get('dashboard/golongan/edit/{golongan}', [GolonganController::class, 'edit'])->name('golongan.edit');
-    // Route::put('dashboard/golongan/update/{golongan}', [GolonganController::class, 'update'])->name('golongan.update');
-    // Route::delete('dashboard/golongan/delete/{golongan}', [GolonganController::class, 'destroy'])->name('golongan.delete');
+    // Route::get('getdata-division', [DivisionController::class, 'getData'])->name('getDataDivision');
+    // Route::get('dashboard/division', [DivisionController::class, 'index'])->name('dashboard.division');
+    // Route::get('dashboard/division/add', [DivisionController::class, 'create'])->name('division.add');
+    // Route::post('dashboard/division/store', [DivisionController::class, 'store'])->name('division.store');
+    // Route::get('dashboard/division/edit/{division}', [DivisionController::class, 'edit'])->name('division.edit');
+    // Route::put('dashboard/division/update/{division}', [DivisionController::class, 'update'])->name('division.update');
+    // Route::delete('dashboard/division/delete/{division}', [DivisionController::class, 'destroy'])->name('division.delete');
 
     // log
     Route::get('dashboard/log', [LoghistoryController::class, 'index'])->name('dashboard.log');
@@ -141,6 +124,14 @@ Route::middleware('auth')->group(function () {
         // route golongan
         Route::get('golongan/get', [GolonganController::class, 'getData'])->name('golongan.getdata');
         Route::resource('golongan', GolonganController::class);
+
+        // route placement
+        Route::get('placement/get', [PlacementController::class, 'getData'])->name('placement.getdata');
+        Route::resource('placement', PlacementController::class);
+
+        // route division
+        Route::get('division/get', [DivisionController::class, 'getData'])->name('division.getdata');
+        Route::resource('division', DivisionController::class);
     });
 });
 

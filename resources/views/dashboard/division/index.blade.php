@@ -1,6 +1,6 @@
 @extends('dashboard.layoutsDash.app')
 @section('content')
-	<form id="add-division" action="{{ route('division.add') }}"></form>
+	<form id="add-division" action="{{ route('division.create') }}"></form>
 	<div class="relative grid grid-cols-1 gap-6">
 		@can('divisi-create')
 			<div class="absolute left-2 top-48 z-10 max-w-xs sm:left-auto sm:right-6 md:top-40 lg:left-6 lg:right-auto lg:top-24">
@@ -138,7 +138,7 @@
 				responsive: true,
 				"lengthMenu": [15, 25, 50, 75, 100, -1],
 				ajax: {
-					url: "{{ route('getDataDivision') }}",
+					url: "{{ route('division.getdata') }}",
 					data: function(d) {
 						d.minDate = minDate.val();
 						d.maxDate = maxDate.val();
@@ -262,7 +262,7 @@
 					var id = $(this).data('id');
 					// Set the form action for deletion
 					$('#deleteForm').attr('action', currentRoute +
-						'/delete/' + id);
+						'/' + id);
 					// Show the modal
 					$('#deleteModal').removeClass('hidden');
 				});

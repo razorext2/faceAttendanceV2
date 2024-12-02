@@ -116,7 +116,7 @@ class PlacementController extends Controller
             'restrict_app' => $request->input('restrict_app'),
         ]);
 
-        return redirect()->route('dashboard.placement')->with('status', 'Berhasil menambah data penempatan.');
+        return redirect()->route('placement.index')->with('status', 'Berhasil menambah data penempatan.');
     }
 
     public function edit(Placement $placement)
@@ -138,7 +138,7 @@ class PlacementController extends Controller
             'restrict_app' => $request->input('restrict_app'),
         ]);
 
-        return redirect()->route('dashboard.placement')->with('status', 'Berhasil mengubah data penempatan');
+        return redirect()->route('placement.index')->with('status', 'Berhasil mengubah data penempatan');
     }
 
     public function destroy(Placement $placement)
@@ -146,6 +146,6 @@ class PlacementController extends Controller
         //
         $placement->delete();
 
-        return redirect()->route('dashboard.placement')->with('status', 'Berhasil menghapus data penempatan');
+        return redirect()->route('placement.index')->with('status', 'Berhasil menghapus data penempatan');
     }
 }

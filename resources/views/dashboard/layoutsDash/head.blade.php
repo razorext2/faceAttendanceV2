@@ -20,7 +20,7 @@
 @if (Route::is('dashboard'))
 	{{-- @vite(['resources/js/chart.js']) --}}
 @elseif (Route::is('pegawai.timeline') ||
-		Route::is('placement.add') ||
+		Route::is('placement.create') ||
 		Route::is('placement.edit') ||
 		Route::is('pegawai.collectors'))
 	@vite(['resources/js/leaflet.js'])

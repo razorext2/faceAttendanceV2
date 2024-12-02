@@ -106,7 +106,7 @@ class DivisionController extends Controller
             'nama_divisi' => $request->input('divisi'),
         ]);
 
-        return redirect()->route('dashboard.division')->with('status', 'Berhasil menambah data divisi.');
+        return redirect()->route('division.index')->with('status', 'Berhasil menambah data divisi.');
     }
 
     /**
@@ -129,7 +129,7 @@ class DivisionController extends Controller
             'nama_divisi' => $request->input('divisi'),
         ]);
 
-        return redirect()->route('dashboard.division')->with('status', 'Berhasil mengubah data divisi');
+        return redirect()->route('division.index')->with('status', 'Berhasil mengubah data divisi');
     }
 
     /**
