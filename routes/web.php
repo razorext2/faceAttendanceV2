@@ -40,30 +40,16 @@ Route::get('photo-regist', function () {
 
 // route bisa diakses jika login
 Route::middleware('auth')->group(function () {
-    Route::get('dashboard', [AdminController::class, 'index'])->name('dashboard');
-    Route::get('dashboard/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('dashboard/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('dashboard/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
     // pegawai
-    // Route::get('getdata-pegawai', [PegawaiController::class, 'getData'])->name('getDataPegawai');
     Route::get('api/get-attendance-data', [PegawaiController::class, 'getAttendanceData'])->name('pegawai.getattendance');
-    // Route::get('dashboard/pegawai', [PegawaiController::class, 'index'])->name('dashboard.pegawai');
-    // Route::get('dashboard/pegawai/add', [PegawaiController::class, 'create'])->name('pegawai.add');
-    // Route::post('dashboard/pegawai/store', [PegawaiController::class, 'store'])->name('pegawai.store');
-    // Route::get('dashboard/pegawai/edit/{pegawai}', [PegawaiController::class, 'edit'])->name('pegawai.edit');
-    // Route::put('dashboard/pegawai/update/{pegawai}', [PegawaiController::class, 'update'])->name('pegawai.update');
-    // Route::delete('dashboard/pegawai/delete/{pegawai}', [PegawaiController::class, 'destroy'])->name('pegawai.delete');
-    Route::get('dashboard/pegawai/{pegawai}/detail', [PegawaiController::class, 'detail'])->name('pegawai.detail');
-    Route::get('dashboard/pegawai/{pegawai}/attendance', [PegawaiController::class, 'attendanceList'])->name('pegawai.attendancelist');
-    Route::get('dashboard/pegawai/{pegawai}/payroll', [PegawaiController::class, 'payrollInfo'])->name('pegawai.payrollinfo');
-    Route::get('dashboard/pegawai/{pegawai}/timeline', [PegawaiController::class, 'timeline'])->name('pegawai.timeline');
-    Route::get('dashboard/pegawai/{pegawai}/collectors', [PegawaiController::class, 'reportCollectors'])->name('pegawai.collectors');
-    Route::resource('dashboard/pegawai/allowances', AllowanceController::class);
-    Route::resource('dashboard/pegawai/deductions', DeductionController::class);
 
     // ini dulu ya brader yang digrouping
     Route::prefix('dashboard')->as('')->group(function () {
+        Route::get('/', [AdminController::class, 'index'])->name('dashboard');
+        Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');
+        Route::patch('profile', [ProfileController::class, 'update'])->name('profile.update');
+        Route::delete('profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
         // attendanceIn
         Route::get('attendanceIn', [AttendanceController::class, 'index'])->name('attendanceIn.index');
 
@@ -118,7 +104,16 @@ Route::middleware('auth')->group(function () {
 
         // route pegawai
         Route::get('pegawai/get', [PegawaiController::class, 'getData'])->name('pegawai.getdata');
+        Route::get('pegawai/{pegawai}/detail', [PegawaiController::class, 'detail'])->name('pegawai.detail');
+        Route::get('pegawai/{pegawai}/attendance', [PegawaiController::class, 'attendanceList'])->name('pegawai.attendancelist');
+        Route::get('pegawai/{pegawai}/payroll', [PegawaiController::class, 'payrollInfo'])->name('pegawai.payrollinfo');
+        Route::get('pegawai/{pegawai}/timeline', [PegawaiController::class, 'timeline'])->name('pegawai.timeline');
+        Route::get('pegawai/{pegawai}/collectors', [PegawaiController::class, 'reportCollectors'])->name('pegawai.collectors');
         Route::resource('pegawai', PegawaiController::class);
+
+        // route pegawai allowance & deductions
+        Route::resource('pegawai/allowances', AllowanceController::class);
+        Route::resource('pegawai/deductions', DeductionController::class);
     });
 });
 

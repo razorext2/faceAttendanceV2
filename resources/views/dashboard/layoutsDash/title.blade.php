@@ -82,10 +82,10 @@
 			Pengajuan</h2>
 		<!-- end dayoff -->
 		<!-- absence -->
-	@elseif (Route::currentRouteName() == 'attendanceIn.view')
+	@elseif (Route::currentRouteName() == 'attendanceIn.index')
 		<h2 class="dark:text-white text-2xl font-bold tracking-tight text-gray-950 sm:text-3xl">Absen Masuk
 		</h2>
-	@elseif (Route::currentRouteName() == 'attendanceOut.view')
+	@elseif (Route::currentRouteName() == 'attendanceOut.index')
 		<h2 class="dark:text-white text-2xl font-bold tracking-tight text-gray-950 sm:text-3xl">Absen Keluar
 		</h2>
 	@elseif (Route::currentRouteName() == 'capture.index')

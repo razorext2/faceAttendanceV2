@@ -204,7 +204,7 @@
 
 					<a
 						class="dark:bg-gray-700 dark:border-gray-700 dark:text-white hover:dark:bg-gray-800 group mb-2 flex h-full w-auto transform cursor-pointer flex-col items-center justify-center rounded-xl border border-gray-200 bg-gray-50 p-2 text-blue-700 shadow transition duration-75 ease-in hover:scale-95 hover:bg-gray-100 hover:shadow-md"
-						href="{{ route('attendanceIn.view') }}">
+						href="{{ route('attendanceIn.index') }}">
 						<svg class="dark:fill-white mb-1 h-6 w-6 rotate-180 fill-blue-700" aria-hidden="true"
 							xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
 							<path fill-rule="evenodd"
@@ -219,7 +219,7 @@
 
 					<a
 						class="dark:bg-gray-700 dark:border-gray-700 dark:text-white hover:dark:bg-gray-800 group mb-2 flex h-full w-auto transform cursor-pointer flex-col items-center justify-center rounded-xl border border-gray-200 bg-gray-50 p-2 text-blue-700 shadow transition duration-75 ease-in hover:scale-95 hover:bg-gray-100 hover:shadow-md"
-						href="{{ route('attendanceOut.view') }}">
+						href="{{ route('attendanceOut.index') }}">
 						<svg class="dark:fill-white mb-1 h-6 w-6 fill-blue-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 0 20 20">
 							<path fill-rule="evenodd"

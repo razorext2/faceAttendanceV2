@@ -23,7 +23,7 @@
 					<div class="flex items-center justify-between pt-5">
 						<a
 							class="dark:hover:bg-gray-900 dark:text-white dark:hover:text-blue-500 inline-flex items-center rounded-lg px-3 py-2 text-sm font-semibold uppercase text-blue-600 hover:bg-blue-200 hover:text-blue-700"
-							href="{{ route('attendanceIn.view') }}">
+							href="{{ route('attendanceIn.index') }}">
 							Absen masuk
 							<svg class="ms-1.5 h-2.5 w-2.5 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
 								fill="none" viewBox="0 0 6 10">
@@ -33,7 +33,7 @@
 
 						<a
 							class="dark:hover:bg-gray-900 dark:text-white dark:hover:text-red-500 inline-flex items-center rounded-lg px-3 py-2 text-sm font-semibold uppercase text-red-600 hover:bg-red-200 hover:text-red-700"
-							href="{{ route('attendanceOut.view') }}">
+							href="{{ route('attendanceOut.index') }}">
 							Absen keluar
 							<svg class="ms-1.5 h-2.5 w-2.5 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
 								fill="none" viewBox="0 0 6 10">
