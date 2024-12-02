@@ -150,7 +150,7 @@ class PegawaiController extends Controller
             $this->saveImages($request);
         }
 
-        return redirect()->route('dashboard.pegawai')->with('status', 'Berhasil menambah data Pegawai');
+        return redirect()->route('pegawai.index')->with('status', 'Berhasil menambah data Pegawai');
     }
 
     public function edit(Pegawai $pegawai)
@@ -187,7 +187,7 @@ class PegawaiController extends Controller
             $this->saveImages($request);
         }
 
-        return redirect()->route('dashboard.pegawai')->with('status', 'Berhasil mengubah data Pegawai');
+        return redirect()->route('pegawai.index')->with('status', 'Berhasil mengubah data Pegawai');
     }
 
     public function showImages(Pegawai $pegawai)

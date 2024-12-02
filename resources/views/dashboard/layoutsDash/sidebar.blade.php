@@ -149,10 +149,10 @@
 			@can('pegawai-list')
 				<li>
 					<a
-						class="{{ Route::currentRouteName() == 'dashboard.pegawai' || Route::is('pegawai.*') ? 'text-red-600 font-bold bg-gray-100 dark:bg-[#18181b]' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent hover:text-red-600' }} group flex items-center rounded-xl p-2"
-						href="{{ route('dashboard.pegawai') }}">
+						class="{{ Route::is('pegawai.*') ? 'text-red-600 font-bold bg-gray-100 dark:bg-[#18181b]' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent hover:text-red-600' }} group flex items-center rounded-xl p-2"
+						href="{{ route('pegawai.index') }}">
 						<svg
-							class="fi-sidebar-item-icon {{ Route::currentRouteName() == 'dashboard.pegawai' || Route::is('pegawai.*') ? 'stroke-red-600' : 'stroke-gray-400' }} h-6 w-6 text-gray-400 group-hover:stroke-red-600"
+							class="fi-sidebar-item-icon {{ Route::is('pegawai.*') ? 'stroke-red-600' : 'stroke-gray-400' }} h-6 w-6 text-gray-400 group-hover:stroke-red-600"
 							data-slot="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
 							stroke-width="1.5" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round"
