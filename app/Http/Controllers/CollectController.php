@@ -73,12 +73,4 @@ class CollectController extends Controller
         $data = Collector::find($id);
         return view('dashboard.collect.edit', compact('data'));
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Collector $collect)
-    {
-        //
-    }
 }

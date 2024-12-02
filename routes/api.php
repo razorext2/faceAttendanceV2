@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\Api\ApiCollectorController;
-use App\Http\Controllers\Api\ApiPhotoCollectController;
 use App\Http\Controllers\PegawaiController;
 
 use Illuminate\Http\Request;
@@ -14,8 +13,6 @@ Route::apiResource('/collectors', ApiCollectorController::class);
 Route::patch('collectors/{collector}/confirm', [ApiCollectorController::class, 'confirmCollect']);
 
 Route::patch('collectors/{collector}/deny', [ApiCollectorController::class, 'denyCollect']);
-
-Route::apiResource('/collector-photos', ApiPhotoCollectController::class);
 
 // api ke server utama
 Route::post('proxy/server/attendance', function (Request $request) {
