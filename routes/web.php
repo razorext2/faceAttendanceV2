@@ -98,22 +98,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('dashboard/placement/delete/{placement}', [PlacementController::class, 'destroy'])->name('placement.delete');
 
     // golongan
-    Route::get('getdata-golongan', [GolonganController::class, 'getData'])->name('getDataGolongan');
-    Route::get('dashboard/golongan', [GolonganController::class, 'index'])->name('dashboard.golongan');
-    Route::get('dashboard/golongan/add', [GolonganController::class, 'create'])->name('golongan.add');
-    Route::post('dashboard/golongan/store', [GolonganController::class, 'store'])->name('golongan.store');
-    Route::get('dashboard/golongan/edit/{golongan}', [GolonganController::class, 'edit'])->name('golongan.edit');
-    Route::put('dashboard/golongan/update/{golongan}', [GolonganController::class, 'update'])->name('golongan.update');
-    Route::delete('dashboard/golongan/delete/{golongan}', [GolonganController::class, 'destroy'])->name('golongan.delete');
-
-    // users
-    // Route::get('getdata-users', [UserController::class, 'getData'])->name('getDataUsers');
-    // Route::get('dashboard/users', [UserController::class, 'index'])->name('dashboard.users');
-    // Route::get('dashboard/users/add', [UserController::class, 'create'])->name('users.add');
-    // Route::post('dashboard/users/store', [UserController::class, 'store'])->name('users.store');
-    // Route::get('dashboard/users/edit/{users}', [UserController::class, 'edit'])->name('users.edit');
-    // Route::put('dashboard/users/update/{users}', [UserController::class, 'update'])->name('users.update');
-    // Route::delete('dashboard/users/delete/{users}', [UserController::class, 'destroy'])->name('users.delete');
+    // Route::get('getdata-golongan', [GolonganController::class, 'getData'])->name('getDataGolongan');
+    // Route::get('dashboard/golongan', [GolonganController::class, 'index'])->name('dashboard.golongan');
+    // Route::get('dashboard/golongan/add', [GolonganController::class, 'create'])->name('golongan.add');
+    // Route::post('dashboard/golongan/store', [GolonganController::class, 'store'])->name('golongan.store');
+    // Route::get('dashboard/golongan/edit/{golongan}', [GolonganController::class, 'edit'])->name('golongan.edit');
+    // Route::put('dashboard/golongan/update/{golongan}', [GolonganController::class, 'update'])->name('golongan.update');
+    // Route::delete('dashboard/golongan/delete/{golongan}', [GolonganController::class, 'destroy'])->name('golongan.delete');
 
     // log
     Route::get('dashboard/log', [LoghistoryController::class, 'index'])->name('dashboard.log');
@@ -146,6 +137,10 @@ Route::middleware('auth')->group(function () {
         // route users
         Route::get('users/get', [UserController::class, 'getData'])->name('users.getdata');
         Route::resource('users', UserController::class);
+
+        // route golongan
+        Route::get('golongan/get', [GolonganController::class, 'getData'])->name('golongan.getdata');
+        Route::resource('golongan', GolonganController::class);
     });
 });
 

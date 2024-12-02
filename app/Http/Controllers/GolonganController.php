@@ -199,7 +199,7 @@ class GolonganController extends Controller
         }
 
 
-        return redirect()->route('dashboard.golongan')->with('status', 'Berhasil menambah data golongan.');
+        return redirect()->route('golongan.index')->with('status', 'Berhasil menambah data golongan.');
     }
 
     public function edit($id)
@@ -237,7 +237,7 @@ class GolonganController extends Controller
             );
         }
 
-        return redirect()->route('dashboard.golongan')->with('status', 'Berhasil mengubah data golongan');
+        return redirect()->route('golongan.index')->with('status', 'Berhasil mengubah data golongan');
     }
 
     public function destroy($id)
@@ -245,6 +245,6 @@ class GolonganController extends Controller
         $golongan = Golongan::findOrFail($id);
         $golongan->delete();
 
-        return redirect()->route('dashboard.golongan')->with('status', 'Berhasil menghapus data golongan');
+        return redirect()->route('golongan.index')->with('status', 'Berhasil menghapus data golongan');
     }
 }

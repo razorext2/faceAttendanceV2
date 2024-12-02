@@ -185,10 +185,10 @@
 			@can('golongan-list')
 				<li>
 					<a
-						class="{{ Route::currentRouteName() == 'dashboard.golongan' || Route::currentRouteName() == 'golongan.add' || Route::currentRouteName() == 'golongan.edit' ? 'text-red-600 font-bold bg-gray-100 dark:bg-[#18181b]' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent hover:text-red-600' }} group flex items-center rounded-xl p-2"
-						href="{{ route('dashboard.golongan') }}">
+						class="{{ Route::is('golongan.*') ? 'text-red-600 font-bold bg-gray-100 dark:bg-[#18181b]' : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-transparent hover:text-red-600' }} group flex items-center rounded-xl p-2"
+						href="{{ route('golongan.index') }}">
 						<svg
-							class="fi-sidebar-item-icon {{ Route::currentRouteName() == 'dashboard.golongan' || Route::currentRouteName() == 'golongan.add' || Route::currentRouteName() == 'golongan.edit' ? 'stroke-red-600' : 'stroke-gray-400' }} h-6 w-6 fill-none group-hover:stroke-red-600"
+							class="fi-sidebar-item-icon {{ Route::is('golongan.*') ? 'stroke-red-600' : 'stroke-gray-400' }} h-6 w-6 fill-none group-hover:stroke-red-600"
 							viewBox="0 0 24 24" fill="" xmlns="http://www.w3.org/2000/svg">
 							<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
 							<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>

@@ -1,6 +1,6 @@
 @extends('dashboard.layoutsDash.app')
 @section('content')
-	<form id="add-golongan" action="{{ route('golongan.add') }}"></form>
+	<form id="add-golongan" action="{{ route('golongan.create') }}"></form>
 	<div class="relative grid grid-cols-1 gap-6">
 		@can('golongan-create')
 			<div class="absolute left-6 top-56 z-10 max-w-xs sm:left-auto sm:right-6 md:top-40 lg:left-6 lg:right-auto lg:top-24">
@@ -145,7 +145,7 @@
 				responsive: true,
 				perPageSelect: [5, 25, 50, 100],
 				ajax: {
-					url: "{{ route('getDataGolongan') }}",
+					url: "{{ route('golongan.getdata') }}",
 					data: function(d) {
 						d.minDate = minDate.val();
 						d.maxDate = maxDate.val();
@@ -354,7 +354,7 @@
 					var id = $(this).data('id');
 					// Set the form action for deletion
 					$('#deleteForm').attr('action', currentRoute +
-						'/delete/' + id);
+						'/' + id);
 					// Show the modal
 					$('#deleteModal').removeClass('hidden');
 				});
