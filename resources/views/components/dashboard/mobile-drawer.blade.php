@@ -54,7 +54,7 @@
 
 <!-- drawer component -->
 <div
-	class="dark:border-gray-700 dark:bg-[#18181b] fixed -bottom-20 bottom-[50px] left-0 right-0 z-50 w-full translate-y-full overflow-y-auto rounded-t-xl border-t border-gray-200 bg-white transition-transform md:hidden"
+	class="dark:border-gray-700 dark:bg-[#18181b] fixed -bottom-36 left-0 right-0 z-50 w-full translate-y-full overflow-y-auto rounded-t-xl border-t border-gray-200 bg-white transition-transform sm:bottom-[50px] md:hidden"
 	id="drawer-swipe" aria-labelledby="drawer-swipe-label" tabindex="-1">
 	<div class="dark:hover:bg-gray-700 cursor-pointer p-4 hover:bg-gray-50" data-drawer-toggle="drawer-swipe">
 		<span class="dark:bg-gray-600 absolute left-1/2 top-3 h-1 w-8 -translate-x-1/2 rounded-xl bg-gray-300"></span>
@@ -63,14 +63,14 @@
 
 		@can('dayoff-list')
 			<a
-				class="{{ Route::currentRouteName() == 'dashboard.dayoff' || Route::currentRouteName() == 'dayoff.add' || Route::currentRouteName() == 'dayoff.edit' ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-[#18181b] bg-white' }} dark:hover:bg-gray-600 group cursor-pointer rounded-xl p-4 hover:bg-gray-100"
+				class="{{ Route::is('dashboard.dayoff.*') ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-[#18181b] bg-white' }} dark:hover:bg-gray-600 group cursor-pointer rounded-xl p-4 hover:bg-gray-100"
 				href="{{ route('dashboard.dayoff') }}">
 
 				<div
-					class="{{ Route::currentRouteName() == 'dashboard.dayoff' || Route::currentRouteName() == 'dayoff.add' || Route::currentRouteName() == 'dayoff.edit' ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-gray-600 bg-gray-200' }} dark:group-hover:bg-gray-600 mx-auto mb-2 flex h-[48px] max-h-[48px] w-[48px] max-w-[48px] items-center justify-center rounded-full p-2 group-hover:bg-gray-100">
+					class="{{ Route::is('dashboard.dayoff.*') ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-gray-600 bg-gray-200' }} dark:group-hover:bg-gray-600 mx-auto mb-2 flex h-[48px] max-h-[48px] w-[48px] max-w-[48px] items-center justify-center rounded-full p-2 group-hover:bg-gray-100">
 
 					<svg
-						class="fi-sidebar-item-icon {{ Route::currentRouteName() == 'dashboard.dayoff' || Route::currentRouteName() == 'dayoff.add' || Route::currentRouteName() == 'dayoff.edit' ? 'stroke-blue-500' : 'stroke-gray-500 dark:stroke-gray-400' }} h-8 w-8 group-hover:stroke-blue-500"
+						class="fi-sidebar-item-icon {{ Route::is('dashboard.dayoff.*') ? 'stroke-blue-500' : 'stroke-gray-500 dark:stroke-gray-400' }} h-8 w-8 group-hover:stroke-blue-500"
 						viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
 						<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -85,7 +85,7 @@
 				</div>
 
 				<div
-					class="{{ Route::currentRouteName() == 'dashboard.dayoff' || Route::currentRouteName() == 'dayoff.add' || Route::currentRouteName() == 'dayoff.edit' ? 'text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400 ' }} group-hover:dark:text-white text-center font-medium group-hover:text-gray-900">
+					class="{{ Route::is('dashboard.dayoff.*') ? 'text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400 ' }} group-hover:dark:text-white text-center font-medium group-hover:text-gray-900">
 					Request Time Off
 				</div>
 			</a>
@@ -93,14 +93,14 @@
 
 		@can('collect-list')
 			<a
-				class="{{ Route::is('dashboard.collect.*') ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-[#18181b] bg-white' }} dark:hover:bg-gray-600 group cursor-pointer rounded-xl p-4 hover:bg-gray-100"
-				href="{{ route('dashboard.collect.index') }}">
+				class="{{ Route::is('collect.*') ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-[#18181b] bg-white' }} dark:hover:bg-gray-600 group cursor-pointer rounded-xl p-4 hover:bg-gray-100"
+				href="{{ route('collect.index') }}">
 
 				<div
-					class="{{ Route::is('dashboard.collect.*') ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-gray-600 bg-gray-200' }} dark:group-hover:bg-gray-600 mx-auto mb-2 flex h-[48px] max-h-[48px] w-[48px] max-w-[48px] items-center justify-center rounded-full p-2 group-hover:bg-gray-100">
+					class="{{ Route::is('collect.*') ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-gray-600 bg-gray-200' }} dark:group-hover:bg-gray-600 mx-auto mb-2 flex h-[48px] max-h-[48px] w-[48px] max-w-[48px] items-center justify-center rounded-full p-2 group-hover:bg-gray-100">
 
 					<svg
-						class="fi-sidebar-item-icon {{ Route::is('dashboard.collect.*') ? 'stroke-blue-500' : 'stroke-gray-500 dark:stroke-gray-400' }} h-8 w-8 group-hover:stroke-blue-500"
+						class="fi-sidebar-item-icon {{ Route::is('collect.*') ? 'stroke-blue-500' : 'stroke-gray-500 dark:stroke-gray-400' }} h-8 w-8 group-hover:stroke-blue-500"
 						viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
 						<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -114,7 +114,7 @@
 				</div>
 
 				<div
-					class="{{ Route::is('dashboard.collect.*') ? 'text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400 ' }} group-hover:dark:text-white text-center font-medium group-hover:text-gray-900">
+					class="{{ Route::is('collect.*') ? 'text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400 ' }} group-hover:dark:text-white text-center font-medium group-hover:text-gray-900">
 					Laporan Kolektor
 				</div>
 			</a>

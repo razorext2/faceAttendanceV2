@@ -1,6 +1,6 @@
 @extends('dashboard.layoutsDash.app')
 @section('content')
-	<form id="add-collector" action="{{ route('dashboard.collect.create') }}"></form>
+	<form id="add-collector" action="{{ route('collect.create') }}"></form>
 	<div class="relative grid grid-cols-1 gap-6">
 		{{-- @can('collect-add') --}}
 		<div class="absolute left-2.5 top-48 z-10 max-w-xs sm:left-auto sm:right-6 md:top-40 lg:left-6 lg:right-auto lg:top-24">
@@ -130,7 +130,7 @@
 			if (!kode_pegawai) {
 				src = "{{ route('collectors.index') }}"
 			} else {
-				src = "{{ route('dashboard.collect.getdata') }}"
+				src = "{{ route('collect.getdata') }}"
 			}
 
 			let table = $('#table-collector').DataTable({

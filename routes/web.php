@@ -154,7 +154,7 @@ Route::middleware('auth')->group(function () {
     Route::get('dashboard/capture', [CaptureController::class, 'index'])->name('capture.index');
 
     // ini dulu ya brader yang digrouping
-    Route::prefix('dashboard')->as('dashboard.')->group(function () {
+    Route::prefix('dashboard')->as('')->group(function () {
         // halaman buat kolektor
         Route::resource('collect', CollectController::class);
         Route::get('get/collect', [CollectController::class, 'getData'])->name('collect.getdata');
