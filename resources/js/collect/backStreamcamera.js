@@ -160,6 +160,17 @@ function addDataHandler() {
             .addClass('hidden');
         }
 
+        if (err.location) {
+          $('#alert-lokasi')
+            .removeClass('hidden')
+            .addClass('block')
+            .html(err.location[0]);
+        } else {
+          $('#alert-lokasi')
+            .removeClass('block')
+            .addClass('hidden');
+        }
+
       }
     });
   });

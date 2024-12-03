@@ -63,6 +63,15 @@
 						class="dark:bg-gray-700 dark:border-gray-700 flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-white p-3 md:col-span-2">
 						<p class="dark:text-gray-300 mb-2 text-sm text-gray-600">Judul Laporan <span class="text-sm text-red-500">*</span>
 						</p>
+						<input class="block w-full rounded-lg bg-gray-300 p-2.5 text-sm text-gray-900" id="location" name="location"
+							type="text" value="{{ $data->location ?? 'N/A' }}" placeholder="Judul laporan.." required>
+						<div class="mt-2 hidden text-sm text-red-500" id="alert-location"></div>
+					</div>
+
+					<div
+						class="dark:bg-gray-700 dark:border-gray-700 flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-white p-3 md:col-span-2">
+						<p class="dark:text-gray-300 mb-2 text-sm text-gray-600">Judul Laporan <span class="text-sm text-red-500">*</span>
+						</p>
 						<input class="block w-full rounded-lg bg-gray-300 p-2.5 text-sm text-gray-900" id="title" name="title"
 							type="text" value="{{ $data->title ?? 'N/A' }}" placeholder="Judul laporan.." required>
 						<div class="mt-2 hidden text-sm text-red-500" id="alert-title"></div>
@@ -196,6 +205,7 @@
 				let id = $('#id').val();
 				let judul = $("#title").val();
 				let ket = $("#keterangan").val();
+				let location = $("#location").val();
 				let token = $("meta[name='csrf-token']").attr("content");
 
 				// ajax request
@@ -205,6 +215,7 @@
 					data: {
 						"title": judul,
 						"keterangan": ket,
+						"location": location,
 						"_token": token
 					},
 					success: function(response) {
@@ -250,6 +261,17 @@
 								.html(err.keterangan[0]);
 						} else {
 							$('#alert-keterangan')
+								.removeClass('block')
+								.addClass('hidden');
+						}
+
+						if (err.location) {
+							$('#alert-location')
+								.removeClass('hidden')
+								.addClass('block')
+								.html(err.location[0]);
+						} else {
+							$('#alert-location')
 								.removeClass('block')
 								.addClass('hidden');
 						}
