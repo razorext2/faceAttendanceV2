@@ -9,7 +9,6 @@ use App\Http\Resources\CollectResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\Facades\DataTables;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,34 +17,49 @@ class ApiCollectorController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $query = Collector::with('photoCollectRelasi', 'pegawaiRelasi')->latest()->get();
+        if ($request->ajax()) {
+            $query = Collector::with('photoCollectRelasi', 'pegawaiRelasi')->latest();
 
-        return DataTables::of($query)
-            ->editColumn('kode_pegawai', function ($data) {
-                return $data->pegawaiRelasi->full_name . '[' . $data->kode_pegawai . ']';
-            })
-            ->editColumn('created_updated_at', function ($data) {
-                return $data->created_at->locale('id')->isoFormat('D MMMM YY HH:mm:ss');
-            })
-            ->editColumn('title_status', function ($data) {
-                $el =  '<div class="inline-flex">
+            return DataTables::of($query)
+                ->addIndexColumn()
+                ->editColumn('kode_pegawai', function ($data) {
+                    return $data->pegawaiRelasi->full_name . '[' . $data->kode_pegawai . ']';
+                })
+                ->addColumn('created_updated_at', function ($data) {
+                    return $data->created_at->locale('id')->isoFormat('D MMMM YY HH:mm:ss');
+                })
+                ->addColumn('title_status', function ($data) {
+                    $el =  '<div class="inline-flex">
                             <p>' . $data->short_title . '</p>';
 
-                if ($data->status === 0) {
-                    $el .= '<span class="bg-yellow-100 ms-2 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Pending</span>';
-                } elseif ($data->status === 1) {
-                    $el .= '<span class="bg-green-100 ms-2 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Approved</span>';
-                } else {
-                    $el .= '<span class="bg-red-100 ms-2 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">Rejected</span>';
-                }
-                '</div>';
-                return $el;
-            })
-            ->addIndexColumn() // This is the DT_RowIndex
-            ->rawColumns(['title_status'])
-            ->make(true);
+                    if ($data->status === 0) {
+                        $el .= '<span class="bg-yellow-100 ms-2 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Pending</span>';
+                    } elseif ($data->status === 1) {
+                        $el .= '<span class="bg-green-100 ms-2 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Approved</span>';
+                    } else {
+                        $el .= '<span class="bg-red-100 ms-2 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">Rejected</span>';
+                    }
+                    '</div>';
+                    return $el;
+                })
+                ->filter(function ($instances) use ($request) {
+                    if ($request->filled("title")) {
+                        $instances->where('title', "LIKE", "%$request->title%");
+                    }
+
+                    if ($request->filled("kode_pegawai")) {
+                        $instances->where('kode_pegawai', "LIKE", "%$request->kode_pegawai%");
+                    }
+
+                    if ($request->filled("status")) {
+                        $instances->where('status', "LIKE", "%$request->status%");
+                    }
+                })
+                ->rawColumns(['title_status', 'actions'])
+                ->make(true);
+        }
     }
 
     /**
