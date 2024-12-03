@@ -60,7 +60,7 @@
 										</svg>
 									</span>
 									<h3 class="dark:text-white mb-1 flex items-center text-sm text-gray-900">
-										<a class="group" href="{{ route('dashboard.collect.show', $data->id) }}" target="_blank">
+										<a class="group" href="{{ route('collect.show', $data->id) }}" target="_blank">
 											{{ $data->title }}
 											<span class="text-blue-500 group-hover:underline">
 												[ 👁 ]

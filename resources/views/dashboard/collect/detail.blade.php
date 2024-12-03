@@ -26,7 +26,7 @@
 
 				<div class="grid gap-2 md:grid-cols-2" id="laporan-content">
 					<div
-						class="dark:bg-gray-700 dark:border-gray-700 flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-white p-3">
+						class="dark:bg-gray-700 dark:border-gray-700 col-span-2 flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-white p-3 lg:col-span-1">
 						<p class="dark:text-gray-300 text-sm text-gray-600">Kode Pegawai</p>
 						<p class="text-navy-700 dark:text-white text-base font-medium">
 							{{ $data->kode_pegawai ?? 'N/A' }}
@@ -34,7 +34,7 @@
 					</div>
 
 					<div
-						class="dark:bg-gray-700 dark:border-gray-700 flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-white p-3">
+						class="dark:bg-gray-700 dark:border-gray-700 col-span-2 flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-white p-3 lg:col-span-1">
 						<p class="dark:text-gray-300 text-sm text-gray-600">Nama Pegawai</p>
 						<p class="text-navy-700 dark:text-white text-base font-medium">
 							{{ $data->pegawaiRelasi->full_name ?? 'N/A' }}
@@ -43,22 +43,22 @@
 
 					<div
 						class="dark:bg-gray-700 dark:border-gray-700 flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-white p-3">
-						<p class="dark:text-gray-300 text-sm text-gray-600">Waktu Laporan Dibuat</p>
+						<p class="dark:text-gray-300 text-sm text-gray-600">Waktu Dibuat</p>
 						<p class="text-navy-700 dark:text-white text-base font-medium">
-							{{ $data->created_at->locale('id')->isoFormat('D MMMM YYYY HH:m:s') ?? 'N/A' }}
+							{{ $data->created_at->locale('id')->isoFormat('D MMM YYYY HH:m:s') ?? 'N/A' }}
 						</p>
 					</div>
 
 					<div
 						class="dark:bg-gray-700 dark:border-gray-700 flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-white p-3">
-						<p class="dark:text-gray-300 text-sm text-gray-600">Waktu Laporan Diupdate</p>
+						<p class="dark:text-gray-300 text-sm text-gray-600">Waktu Diupdate</p>
 						<p class="text-navy-700 dark:text-white text-base font-medium">
-							{{ $data->updated_at->locale('id')->isoFormat('D MMMM YYYY HH:m:s') ?? 'N/A' }}
+							{{ $data->updated_at->locale('id')->isoFormat('D MMM YYYY HH:m:s') ?? 'N/A' }}
 						</p>
 					</div>
 
 					<div
-						class="dark:bg-gray-700 dark:border-gray-700 flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-white p-3 md:col-span-2">
+						class="dark:bg-gray-700 dark:border-gray-700 col-span-2 flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-white p-3 lg:col-span-1">
 						<p class="dark:text-gray-300 mb-2 text-sm text-gray-600">Dokumentasi</p>
 						<div class="relative overflow-auto">
 							<div class="flex overflow-x-auto" id="captured-images">
@@ -78,7 +78,7 @@
 					</div>
 
 					<div
-						class="dark:bg-gray-700 dark:border-gray-700 flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-white p-3 md:col-span-2">
+						class="dark:bg-gray-700 dark:border-gray-700 col-span-2 flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-white p-3 lg:col-span-1">
 						<p class="dark:text-gray-300 text-sm text-gray-600">Keterangan</p>
 						<div class="text-navy-700 quill-content dark:text-white text-wrap !mt-1 w-full !border-none !p-0 !text-base"
 							id="editor">
