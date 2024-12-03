@@ -76,8 +76,8 @@ class ApiCollectorController extends Controller
             'kode_pegawai' => 'required|integer|max_digits:12',
             'title' => 'required|string|max:128|min:10',
             'keterangan' => 'required|string|min:50',
-            'longitude' => 'required|string|max:16',
-            'latitude' => 'required|string|max:16',
+            'longitude' => 'required|string',
+            'latitude' => 'required|string',
             'images' => 'required|array', // Menambahkan validasi untuk array gambar
             'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Validasi tiap gambar
         ]);
