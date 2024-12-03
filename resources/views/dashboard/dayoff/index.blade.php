@@ -152,7 +152,7 @@
 				processing: true,
 				serverSide: true,
 				responsive: true,
-				perPageSelect: [5, 25, 50, 100],
+				"lengthMenu": [15, 25, 50, 75, 100, -1],
 				ajax: {
 					url: "{{ route('dayoff.index') }}",
 					data: function(d) {
@@ -274,7 +274,6 @@
 			}
 		}
 		// end datatables //
-		///////////////////
 
 		function deleteModal() {
 
@@ -301,7 +300,6 @@
 			}
 		}
 		// end delete modal //
-		/////////////////////
 
 		$(document).ready(function() {
 			showDatatables();

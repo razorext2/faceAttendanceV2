@@ -1,5 +1,5 @@
 <button
-	class="dark:bg-green-800 dark:text-white dark:hover:bg-green-900 dark:ring-gray-700 flex flex-row rounded-lg px-4 py-2 ring-1 ring-green-700 hover:bg-green-300 lg:px-8"
+	class="dark:bg-green-800 dark:text-white dark:hover:bg-green-900 dark:ring-gray-700 flex flex-row rounded-lg px-2.5 py-2 ring-1 ring-green-700 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-green-300 lg:px-8"
 	form="{{ $form }}">
 	<svg class="dark:fill-white icon h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" fill="currentColor"
 		version="1.1">
