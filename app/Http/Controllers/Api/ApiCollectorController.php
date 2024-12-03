@@ -44,17 +44,21 @@ class ApiCollectorController extends Controller
                     '</div>';
                     return $el;
                 })
-                ->filter(function ($instances) use ($request) {
+                ->filter(function ($data) use ($request) {
                     if ($request->filled("title")) {
-                        $instances->where('title', "LIKE", "%$request->title%");
+                        $data->where('title', "LIKE", "%$request->title%");
                     }
 
                     if ($request->filled("kode_pegawai")) {
-                        $instances->where('kode_pegawai', "LIKE", "%$request->kode_pegawai%");
+                        $data->where('kode_pegawai', "LIKE", "%$request->kode_pegawai%");
                     }
 
                     if ($request->filled("status")) {
-                        $instances->where('status', "LIKE", "%$request->status%");
+                        $data->where('status', "LIKE", "%$request->status%");
+                    }
+
+                    if ($request->filled("start")) {
+                        $data->whereBetween('created_at', [$request->start, $request->end]);
                     }
                 })
                 ->rawColumns(['title_status', 'actions'])

@@ -32,6 +32,10 @@
 							<x-filter.filter-input-select id="status" name="status" :options="['0' => 'Pending', '1' => 'Approved', '2' => 'Rejected']" default-option="Filter by status" />
 						</div>
 
+						<div class="col-span-2 mx-auto w-full items-center lg:col-span-1">
+							<x-filter.date-range />
+						</div>
+
 					</x-filter.filter-bar>
 				</div>
 
@@ -95,7 +99,9 @@
 					data: function(d) {
 						d.title = $('#title').val();
 						d.kode_pegawai = $('#kode-pegawai').val();
-						d.status = $('#status').val()
+						d.status = $('#status').val();
+						d.start = $('#datepicker-range-start').val();
+						d.end = $('#datepicker-range-end').val();
 					}
 				},
 				columns: [{
@@ -155,7 +161,10 @@
 
 			$('#cari').click(function() {
 				// Ambil nilai dari semua input filter
-				const filters = ['#title', '#kode-pegawai', '#status'].map(selector => $(selector).val());
+				const filters = ['#title', '#kode-pegawai', '#status', '#datepicker-range-start',
+					'#datepicker-range-end'
+				].map(selector => $(
+					selector).val());
 
 				// Cek apakah semua filter kosong
 				if (filters.some(value => value !== '')) {
@@ -166,7 +175,10 @@
 			// jika tombol clear diklik
 			$('#clear').click(function() {
 				// Ambil nilai dari semua input filter
-				const filters = ['#title', '#kode-pegawai', '#status'].map(selector => $(selector).val());
+				const filters = ['#title', '#kode-pegawai', '#status', '#datepicker-range-start',
+					'#datepicker-range-end'
+				].map(selector => $(
+					selector).val());
 				// Cek apakah semua filter kosong
 				if (filters.some(value => value !== '')) {
 
@@ -174,6 +186,8 @@
 					$('#title').val('');
 					$('#kode-pegawai').val('');
 					$('#status').prop('selectedIndex', 0);
+					$('#datepicker-range-start').val('');
+					$('#datepicker-range-end').val('');
 
 					table.draw();
 				}
