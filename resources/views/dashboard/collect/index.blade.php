@@ -130,7 +130,7 @@
 			if (!kode_pegawai) {
 				src = "{{ route('collectors.index') }}"
 			} else {
-				src = "{{ route('collect.getdata') }}"
+				src = "{{ route('collect.index') }}"
 			}
 
 			let table = $('#table-collector').DataTable({

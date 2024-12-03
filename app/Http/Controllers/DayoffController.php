@@ -24,107 +24,105 @@ class DayoffController extends Controller
 		$this->middleware('permission:dayoff-confirm', ['only' => ['confirm', 'ignore']]);
 	}
 
-	public function index()
+	public function index(Request $request)
 	{
-		//
-		return view('dashboard.dayoff.index');
-	}
+		if ($request->ajax()) {
+			// Function to clean the date string
+			function cleanDate($dateString)
+			{
+				// Use regex to remove timezone name in parentheses, leaving the GMT offset intact
+				return preg_replace('/\s\(.+\)$/', '', $dateString);
+			}
 
-	public function getData(Request $request)
-	{
-		// Function to clean the date string
-		function cleanDate($dateString)
-		{
-			// Use regex to remove timezone name in parentheses, leaving the GMT offset intact
-			return preg_replace('/\s\(.+\)$/', '', $dateString);
-		}
+			// Parse the minDate and maxDate from the request after cleaning
+			$minDate = cleanDate($request->input('minDate'));
+			$maxDate = cleanDate($request->input('maxDate'));
 
-		// Parse the minDate and maxDate from the request after cleaning
-		$minDate = cleanDate($request->input('minDate'));
-		$maxDate = cleanDate($request->input('maxDate'));
+			// Start building the query
+			if (!Auth::user()->kode_pegawai) {
+				// Fetch all Dayoff records with pegawaiRelasi relationship for specific roles
+				$query = Dayoff::with('pegawaiRelasi')
+					->latest()
+					->get();
+			} else {
+				// Fetch only Dayoff records for the currently logged-in user's pegawaiRelasi
+				$query = Dayoff::with('pegawaiRelasi')
+					->where('id_user', Auth::user()->kode_pegawai)
+					->latest()
+					->get();
+			}
 
-		// Start building the query
-		if (!Auth::user()->kode_pegawai) {
-			// Fetch all Dayoff records with pegawaiRelasi relationship for specific roles
-			$query = Dayoff::with('pegawaiRelasi')
-				->latest()
-				->get();
-		} else {
-			// Fetch only Dayoff records for the currently logged-in user's pegawaiRelasi
-			$query = Dayoff::with('pegawaiRelasi')
-				->where('id_user', Auth::user()->kode_pegawai)
-				->latest()
-				->get();
-		}
+			// Apply date filtering if minDate and maxDate are provided
+			if ($minDate) {
+				$query = $query->where('created_at', '>=', Carbon::parse($minDate)->startOfDay());
+			}
+			if ($maxDate) {
+				$query = $query->where('created_at', '<=', Carbon::parse($maxDate)->endOfDay());
+			}
 
-		// Apply date filtering if minDate and maxDate are provided
-		if ($minDate) {
-			$query = $query->where('created_at', '>=', Carbon::parse($minDate)->startOfDay());
-		}
-		if ($maxDate) {
-			$query = $query->where('created_at', '<=', Carbon::parse($maxDate)->endOfDay());
-		}
+			// Fetch the filtered data with pagination for DataTables
+			return DataTables::of($query)
+				->editColumn('id_nama_user', function ($data) {
+					return '<p>' . $data->pegawaiRelasi->full_name . '</p><span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300"> ' . $data->id_user . ' </span>';
+				})
+				->addColumn('action', function ($data) {
+					$editUrl = route('dayoff.edit', $data->id);
+					$detailUrl = route('dayoff.show', $data->id);
 
-		// Fetch the filtered data with pagination for DataTables
-		return DataTables::of($query)
-			->editColumn('id_nama_user', function ($data) {
-				return '<p>' . $data->pegawaiRelasi->full_name . '</p><span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300"> ' . $data->id_user . ' </span>';
-			})
-			->addColumn('action', function ($data) {
-				$editUrl = route('dayoff.edit', $data->id);
-				$detailUrl = route('dayoff.show', $data->id);
-
-				// Inisialisasi variabel untuk tombol aksi
-				$actionButtons = '
+					// Inisialisasi variabel untuk tombol aksi
+					$actionButtons = '
                 <div class="inline-flex" role="group">';
 
-				// if (auth()->user()->can('dayoff-detail')) {
-				$actionButtons .=
-					'<a href="' . $detailUrl . '"
+					// if (auth()->user()->can('dayoff-detail')) {
+					$actionButtons .=
+						'<a href="' . $detailUrl . '"
                         class="mx-1 text-md font-medium rounded-lg focus:z-10 text-gray-800 dark:text-white">
                         &#128065; <span class="hover:underline"> Lihat </span>
                     </a>';
-				// }
+					// }
 
-				// Cek izin edit
-				// if (auth()->user()->can('dayoff-edit')) {
-				$actionButtons .=
-					'<a href="' . $editUrl . '"class="mx-1 text-md font-medium rounded-lg focus:z-10">
+					// Cek izin edit
+					// if (auth()->user()->can('dayoff-edit')) {
+					$actionButtons .=
+						'<a href="' . $editUrl . '"class="mx-1 text-md font-medium rounded-lg focus:z-10">
                         &#9999; <span class="hover:underline" style="color: #057A55"> Edit </span>
                     </a>';
-				// }
+					// }
 
-				if (auth()->user()->can('dayoff-delete')) {
-					// Tambahkan tombol delete
-					$actionButtons .=
-						'<button
+					if (auth()->user()->can('dayoff-delete')) {
+						// Tambahkan tombol delete
+						$actionButtons .=
+							'<button
                             class="mx-1 group text-md font-medium rounded-lg focus:z-10 delete-btn"
                             data-id="' . $data->id . '" data-modal-target="deleteModal" data-modal-toggle="deleteModal">
                             &#x26D4; <span class="hover:underline" style="color: #E02424;"> Delete </span>
                         </button>';
-				}
-				'</div>';
+					}
+					'</div>';
 
-				return $actionButtons;
-			})
-			->editColumn('statuses', function ($data) {
-				$status = $data->status;
+					return $actionButtons;
+				})
+				->editColumn('statuses', function ($data) {
+					$status = $data->status;
 
-				if ($status == 1) {
-					return '<span class="px-4 py-1 text-sm font-medium text-green-800 bg-green-100 rounded-full ring-1 dark:ring-gray-700 dark:bg-green-900 ring-gray-300 dark:text-green-300"> Diterima </span>';
-				} elseif ($status == 2) {
-					return '<span class="px-4 py-1 text-sm font-medium text-yellow-800 bg-yellow-100 rounded-full ring-1 dark:ring-gray-700 dark:bg-yellow-900 ring-gray-300 dark:text-yellow-300"> Diajukan </span>';
-				} elseif ($status == 3) {
-					return '<span class="px-4 py-1 text-sm font-medium text-red-800 bg-red-100 rounded-full ring-1 dark:ring-gray-700 dark:bg-red-900 ring-gray-300 dark:text-red-300"> Ditolak </span>';
-				} else {
-					return '<span class="px-4 py-1 text-sm font-medium text-red-800 bg-red-100 rounded-full ring-1 dark:ring-gray-700 dark:bg-red-900 ring-gray-300 dark:text-red-300"> Dibatalkan </span>';
-				}
-			})
-			->editColumn('created_updated_at', function ($data) {
-				return $data->created_at . ' / ' . $data->updated_at;
-			})
-			->rawColumns(['action', 'statuses', 'id_nama_user'])
-			->make(true);
+					if ($status == 1) {
+						return '<span class="px-4 py-1 text-sm font-medium text-green-800 bg-green-100 rounded-full ring-1 dark:ring-gray-700 dark:bg-green-900 ring-gray-300 dark:text-green-300"> Diterima </span>';
+					} elseif ($status == 2) {
+						return '<span class="px-4 py-1 text-sm font-medium text-yellow-800 bg-yellow-100 rounded-full ring-1 dark:ring-gray-700 dark:bg-yellow-900 ring-gray-300 dark:text-yellow-300"> Diajukan </span>';
+					} elseif ($status == 3) {
+						return '<span class="px-4 py-1 text-sm font-medium text-red-800 bg-red-100 rounded-full ring-1 dark:ring-gray-700 dark:bg-red-900 ring-gray-300 dark:text-red-300"> Ditolak </span>';
+					} else {
+						return '<span class="px-4 py-1 text-sm font-medium text-red-800 bg-red-100 rounded-full ring-1 dark:ring-gray-700 dark:bg-red-900 ring-gray-300 dark:text-red-300"> Dibatalkan </span>';
+					}
+				})
+				->editColumn('created_updated_at', function ($data) {
+					return $data->created_at . ' / ' . $data->updated_at;
+				})
+				->rawColumns(['action', 'statuses', 'id_nama_user'])
+				->make(true);
+		} else {
+			return view('dashboard.dayoff.index');
+		}
 	}
 
 	/**

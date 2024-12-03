@@ -143,7 +143,7 @@
 				responsive: true,
 				perPageSelect: [5, 25, 50, 100],
 				ajax: {
-					url: "{{ route('jabatan.getdata') }}",
+					url: "{{ route('jabatan.index') }}",
 					data: function(d) {
 						d.minDate = minDate.val();
 						d.maxDate = maxDate.val();

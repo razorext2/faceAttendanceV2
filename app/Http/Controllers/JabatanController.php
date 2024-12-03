@@ -14,92 +14,88 @@ class JabatanController extends Controller
 {
     function __construct()
     {
-        $this->middleware('permission:jabatan-list', ['only' => ['index', 'getData']]);
+        $this->middleware('permission:jabatan-list', ['only' => ['index']]);
         $this->middleware('permission:jabatan-create', ['only' => ['create', 'store']]);
         $this->middleware('permission:jabatan-edit', ['only' => ['edit', 'update']]);
         $this->middleware('permission:jabatan-delete', ['only' => ['destroy']]);
     }
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+
+    public function index(Request $request)
     {
+        if ($request->ajax()) {
+            // Function to clean the date string
+            function cleanDate($dateString)
+            {
+                // Use regex to remove timezone name in parentheses, leaving the GMT offset intact
+                return preg_replace('/\s\(.+\)$/', '', $dateString);
+            }
 
-        return view('dashboard.jabatan.index');
-    }
+            // Parse the minDate and maxDate from the request after cleaning
+            $minDate = cleanDate($request->input('minDate'));
+            $maxDate = cleanDate($request->input('maxDate'));
 
-    public function getData(Request $request)
-    {
-        // Function to clean the date string
-        function cleanDate($dateString)
-        {
-            // Use regex to remove timezone name in parentheses, leaving the GMT offset intact
-            return preg_replace('/\s\(.+\)$/', '', $dateString);
-        }
+            // Start building the query
+            $query = Jabatan::with(['divisionRelasi', 'placementRelasi'])
+                ->select([
+                    'id',
+                    'nama_jabatan',
+                    'divisi',
+                    'penempatan',
+                    'created_at',
+                    'updated_at'
+                ])
+                ->get();
 
-        // Parse the minDate and maxDate from the request after cleaning
-        $minDate = cleanDate($request->input('minDate'));
-        $maxDate = cleanDate($request->input('maxDate'));
+            // Apply date filtering if minDate and maxDate are provided
+            if ($minDate) {
+                $query = $query->where('created_at', '>=', Carbon::parse($minDate)->startOfDay());
+            }
+            if ($maxDate) {
+                $query = $query->where('created_at', '<=', Carbon::parse($maxDate)->endOfDay());
+            }
 
-        // Start building the query
-        $query = Jabatan::with(['divisionRelasi', 'placementRelasi'])
-            ->select([
-                'id',
-                'nama_jabatan',
-                'divisi',
-                'penempatan',
-                'created_at',
-                'updated_at'
-            ])
-            ->get();
+            // Fetch the filtered data with pagination for DataTables
+            return DataTables::of($query)
+                ->addColumn('action', function ($data) {
+                    $editUrl = route('jabatan.edit', $data->id);
 
-        // Apply date filtering if minDate and maxDate are provided
-        if ($minDate) {
-            $query = $query->where('created_at', '>=', Carbon::parse($minDate)->startOfDay());
-        }
-        if ($maxDate) {
-            $query = $query->where('created_at', '<=', Carbon::parse($maxDate)->endOfDay());
-        }
-
-        // Fetch the filtered data with pagination for DataTables
-        return DataTables::of($query)
-            ->addColumn('action', function ($data) {
-                $editUrl = route('jabatan.edit', $data->id);
-
-                $actionButtons = '
+                    $actionButtons = '
             <div class="inline-flex" role="group">';
 
-                if (auth()->user()->can('jabatan-edit')) {
-                    $actionButtons .=
-                        '<a href="' . $editUrl . '"class="mx-1 text-md font-medium rounded-lg focus:z-10">
+                    if (auth()->user()->can('jabatan-edit')) {
+                        $actionButtons .=
+                            '<a href="' . $editUrl . '"class="mx-1 text-md font-medium rounded-lg focus:z-10">
                             &#9999; <span class="hover:underline" style="color: #057A55"> Edit </span>
                         </a>';
-                }
+                    }
 
-                if (auth()->user()->can('jabatan-delete')) {
-                    $actionButtons .= '
+                    if (auth()->user()->can('jabatan-delete')) {
+                        $actionButtons .= '
                         <button
                             class="mx-1 group text-md font-medium rounded-lg focus:z-10 delete-btn"
                             data-id="' . $data->id . '" data-modal-target="deleteModal" data-modal-toggle="deleteModal">
                             &#x26D4; <span class="hover:underline" style="color: #E02424;"> Delete </span>
                         </button>';
-                }
+                    }
 
-                '</div>';
+                    '</div>';
 
-                return $actionButtons;
-            })
-            ->addIndexColumn() // This is the DT_RowIndex
-            ->editColumn('nama_divisi', function ($row) {
-                return $row->divisionRelasi->nama_divisi ?? 'N/A';  // Handle null cases
-            })
-            ->editColumn('nama_penempatan', function ($row) {
-                return $row->placementRelasi->penempatan ?? 'N/A';  // Handle null cases
-            })
-            ->editColumn('created_updated_at', function ($row) {
-                return $row->created_at . ' / ' . $row->updated_at;
-            })
-            ->make(true);
+                    return $actionButtons;
+                })
+                ->addIndexColumn() // This is the DT_RowIndex
+                ->editColumn('nama_divisi', function ($row) {
+                    return $row->divisionRelasi->nama_divisi ?? 'N/A';  // Handle null cases
+                })
+                ->editColumn('nama_penempatan', function ($row) {
+                    return $row->placementRelasi->penempatan ?? 'N/A';  // Handle null cases
+                })
+                ->editColumn('created_updated_at', function ($row) {
+                    return $row->created_at . ' / ' . $row->updated_at;
+                })
+                ->make(true);
+        } else {
+            return view('dashboard.jabatan.index');
+        }
     }
 
     /**

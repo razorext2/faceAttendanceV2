@@ -145,7 +145,7 @@
 				responsive: true,
 				perPageSelect: [5, 25, 50, 100],
 				ajax: {
-					url: "{{ route('golongan.getdata') }}",
+					url: "{{ route('golongan.index') }}",
 					data: function(d) {
 						d.minDate = minDate.val();
 						d.maxDate = maxDate.val();

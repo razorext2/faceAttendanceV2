@@ -19,76 +19,75 @@ class RoleController extends Controller
      */
     function __construct()
     {
-        $this->middleware('permission:roles-list', ['only' => ['index', 'getData']]);
+        $this->middleware('permission:roles-list', ['only' => ['index']]);
         $this->middleware('permission:roles-create', ['only' => ['create', 'store']]);
         $this->middleware('permission:roles-edit', ['only' => ['edit', 'update']]);
         $this->middleware('permission:roles-delete', ['only' => ['destroy']]);
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        return view('dashboard.user-manage.roles.index');
-    }
+        if ($request->ajax()) {
+            // Function to clean the date string
+            function cleanDate($dateString)
+            {
+                // Use regex to remove timezone name in parentheses, leaving the GMT offset intact
+                return preg_replace('/\s\(.+\)$/', '', $dateString);
+            }
 
-    public function getData(Request $request)
-    {
-        // Function to clean the date string
-        function cleanDate($dateString)
-        {
-            // Use regex to remove timezone name in parentheses, leaving the GMT offset intact
-            return preg_replace('/\s\(.+\)$/', '', $dateString);
-        }
+            // Parse the minDate and maxDate from the request after cleaning
+            $minDate = cleanDate($request->input('minDate'));
+            $maxDate = cleanDate($request->input('maxDate'));
 
-        // Parse the minDate and maxDate from the request after cleaning
-        $minDate = cleanDate($request->input('minDate'));
-        $maxDate = cleanDate($request->input('maxDate'));
+            // Start building the query
+            $query = Role::orderBy('id')->get();
 
-        // Start building the query
-        $query = Role::orderBy('id')->get();
+            // Apply date filtering if minDate and maxDate are provided
+            if ($minDate) {
+                $query = $query->where('created_at', '>=', Carbon::parse($minDate)->startOfDay());
+            }
+            if ($maxDate) {
+                $query = $query->where('created_at', '<=', Carbon::parse($maxDate)->endOfDay());
+            }
 
-        // Apply date filtering if minDate and maxDate are provided
-        if ($minDate) {
-            $query = $query->where('created_at', '>=', Carbon::parse($minDate)->startOfDay());
-        }
-        if ($maxDate) {
-            $query = $query->where('created_at', '<=', Carbon::parse($maxDate)->endOfDay());
-        }
+            // Fetch the filtered data with pagination for DataTables
+            return DataTables::of($query)
+                ->addColumn('action', function ($data) {
+                    $editUrl = route('roles.edit', $data->id);
 
-        // Fetch the filtered data with pagination for DataTables
-        return DataTables::of($query)
-            ->addColumn('action', function ($data) {
-                $editUrl = route('roles.edit', $data->id);
-
-                // Inisialisasi variabel untuk tombol aksi
-                $actionButtons = '
+                    // Inisialisasi variabel untuk tombol aksi
+                    $actionButtons = '
                 <div class="inline-flex rounded-md shadow-sm" role="group">';
 
-                // Cek izin edit
-                if (auth()->user()->can('roles-edit')) {
-                    $actionButtons .= '
+                    // Cek izin edit
+                    if (auth()->user()->can('roles-edit')) {
+                        $actionButtons .= '
                         <a href="' . $editUrl . '"class="mx-1 text-md font-medium rounded-lg focus:z-10">
                             &#9999; <span class="hover:underline" style="color: #057A55"> Edit </span>
                         </a>';
-                }
+                    }
 
-                if (auth()->user()->can('roles-delete')) {
-                    // Tambahkan tombol delete
-                    $actionButtons .= '
+                    if (auth()->user()->can('roles-delete')) {
+                        // Tambahkan tombol delete
+                        $actionButtons .= '
                         <button class="mx-1 group text-md font-medium rounded-lg focus:z-10 delete-btn" data-id="' . $data->id . '" data-modal-target="deleteModal" data-modal-toggle="deleteModal">
                             &#x26D4; <span class="hover:underline" style="color: #E02424;"> Delete </span>
                         </button>';
-                }
+                    }
 
-                '</div>';
+                    '</div>';
 
-                return $actionButtons;
-            })
-            ->editColumn('created_updated_at', function ($data) {
-                return $data->created_at . ' / ' . $data->updated_at;
-            })
-            ->addIndexColumn() // This is the DT_RowIndex
-            ->rawColumns(['action', 'permissions', 'created_updated_at'])
-            ->make(true);
+                    return $actionButtons;
+                })
+                ->editColumn('created_updated_at', function ($data) {
+                    return $data->created_at . ' / ' . $data->updated_at;
+                })
+                ->addIndexColumn() // This is the DT_RowIndex
+                ->rawColumns(['action', 'permissions', 'created_updated_at'])
+                ->make(true);
+        } else {
+            return view('dashboard.user-manage.roles.index');
+        }
     }
 
     /**

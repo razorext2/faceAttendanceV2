@@ -63,53 +63,43 @@ Route::middleware('auth')->group(function () {
         Route::get('capture', [CaptureController::class, 'index'])->name('capture.index');
 
         // route kolektor
-        Route::get('collect/get', [CollectController::class, 'getData'])->name('collect.getdata');
         Route::resource('collect', CollectController::class);
 
         // route dayoff
-        Route::get('dayoff/get', [DayoffController::class, 'getData'])->name('dayoff.getdata');
+        Route::resource('dayoff', DayoffController::class);
         Route::post('dayoff/upload-image', [DayoffController::class, 'uploadImage'])->name('dayoff.uploadimage');
         Route::get('dayoff/autocomplete', [DayoffController::class, 'autocomplete'])->name('dayoff.autocomplete');
         Route::put('dayoff/confirm/{dayoff}', [DayoffController::class, 'confirm'])->name('dayoff.confirm');
         Route::put('dayoff/ignore/{dayoff}', [DayoffController::class, 'ignore'])->name('dayoff.ignore');
-        Route::resource('dayoff', DayoffController::class);
 
         // route permission
-        Route::get('permissions/get', [PermissionController::class, 'getData'])->name('permissions.getdata');
         Route::resource('permissions', PermissionController::class);
 
         // route roles
-        Route::get('roles/get', [RoleController::class, 'getData'])->name('roles.getdata');
         Route::resource('roles', RoleController::class);
 
         // route users
-        Route::get('users/get', [UserController::class, 'getData'])->name('users.getdata');
         Route::resource('users', UserController::class);
 
         // route golongan
-        Route::get('golongan/get', [GolonganController::class, 'getData'])->name('golongan.getdata');
         Route::resource('golongan', GolonganController::class);
 
         // route placement
-        Route::get('placement/get', [PlacementController::class, 'getData'])->name('placement.getdata');
         Route::resource('placement', PlacementController::class);
 
         // route division
-        Route::get('division/get', [DivisionController::class, 'getData'])->name('division.getdata');
         Route::resource('division', DivisionController::class);
 
         // route jabatan
-        Route::get('jabatan/get', [JabatanController::class, 'getData'])->name('jabatan.getdata');
         Route::resource('jabatan', JabatanController::class);
 
         // route pegawai
-        Route::get('pegawai/get', [PegawaiController::class, 'getData'])->name('pegawai.getdata');
+        Route::resource('pegawai', PegawaiController::class);
         Route::get('pegawai/{pegawai}/detail', [PegawaiController::class, 'detail'])->name('pegawai.detail');
         Route::get('pegawai/{pegawai}/attendance', [PegawaiController::class, 'attendanceList'])->name('pegawai.attendancelist');
         Route::get('pegawai/{pegawai}/payroll', [PegawaiController::class, 'payrollInfo'])->name('pegawai.payrollinfo');
         Route::get('pegawai/{pegawai}/timeline', [PegawaiController::class, 'timeline'])->name('pegawai.timeline');
         Route::get('pegawai/{pegawai}/collectors', [PegawaiController::class, 'reportCollectors'])->name('pegawai.collectors');
-        Route::resource('pegawai', PegawaiController::class);
 
         // route pegawai allowance & deductions
         Route::resource('pegawai/allowances', AllowanceController::class);

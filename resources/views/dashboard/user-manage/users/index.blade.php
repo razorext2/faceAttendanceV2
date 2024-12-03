@@ -144,7 +144,7 @@
 				responsive: true,
 				perPageSelect: [5, 25, 50, 100],
 				ajax: {
-					url: "{{ route('users.getdata') }}",
+					url: "{{ route('users.index') }}",
 					data: function(d) {
 						d.minDate = minDate.val();
 						d.maxDate = maxDate.val();

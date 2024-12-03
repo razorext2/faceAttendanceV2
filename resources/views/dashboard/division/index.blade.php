@@ -138,7 +138,7 @@
 				responsive: true,
 				"lengthMenu": [15, 25, 50, 75, 100, -1],
 				ajax: {
-					url: "{{ route('division.getdata') }}",
+					url: "{{ route('division.index') }}",
 					data: function(d) {
 						d.minDate = minDate.val();
 						d.maxDate = maxDate.val();

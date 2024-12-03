@@ -33,64 +33,62 @@ class PegawaiController extends Controller
         $this->middleware('permission:pegawai-edit', ['only' => ['edit', 'update']]);
         $this->middleware('permission:pegawai-delete', ['only' => ['destroy']]);
         $this->middleware('permission:pegawai-timeline', ['only' => ['timeline']]);
-        // $this->middleware('permission:pegawai-collectors', ['only' => ['collectors']]);
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        return view('dashboard.pegawai.index');
-    }
+        if ($request->ajax()) {
+            function cleanDate($dateString)
+            {
+                return preg_replace('/\s\(.+\)$/', '', $dateString);
+            }
+            $minDate = cleanDate($request->input('minDate'));
+            $maxDate = cleanDate($request->input('maxDate'));
 
-    public function getData(Request $request)
-    {
-        function cleanDate($dateString)
-        {
-            return preg_replace('/\s\(.+\)$/', '', $dateString);
-        }
-        $minDate = cleanDate($request->input('minDate'));
-        $maxDate = cleanDate($request->input('maxDate'));
+            $query = Pegawai::with('golonganRelasi', 'jabatanRelasi')
+                ->select('id', 'kode_pegawai', 'nik_pegawai', 'full_name', 'no_telp', 'jabatan', 'golongan')->get();
 
-        $query = Pegawai::with('golonganRelasi', 'jabatanRelasi')
-            ->select('id', 'kode_pegawai', 'nik_pegawai', 'full_name', 'no_telp', 'jabatan', 'golongan')->get();
+            if ($minDate) {
+                $query = $query->where('created_at', '>', Carbon::parse($minDate)->startOfDay());
+            }
+            if ($maxDate) {
+                $query = $query->where('created_at', '<', Carbon::parse($maxDate)->endOfDay());
+            }
 
-        if ($minDate) {
-            $query = $query->where('created_at', '>', Carbon::parse($minDate)->startOfDay());
-        }
-        if ($maxDate) {
-            $query = $query->where('created_at', '<', Carbon::parse($maxDate)->endOfDay());
-        }
-
-        return DataTables::of($query)
-            ->addColumn('action', function ($data) {
-                // $editUrl = route('pegawai.edit', $data->id);
-                $dataUrl = route('pegawai.detail', $data->id);
-                // $timelineUrl = route('pegawai.timeline', $data->id);
-                $actionButtons = '
+            return DataTables::of($query)
+                ->addColumn('action', function ($data) {
+                    // $editUrl = route('pegawai.edit', $data->id);
+                    $dataUrl = route('pegawai.detail', $data->id);
+                    // $timelineUrl = route('pegawai.timeline', $data->id);
+                    $actionButtons = '
                 <div class="inline-flex text-center" role="group">
                     <a href="' . $dataUrl .
-                    '"
+                        '"
                         class="mx-1 text-md font-medium rounded-lg focus:z-10 text-blue-500">
                          &#128203; <span class="hover:underline"> Detail </span>
                     </a>';
-                return $actionButtons;
-            })
-            ->addColumn('full_name_nik', function ($data) {
-                return '
+                    return $actionButtons;
+                })
+                ->addColumn('full_name_nik', function ($data) {
+                    return '
                         <p class="text-base font-medium">' . $data->full_name . '</p>
                         <p class="text-md"> NIK: ' . $data->nik_pegawai . '</p>';
-            })
-            ->addColumn('nama_golongan', function ($data) {
-                return $data->golonganRelasi->nama_golongan ?? 'N/A';
-            })
-            ->addColumn('nama_jabatan', function ($data) {
-                return $data->jabatanRelasi->nama_jabatan ?? 'N/A';
-            })
-            ->editColumn('no_telp', function ($data) {
-                return $data->no_telp ?? 'N/A';
-            })
-            ->addIndexColumn()
-            ->rawColumns(['action', 'full_name_nik'])
-            ->make(true);
+                })
+                ->addColumn('nama_golongan', function ($data) {
+                    return $data->golonganRelasi->nama_golongan ?? 'N/A';
+                })
+                ->addColumn('nama_jabatan', function ($data) {
+                    return $data->jabatanRelasi->nama_jabatan ?? 'N/A';
+                })
+                ->editColumn('no_telp', function ($data) {
+                    return $data->no_telp ?? 'N/A';
+                })
+                ->addIndexColumn()
+                ->rawColumns(['action', 'full_name_nik'])
+                ->make(true);
+        } else {
+            return view('dashboard.pegawai.index');
+        }
     }
 
     public function create()
