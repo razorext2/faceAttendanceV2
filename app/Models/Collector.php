@@ -18,6 +18,7 @@ class Collector extends Model
         'latitude',
         'status',
         'notes',
+        'location',
     ];
 
     public static function boot()

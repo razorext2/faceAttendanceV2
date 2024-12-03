@@ -61,6 +61,7 @@ function addDataHandler() {
     let ket = $("#keterangan").val();
     let long = $("#longitude").val();
     let lat = $("#latitude").val();
+    let location = $("#location").val();
     let token = $("meta[name='csrf-token']").attr("content");
 
     // Buat objek FormData
@@ -72,6 +73,7 @@ function addDataHandler() {
     formData.append("keterangan", ket);
     formData.append("longitude", long);
     formData.append("latitude", lat);
+    formData.append("location", location);
     formData.append("_token", token);
 
     // Masukkan gambar-gambar ke FormData

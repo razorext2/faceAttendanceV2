@@ -58,7 +58,15 @@
 					</div>
 
 					<div
-						class="dark:bg-gray-700 dark:border-gray-700 col-span-2 flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-white p-3 lg:col-span-1">
+						class="dark:bg-gray-700 dark:border-gray-700 col-span-2 flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-white p-3">
+						<p class="dark:text-gray-300 text-sm text-gray-600">Lokasi checkpoint</p>
+						<p class="text-navy-700 dark:text-white text-base font-medium">
+							{{ $data->location ?? 'N/A' }}
+						</p>
+					</div>
+
+					<div
+						class="dark:bg-gray-700 dark:border-gray-700 col-span-2 flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-white p-3">
 						<p class="dark:text-gray-300 mb-2 text-sm text-gray-600">Dokumentasi</p>
 						<div class="relative overflow-auto">
 							<div class="flex overflow-x-auto" id="captured-images">
@@ -78,7 +86,7 @@
 					</div>
 
 					<div
-						class="dark:bg-gray-700 dark:border-gray-700 col-span-2 flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-white p-3 lg:col-span-1">
+						class="dark:bg-gray-700 dark:border-gray-700 col-span-2 flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-white p-3">
 						<p class="dark:text-gray-300 text-sm text-gray-600">Keterangan</p>
 						<div class="text-navy-700 quill-content dark:text-white text-wrap !mt-1 w-full !border-none !p-0 !text-base"
 							id="editor">

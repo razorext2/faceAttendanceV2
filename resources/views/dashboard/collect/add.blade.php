@@ -38,6 +38,13 @@
 						<div class="mt-2 text-sm text-red-500" id="alert-title"></div>
 					</div>
 
+					<div class="relative mb-4 w-full">
+						<label class="dark:text-white mb-2 block text-sm font-medium text-gray-900" for="location">Lokasi </label>
+						<input class="block w-full rounded-lg border border-gray-300 bg-white p-2.5 text-sm text-gray-900" id="location"
+							name="location" type="text" placeholder="Isikan lokasi checkpoint.." required>
+						<div class="mt-2 text-sm text-red-500" id="alert-location"></div>
+					</div>
+
 					<!-- Tombol Ambil Gambar -->
 					<div class="relative mb-4 w-full">
 						<label class="dark:text-white block text-sm font-medium text-gray-900" for="capture-button">Dokumentasi

@@ -78,6 +78,7 @@ class ApiCollectorController extends Controller
             'keterangan' => 'required|string|min:10',
             'longitude' => 'required|string',
             'latitude' => 'required|string',
+            'location' => 'required|string|min:5',
             'images' => 'required|array', // Menambahkan validasi untuk array gambar
             'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Validasi tiap gambar
         ]);
@@ -156,6 +157,7 @@ class ApiCollectorController extends Controller
         $validator = Validator::make($request->all(), [
             'title' => 'required|string|max:128|min:10',
             'keterangan' => 'required|string|min:50',
+            'location' => 'required|string|min:5',
         ]);
 
         if ($validator->fails()) {
@@ -166,6 +168,7 @@ class ApiCollectorController extends Controller
         $query->update([
             'title' => $request->title,
             'keterangan' => $request->keterangan,
+            'location' => $request->location,
         ]);
 
         // Jika request JSON, kembalikan response JSON
