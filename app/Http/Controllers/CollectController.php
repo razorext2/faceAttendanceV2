@@ -17,37 +17,47 @@ class CollectController extends Controller
     {
         if ($request->ajax()) {
             $query = Collector::with('photoCollectRelasi')->where('kode_pegawai', '=', Auth::user()->kode_pegawai)->latest()->get();
-            info($request->title);
 
             return DataTables::of($query)
+                ->addIndexColumn()
                 ->editColumn('kode_pegawai', function ($data) {
-                    return $data->pegawaiRelasi->full_name . ' [' . $data->kode_pegawai . ']';
+                    return $data->pegawaiRelasi->full_name . '[' . $data->kode_pegawai . ']';
                 })
-                ->editColumn('created_updated_at', function ($data) {
+                ->addColumn('created_updated_at', function ($data) {
                     return $data->created_at->locale('id')->isoFormat('D MMMM YY HH:mm:ss');
                 })
-                ->editColumn('title_status', function ($data) {
-                    $title =  '<div class="inline-flex">
+                ->addColumn('title_status', function ($data) {
+                    $el =  '<div class="inline-flex">
                             <p>' . $data->short_title . '</p>';
 
                     if ($data->status === 0) {
-                        $title .= '<span class="bg-yellow-100 ms-2 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Pending</span>';
+                        $el .= '<span class="bg-yellow-100 ms-2 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Pending</span>';
                     } elseif ($data->status === 1) {
-                        $title .= '<span class="bg-green-100 ms-2 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Approved</span>';
+                        $el .= '<span class="bg-green-100 ms-2 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Approved</span>';
                     } else {
-                        $title .= '<span class="bg-red-100 ms-2 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">Rejected</span>';
+                        $el .= '<span class="bg-red-100 ms-2 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">Rejected</span>';
                     }
                     '</div>';
-
-                    return $title;
+                    return $el;
                 })
-                ->addIndexColumn()
-                ->filter(function ($instances) use ($request) {
+                ->filter(function ($data) use ($request) {
                     if ($request->filled("title")) {
-                        $instances->where('title', "LIKE", "%$request->title%");
+                        $data->where('title', "LIKE", "%$request->title%");
+                    }
+
+                    if ($request->filled("kode_pegawai")) {
+                        $data->where('kode_pegawai', "LIKE", "%$request->kode_pegawai%");
+                    }
+
+                    if ($request->filled("status")) {
+                        $data->where('status', "LIKE", "%$request->status%");
+                    }
+
+                    if ($request->filled("start")) {
+                        $data->whereBetween('created_at', [$request->start, $request->end]);
                     }
                 })
-                ->rawColumns(['title_status'])
+                ->rawColumns(['title_status', 'actions'])
                 ->make(true);
         }
 

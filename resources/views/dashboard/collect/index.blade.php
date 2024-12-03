@@ -14,30 +14,32 @@
 				class="dark:bg-[#18181b] dark:ring-gray-700 grid w-full grid-cols-2 gap-2 rounded-xl bg-white p-2 shadow-sm ring-1 ring-gray-200 md:gap-4 md:p-6">
 
 				{{-- filter dll --}}
-				<div class="col-span-2">
-					<x-filter.filter-bar>
-						<div class="col-span-2 mx-auto flex w-full items-center lg:col-span-1">
-							<x-filter.filter-input-text id="kode-pegawai" name="kode-pegawai" :text="'kode pegawai'">
-								<x-icons.fingerprint class="dark:text-gray-400 h-4 w-4 text-gray-500" />
-							</x-filter.filter-input-text>
-						</div>
+				@can('collect-approve')
+					<div class="col-span-2">
+						<x-filter.filter-bar>
+							<div class="col-span-2 mx-auto flex w-full items-center lg:col-span-1">
+								<x-filter.filter-input-text id="kode-pegawai" name="kode-pegawai" :text="'kode pegawai'">
+									<x-icons.fingerprint class="dark:text-gray-400 h-4 w-4 text-gray-500" />
+								</x-filter.filter-input-text>
+							</div>
 
-						<div class="col-span-2 mx-auto flex w-full items-center lg:col-span-1">
-							<x-filter.filter-input-text id="title" name="title" :text="'judul laporan'">
-								<x-icons.font-case class="dark:text-gray-400 h-4 w-4 text-gray-500" />
-							</x-filter.filter-input-text>
-						</div>
+							<div class="col-span-2 mx-auto flex w-full items-center lg:col-span-1">
+								<x-filter.filter-input-text id="title" name="title" :text="'judul laporan'">
+									<x-icons.font-case class="dark:text-gray-400 h-4 w-4 text-gray-500" />
+								</x-filter.filter-input-text>
+							</div>
 
-						<div class="col-span-2 mx-auto w-full items-center lg:col-span-1">
-							<x-filter.filter-input-select id="status" name="status" :options="['0' => 'Pending', '1' => 'Approved', '2' => 'Rejected']" default-option="Filter by status" />
-						</div>
+							<div class="col-span-2 mx-auto w-full items-center lg:col-span-1">
+								<x-filter.filter-input-select id="status" name="status" :options="['0' => 'Pending', '1' => 'Approved', '2' => 'Rejected']" default-option="Filter by status" />
+							</div>
 
-						<div class="col-span-2 mx-auto w-full items-center lg:col-span-1">
-							<x-filter.date-range />
-						</div>
+							<div class="col-span-2 mx-auto w-full items-center lg:col-span-1">
+								<x-filter.date-range />
+							</div>
 
-					</x-filter.filter-bar>
-				</div>
+						</x-filter.filter-bar>
+					</div>
+				@endcan
 
 				<div class="col-span-2">
 					<table class="dark:text-gray-300 mt-20 w-full text-left text-sm text-gray-500 sm:mt-4" id="table-collector">

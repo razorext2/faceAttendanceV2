@@ -74,8 +74,8 @@ class ApiCollectorController extends Controller
         // Mendefinisikan validator
         $validator = Validator::make($request->all(), [
             'kode_pegawai' => 'required|integer|max_digits:12',
-            'title' => 'required|string|max:128|min:10',
-            'keterangan' => 'required|string|min:50',
+            'title' => 'required|string|max:128|min:5',
+            'keterangan' => 'required|string|min:10',
             'longitude' => 'required|string',
             'latitude' => 'required|string',
             'images' => 'required|array', // Menambahkan validasi untuk array gambar
