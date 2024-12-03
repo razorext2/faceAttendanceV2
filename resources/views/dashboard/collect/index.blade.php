@@ -17,13 +17,13 @@
 				<div class="col-span-2">
 					<x-filter.filter-bar>
 						<div class="col-span-2 mx-auto flex w-full items-center lg:col-span-1">
-							<x-filter.filter-input-text name="kode-pegawai" :text="'kode pegawai'">
+							<x-filter.filter-input-text id="kode-pegawai" name="kode-pegawai" :text="'kode pegawai'">
 								<x-icons.fingerprint class="dark:text-gray-400 h-4 w-4 text-gray-500" />
 							</x-filter.filter-input-text>
 						</div>
 
 						<div class="col-span-2 mx-auto flex w-full items-center lg:col-span-1">
-							<x-filter.filter-input-text name="title" :text="'judul laporan'">
+							<x-filter.filter-input-text id="title" name="title" :text="'judul laporan'">
 								<x-icons.font-case class="dark:text-gray-400 h-4 w-4 text-gray-500" />
 							</x-filter.filter-input-text>
 						</div>
@@ -99,6 +99,7 @@
 					}
 				},
 				columns: [{
+						// render nomor, autoIndex
 						data: "DT_RowIndex",
 						name: "DT_RowIndex",
 						searchable: false,
@@ -106,6 +107,7 @@
 					}, {
 						data: 'null',
 						name: 'actions',
+						// render action button
 						render: function(data, type, row) {
 							return `<div class="inline-flex" role="group">
 												<a href="collect/${row.id}" class="mx-1 text-md font-medium rounded-lg focus:z-10">
@@ -151,17 +153,30 @@
 				}
 			});
 
+			$('#cari').click(function() {
+				// Ambil nilai dari semua input filter
+				const filters = ['#title', '#kode-pegawai', '#status'].map(selector => $(selector).val());
 
+				// Cek apakah semua filter kosong
+				if (filters.some(value => value !== '')) {
+					table.draw();
+				}
+			});
 
 			// jika tombol clear diklik
 			$('#clear').click(function() {
-				// kosongkan semua value
-				$('#title').val('');
-				$('#kode-pegawai').val('');
-				$('#status')[0].selectedIndex = 0;
+				// Ambil nilai dari semua input filter
+				const filters = ['#title', '#kode-pegawai', '#status'].map(selector => $(selector).val());
+				// Cek apakah semua filter kosong
+				if (filters.some(value => value !== '')) {
 
-				// reload table
-				table.draw();
+					// kosongkan semua value
+					$('#title').val('');
+					$('#kode-pegawai').val('');
+					$('#status').prop('selectedIndex', 0);
+
+					table.draw();
+				}
 			})
 		}
 
