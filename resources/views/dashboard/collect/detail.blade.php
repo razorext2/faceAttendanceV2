@@ -5,17 +5,16 @@
 			class="dark:bg-[#18181b] dark:ring-gray-700 grid gap-6 rounded-xl bg-white p-4 shadow-sm ring-1 ring-gray-200 sm:p-6">
 			<div class="w-full">
 				<header class="flex flex-row">
-					<a
-						class="dark:bg-red-800 dark:hover:bg-red-900 dark:text-white dark:ring-gray-700 mr-3 flex flex-row rounded-lg px-2.5 py-2.5 align-middle ring-1 ring-red-700 hover:bg-red-300 md:px-4"
-						href="{{ route('collect.index') }}">
-						<svg class="dark:fill-white" class="icon" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
-							viewBox="0 0 1024 1024" fill="#000000" version="1.1">
-							<path
-								d="M669.6 849.6c8.8 8 22.4 7.2 30.4-1.6s7.2-22.4-1.6-30.4l-309.6-280c-8-7.2-8-17.6 0-24.8l309.6-270.4c8.8-8 9.6-21.6 2.4-30.4-8-8.8-21.6-9.6-30.4-2.4L360.8 480.8c-27.2 24-28 64-0.8 88.8l309.6 280z"
-								fill="" />
-						</svg>
+
+					<form id="index-collector" action="{{ route('collect.index') }}"></form>
+					<x-dashboard.button class="me-4 flex flex-row px-2.5 py-2" id="back-button" form="index-collector" type="submit"
+						:color="'red'">
+						<x-slot name="icon">
+							<x-icons.arrow-left class="dark:fill-white icon h-6 w-6" />
+						</x-slot>
 						Kembali
-					</a>
+					</x-dashboard.button>
+
 					<h2 class="dark:text-gray-300 font-base mt-2 text-lg text-gray-900">
 						Detail: <span class="font-bold text-white">{{ $data->title ?? 'N/A' }}</span>
 					</h2>
@@ -123,12 +122,16 @@
 					@can('collect-approve')
 						@if (!$data->status)
 							<div class="col-span-2 mt-2 flex flex-col justify-end" id="action">
-								<div class="float-right text-right">
-									<a
-										class="confirm-btn dark:bg-green-800 dark:hover:bg-green-900 dark:text-white mx-1 rounded-lg border border-green-800 bg-transparent px-4 py-2 font-medium text-gray-900 hover:bg-green-600 hover:text-white focus:z-10 focus:bg-green-600 focus:text-white focus:ring-green-500"
-										id="confirm-btn" data-id="{{ $data->id }}" href="javascript:void(0)">
+								<div class="text-right">
+
+									<x-dashboard.button class="confirm-btn float-right px-2.5 py-2" id="confirm-btn" data-id="{{ $data->id }}"
+										type="button" :color="'green'">
+										<x-slot name="icon">
+											<x-icons.arrow-left class="h-5 w-5 rotate-180" />
+										</x-slot>
 										Konfirmasi
-									</a>
+									</x-dashboard.button>
+
 								</div>
 							</div>
 						@endif

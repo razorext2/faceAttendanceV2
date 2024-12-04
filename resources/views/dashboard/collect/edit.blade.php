@@ -5,17 +5,15 @@
 			class="dark:bg-[#18181b] dark:ring-gray-700 grid gap-6 rounded-xl bg-white p-4 shadow-sm ring-1 ring-gray-200 sm:p-6">
 			<div class="w-full">
 				<header class="flex flex-row">
-					<a
-						class="dark:bg-red-800 dark:hover:bg-red-900 dark:text-white dark:ring-gray-700 mr-3 flex flex-row rounded-lg px-2.5 py-2.5 align-middle ring-1 ring-red-700 hover:bg-red-300 md:px-4"
-						href="{{ route('collect.index') }}">
-						<svg class="dark:fill-white" class="icon" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
-							viewBox="0 0 1024 1024" fill="#000000" version="1.1">
-							<path
-								d="M669.6 849.6c8.8 8 22.4 7.2 30.4-1.6s7.2-22.4-1.6-30.4l-309.6-280c-8-7.2-8-17.6 0-24.8l309.6-270.4c8.8-8 9.6-21.6 2.4-30.4-8-8.8-21.6-9.6-30.4-2.4L360.8 480.8c-27.2 24-28 64-0.8 88.8l309.6 280z"
-								fill="" />
-						</svg>
+
+					<form id="index-collector" action="{{ route('collect.index') }}"></form>
+					<x-dashboard.button class="me-4 flex flex-row px-2.5 py-2" form="index-collector" type="submit" :color="'red'">
+						<x-slot name="icon">
+							<x-icons.arrow-left class="dark:fill-white icon h-6 w-6" />
+						</x-slot>
 						Kembali
-					</a>
+					</x-dashboard.button>
+
 					<h2 class="dark:text-gray-300 font-base mt-2 text-lg text-gray-900">
 						Ubah: <span class="font-bold text-white">{{ $data->title ?? 'N/A' }}</span>
 					</h2>
@@ -108,8 +106,15 @@
 						<div class="mt-2 hidden text-sm text-red-500" id="alert-keterangan"></div>
 					</div>
 
-					<div class="relative w-full">
-						<button
+					<div class="relative col-span-2 w-full">
+						<x-dashboard.button class="float-right flex flex-row px-2.5 py-2" id="store" type="button" :color="'blue'">
+							<x-slot name="icon">
+								<x-icons.send-right class="icon h-4 w-4" />
+							</x-slot>
+							Update laporan
+						</x-dashboard.button>
+
+						{{-- <button
 							class="dark:bg-blue-800 dark:text-white dark:hover:bg-blue-900 dark:ring-gray-700 inline-flex items-center rounded-lg px-5 py-2.5 text-center text-sm font-medium text-gray-900 ring-1 ring-blue-700 hover:bg-blue-800 hover:text-white focus:text-white focus:ring-4 focus:ring-blue-300"
 							id="store" type="button">
 							Update Laporan
@@ -118,7 +123,7 @@
 								<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
 									d="M1 5h12m0 0L9 1m4 4L9 9" />
 							</svg>
-						</button>
+						</button> --}}
 					</div>
 
 				</div>

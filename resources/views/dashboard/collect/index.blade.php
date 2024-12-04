@@ -5,7 +5,12 @@
 
 		{{-- @can('collect-add') --}}
 		<div class="max-w-xs">
-			<x-dashboard.button form="add-collector">Tambah Data</x-dashboard.button>
+			<x-dashboard.button class="px-2.5 py-2" id="add-button" form="add-collector" type="submit" :color="'green'">
+				<x-slot name="icon">
+					<x-icons.arrow-left class="dark:fill-white icon h-6 w-6 rotate-180" />
+				</x-slot>
+				Tambah Data
+			</x-dashboard.button>
 		</div>
 		{{-- @endcan --}}
 

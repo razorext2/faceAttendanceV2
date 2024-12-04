@@ -8,24 +8,7 @@
 				<div class="w-full md:col-span-2">
 					<form id="dateForm" action="{{ route('pegawai.collectors', ['pegawai' => $pegawai->kode_pegawai]) }}" method="GET">
 						@csrf
-						<label class="dark:text-white sr-only mb-2 text-sm font-medium text-gray-900" for="datepicker-actions">Filter
-							Tanggal</label>
-						<div class="relative">
-							<div class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3">
-								<svg class="dark:text-gray-400 h-4 w-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-									fill="none" viewBox="0 0 20 20">
-									<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-										d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-								</svg>
-							</div>
-							<input
-								class="dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-white px-2.5 py-4 ps-10 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
-								id="datepicker-actions" name="date" type="text" datepicker datepicker-buttons datepicker-autoselect-today
-								placeholder="Filter tanggal" autocomplete="off">
-							<button
-								class="dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 absolute bottom-2.5 end-2.5 rounded-lg bg-blue-700 px-4 py-2 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300"
-								type="submit">Search</button>
-						</div>
+						<x-dashboard.date-picker id="datepicker-actions" name="date" form="dateForm" :text="'Filter tanggal'" />
 					</form>
 				</div>
 				{{-- endsearch --}}
@@ -74,7 +57,7 @@
 												class="dark:bg-green-900 dark:text-green-300 me-2 ms-3 rounded bg-green-100 p-0.5 text-sm font-medium text-green-800">Approved</span>
 										@else
 											<span
-												class="dark:bg-green-900 dark:text-green-300 me-2 ms-3 rounded bg-green-100 p-0.5 text-sm font-medium text-green-800">Unapproved</span>
+												class="dark:bg-red-900 dark:text-red-300 me-2 ms-3 rounded bg-red-100 p-0.5 text-sm font-medium text-red-800">Declined</span>
 										@endif
 
 									</h3>

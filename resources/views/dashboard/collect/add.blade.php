@@ -6,17 +6,15 @@
 			class="dark:bg-[#18181b] dark:ring-gray-700 rounded-xl bg-white p-4 shadow-sm ring-1 ring-gray-200 sm:p-6 lg:col-span-2">
 			<div class="w-full">
 				<header class="flex flex-row">
-					<a
-						class="dark:bg-red-800 dark:hover:bg-red-900 dark:text-white dark:ring-gray-700 mb-4 mr-3 flex flex-row rounded-lg px-2.5 py-2.5 align-middle ring-1 ring-red-700 hover:bg-red-300 md:px-4"
-						href="{{ route('collect.index') }}">
-						<svg class="dark:fill-white" class="icon" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
-							viewBox="0 0 1024 1024" fill="#000000" version="1.1">
-							<path
-								d="M669.6 849.6c8.8 8 22.4 7.2 30.4-1.6s7.2-22.4-1.6-30.4l-309.6-280c-8-7.2-8-17.6 0-24.8l309.6-270.4c8.8-8 9.6-21.6 2.4-30.4-8-8.8-21.6-9.6-30.4-2.4L360.8 480.8c-27.2 24-28 64-0.8 88.8l309.6 280z"
-								fill="" />
-						</svg>
+
+					<form id="index-collector" action="{{ route('collect.index') }}"></form>
+					<x-dashboard.button class="me-4 flex flex-row px-2.5 py-2" form="index-collector" type="submit" :color="'red'">
+						<x-slot name="icon">
+							<x-icons.arrow-left class="dark:fill-white icon h-6 w-6" />
+						</x-slot>
 						Kembali
-					</a>
+					</x-dashboard.button>
+
 					<h2 class="dark:text-white mt-2 text-lg font-medium text-gray-900">
 						{{ __('Tambah Laporan') }}
 					</h2>
@@ -50,11 +48,13 @@
 						<label class="dark:text-white block text-sm font-medium text-gray-900" for="capture-button">Dokumentasi
 						</label>
 						<p class="mb-2 text-xs text-red-500"> *Dokumentasi tidak dapat diubah setelah laporan diinput. </p>
-						<button
-							class="dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 block rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300"
-							id="capture-button" data-modal-target="camera-modal" data-modal-toggle="camera-modal" type="button">
-							<span class="font-semibold">+ Ambil Foto </span>
-						</button>
+
+						<x-dashboard.button class="px-5 py-2.5" id="capture-button" type="button" :color="'blue'">
+							<x-slot name="icon">
+								<x-icons.plus class="icon h-4 w-4" />
+							</x-slot>
+							Ambil Foto
+						</x-dashboard.button>
 					</div>
 
 					<div class="relative overflow-auto">
@@ -74,33 +74,21 @@
 						<div class="mt-2 text-sm text-red-500" id="alert-keterangan"></div>
 					</div>
 
-					{{-- <div class="mb-4 grid grid-cols-2 gap-4">
-						<div class="relative w-full">
-							<label class="dark:text-white mb-2 block text-sm font-medium text-gray-900" for="longitude">Longitude</label> --}}
 					<input class="block w-full rounded-lg border border-gray-300 bg-gray-400 p-2.5 text-sm text-gray-900" id="longitude"
 						name="longitude" type="hidden" readonly>
-					{{-- </div>
 
-						<div class="relative w-full">
-							<label class="dark:text-white mb-2 block text-sm font-medium text-gray-900" for="latitude">Latitude</label> --}}
 					<input class="block w-full rounded-lg border border-gray-300 bg-gray-400 p-2.5 text-sm text-gray-900" id="latitude"
 						name="latitude" type="hidden" readonly>
-					{{-- </div>
-					</div> --}}
 
 					<div class="mb-4 text-sm text-red-500" id="alert-coordinate"></div>
 
 					<div class="relative w-full">
-						<button
-							class="dark:bg-blue-800 dark:text-white dark:hover:bg-blue-900 dark:ring-gray-700 inline-flex items-center rounded-lg px-5 py-2.5 text-center text-sm font-medium text-gray-900 ring-1 ring-blue-700 hover:bg-blue-800 hover:text-white focus:text-white focus:ring-4 focus:ring-blue-300"
-							id="store" type="button">
+						<x-dashboard.button class="px-2.5 py-2" id="store" type="button" :color="'blue'">
+							<x-slot name="icon">
+								<x-icons.arrow-left class="h-5 w-5 rotate-180" />
+							</x-slot>
 							Submit
-							<svg class="ms-2 h-3.5 w-3.5 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-								viewBox="0 0 14 10">
-								<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-									d="M1 5h12m0 0L9 1m4 4L9 9" />
-							</svg>
-						</button>
+						</x-dashboard.button>
 					</div>
 				</form>
 			</div>
@@ -122,33 +110,13 @@
 						<button
 							class="absolute bottom-4 left-1/2 h-14 w-14 -translate-x-1/2 transform rounded-full bg-white/60 shadow-lg ring-2 ring-white hover:bg-white/80 focus:outline-none md:bottom-6 md:h-16 md:w-16"
 							id="capture-image">
-							<!-- Icon (Optional) -->
-							<svg class="mx-auto w-10 stroke-white md:w-12" viewBox="0 0 24 24" fill="none"
-								xmlns="http://www.w3.org/2000/svg">
-								<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-								<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-								<g id="SVGRepo_iconCarrier">
-									<path
-										d="M12 16C13.6569 16 15 14.6569 15 13C15 11.3431 13.6569 10 12 10C10.3431 10 9 11.3431 9 13C9 14.6569 10.3431 16 12 16Z"
-										stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-									<path
-										d="M3 16.8V9.2C3 8.0799 3 7.51984 3.21799 7.09202C3.40973 6.71569 3.71569 6.40973 4.09202 6.21799C4.51984 6 5.0799 6 6.2 6H7.25464C7.37758 6 7.43905 6 7.49576 5.9935C7.79166 5.95961 8.05705 5.79559 8.21969 5.54609C8.25086 5.49827 8.27836 5.44328 8.33333 5.33333C8.44329 5.11342 8.49827 5.00346 8.56062 4.90782C8.8859 4.40882 9.41668 4.08078 10.0085 4.01299C10.1219 4 10.2448 4 10.4907 4H13.5093C13.7552 4 13.8781 4 13.9915 4.01299C14.5833 4.08078 15.1141 4.40882 15.4394 4.90782C15.5017 5.00345 15.5567 5.11345 15.6667 5.33333C15.7216 5.44329 15.7491 5.49827 15.7803 5.54609C15.943 5.79559 16.2083 5.95961 16.5042 5.9935C16.561 6 16.6224 6 16.7454 6H17.8C18.9201 6 19.4802 6 19.908 6.21799C20.2843 6.40973 20.5903 6.71569 20.782 7.09202C21 7.51984 21 8.0799 21 9.2V16.8C21 17.9201 21 18.4802 20.782 18.908C20.5903 19.2843 20.2843 19.5903 19.908 19.782C19.4802 20 18.9201 20 17.8 20H6.2C5.0799 20 4.51984 20 4.09202 19.782C3.71569 19.5903 3.40973 19.2843 3.21799 18.908C3 18.4802 3 17.9201 3 16.8Z"
-										stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-								</g>
-							</svg>
+							<x-icons.camera class="mx-auto w-10 stroke-white md:w-12" />
 						</button>
 
 						{{-- close button --}}
 						<button class="absolute right-2 top-2 h-auto w-auto transform rounded-full focus:outline-none md:top-2"
 							id="close-button" data-modal-hide="camera-modal" type="button">
-							<svg class="h-8 w-8 stroke-red-600 hover:stroke-red-800" viewBox="0 0 24 24" fill="none"
-								xmlns="http://www.w3.org/2000/svg">
-								<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-								<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-								<g id="SVGRepo_iconCarrier">
-									<path d="M4 4L20 20M20 4L4 20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-								</g>
-							</svg>
+							<x-icons.close class="h-8 w-8 stroke-red-600 hover:stroke-red-800" />
 						</button>
 
 					</div>
