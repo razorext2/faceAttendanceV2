@@ -83,7 +83,8 @@
 					<div class="mb-4 text-sm text-red-500" id="alert-coordinate"></div>
 
 					<div class="relative w-full">
-						<x-dashboard.button class="px-2.5 py-2" id="store" type="button" :color="'blue'">
+						<x-dashboard.button class="px-2.5 py-2" id="store" data-url="{{ route('collectors.store') }}" type="button"
+							:color="'blue'">
 							<x-slot name="icon">
 								<x-icons.arrow-left class="h-5 w-5 rotate-180" />
 							</x-slot>
@@ -128,9 +129,10 @@
 @endsection
 @push('script')
 	<script>
-		apiURL = "{{ route('collectors.store') }}";
-		indexURL = "{{ route('collect.index') }}";
-		createURL = "{{ route('collect.create') }}";
+		// kirim kebawah
+		const createUrl = "{{ route('collect.create') }}";
+		const indexUrl = "{{ route('collect.index') }}";
+		const storeUrl = "{{ route('collectors.store') }}";
 	</script>
-	@vite(['resources/js/collect/backStreamcamera.js'])
+	@vite(['resources/js/collect/main.js'])
 @endpush

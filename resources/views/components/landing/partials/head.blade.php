@@ -21,7 +21,7 @@
 	rel="stylesheet" />
 
 <!-- Vendor CSS -->
-@vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/alpine.js'])
+@vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/global/alpine.js'])
 <link href="{{ asset('assets/vendor/aos/aos.css') }}" rel="stylesheet" />
 <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.1/dist/sweetalert2.min.css" rel="stylesheet" />
 <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet" />

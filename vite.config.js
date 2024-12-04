@@ -9,15 +9,22 @@ export default defineConfig({
                 "resources/css/app.css",
                 // js
                 "resources/js/app.js",
-                "resources/js/alpine.js",
-                "resources/js/bootstrap.js",
-                "resources/js/chart.js",
-                "resources/js/simpleTables.js",
-                "resources/js/leaflet.js",
-                // own script
+
+                // global
+                "resources/js/global/alpine.js",
+                "resources/js/global/bootstrap.js",
+                "resources/js/global/chart.js",
+                "resources/js/global/leaflet.js",
+                "resources/js/global/simpleTables.js",
+
+                // landing page
                 "resources/js/landing/main.js",
+
+                // capture
                 "resources/js/capture/main.js",
-                "resources/js/collect/backStreamcamera.js"
+
+                // collect
+                "resources/js/collect/main.js"
             ],
             refresh: true,
         }),

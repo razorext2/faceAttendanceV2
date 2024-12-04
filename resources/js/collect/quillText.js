@@ -1,7 +1,4 @@
-import Quill from "quill";
-
-export function quillInputBuilder() {
-
+export function quillText() {
   const BlockEmbed = Quill.import('blots/block/embed');
 
   class CustomEmbed extends BlockEmbed {
@@ -16,27 +13,19 @@ export function quillInputBuilder() {
     }
   }
 
-  // Register the custom blot
-  CustomEmbed.blotName = 'customEmbed'; // The name you want to use
-  CustomEmbed.tagName = 'div'; // HTML tag
+  CustomEmbed.blotName = 'customEmbed';
+  CustomEmbed.tagName = 'div';
   Quill.register(CustomEmbed);
 
-  // Initialize Quill
   const quill = new Quill('#editor', {
     theme: 'snow',
     placeholder: 'Tulis keterangan...',
     modules: {
       toolbar: [
-        [{
-          'header': [1, 2, false]
-        }],
+        [{ 'header': [1, 2, false] }],
         ['bold', 'italic', 'underline'],
-        ['image', 'code-block'],
-        [{
-          'list': 'ordered'
-        }, {
-          'list': 'bullet'
-        }]
+        ['code-block'],
+        [{ 'list': 'ordered' }, { 'list': 'bullet' }]
       ],
     }
   });
@@ -44,4 +33,10 @@ export function quillInputBuilder() {
   document.querySelector('.ql-toolbar').classList.add('dark:bg-white', 'rounded-t-lg');
   document.querySelector('.ql-picker').classList.add('dark:bg-white');
   document.getElementById('editor').classList.add('!h-96', 'rounded-b-lg');
+  document.getElementById("keterangan").classList.add("mt-2");
+
+  $('#store').on('click', function () {
+    const content = quill.root.innerHTML;
+    $('#keterangan').val(content);
+  });
 }
