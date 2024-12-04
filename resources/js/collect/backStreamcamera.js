@@ -150,23 +150,23 @@ function addDataHandler() {
         }
 
         if (err.longitude || err.latitude) {
-          $('#alert-location')
+          $('#alert-coordinate')
             .removeClass('hidden')
             .addClass('block')
             .html(err.longitude[0] || err.latitude[0]);
         } else {
-          $('#alert-location')
+          $('#alert-coordinate')
             .removeClass('block')
             .addClass('hidden');
         }
 
         if (err.location) {
-          $('#alert-lokasi')
+          $('#alert-location')
             .removeClass('hidden')
             .addClass('block')
             .html(err.location[0]);
         } else {
-          $('#alert-lokasi')
+          $('#alert-location')
             .removeClass('block')
             .addClass('hidden');
         }

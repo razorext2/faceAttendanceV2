@@ -84,11 +84,11 @@
 		function showDatatables() {
 			let kode_pegawai = "{{ Auth::user()->kode_pegawai }}";
 
-			// if (!kode_pegawai) {
-			src = "{{ route('collectors.index') }}"
-			// } else {
-			// 	src = "{{ route('collect.index') }}"
-			// }
+			if (!kode_pegawai) {
+				src = "{{ route('collectors.index') }}";
+			} else {
+				src = "{{ route('collect.index') }}";
+			}
 
 			let table = $('#table-collector').DataTable({
 				processing: true,
