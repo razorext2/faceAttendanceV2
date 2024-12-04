@@ -24,7 +24,9 @@ export default defineConfig({
                 "resources/js/capture/main.js",
 
                 // collect
-                "resources/js/collect/main.js"
+                "resources/js/collect/index.js",
+                "resources/js/collect/add.js",
+                "resources/js/collect/edit.js"
             ],
             refresh: true,
         }),

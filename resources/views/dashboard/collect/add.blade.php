@@ -134,5 +134,5 @@
 		const indexUrl = "{{ route('collect.index') }}";
 		const storeUrl = "{{ route('collectors.store') }}";
 	</script>
-	@vite(['resources/js/collect/main.js'])
+	@vite(['resources/js/collect/add.js'])
 @endpush

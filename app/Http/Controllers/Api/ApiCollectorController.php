@@ -75,7 +75,7 @@ class ApiCollectorController extends Controller
         $validator = Validator::make($request->all(), [
             'kode_pegawai' => 'required|integer|max_digits:12',
             'title' => 'required|string|max:128|min:5',
-            'keterangan' => 'required|string|min:10',
+            'keterangan' => 'required|string|min:5',
             'longitude' => 'required|string',
             'latitude' => 'required|string',
             'location' => 'required|string|min:1',
@@ -155,9 +155,9 @@ class ApiCollectorController extends Controller
     {
         // define validation rules
         $validator = Validator::make($request->all(), [
-            'title' => 'required|string|max:128|min:10',
-            'keterangan' => 'required|string|min:50',
-            'location' => 'required|string|min:5',
+            'title' => 'required|string|max:128|min:5',
+            'keterangan' => 'required|string|min:5',
+            'location' => 'required|string|min:1',
         ]);
 
         if ($validator->fails()) {

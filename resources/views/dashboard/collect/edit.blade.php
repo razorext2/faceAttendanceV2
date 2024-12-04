@@ -61,18 +61,18 @@
 						class="dark:bg-gray-700 dark:border-gray-700 flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-white p-3 md:col-span-2">
 						<p class="dark:text-gray-300 mb-2 text-sm text-gray-600">Judul Laporan <span class="text-sm text-red-500">*</span>
 						</p>
-						<input class="block w-full rounded-lg bg-gray-300 p-2.5 text-sm text-gray-900" id="location" name="location"
-							type="text" value="{{ $data->location ?? 'N/A' }}" placeholder="Judul laporan.." required>
-						<div class="mt-2 hidden text-sm text-red-500" id="alert-location"></div>
+						<input class="block w-full rounded-lg bg-gray-300 p-2.5 text-sm text-gray-900" id="title" name="title"
+							type="text" value="{{ $data->title ?? 'N/A' }}" placeholder="Judul laporan.." required>
+						<div class="mt-2 hidden text-sm text-red-500" id="alert-title"></div>
 					</div>
 
 					<div
 						class="dark:bg-gray-700 dark:border-gray-700 flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-white p-3 md:col-span-2">
-						<p class="dark:text-gray-300 mb-2 text-sm text-gray-600">Judul Laporan <span class="text-sm text-red-500">*</span>
+						<p class="dark:text-gray-300 mb-2 text-sm text-gray-600">Lokasi <span class="text-sm text-red-500">*</span>
 						</p>
-						<input class="block w-full rounded-lg bg-gray-300 p-2.5 text-sm text-gray-900" id="title" name="title"
-							type="text" value="{{ $data->title ?? 'N/A' }}" placeholder="Judul laporan.." required>
-						<div class="mt-2 hidden text-sm text-red-500" id="alert-title"></div>
+						<input class="block w-full rounded-lg bg-gray-300 p-2.5 text-sm text-gray-900" id="location" name="location"
+							type="text" value="{{ $data->location ?? 'N/A' }}" placeholder="Judul laporan.." required>
+						<div class="mt-2 hidden text-sm text-red-500" id="alert-location"></div>
 					</div>
 
 					<div
@@ -88,8 +88,6 @@
 												class="h-36 w-36 rounded-xl object-cover blur-sm transition duration-300 ease-in-out hover:scale-105 hover:blur-0"
 												id="documentations" data-url="{{ asset($photo->photourl) }}" src="{{ asset($photo->photourl) }}"
 												alt="" onclick="javascript:void(0)">
-											{{-- <button class="absolute left-1/2 top-1/2 z-50 h-6 w-6 translate-x-0 rounded-full bg-white hover:scale-110">
-												👁 </button> --}}
 										</div>
 									@endforeach
 								@endif
@@ -97,11 +95,10 @@
 						</div>
 					</div>
 
-					<div
-						class="dark:bg-gray-700 dark:border-gray-700 flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-white p-3 md:col-span-2">
+					<div class="relative col-span-2 mb-4">
 						<p class="dark:text-gray-300 mb-2 text-sm text-gray-600">Keterangan <span class="text-sm text-red-500">*</span>
 						</p>
-						<div class="dark:bg-white w-full" id="editor"></div>
+						<div class="dark:bg-white h-32 w-full" id="editor"></div>
 						<input id="keterangan" name="keterangan" type="hidden">
 						<div class="mt-2 hidden text-sm text-red-500" id="alert-keterangan"></div>
 					</div>
@@ -113,17 +110,6 @@
 							</x-slot>
 							Update laporan
 						</x-dashboard.button>
-
-						{{-- <button
-							class="dark:bg-blue-800 dark:text-white dark:hover:bg-blue-900 dark:ring-gray-700 inline-flex items-center rounded-lg px-5 py-2.5 text-center text-sm font-medium text-gray-900 ring-1 ring-blue-700 hover:bg-blue-800 hover:text-white focus:text-white focus:ring-4 focus:ring-blue-300"
-							id="store" type="button">
-							Update Laporan
-							<svg class="ms-2 h-3.5 w-3.5 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-								viewBox="0 0 14 10">
-								<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-									d="M1 5h12m0 0L9 1m4 4L9 9" />
-							</svg>
-						</button> --}}
 					</div>
 
 				</div>
@@ -133,162 +119,7 @@
 @endsection
 @push('script')
 	<script>
-		function quillText() {
-			// Ensure you import Quill and its CSS correctly
-			const BlockEmbed = Quill.import('blots/block/embed');
-
-			class CustomEmbed extends BlockEmbed {
-				static create(value) {
-					let node = super.create();
-					node.setAttribute('data-value', value);
-					return node;
-				}
-
-				static format(node) {
-					return node.getAttribute('data-value');
-				}
-			}
-			// Register the custom blot
-			CustomEmbed.blotName = 'customEmbed'; // The name you want to use
-			CustomEmbed.tagName = 'div'; // HTML tag
-			Quill.register(CustomEmbed);
-
-			// Initialize Quill
-			const quill = new Quill('#editor', {
-				theme: 'snow',
-				placeholder: 'Tulis keterangan...',
-				modules: {
-					toolbar: [
-						[{
-							'header': [1, 2, false]
-						}],
-						['bold', 'italic', 'underline'],
-						['code-block'],
-						[{
-							'list': 'ordered'
-						}, {
-							'list': 'bullet'
-						}]
-					],
-				}
-			});
-
-			// Set the initial content for the editor
-			const initialContent = @json($data->keterangan); // Ambil data dari database
-			quill.root.innerHTML = initialContent; // Isi editor dengan nilai dari keterangan
-
-			document.querySelector('.ql-toolbar').classList.add('dark:bg-gray-300', 'rounded-t-lg', 'w-full');
-			document.querySelector('.ql-picker').classList.add('dark:bg-gray-200');
-			document.getElementById('editor').classList.add('!h-96', 'rounded-b-lg', 'dark:bg-gray-300');
-
-			// kirim data di quill editor ke input keterangan
-			$('#store').on('click', function() {
-				const content = quill.root.innerHTML;
-				$('#keterangan').val(content);
-			});
-		}
-
-		function zoomImage() {
-			$('body').on('click', '#documentations', function() {
-				let url = $(this).data("url");
-
-				Swal.fire({
-					showCancelButton: false,
-					showConfirmButton: false,
-					html: `
-					<img src="${url}" class="w-full mx-auto rounded-xl "/>
-					`,
-				})
-			})
-		}
-
-		function editDataHandler() {
-			$('#store').click(function(e) {
-				e.preventDefault();
-
-				// define var
-				let id = $('#id').val();
-				let judul = $("#title").val();
-				let ket = $("#keterangan").val();
-				let location = $("#location").val();
-				let token = $("meta[name='csrf-token']").attr("content");
-
-				// ajax request
-				$.ajax({
-					url: `/api/collectors/${id}`,
-					type: "PATCH",
-					data: {
-						"title": judul,
-						"keterangan": ket,
-						"location": location,
-						"_token": token
-					},
-					success: function(response) {
-						// tampilkan alert
-						window.Swal.fire({
-							icon: "success",
-							title: "Laporan berhasil diubah!",
-							showConfirmButton: false,
-							timer: 1000
-						});
-
-						// redirect
-						setTimeout(() => {
-							location.reload();
-						}, 1000);
-					},
-					error: function(xhr, status, error) {
-						// error handler
-						Swal.fire({
-							icon: "error",
-							title: "Terjadi kesalahan!",
-							text: "Tidak dapat menyimpan data."
-						});
-
-						let err = xhr.responseJSON;
-
-						// Menampilkan error untuk field tertentu
-						if (err.title) {
-							$('#alert-title')
-								.removeClass('hidden')
-								.addClass('block')
-								.html(err.title[0]);
-						} else {
-							$('#alert-title')
-								.removeClass('block')
-								.addClass('hidden');
-						}
-
-						if (err.keterangan) {
-							$('#alert-keterangan')
-								.removeClass('hidden')
-								.addClass('block')
-								.html(err.keterangan[0]);
-						} else {
-							$('#alert-keterangan')
-								.removeClass('block')
-								.addClass('hidden');
-						}
-
-						if (err.location) {
-							$('#alert-location')
-								.removeClass('hidden')
-								.addClass('block')
-								.html(err.location[0]);
-						} else {
-							$('#alert-location')
-								.removeClass('block')
-								.addClass('hidden');
-						}
-					}
-				});
-			});
-		}
-
-		document.addEventListener("DOMContentLoaded", function() {
-			quillText();
-			zoomImage();
-			editDataHandler();
-		})
+		const data = @json($data->keterangan);
 	</script>
+	@vite(['resources/js/collect/edit.js'])
 @endpush
