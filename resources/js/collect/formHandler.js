@@ -33,7 +33,7 @@ export function addDataHandler() {
           timer: 1000
         });
 
-        setTimeout(() => window.location.href = createUrl, 1000);
+        setTimeout(() => window.location.href = indexUrl, 1000);
       },
       error: function (xhr) {
         handleFormErrors(xhr.responseJSON.errors);
