@@ -78,7 +78,7 @@ class ApiCollectorController extends Controller
             'keterangan' => 'required|string|min:10',
             'longitude' => 'required|string',
             'latitude' => 'required|string',
-            'location' => 'required|string|min:5',
+            'location' => 'required|string|min:1',
             'images' => 'required|array', // Menambahkan validasi untuk array gambar
             'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Validasi tiap gambar
         ]);
