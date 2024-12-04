@@ -206,39 +206,52 @@
 		}
 
 		function searchDataHandler() {
+			let debounceTimer;
 			$('#name').on('input', function() {
-				let query = $(this).val();
+				clearTimeout(debounceTimer);
 
-				if (query.length > 2) { // Mulai pencarian saat input lebih dari 2 karakter
-					$.ajax({
-						url: "{{ route('dayoff.autocomplete') }}",
-						type: "GET",
-						data: {
-							query: query
-						},
-						success: function(data) {
-							$('#autocomplete-results').empty(); // Kosongkan hasil sebelumnya
+				debounceTimer = setTimeout(() => {
+					let query = $(this).val();
 
-							if (data.length > 0) {
-								data.forEach((pegawai, index) => {
-									// Jika ini adalah elemen terakhir, tambahkan kelas tambahan
-									let roundedClass = (index === data.length - 1) ?
-										'rounded-b-lg' : '';
+					if (query.length > 2) { // Mulai pencarian saat input lebih dari 2 karakter
+						$.ajax({
+							url: "{{ route('dayoff.autocomplete') }}",
+							type: "GET",
+							data: {
+								query: query
+							},
+							success: function(data) {
+								$('#autocomplete-results').empty(); // Kosongkan hasil sebelumnya
 
-									$('#autocomplete-results').append(`
+								if (data.length > 0) {
+									data.forEach((pegawai, index) => {
+										// Jika ini adalah elemen terakhir, tambahkan kelas tambahan
+										let roundedClass = (index === data.length - 1) ?
+											'rounded-b-lg' : '';
+
+										$('#autocomplete-results').append(`
                                 <div class="autocomplete-result bg-white border border-gray-300 dark:bg-white p-2.5 divide-y w-full ${roundedClass}" data-fullname="${pegawai.full_name}" data-id="${pegawai.kode_pegawai}">${pegawai.full_name}</div>
                             `);
-								});
-							} else {
+									});
+								} else {
+									$('#autocomplete-results').append(
+										'<div class="autocomplete-result">No results found</div>'
+									);
+								}
+							},
+							error: function(xhr, status, error) {
+								console.error("Error: ", error);
 								$('#autocomplete-results').append(
-									'<div class="autocomplete-result">No results found</div>'
+									'<div class="autocomplete-result text-red-500">Error loading results</div>'
 								);
 							}
-						}
-					});
-				} else {
-					$('#autocomplete-results').empty(); // Kosongkan hasil jika input dihapus
-				}
+
+						});
+					} else {
+						$('#autocomplete-results').empty(); // Kosongkan hasil jika input dihapus
+					}
+				}, 300);
+
 			});
 
 			// Saat hasil diklik, isi input dengan nilai yang dipilih

@@ -27,17 +27,6 @@ class DayoffController extends Controller
 	public function index(Request $request)
 	{
 		if ($request->ajax()) {
-			// Function to clean the date string
-			function cleanDate($dateString)
-			{
-				// Use regex to remove timezone name in parentheses, leaving the GMT offset intact
-				return preg_replace('/\s\(.+\)$/', '', $dateString);
-			}
-
-			// Parse the minDate and maxDate from the request after cleaning
-			$minDate = cleanDate($request->input('minDate'));
-			$maxDate = cleanDate($request->input('maxDate'));
-
 			// Start building the query
 			if (!Auth::user()->kode_pegawai) {
 				// Fetch all Dayoff records with pegawaiRelasi relationship for specific roles
@@ -52,59 +41,14 @@ class DayoffController extends Controller
 					->get();
 			}
 
-			// Apply date filtering if minDate and maxDate are provided
-			if ($minDate) {
-				$query = $query->where('created_at', '>=', Carbon::parse($minDate)->startOfDay());
-			}
-			if ($maxDate) {
-				$query = $query->where('created_at', '<=', Carbon::parse($maxDate)->endOfDay());
-			}
-
 			// Fetch the filtered data with pagination for DataTables
 			return DataTables::of($query)
+				->addIndexColumn()
 				->editColumn('id_nama_user', function ($data) {
 					return '<p>' . $data->pegawaiRelasi->full_name . '</p><span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300"> ' . $data->id_user . ' </span>';
 				})
-				->addColumn('action', function ($data) {
-					$editUrl = route('dayoff.edit', $data->id);
-					$detailUrl = route('dayoff.show', $data->id);
-
-					// Inisialisasi variabel untuk tombol aksi
-					$actionButtons = '
-                <div class="inline-flex" role="group">';
-
-					// if (auth()->user()->can('dayoff-detail')) {
-					$actionButtons .=
-						'<a href="' . $detailUrl . '"
-                        class="mx-1 text-md font-medium rounded-lg focus:z-10 text-gray-800 dark:text-white">
-                        &#128065; <span class="hover:underline"> Lihat </span>
-                    </a>';
-					// }
-
-					// Cek izin edit
-					// if (auth()->user()->can('dayoff-edit')) {
-					$actionButtons .=
-						'<a href="' . $editUrl . '"class="mx-1 text-md font-medium rounded-lg focus:z-10">
-                        &#9999; <span class="hover:underline" style="color: #057A55"> Edit </span>
-                    </a>';
-					// }
-
-					if (auth()->user()->can('dayoff-delete')) {
-						// Tambahkan tombol delete
-						$actionButtons .=
-							'<button
-                            class="mx-1 group text-md font-medium rounded-lg focus:z-10 delete-btn"
-                            data-id="' . $data->id . '" data-modal-target="deleteModal" data-modal-toggle="deleteModal">
-                            &#x26D4; <span class="hover:underline" style="color: #E02424;"> Delete </span>
-                        </button>';
-					}
-					'</div>';
-
-					return $actionButtons;
-				})
 				->editColumn('statuses', function ($data) {
 					$status = $data->status;
-
 					if ($status == 1) {
 						return '<span class="px-4 py-1 text-sm font-medium text-green-800 bg-green-100 rounded-full ring-1 dark:ring-gray-700 dark:bg-green-900 ring-gray-300 dark:text-green-300"> Diterima </span>';
 					} elseif ($status == 2) {
@@ -118,7 +62,7 @@ class DayoffController extends Controller
 				->editColumn('created_updated_at', function ($data) {
 					return $data->created_at . ' / ' . $data->updated_at;
 				})
-				->rawColumns(['action', 'statuses', 'id_nama_user'])
+				->rawColumns(['statuses', 'id_nama_user'])
 				->make(true);
 		} else {
 			return view('dashboard.dayoff.index');
@@ -146,9 +90,10 @@ class DayoffController extends Controller
 		$search = $request->input('query'); // Mengambil input dari request
 
 		// Cari nama pengguna berdasarkan input
-		$users = Pegawai::where('full_name', 'LIKE', "%{$search}%")
-			->limit(10) // Batasi hasil
-			->get(['id', 'kode_pegawai', 'nick_name', 'full_name']); // Ambil ID dan nama saja
+		$users = Pegawai::select(['id', 'kode_pegawai', 'full_name'])
+			->where('full_name', 'LIKE', "%{$search}%")
+			->limit(10)
+			->get();
 
 		return response()->json($users); // Kembalikan hasil sebagai JSON
 	}
@@ -193,7 +138,6 @@ class DayoffController extends Controller
 	 */
 	public function show($id)
 	{
-		//
 		$dayoff = Dayoff::with('pegawaiRelasi')->findOrFail($id);
 		return view('dashboard.dayoff.detail', compact('dayoff'));
 	}
@@ -247,9 +191,12 @@ class DayoffController extends Controller
 	public function destroy($id)
 	{
 		//
-		$dayoff = Dayoff::findOrFail($id);
+		$dayoff = Dayoff::find($id);
 		$dayoff->delete();
 
-		return redirect()->back()->with('status', 'Berhasil menghapus pengajuan.');
+		return response()->json([
+			'success' => true,
+			'message' => 'Berhasil menghapus pengajuan!',
+		]);
 	}
 }

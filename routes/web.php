@@ -66,11 +66,11 @@ Route::middleware('auth')->group(function () {
         Route::resource('collect', CollectController::class);
 
         // route dayoff
-        Route::resource('dayoff', DayoffController::class);
+        Route::get('dayoff/autocomplete/', [DayoffController::class, 'autocomplete'])->name('dayoff.autocomplete');
         Route::post('dayoff/upload-image', [DayoffController::class, 'uploadImage'])->name('dayoff.uploadimage');
-        Route::get('dayoff/autocomplete', [DayoffController::class, 'autocomplete'])->name('dayoff.autocomplete');
         Route::put('dayoff/confirm/{dayoff}', [DayoffController::class, 'confirm'])->name('dayoff.confirm');
         Route::put('dayoff/ignore/{dayoff}', [DayoffController::class, 'ignore'])->name('dayoff.ignore');
+        Route::resource('dayoff', DayoffController::class);
 
         // route permission
         Route::resource('permissions', PermissionController::class);
@@ -94,12 +94,12 @@ Route::middleware('auth')->group(function () {
         Route::resource('jabatan', JabatanController::class);
 
         // route pegawai
-        Route::resource('pegawai', PegawaiController::class);
         Route::get('pegawai/{pegawai}/detail', [PegawaiController::class, 'detail'])->name('pegawai.detail');
         Route::get('pegawai/{pegawai}/attendance', [PegawaiController::class, 'attendanceList'])->name('pegawai.attendancelist');
         Route::get('pegawai/{pegawai}/payroll', [PegawaiController::class, 'payrollInfo'])->name('pegawai.payrollinfo');
         Route::get('pegawai/{pegawai}/timeline', [PegawaiController::class, 'timeline'])->name('pegawai.timeline');
         Route::get('pegawai/{pegawai}/collectors', [PegawaiController::class, 'reportCollectors'])->name('pegawai.collectors');
+        Route::resource('pegawai', PegawaiController::class);
 
         // route pegawai allowance & deductions
         Route::resource('pegawai/allowances', AllowanceController::class);
