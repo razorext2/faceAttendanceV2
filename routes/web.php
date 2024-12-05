@@ -114,7 +114,7 @@ Route::get('api/getPegawai', [PegawaiController::class, 'getPegawai']);
 Route::get('api/getPegawai/{id}', [PegawaiController::class, 'getPegawaiByKode']);
 Route::get('api/pegawai-images/{id}', [PegawaiController::class, 'getPegawaiImages']);
 Route::post('api/saveImage', [PegawaiController::class, 'storeImage']);
-Route::get('api/getPegawaiData/{label}', [PegawaiController::class, 'getPegawaiDataByLabel']);
+Route::get('api/getPegawaiData/{id}', [PegawaiController::class, 'getPegawaiDataByLabel']);
 
 // absen
 Route::post('check-attendance', [PegawaiController::class, 'checkAttendance']);

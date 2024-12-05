@@ -100,6 +100,7 @@
 	@push('script')
 		<script>
 			let lastLat, lastLng, lat, lng;
+			const redirectUrl = "{{ route('capture.index') }}";
 			const faceApiUrl = "{{ asset('face-api.min.js') }}";
 			const selfDetectUrl = "{{ asset('selfDetect.min.js') }}";
 			const specifiedLat = parseFloat("{{ $data->latitude ?? 'N/A' }}"); // Latitude of the specified point
@@ -107,6 +108,6 @@
 			const radius = parseFloat("{{ $data->radius ?? 'N/A' }}"); // Radius in meters
 			const movementThreshold = 50; // Minimum distance to move (in meters)
 		</script>
-		@vite(['resources/js/capture/main.js'])
+		@vite(['resources/js/capture/index.js'])
 	@endpush
 @endsection

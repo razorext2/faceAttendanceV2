@@ -21,7 +21,7 @@ export default defineConfig({
                 "resources/js/landing/main.js",
 
                 // capture
-                "resources/js/capture/main.js",
+                "resources/js/capture/index.js",
 
                 // collect
                 "resources/js/collect/index.js",

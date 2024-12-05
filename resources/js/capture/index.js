@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Check if within the specified radius
         if (distance > radius) {
-          window.Swal.fire({
+          Swal.fire({
             title: "Gagal!",
             html: `Anda berada ${distance.toFixed(2)} meter dari tempat yang ditentukan.`,
             timer: 1500,
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
             pegawaiInfo.style.display = "none";
 
             setTimeout(() => {
-              window.location.href = "{{ route('capture.index') }}";
+              window.location.href = redirectUrl;
             }, 1000);
           });
         } else if (lastLat !== undefined && lastLng !== undefined) {
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
           const movedDistance = calculateDistance(lastLat, lastLng, lat, lng);
 
           if (movedDistance > movementThreshold) {
-            window.Swal.fire({
+            Swal.fire({
               title: "Gagal!",
               html: `Fake GPS terdeteksi. Silahkan matikan terlebih dahulu.`,
               timer: 1500,
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
               pegawaiInfo.style.display = "none";
 
               setTimeout(() => {
-                window.location.href = "{{ route('capture.index') }}";
+                window.location.href = redirectUrl;
               }, 2000);
             });
             return;
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
 
       function (error) {
-        window.Swal.fire({
+        Swal.fire({
           title: "Gagal!",
           html: `Anda harus mengaktifkan izin Lokasi.`,
           timer: 1500,
@@ -76,16 +76,25 @@ document.addEventListener('DOMContentLoaded', function () {
           pegawaiKosong.style.display = "block";
           pegawaiInfo.style.display = "none";
 
-          setTimeout(() => {
-            window.location.href = "{{ route('capture.index') }}";
-          }, 1000);
+          $('#startButton').click(function () {
+            Swal.fire({
+              title: "Peringatan!",
+              html: 'Aktifkan izin lokasi terlebih dahulu.',
+              timer: 1500,
+              icon: "error",
+              showConfirmButton: false
+            })
+          })
+
+          // setTimeout(() => {
+          //   window.location.href = redirectUrl;
+          // }, 1000);
         });
       }, {
       enableHighAccuracy: true,
       timeout: 1000,
       maximumAge: 0,
-    }
-    );
+    });
   } else {
     window.Swal.fire({
       title: "Gagal!",
