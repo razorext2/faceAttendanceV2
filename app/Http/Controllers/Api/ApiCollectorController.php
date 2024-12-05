@@ -10,7 +10,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Auth;
 
 class ApiCollectorController extends Controller
 {
@@ -21,11 +20,13 @@ class ApiCollectorController extends Controller
     {
         if ($request->ajax()) {
             $query = Collector::with('photoCollectRelasi', 'pegawaiRelasi')->latest();
+            info('start date: ' . request('startDate'));
+            info('end date: ' . request('endDate'));
 
-            return DataTables::of($query)
+            return DataTables::eloquent($query)
                 ->addIndexColumn()
                 ->editColumn('kode_pegawai', function ($data) {
-                    return $data->pegawaiRelasi->full_name . '[' . $data->kode_pegawai . ']';
+                    return $data->pegawaiRelasi->full_name . ' [' . $data->kode_pegawai . ']';
                 })
                 ->addColumn('created_updated_at', function ($data) {
                     return $data->created_at->locale('id')->isoFormat('D MMMM YY HH:mm:ss');
@@ -57,11 +58,11 @@ class ApiCollectorController extends Controller
                         $data->where('status', "LIKE", "%$request->status%");
                     }
 
-                    if ($request->filled("start")) {
-                        $data->whereBetween('created_at', [$request->start, $request->end]);
+                    if ($request->filled("startDate")) {
+                        $data->whereBetween('created_at', [$request->startDate, $request->endDate]);
                     }
                 })
-                ->rawColumns(['title_status', 'actions'])
+                ->rawColumns(['title_status'])
                 ->make(true);
         }
     }

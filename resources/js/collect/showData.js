@@ -3,7 +3,7 @@ export function showDatatables() {
     processing: true,
     serverSide: true,
     responsive: true,
-    "lengthMenu": [15, 25, 50, 75, 100, -1],
+    "lengthMenu": [10, 25, 50, 75, 100, -1],
     ajax: {
       url: src,
       type: "GET",
@@ -11,8 +11,8 @@ export function showDatatables() {
         d.title = $('#title').val();
         d.kode_pegawai = $('#kode-pegawai').val();
         d.status = $('#status').val();
-        d.start = $('#datepicker-range-start').val();
-        d.end = $('#datepicker-range-end').val();
+        d.startDate = $('#datepicker-range-start').val();
+        d.endDate = $('#datepicker-range-end').val();
       }
     },
     columns: [{

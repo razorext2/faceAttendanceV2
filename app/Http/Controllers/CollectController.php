@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Collector;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Yajra\DataTables\DataTables;
+use Yajra\DataTables\Facades\DataTables;
 
 class CollectController extends Controller
 {
@@ -16,12 +16,12 @@ class CollectController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $query = Collector::with('photoCollectRelasi')->where('kode_pegawai', '=', Auth::user()->kode_pegawai)->latest()->get();
+            $query = Collector::with('photoCollectRelasi')->where('kode_pegawai', '=', Auth::user()->kode_pegawai)->latest();
 
-            return DataTables::of($query)
+            return DataTables::eloquent($query)
                 ->addIndexColumn()
                 ->editColumn('kode_pegawai', function ($data) {
-                    return $data->pegawaiRelasi->full_name . '[' . $data->kode_pegawai . ']';
+                    return $data->pegawaiRelasi->full_name . ' [' . $data->kode_pegawai . ']';
                 })
                 ->addColumn('created_updated_at', function ($data) {
                     return $data->created_at->locale('id')->isoFormat('D MMMM YY HH:mm:ss');
@@ -53,11 +53,11 @@ class CollectController extends Controller
                         $data->where('status', "LIKE", "%$request->status%");
                     }
 
-                    if ($request->filled("start")) {
-                        $data->whereBetween('created_at', [$request->start, $request->end]);
+                    if ($request->filled("startDate")) {
+                        $data->whereBetween('created_at', [$request->startDate, $request->endDate]);
                     }
                 })
-                ->rawColumns(['title_status', 'actions'])
+                ->rawColumns(['title_status'])
                 ->make(true);
         }
 
