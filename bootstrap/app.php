@@ -7,7 +7,6 @@ use Illuminate\Foundation\Configuration\Middleware;
 use App\Http\Middleware\TrackUserActivity;
 // track log
 use App\Http\Middleware\LogUserActions;
-use ErlandMuchasaj\LaravelGzip\Middleware\GzipEncodeResponse;
 use Spatie\Permission\Middleware\RoleMiddleware;
 use Spatie\Permission\Middleware\PermissionMiddleware;
 use Spatie\Permission\Middleware\RoleOrPermissionMiddleware;
@@ -27,7 +26,6 @@ return Application::configure(basePath: dirname(__DIR__))
             'role_or_permission' => RoleOrPermissionMiddleware::class
         ]);
 
-        $middleware->prepend(GzipEncodeResponse::class);
         $middleware->append(TrackUserActivity::class);
         $middleware->append(LogUserActions::class);
     })
