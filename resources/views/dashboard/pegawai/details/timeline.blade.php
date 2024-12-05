@@ -74,15 +74,6 @@
 
 									<h3 class="dark:text-white mb-1 flex items-center text-lg font-semibold text-gray-900">
 										{{ $data->type }}
-										{{-- @if ($isOnsite)
-											<span
-												class="dark:bg-green-900 dark:text-green-300 me-2 ms-3 rounded bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">
-												Onsite
-											</span>
-										@else
-											<span
-												class="dark:bg-yellow-900 dark:text-yellow-300 me-2 ms-3 rounded bg-yellow-100 px-2.5 py-0.5 text-sm font-medium text-yellow-800">Rute</span>
-										@endif --}}
 									</h3>
 									<span class="dark:text-gray-300 text-md mb-2 block font-normal leading-none text-gray-400">
 										{{ $isOnsite ? 'Tidak ada data koordinat' : $data->longitude . ', ' . $data->latitude }}
@@ -115,7 +106,8 @@
 			</div>
 		</div>
 	</div>
-
+@endsection
+@push('script')
 	<script>
 		document.addEventListener('DOMContentLoaded', function() {
 			// Fungsi untuk inisialisasi peta dengan koordinat yang diberikan
@@ -201,4 +193,4 @@
 			}
 		});
 	</script>
-@endsection
+@endpush
