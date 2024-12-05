@@ -4,7 +4,9 @@ export function addDataHandler() {
   $('#store').click(function (e) {
     e.preventDefault();
 
-    $(this).prop('disabled', true);
+    const $button = $(this);
+
+    $button.prop('disabled', true); // Disable the button to prevent multiple clicks
 
     let formData = new FormData();
     formData.append("kode_pegawai", $("#kode_pegawai").val());
@@ -38,11 +40,9 @@ export function addDataHandler() {
         setTimeout(() => window.location.href = indexUrl, 1000);
       },
       error: function (xhr) {
+        console.log('error');
         handleFormErrors(xhr.responseJSON.errors);
-      },
-      complete: function () {
-        // Re-enable the button after the request completes
-        $(this).prop('disabled', false);
+        $button.prop('disabled', false); // Use the stored button reference
       }
     });
   });
@@ -52,24 +52,36 @@ export function editDataHandler() {
   $('#store').click(function (e) {
     e.preventDefault();
 
+    $(this).prop('disabled', true);
+
     // define var
     let id = $('#id').val();
-    let judul = $("#title").val();
-    let ket = $("#keterangan").val();
-    let location = $("#location").val();
-    let token = $("meta[name='csrf-token']").attr("content");
+    let formData = new FormData();
+
+    formData.append("title", $("#title").val());
+    formData.append("keterangan", $("#keterangan").val());
+    formData.append("location", $("#location").val());
+    formData.append("_token", $("meta[name='csrf-token']").attr("content"));
+    // let judul = $("#title").val();
+    // let ket = $("#keterangan").val();
+    // let location = $("#location").val();
+    // let token = $("meta[name='csrf-token']").attr("content");
 
     // ajax request
     $.ajax({
       url: `/api/collectors/${id}`,
       type: "PATCH",
-      data: {
-        "title": judul,
-        "keterangan": ket,
-        "location": location,
-        "_token": token
-      },
-      success: function (response) {
+      dataType: "json",
+      data: formData,
+      // {
+      // "title": judul,
+      // "keterangan": ket,
+      // "location": location,
+      // "_token": token
+      // },
+      processData: false,
+      contentType: false,
+      success: function () {
         // tampilkan alert
         window.Swal.fire({
           icon: "success",
@@ -78,54 +90,15 @@ export function editDataHandler() {
           timer: 1000
         });
 
+        clearInput();
         // reload halaman
-        setTimeout(() => {
-          window.location.reload();
-        }, 1000);
+        setTimeout(() => window.location.href = indexUrl, 1000);
       },
-      error: function (xhr, status, error) {
-        // error handler
-        Swal.fire({
-          icon: "error",
-          title: "Terjadi kesalahan!",
-          text: "Tidak dapat menyimpan data."
-        });
-
-        let err = xhr.responseJSON;
-
-        // Menampilkan error untuk field tertentu
-        if (err.title) {
-          $('#alert-title')
-            .removeClass('hidden')
-            .addClass('block')
-            .html(err.title[0]);
-        } else {
-          $('#alert-title')
-            .removeClass('block')
-            .addClass('hidden');
-        }
-
-        if (err.keterangan) {
-          $('#alert-keterangan')
-            .removeClass('hidden')
-            .addClass('block')
-            .html(err.keterangan[0]);
-        } else {
-          $('#alert-keterangan')
-            .removeClass('block')
-            .addClass('hidden');
-        }
-
-        if (err.location) {
-          $('#alert-location')
-            .removeClass('hidden')
-            .addClass('block')
-            .html(err.location[0]);
-        } else {
-          $('#alert-location')
-            .removeClass('block')
-            .addClass('hidden');
-        }
+      error: function (xhr) {
+        handleFormErrors(xhr.responseJSON.errors);
+      },
+      complete: function () {
+        $(this).prop('disabled', false);
       }
     });
   });
