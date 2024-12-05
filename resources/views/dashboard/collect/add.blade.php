@@ -27,7 +27,8 @@
 				<form class="mt-4" method="POST">
 					@csrf
 
-					<input id="kode_pegawai" name="kode_pegawai" type="hidden" value="{{ auth()->user()->kode_pegawai ?? '281099' }}">
+					<input id="kode_pegawai" name="kode_pegawai" type="text"
+						value="{{ auth()->user()->kode_pegawai ?? '28101999' }}">
 
 					<div class="relative mb-4 w-full">
 						<label class="dark:text-white mb-2 block text-sm font-medium text-gray-900" for="title">Judul laporan</label>

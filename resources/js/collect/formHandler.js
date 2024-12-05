@@ -5,7 +5,6 @@ export function addDataHandler() {
     e.preventDefault();
 
     const $button = $(this);
-
     $button.prop('disabled', true); // Disable the button to prevent multiple clicks
 
     let formData = new FormData();
@@ -52,35 +51,27 @@ export function editDataHandler() {
   $('#store').click(function (e) {
     e.preventDefault();
 
-    $(this).prop('disabled', true);
+    const $button = $(this);
+    $button.prop('disabled', true); 
 
     // define var
     let id = $('#id').val();
-    let formData = new FormData();
-
-    formData.append("title", $("#title").val());
-    formData.append("keterangan", $("#keterangan").val());
-    formData.append("location", $("#location").val());
-    formData.append("_token", $("meta[name='csrf-token']").attr("content"));
-    // let judul = $("#title").val();
-    // let ket = $("#keterangan").val();
-    // let location = $("#location").val();
-    // let token = $("meta[name='csrf-token']").attr("content");
+    let judul = $("#title").val();
+    let ket = $("#keterangan").val();
+    let location = $("#location").val();
+    let token = $("meta[name='csrf-token']").attr("content");
 
     // ajax request
     $.ajax({
       url: `/api/collectors/${id}`,
       type: "PATCH",
       dataType: "json",
-      data: formData,
-      // {
-      // "title": judul,
-      // "keterangan": ket,
-      // "location": location,
-      // "_token": token
-      // },
-      processData: false,
-      contentType: false,
+      data: {
+        "title": judul,
+        "keterangan": ket,
+        "location": location,
+        "_token": token
+      },
       success: function () {
         // tampilkan alert
         window.Swal.fire({
@@ -90,15 +81,11 @@ export function editDataHandler() {
           timer: 1000
         });
 
-        clearInput();
-        // reload halaman
-        setTimeout(() => window.location.href = indexUrl, 1000);
+        setTimeout(() => window.location.reload(), 1000);
       },
       error: function (xhr) {
         handleFormErrors(xhr.responseJSON.errors);
-      },
-      complete: function () {
-        $(this).prop('disabled', false);
+        $button.prop('disabled', false); // Use the stored button reference
       }
     });
   });

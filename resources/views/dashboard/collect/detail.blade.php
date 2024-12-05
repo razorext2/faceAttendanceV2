@@ -85,7 +85,7 @@
 					</div>
 
 					<div
-						class="dark:bg-gray-700 dark:border-gray-700 col-span-2 flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-white p-3">
+						class="dark:bg-gray-700 dark:border-gray-700 col-span-2 items-start justify-center rounded-xl border border-gray-200 bg-white p-3">
 						<p class="dark:text-gray-300 text-sm text-gray-600">Keterangan</p>
 						<div class="text-navy-700 quill-content dark:text-white text-wrap !mt-1 w-full !border-none !p-0 !text-base"
 							id="editor">
@@ -142,49 +142,10 @@
 		</div>
 	</div>
 @endsection
+
 @push('script')
 	<script>
-		function quillText() {
-			const BlockEmbed = Quill.import('blots/block/embed');
-
-			class CustomEmbed extends BlockEmbed {
-				static create(value) {
-					let node = super.create();
-					node.setAttribute('data-value', value);
-					return node;
-				}
-
-				static format(node) {
-					return node.getAttribute('data-value');
-				}
-			}
-
-			// Initialize Quill
-			const quill = new Quill('#editor', {
-				theme: 'snow',
-				readOnly: true,
-				modules: {
-					toolbar: false,
-				},
-			});
-
-			document.querySelector('.ql-editor').classList.add('!p-0')
-		}
-
-		function zoomImage() {
-			$('body').on('click', '#documentations', function() {
-				let url = $(this).data("url");
-
-				Swal.fire({
-					showCancelButton: false,
-					showConfirmButton: false,
-					html: `
-					<img src="${url}" class="w-full mx-auto rounded-xl "/>
-					`,
-				})
-			})
-		}
-
+		const data = @json($data->keterangan);
 		async function confirmAction() {
 			$('body').on('click', '#confirm-btn', async function() { // Make the handler async to use await
 				let id = $(this).data("id");
@@ -263,11 +224,6 @@
 				}
 			});
 		}
-
-		document.addEventListener("DOMContentLoaded", function() {
-			quillText();
-			confirmAction();
-			zoomImage();
-		})
 	</script>
+	@vite('resources/js/collect/detail.js')
 @endpush
