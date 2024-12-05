@@ -4,6 +4,8 @@ export function addDataHandler() {
   $('#store').click(function (e) {
     e.preventDefault();
 
+    $(this).prop('disabled', true);
+
     let formData = new FormData();
     formData.append("kode_pegawai", $("#kode_pegawai").val());
     formData.append("title", $("#title").val());
@@ -37,6 +39,10 @@ export function addDataHandler() {
       },
       error: function (xhr) {
         handleFormErrors(xhr.responseJSON.errors);
+      },
+      complete: function () {
+        // Re-enable the button after the request completes
+        $(this).prop('disabled', false);
       }
     });
   });
