@@ -29,12 +29,12 @@ export function showDatatables() {
       name: "kode_pegawai"
     },
     {
-      data: "created_updated_at",
-      name: "created_updated_at",
-    },
-    {
       data: "title_status",
       name: "title_status"
+    },
+    {
+      data: "created_updated_at",
+      name: "created_updated_at",
     }],
     dom: `<"absolute top-1 md:left-0 mt-14 lg:mt-0 dark:text-white max-w-xs"B><"text-left lg:text-right dark:text-white"l><"relative overflow-x-auto w-full mt-20 lg:mt-4"t><"grid text-center gap-6 lg:grid-cols-2 mt-4 dark:text-white"<"lg:mt-3 lg:text-left"i><"lg:text-right dark:text-gray-900"p>>`,
     buttons: [{
@@ -48,6 +48,10 @@ export function showDatatables() {
     "deferRender": true,
     "language": {
       "infoFiltered": ""
+    },
+    createdRow: function (row, data, dataIndex) {
+      // Add a custom class to the row
+      $(row).addClass('border-b-[0.5px] h-14 dark:border-gray-800 border-gray-200 hover:bg-gray-50 dark:hover:bg-[#222226]'); // Replace 'custom-class' with your desired class name
     }
   });
 

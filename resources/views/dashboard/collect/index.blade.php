@@ -67,12 +67,12 @@
 								</th>
 								<th>
 									<span class="flex items-center text-gray-800 dark:text-white">
-										Tanggal laporan
+										Judul
 									</span>
 								</th>
 								<th>
 									<span class="flex items-center text-gray-800 dark:text-white">
-										Judul
+										Tanggal laporan
 									</span>
 								</th>
 							</tr>
