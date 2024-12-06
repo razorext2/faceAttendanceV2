@@ -10,7 +10,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Auth;
 
 // class ApiCollectorController extends Controller
 class ApiCollectController extends Controller
@@ -22,7 +21,7 @@ class ApiCollectController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $query = Collector::select('id', 'kode_pegawai', 'title', 'keterangan', 'created_at')->with('photoCollectRelasi', 'pegawaiRelasi')->latest();
+            $query = Collector::select('id', 'kode_pegawai', 'title', 'status', 'keterangan', 'created_at')->with('photoCollectRelasi', 'pegawaiRelasi')->latest();
 
             return DataTables::eloquent($query)
                 ->addIndexColumn()
@@ -200,6 +199,8 @@ class ApiCollectController extends Controller
         $query->update([
             'status' => 1,
         ]);
+
+        return new CollectResource(true, 'Data berhasil dikonfirmasi', null);
     }
 
     public function denyCollect(Request $request, $id)
@@ -209,6 +210,8 @@ class ApiCollectController extends Controller
             'status' => 2,
             'notes' => $request->notes,
         ]);
+
+        return new CollectResource(true, 'Data berhasil ditolak', null);
     }
 
     /**

@@ -41,8 +41,8 @@ class Collector extends Model
     public function getShortTitleAttribute()
     {
         $words = explode(' ', $this->title);
-        if (count($words) > 5) {
-            return implode(' ', array_slice($words, 0, 5)) . ' ... <a href="collect/' . $this->id . '" class="text-blue-500 hover:underline">[ Selengkapnya ]</a>';
+        if (count($words) > 4) {
+            return implode(' ', array_slice($words, 0, 4)) . ' ...';
         }
         return $this->title;
     }
