@@ -22,29 +22,8 @@ export function showDatatables() {
       searchable: false,
       orderable: false,
     }, {
-      data: 'null',
+      data: 'actions',
       name: 'actions',
-      // render action button
-      render: function (data, type, row) {
-        let actions = `<div class="inline-flex" role="group">
-        <a href="collect/${row.id}" class="mx-1 text-md font-medium rounded-lg focus:z-10">
-            👁 <span class="hover:underline text-blue-500"> Show </span>
-        </a>
-        <a href="collect/${row.id}/edit" class="mx-1 text-md font-medium rounded-lg focus:z-10">
-            &#9999; <span class="hover:underline text-green-500"> Edit </span>
-        </a>`;
-
-        if (permissionDelete) {
-          actions += `<a href="javascript:void(0)" id="delete-btn" data-id="${row.id}" class="mx-1 text-md font-medium rounded-lg focus:z-10">
-            &#x26D4; <span class="hover:underline text-red-500"> Delete </span>
-        </a>`;
-        }
-
-        actions += `</div>`;
-        return actions;
-      },
-      orderable: false,
-      searchable: false,
     }, {
       data: "kode_pegawai",
       name: "kode_pegawai"
@@ -56,8 +35,7 @@ export function showDatatables() {
     {
       data: "title_status",
       name: "title_status"
-    }
-    ],
+    }],
     dom: `<"absolute top-1 md:left-0 mt-14 lg:mt-0 dark:text-white max-w-xs"B><"text-left lg:text-right dark:text-white"l><"relative overflow-x-auto w-full mt-20 lg:mt-4"t><"grid text-center gap-6 lg:grid-cols-2 mt-4 dark:text-white"<"lg:mt-3 lg:text-left"i><"lg:text-right dark:text-gray-900"p>>`,
     buttons: [{
       extend: "csv",

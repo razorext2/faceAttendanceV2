@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html class="scroll-smooth" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 	<head>
 		@include('dashboard.layoutsDash.head')
 	</head>
 
-	<body class="dark:bg-[#09090b] bg-gray-50">
+	<body class="bg-gray-50 dark:bg-[#09090b]">
 		@if (session('status'))
 			<div
 				class="fixed right-0 top-[4.5rem] z-50 flex w-full max-w-sm scale-90 transform items-center divide-x transition duration-300"
@@ -14,10 +14,10 @@
 				x-transition:enter-end="transform scale-100 opacity-100" x-transition:leave="transition ease-out duration-300"
 				x-transition:leave-start="transform scale-100 opacity-100" x-transition:leave-end="transform scale-90 opacity-0">
 				<div
-					class="dark:bg-[#09090b] dark:ring-gray-500 mb-4 flex w-full max-w-sm items-center rounded-lg bg-white p-4 shadow-sm ring-1 ring-gray-200"
+					class="mb-4 flex w-full max-w-sm items-center rounded-lg bg-white p-4 shadow-sm ring-1 ring-gray-200 dark:bg-[#09090b] dark:ring-gray-500"
 					id="toast-success" role="alert">
 					<div
-						class="dark:bg-green-950 inline-flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-green-100 text-green-500">
+						class="inline-flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-green-100 text-green-500 dark:bg-green-950">
 						<svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
 							viewBox="0 0 20 20">
 							<path
@@ -25,11 +25,11 @@
 						</svg>
 						<span class="sr-only">Check icon</span>
 					</div>
-					<div class="dark:text-white ms-3 mt-0.5 text-sm font-normal text-black">
+					<div class="ms-3 mt-0.5 text-sm font-normal text-black dark:text-white">
 						<x-auth.auth-session-status :status="session('status')" />
 					</div>
 					<button
-						class="dark:bg-green-950 dark:text-green-400 -mx-1.5 -my-1.5 ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-900 focus:ring-2 focus:ring-gray-300"
+						class="-mx-1.5 -my-1.5 ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-900 focus:ring-2 focus:ring-gray-300 dark:bg-green-950 dark:text-green-400"
 						type="button" aria-label="Close" @click="showToast = false">
 						<span class="sr-only">Close</span>
 						<svg class="h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
@@ -56,7 +56,7 @@
 						<div class="p-auto relative m-auto flex flex-col">
 							<!-- Tombol Previous -->
 							<button
-								class="dark:bg-[#18181b] dark:hover:bg-gray-900 dark:text-gray-300 dark:hover:text-white dark:border-gray-700 absolute -bottom-2.5 left-0 h-10 w-10 -translate-y-1/2 transform rounded-full border border-gray-300 bg-white p-2 text-gray-800 transition-all duration-500 hover:bg-gray-300"
+								class="absolute -bottom-2.5 left-0 h-10 w-10 -translate-y-1/2 transform rounded-full border border-gray-300 bg-white p-2 text-gray-800 transition-all duration-500 hover:bg-gray-300 dark:border-gray-700 dark:bg-[#18181b] dark:text-gray-300 dark:hover:bg-gray-900 dark:hover:text-white"
 								id="prevButton">
 								&#8592;
 							</button>
@@ -69,7 +69,7 @@
 
 							<!-- Tombol Next -->
 							<button
-								class="dark:bg-[#18181b] dark:hover:bg-gray-900 dark:text-gray-300 dark:hover:text-white dark:border-gray-700 absolute -bottom-2.5 right-0 h-10 w-10 -translate-y-1/2 transform rounded-full border border-gray-300 bg-white p-2 text-gray-800 transition-all duration-500 hover:bg-gray-300"
+								class="absolute -bottom-2.5 right-0 h-10 w-10 -translate-y-1/2 transform rounded-full border border-gray-300 bg-white p-2 text-gray-800 transition-all duration-500 hover:bg-gray-300 dark:border-gray-700 dark:bg-[#18181b] dark:text-gray-300 dark:hover:bg-gray-900 dark:hover:text-white"
 								id="nextButton">
 								&#8594;
 							</button>
@@ -83,7 +83,7 @@
 
 		{{-- bikin navigasi ala android --}}
 		<x-dashboard.mobile-drawer></x-dashboard.mobile-drawer>
-		<div class="dark:bg-[#09090b] fixed inset-0 z-50 bg-white md:z-[9999]" id="preloader">
+		<div class="fixed inset-0 z-50 bg-white dark:bg-[#09090b] md:z-[9999]" id="preloader">
 		</div>
 
 		<!-- js -->

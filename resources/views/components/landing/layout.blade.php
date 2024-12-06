@@ -1,7 +1,7 @@
 @props(['title' => ''])
 
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html class="scroll-smooth" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 	<head>
 		@include('components.landing.partials.head', ['title' => $title])
@@ -19,7 +19,7 @@
 		<x-landing.footer></x-landing.footer>
 		<x-landing.mobile-drawer></x-landing.mobile-drawer>
 
-		<div class="dark:bg-gray-800 fixed inset-0 z-50 bg-white md:z-[100]" id="preloader">
+		<div class="fixed inset-0 z-50 bg-white dark:bg-gray-800 md:z-[100]" id="preloader">
 		</div>
 
 		@include('components.landing.partials.script')

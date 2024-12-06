@@ -12,6 +12,12 @@ class CollectController extends Controller
     /**
      * Display a listing of the resource.
      */
+    function __construct()
+    {
+        $this->middleware('permission:collect-list', ['only' => 'index']);
+        $this->middleware('permission:collect-create', ['only' => 'create']);
+        $this->middleware('permission:collect-edit', ['only' => 'edit']);
+    }
 
     public function index(Request $request)
     {
@@ -24,7 +30,7 @@ class CollectController extends Controller
                     return $data->pegawaiRelasi->full_name . ' [' . $data->kode_pegawai . ']';
                 })
                 ->addColumn('created_updated_at', function ($data) {
-                    return $data->created_at->locale('id')->isoFormat('D MMMM YY HH:mm:ss');
+                    return $data->created_at->locale('id')->isoFormat('D MMM YYYY HH:mm:ss');
                 })
                 ->addColumn('title_status', function ($data) {
                     $el =  '<div class="inline-flex">
@@ -39,6 +45,14 @@ class CollectController extends Controller
                     }
                     '</div>';
                     return $el;
+                })
+                ->addColumn('actions', function ($data) {
+                    return view('components.dashboard.action-buttons', [
+                        'id' => $data->id,
+                        'edit' => ['show' => auth()->user()->can('collect-edit'), 'url' => route('collect.edit', $data->id)],
+                        'show' => ['show' => auth()->user()->can('collect-list'), 'url' => route('collect.show', $data->id)],
+                        'delete' => ['show' => auth()->user()->can('collect-delete')]
+                    ])->render();
                 })
                 ->filter(function ($data) use ($request) {
                     if ($request->filled("title")) {
@@ -57,7 +71,7 @@ class CollectController extends Controller
                         $data->whereBetween('created_at', [$request->startDate, $request->endDate]);
                     }
                 })
-                ->rawColumns(['title_status'])
+                ->rawColumns(['title_status', 'actions'])
                 ->make(true);
         }
 

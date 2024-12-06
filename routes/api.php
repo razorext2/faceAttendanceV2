@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Api\ApiCollectorController;
+use App\Http\Controllers\Api\ApiCollectController;
 use App\Http\Controllers\PegawaiController;
 
 use Illuminate\Http\Request;
@@ -8,11 +8,11 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Http;
 
 
-Route::apiResource('/collectors', ApiCollectorController::class);
+Route::apiResource('/collectors', ApiCollectController::class);
 
-Route::patch('collectors/{collector}/confirm', [ApiCollectorController::class, 'confirmCollect']);
+Route::patch('collectors/{collector}/confirm', [ApiCollectController::class, 'confirmCollect']);
 
-Route::patch('collectors/{collector}/deny', [ApiCollectorController::class, 'denyCollect']);
+Route::patch('collectors/{collector}/deny', [ApiCollectController::class, 'denyCollect']);
 
 // api ke server utama
 Route::post('proxy/server/attendance', function (Request $request) {
@@ -23,7 +23,3 @@ Route::post('proxy/server/attendance', function (Request $request) {
 
     return $response->json();
 });
-
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');

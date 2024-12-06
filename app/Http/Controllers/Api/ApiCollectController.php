@@ -10,18 +10,19 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
-class ApiCollectorController extends Controller
+// class ApiCollectorController extends Controller
+class ApiCollectController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $query = Collector::with('photoCollectRelasi', 'pegawaiRelasi')->latest();
-            info('start date: ' . request('startDate'));
-            info('end date: ' . request('endDate'));
+            $query = Collector::select('id', 'kode_pegawai', 'title', 'keterangan', 'created_at')->with('photoCollectRelasi', 'pegawaiRelasi')->latest();
 
             return DataTables::eloquent($query)
                 ->addIndexColumn()
@@ -29,21 +30,29 @@ class ApiCollectorController extends Controller
                     return $data->pegawaiRelasi->full_name . ' [' . $data->kode_pegawai . ']';
                 })
                 ->addColumn('created_updated_at', function ($data) {
-                    return $data->created_at->locale('id')->isoFormat('D MMMM YY HH:mm:ss');
+                    return $data->created_at->locale('id')->isoFormat('D MMM YYYY HH:mm:ss');
                 })
                 ->addColumn('title_status', function ($data) {
                     $el =  '<div class="inline-flex">
                             <p>' . $data->short_title . '</p>';
 
-                    if ($data->status === 0) {
+                    if ($data->status == 0) {
                         $el .= '<span class="bg-yellow-100 ms-2 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Pending</span>';
-                    } elseif ($data->status === 1) {
+                    } elseif ($data->status == 1) {
                         $el .= '<span class="bg-green-100 ms-2 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Approved</span>';
                     } else {
                         $el .= '<span class="bg-red-100 ms-2 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">Rejected</span>';
                     }
                     '</div>';
                     return $el;
+                })
+                ->addColumn('actions', function ($data) {
+                    return view('components.dashboard.action-buttons', [
+                        'id' => $data->id,
+                        'edit' => ['show' => true, 'url' => route('collect.edit', $data->id)],
+                        'show' => ['show' => true, 'url' => route('collect.show', $data->id)],
+                        'delete' => ['show' => true]
+                    ])->render();
                 })
                 ->filter(function ($data) use ($request) {
                     if ($request->filled("title")) {
@@ -62,7 +71,7 @@ class ApiCollectorController extends Controller
                         $data->whereBetween('created_at', [$request->startDate, $request->endDate]);
                     }
                 })
-                ->rawColumns(['title_status'])
+                ->rawColumns(['title_status', 'actions'])
                 ->make(true);
         }
     }

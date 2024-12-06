@@ -3,42 +3,42 @@
 	<div class="grid w-full grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-6">
 		{{-- form add --}}
 		<div
-			class="dark:bg-[#18181b] dark:ring-gray-700 rounded-xl bg-white p-4 shadow-sm ring-1 ring-gray-200 sm:p-6 lg:col-span-2">
+			class="rounded-xl bg-white p-4 shadow-sm ring-1 ring-gray-200 dark:bg-[#18181b] dark:ring-gray-700 sm:p-6 lg:col-span-2">
 			<div class="w-full">
 				<header class="flex flex-row">
 
 					<form id="index-collector" action="{{ route('collect.index') }}"></form>
 					<x-dashboard.button class="me-4 flex flex-row px-2.5 py-2" form="index-collector" type="submit" :color="'red'">
 						<x-slot name="icon">
-							<x-icons.arrow-left class="dark:fill-white icon h-6 w-6" />
+							<x-icons.arrow-left class="icon h-6 w-6 dark:fill-white" />
 						</x-slot>
 						Kembali
 					</x-dashboard.button>
 
-					<h2 class="dark:text-white mt-2 text-lg font-medium text-gray-900">
+					<h2 class="mt-2 text-lg font-medium text-gray-900 dark:text-white">
 						{{ __('Tambah Laporan') }}
 					</h2>
 
 				</header>
-				<p class="dark:text-gray-300 mt-1 text-sm text-gray-600">
+				<p class="mt-1 text-sm text-gray-600 dark:text-gray-300">
 					{{ __('Silahkan sesuaikan data dibawah ini dengan data yang benar.') }}
 				</p>
 
 				<form class="mt-4" method="POST">
 					@csrf
 
-					<input id="kode_pegawai" name="kode_pegawai" type="text"
+					<input id="kode_pegawai" name="kode_pegawai" type="hidden"
 						value="{{ auth()->user()->kode_pegawai ?? '28101999' }}">
 
 					<div class="relative mb-4 w-full">
-						<label class="dark:text-white mb-2 block text-sm font-medium text-gray-900" for="title">Judul laporan</label>
+						<label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="title">Judul laporan</label>
 						<input class="block w-full rounded-lg border border-gray-300 bg-white p-2.5 text-sm text-gray-900" id="title"
 							name="title" type="text" placeholder="Judul laporan.." required>
 						<div class="mt-2 text-sm text-red-500" id="alert-title"></div>
 					</div>
 
 					<div class="relative mb-4 w-full">
-						<label class="dark:text-white mb-2 block text-sm font-medium text-gray-900" for="location">Lokasi </label>
+						<label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="location">Lokasi </label>
 						<input class="block w-full rounded-lg border border-gray-300 bg-white p-2.5 text-sm text-gray-900" id="location"
 							name="location" type="text" placeholder="Isikan lokasi checkpoint.." required>
 						<div class="mt-2 text-sm text-red-500" id="alert-location"></div>
@@ -46,7 +46,7 @@
 
 					<!-- Tombol Ambil Gambar -->
 					<div class="relative mb-4 w-full">
-						<label class="dark:text-white block text-sm font-medium text-gray-900" for="capture-button">Dokumentasi
+						<label class="block text-sm font-medium text-gray-900 dark:text-white" for="capture-button">Dokumentasi
 						</label>
 						<p class="mb-2 text-xs text-red-500"> *Dokumentasi tidak dapat diubah setelah laporan diinput. </p>
 
@@ -67,10 +67,10 @@
 					<div class="mb-2 text-sm text-red-500" id="alert-images"></div>
 
 					<div class="relative mb-4 w-full">
-						<label class="dark:text-white mb-2 block text-sm font-medium text-gray-900">
+						<label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
 							Keterangan
 						</label>
-						<div class="dark:bg-white h-32 w-full" id="editor"></div>
+						<div class="h-32 w-full dark:bg-white" id="editor"></div>
 						<input id="keterangan" name="keterangan" type="hidden">
 						<div class="mt-2 text-sm text-red-500" id="alert-keterangan"></div>
 					</div>
@@ -102,7 +102,7 @@
 		class="fixed left-0 right-0 top-0 z-50 hidden h-[calc(100%-1rem)] max-h-full w-full items-center justify-center overflow-y-auto overflow-x-hidden md:inset-0"
 		id="camera-modal">
 		<div class="relative max-h-full w-full max-w-2xl p-4">
-			<div class="dark:bg-gray-700 relative rounded-xl bg-white shadow">
+			<div class="relative rounded-xl bg-white shadow dark:bg-gray-700">
 				<div class="space-y-4 p-1">
 					<div class="relative">
 						<!-- Video -->

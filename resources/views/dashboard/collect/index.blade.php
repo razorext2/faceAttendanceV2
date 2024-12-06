@@ -7,7 +7,7 @@
 		<div class="max-w-xs">
 			<x-dashboard.button class="px-2.5 py-2" id="add-button" form="add-collector" type="submit" :color="'green'">
 				<x-slot name="icon">
-					<x-icons.arrow-left class="dark:fill-white icon h-6 w-6 rotate-180" />
+					<x-icons.arrow-left class="icon h-6 w-6 rotate-180 dark:fill-white" />
 				</x-slot>
 				Tambah Data
 			</x-dashboard.button>
@@ -16,7 +16,7 @@
 
 		<div class="flex h-auto items-center justify-center">
 			<div
-				class="dark:bg-[#18181b] dark:ring-gray-700 grid w-full grid-cols-2 gap-2 rounded-xl bg-white p-2 shadow-sm ring-1 ring-gray-200 md:gap-4 md:p-6">
+				class="grid w-full grid-cols-2 gap-2 rounded-xl bg-white p-2 shadow-sm ring-1 ring-gray-200 dark:bg-[#18181b] dark:ring-gray-700 md:gap-4 md:p-6">
 
 				{{-- filter dll --}}
 				@can('collect-approve')
@@ -24,13 +24,13 @@
 						<x-filter.filter-bar>
 							<div class="col-span-2 mx-auto flex w-full items-center lg:col-span-1">
 								<x-filter.filter-input-text id="kode-pegawai" name="kode-pegawai" :text="'kode pegawai'">
-									<x-icons.fingerprint class="dark:text-gray-400 h-4 w-4 text-gray-500" />
+									<x-icons.fingerprint class="h-4 w-4 text-gray-500 dark:text-gray-400" />
 								</x-filter.filter-input-text>
 							</div>
 
 							<div class="col-span-2 mx-auto flex w-full items-center lg:col-span-1">
 								<x-filter.filter-input-text id="title" name="title" :text="'judul laporan'">
-									<x-icons.font-case class="dark:text-gray-400 h-4 w-4 text-gray-500" />
+									<x-icons.font-case class="h-4 w-4 text-gray-500 dark:text-gray-400" />
 								</x-filter.filter-input-text>
 							</div>
 
@@ -46,32 +46,32 @@
 					</div>
 				@endcan
 
-				<div class="col-span-2">
-					<table class="dark:text-gray-300 mt-20 w-full text-left text-sm text-gray-500 sm:mt-4" id="table-collector">
+				<div class="col-span-2" x-data="{ openRow: null }">
+					<table class="z-10 mt-20 w-full text-left text-sm text-gray-500 dark:text-gray-300 sm:mt-4" id="table-collector">
 						<thead class="text-xs uppercase">
-							<tr>
+							<tr class="h-12">
 								<th>
-									<span class="dark:text-white flex items-center text-gray-800">
+									<span class="flex items-center text-gray-800 dark:text-white">
 										#
 									</span>
 								</th>
 								<th>
-									<span class="dark:text-white flex items-center text-gray-800">
-										Action
+									<span class="flex items-center text-gray-800 dark:text-white">
+										Aksi
 									</span>
 								</th>
 								<th>
-									<span class="dark:text-white flex items-center text-gray-800">
+									<span class="flex items-center text-gray-800 dark:text-white">
 										Nama Pegawai
 									</span>
 								</th>
 								<th>
-									<span class="dark:text-white flex items-center text-gray-800">
+									<span class="flex items-center text-gray-800 dark:text-white">
 										Tanggal laporan
 									</span>
 								</th>
 								<th>
-									<span class="dark:text-white flex items-center text-gray-800">
+									<span class="flex items-center text-gray-800 dark:text-white">
 										Judul
 									</span>
 								</th>

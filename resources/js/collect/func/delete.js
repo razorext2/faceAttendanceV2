@@ -25,7 +25,7 @@ export function deleteData() {
               icon: "success",
               title: response.message,
               showConfirmButton: false,
-              timer: 3000
+              timer: 1000
             });
 
             $('#table-collector').DataTable().ajax.reload(null, false);

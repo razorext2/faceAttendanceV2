@@ -1,6 +1,6 @@
-import { quillText } from "./quillText";
-import { zoomImage } from "./zoomImage";
-import { editDataHandler } from "./formHandler";
+import { quillText } from "./func/quillText";
+import { zoomImage } from "./func/zoomImage";
+import { editDataHandler } from "./func/formHandler";
 
 document.addEventListener("DOMContentLoaded", function () {
   quillText(data, true);

@@ -2,23 +2,25 @@
 @section('content')
 	<div class="w-full space-y-6">
 		<div
-			class="dark:bg-[#18181b] dark:ring-gray-700 grid gap-6 rounded-xl bg-white p-4 shadow-sm ring-1 ring-gray-200 sm:p-6">
-			<div class="w-full">
-				<header class="flex flex-row">
+			class="grid gap-6 rounded-xl bg-white p-4 shadow-sm ring-1 ring-gray-200 dark:bg-[#18181b] dark:ring-gray-700 sm:p-6">
+			@can('collect-create')
+				<div class="w-full">
+					<header class="flex flex-row">
 
-					<form id="index-collector" action="{{ route('collect.index') }}"></form>
-					<x-dashboard.button class="me-4 flex flex-row px-2.5 py-2" form="index-collector" type="submit" :color="'red'">
-						<x-slot name="icon">
-							<x-icons.arrow-left class="dark:fill-white icon h-6 w-6" />
-						</x-slot>
-						Kembali
-					</x-dashboard.button>
+						<form id="index-collector" action="{{ route('collect.index') }}"></form>
+						<x-dashboard.button class="me-4 flex flex-row px-2.5 py-2" form="index-collector" type="submit" :color="'red'">
+							<x-slot name="icon">
+								<x-icons.arrow-left class="icon h-6 w-6 dark:fill-white" />
+							</x-slot>
+							Kembali
+						</x-dashboard.button>
 
-					<h2 class="dark:text-gray-300 font-base mt-2 text-lg text-gray-900">
-						Ubah: <span class="font-bold text-white">{{ $data->title ?? 'N/A' }}</span>
-					</h2>
-				</header>
-			</div>
+						<h2 class="font-base mt-2 text-lg text-gray-900 dark:text-gray-300">
+							Ubah: <span class="font-bold text-white">{{ $data->title ?? 'N/A' }}</span>
+						</h2>
+					</header>
+				</div>
+			@endcan
 
 			<div class="w-full">
 
@@ -26,40 +28,40 @@
 					<input id="id" name="id" type="hidden" value="{{ $data->id ?? 'N/A' }}">
 
 					<div
-						class="dark:bg-gray-700 dark:border-gray-700 flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-white p-3">
-						<p class="dark:text-gray-300 text-sm text-gray-600">Kode Pegawai</p>
-						<p class="text-navy-700 dark:text-white text-base font-medium">
+						class="flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-white p-3 dark:border-gray-700 dark:bg-gray-700">
+						<p class="text-sm text-gray-600 dark:text-gray-300">Kode Pegawai</p>
+						<p class="text-navy-700 text-base font-medium dark:text-white">
 							{{ $data->kode_pegawai ?? 'N/A' }}
 						</p>
 					</div>
 
 					<div
-						class="dark:bg-gray-700 dark:border-gray-700 flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-white p-3">
-						<p class="dark:text-gray-300 text-sm text-gray-600">Nama Pegawai</p>
-						<p class="text-navy-700 dark:text-white text-base font-medium">
+						class="flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-white p-3 dark:border-gray-700 dark:bg-gray-700">
+						<p class="text-sm text-gray-600 dark:text-gray-300">Nama Pegawai</p>
+						<p class="text-navy-700 text-base font-medium dark:text-white">
 							{{ $data->pegawaiRelasi->full_name ?? 'N/A' }}
 						</p>
 					</div>
 
 					<div
-						class="dark:bg-gray-700 dark:border-gray-700 flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-white p-3">
-						<p class="dark:text-gray-300 text-sm text-gray-600">Waktu Laporan Dibuat</p>
-						<p class="text-navy-700 dark:text-white text-base font-medium">
+						class="flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-white p-3 dark:border-gray-700 dark:bg-gray-700">
+						<p class="text-sm text-gray-600 dark:text-gray-300">Waktu Laporan Dibuat</p>
+						<p class="text-navy-700 text-base font-medium dark:text-white">
 							{{ $data->created_at->locale('id')->isoFormat('D MMMM YYYY HH:mm:ss') ?? 'N/A' }}
 						</p>
 					</div>
 
 					<div
-						class="dark:bg-gray-700 dark:border-gray-700 flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-white p-3">
-						<p class="dark:text-gray-300 text-sm text-gray-600">Waktu Laporan Diupdate</p>
-						<p class="text-navy-700 dark:text-white text-base font-medium">
+						class="flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-white p-3 dark:border-gray-700 dark:bg-gray-700">
+						<p class="text-sm text-gray-600 dark:text-gray-300">Waktu Laporan Diupdate</p>
+						<p class="text-navy-700 text-base font-medium dark:text-white">
 							{{ $data->updated_at->locale('id')->isoFormat('D MMMM YYYY HH:mm:ss') ?? 'N/A' }}
 						</p>
 					</div>
 
 					<div
-						class="dark:bg-gray-700 dark:border-gray-700 flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-white p-3 md:col-span-2">
-						<p class="dark:text-gray-300 mb-2 text-sm text-gray-600">Judul Laporan <span class="text-sm text-red-500">*</span>
+						class="flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-white p-3 dark:border-gray-700 dark:bg-gray-700 md:col-span-2">
+						<p class="mb-2 text-sm text-gray-600 dark:text-gray-300">Judul Laporan <span class="text-sm text-red-500">*</span>
 						</p>
 						<input class="block w-full rounded-lg bg-gray-300 p-2.5 text-sm text-gray-900" id="title" name="title"
 							type="text" value="{{ $data->title ?? 'N/A' }}" placeholder="Judul laporan.." required>
@@ -67,8 +69,8 @@
 					</div>
 
 					<div
-						class="dark:bg-gray-700 dark:border-gray-700 flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-white p-3 md:col-span-2">
-						<p class="dark:text-gray-300 mb-2 text-sm text-gray-600">Lokasi <span class="text-sm text-red-500">*</span>
+						class="flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-white p-3 dark:border-gray-700 dark:bg-gray-700 md:col-span-2">
+						<p class="mb-2 text-sm text-gray-600 dark:text-gray-300">Lokasi <span class="text-sm text-red-500">*</span>
 						</p>
 						<input class="block w-full rounded-lg bg-gray-300 p-2.5 text-sm text-gray-900" id="location" name="location"
 							type="text" value="{{ $data->location ?? 'N/A' }}" placeholder="Judul laporan.." required>
@@ -76,8 +78,8 @@
 					</div>
 
 					<div
-						class="dark:bg-gray-700 dark:border-gray-700 flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-white p-3 md:col-span-2">
-						<p class="dark:text-gray-300 mb-2 text-sm text-gray-600">Dokumentasi</p>
+						class="flex flex-col items-start justify-center rounded-xl border border-gray-200 bg-white p-3 dark:border-gray-700 dark:bg-gray-700 md:col-span-2">
+						<p class="mb-2 text-sm text-gray-600 dark:text-gray-300">Dokumentasi</p>
 						<div class="relative overflow-auto">
 							<div class="flex overflow-x-auto" id="captured-images">
 								<!-- Thumbnail gambar yang diambil akan muncul di sini -->
@@ -96,9 +98,9 @@
 					</div>
 
 					<div class="relative col-span-2 mb-4">
-						<p class="dark:text-gray-300 mb-2 text-sm text-gray-600">Keterangan <span class="text-sm text-red-500">*</span>
+						<p class="mb-2 text-sm text-gray-600 dark:text-gray-300">Keterangan <span class="text-sm text-red-500">*</span>
 						</p>
-						<div class="dark:bg-white h-32 w-full" id="editor"></div>
+						<div class="h-32 w-full dark:bg-white" id="editor"></div>
 						<input id="keterangan" name="keterangan" type="hidden">
 						<div class="mt-2 hidden text-sm text-red-500" id="alert-keterangan"></div>
 					</div>
