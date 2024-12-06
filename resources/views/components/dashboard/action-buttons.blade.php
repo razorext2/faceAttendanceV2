@@ -1,9 +1,13 @@
 <div class="relative" x-data="{ open: false }">
-	<button
+	{{-- <button
 		class="action-button z-20 inline-flex items-center rounded-lg bg-blue-700 p-1.5 text-center text-sm font-medium text-white focus:ring-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
 		type="button" @click="open = !open" x-transition>
 		<x-icons.three-dots class="h-4 w-4 rotate-90" />
-	</button>
+	</button> --}}
+
+	<x-dashboard.button class="p-1.5" type="button" @click="open = !open" x-transition="" :color="'blue'">
+		<x-icons.three-dots class="h-4 w-4 rotate-90" />
+	</x-dashboard.button>
 
 	<!-- Dropdown menu -->
 	<div class="mt-1 w-auto rounded-lg border border-gray-100 bg-white shadow-md dark:border-none dark:bg-gray-700"
