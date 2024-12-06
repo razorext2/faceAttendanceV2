@@ -24,7 +24,7 @@
 				<x-landing.nav-link href="photo-regist" :active="request()->is('photo-regist')">Registrasi</x-landing.nav-link>
 				<x-landing.nav-link href="#scan" :active="request()->is('#scan')">Absen</x-landing.nav-link>
 				<x-landing.nav-guide></x-landing.nav-guide>
-				<x-landing.nav-link href="login" :active="request()->is('login')">
+				<x-landing.nav-link href="{{ auth()->user() ? 'dashboard' : 'login' }}" :active="request()->is('login')">
 					{{ auth()->user() ? 'Dashboard' : 'Login' }}
 				</x-landing.nav-link>
 			</ul>
