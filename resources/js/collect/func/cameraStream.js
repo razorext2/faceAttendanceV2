@@ -8,7 +8,7 @@ export function backCameraStream() {
   const videoElement = document.getElementById("video");
   const capturedImagesContainer = document.getElementById("captured-images");
 
-  const modal = new Modal(cameraModal, { closable: true, backdrop: 'dynamic' });
+  const modal = new Modal(cameraModal, { closable: true, backdrop: 'static' });
   let stream;
 
   async function startCamera() {
