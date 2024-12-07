@@ -112,7 +112,7 @@
 						<button
 							class="absolute bottom-4 left-1/2 h-14 w-14 -translate-x-1/2 transform rounded-full bg-white/60 shadow-lg ring-2 ring-white hover:bg-white/80 focus:outline-none md:bottom-6 md:h-16 md:w-16"
 							id="capture-image">
-							<x-icons.camera class="mx-auto w-10 stroke-white md:w-12" />
+							<x-icons.camera class="mx-auto h-8 w-8 text-white md:h-10 md:w-10" />
 						</button>
 
 						{{-- close button --}}
