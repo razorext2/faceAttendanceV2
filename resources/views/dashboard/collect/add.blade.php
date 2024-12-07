@@ -10,7 +10,7 @@
 					<form id="index-collector" action="{{ route('collect.index') }}"></form>
 					<x-dashboard.button class="me-4 flex flex-row px-2.5 py-2" form="index-collector" type="submit" :color="'red'">
 						<x-slot name="icon">
-							<x-icons.arrow-left class="icon h-6 w-6 dark:fill-white" />
+							<x-icons.angle-left class="icon h-6 w-6 text-red-500 dark:text-white" />
 						</x-slot>
 						Kembali
 					</x-dashboard.button>
@@ -50,9 +50,9 @@
 						</label>
 						<p class="mb-2 text-xs text-red-500"> *Dokumentasi tidak dapat diubah setelah laporan diinput. </p>
 
-						<x-dashboard.button class="px-5 py-2.5" id="capture-button" type="button" :color="'blue'">
+						<x-dashboard.button class="px-2.5 py-2" id="capture-button" type="button" :color="'blue'">
 							<x-slot name="icon">
-								<x-icons.plus class="icon h-4 w-4" />
+								<x-icons.plus class="icon h-5 w-5 text-blue-500 dark:text-white" />
 							</x-slot>
 							Ambil Foto
 						</x-dashboard.button>
@@ -87,7 +87,7 @@
 						<x-dashboard.button class="px-2.5 py-2" id="store" data-url="{{ route('collectors.store') }}" type="button"
 							:color="'blue'">
 							<x-slot name="icon">
-								<x-icons.arrow-left class="h-5 w-5 rotate-180" />
+								<x-icons.angle-right class="h-5 w-5 text-blue-500 dark:text-white" />
 							</x-slot>
 							Submit
 						</x-dashboard.button>
