@@ -21,7 +21,7 @@ class ApiCollectController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $query = Collector::select('id', 'kode_pegawai', 'title', 'status', 'keterangan', 'created_at')->with('photoCollectRelasi', 'pegawaiRelasi')->latest();
+            $query = Collector::select('id', 'kode_pegawai', 'title', 'status', 'keterangan', 'location', 'created_at')->with('photoCollectRelasi', 'pegawaiRelasi')->latest();
 
             return DataTables::eloquent($query)
                 ->addIndexColumn()

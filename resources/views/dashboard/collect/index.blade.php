@@ -47,7 +47,7 @@
 				@endcan
 
 				<div class="col-span-2" x-data="{ openRow: null }">
-					<table class="z-10 mt-20 w-full text-left text-sm text-gray-500 dark:text-gray-300 sm:mt-4" id="table-collector">
+					<table class="z-10 mt-20 w-full text-left text-sm text-gray-800 dark:text-gray-300 sm:mt-4" id="table-collector">
 						<thead class="text-xs uppercase">
 							<tr class="h-12">
 								<th>
@@ -68,6 +68,11 @@
 								<th>
 									<span class="flex items-center text-gray-800 dark:text-white">
 										Judul
+									</span>
+								</th>
+								<th>
+									<span class="flex items-center text-gray-800 dark:text-white">
+										Lokasi
 									</span>
 								</th>
 								<th>

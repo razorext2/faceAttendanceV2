@@ -33,6 +33,10 @@ export function showDatatables() {
       name: "title_status"
     },
     {
+      data: "location",
+      name: "location"
+    },
+    {
       data: "created_updated_at",
       name: "created_updated_at",
     }],
