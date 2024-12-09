@@ -115,8 +115,8 @@
 						</button>
 
 						{{-- close button --}}
-						<button class="absolute right-2 top-2 h-auto w-auto transform rounded-full focus:outline-none md:top-2"
-							id="close-button" data-modal-hide="camera-modal" type="button">
+						<button class="absolute right-2 top-2 h-auto w-auto transform focus:outline-none md:top-2" id="close-button"
+fix:							data-modal-hide="camera-modal" type="button">
 							<x-icons.close class="h-8 w-8 text-red-600 hover:text-red-800" />
 						</button>
 
