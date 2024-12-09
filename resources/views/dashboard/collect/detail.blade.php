@@ -7,13 +7,12 @@
 				<header class="flex flex-row">
 
 					<form id="index-collector" action="{{ route('collect.index') }}"></form>
-					<x-dashboard.button class="me-4 flex flex-row px-2.5 py-2" id="back-button" form="index-collector" type="submit"
-						:color="'red'">
+					<x-button.danger class="me-4" id="back-button" form="index-collector" type="submit">
 						<x-slot name="icon">
 							<x-icons.angle-left class="icon h-6 w-6 text-red-500 dark:text-white" />
 						</x-slot>
 						Kembali
-					</x-dashboard.button>
+					</x-button.danger>
 
 					<h2 class="font-base mt-2 text-lg text-gray-900 dark:text-gray-300">
 						Detail: <span class="font-bold text-white">{{ $data->title ?? 'N/A' }}</span>
@@ -124,13 +123,12 @@
 							<div class="col-span-2 mt-2 flex flex-col justify-end" id="action">
 								<div class="text-right">
 
-									<x-dashboard.button class="confirm-btn float-right px-2.5 py-2" id="confirm-btn" data-id="{{ $data->id }}"
-										type="button" :color="'green'">
+									<x-button.success class="confirm-btn float-right" id="confirm-btn" data-id="{{ $data->id }}" type="button">
 										<x-slot name="icon">
 											<x-icons.angle-right class="h-5 w-5" />
 										</x-slot>
 										Konfirmasi
-									</x-dashboard.button>
+									</x-button.success>
 
 								</div>
 							</div>

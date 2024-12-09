@@ -5,12 +5,12 @@
 
 		@can('collect-create')
 			<div class="max-w-xs">
-				<x-dashboard.button class="px-2.5 py-2" id="add-button" form="add-collector" type="submit" :color="'green'">
+				<x-button.success id="add-button" form="add-collector" type="submit">
 					<x-slot name="icon">
 						<x-icons.angle-right class="icon h-6 w-6 text-green-500 dark:text-white" />
 					</x-slot>
 					Tambah Data
-				</x-dashboard.button>
+				</x-button.success>
 			</div>
 		@endcan
 

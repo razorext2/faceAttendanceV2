@@ -5,9 +5,9 @@
 		<x-icons.three-dots class="h-4 w-4 rotate-90" />
 	</button> --}}
 
-	<x-dashboard.button class="p-1.5" type="button" @click="open = !open" x-transition="" :color="'blue'">
+	<x-button.primary type="button" @click="open = !open" x-transition="">
 		<x-icons.three-dots class="h-4 w-4 rotate-90" />
-	</x-dashboard.button>
+	</x-button.primary>
 
 	<!-- Dropdown menu -->
 	<div class="mt-1 w-auto rounded-lg border border-gray-100 bg-white shadow-md dark:border-none dark:bg-gray-700"

@@ -6,24 +6,24 @@
 
 		@can('dayoff-create')
 			<div class="max-w-xs">
-				<x-dashboard.button class="px-2.5 py-2" id="add-button" form="add-dayoff" type="submit" :color="'green'">
+				<x-button.success id="add-button" form="add-dayoff" type="submit">
 					<x-slot name="icon">
-						<x-icons.arrow-left class="dark:fill-white icon h-6 w-6 rotate-180" />
+						<x-icons.arrow-left class="icon h-6 w-6 rotate-180 dark:fill-white" />
 					</x-slot>
 					Tambah Data
-				</x-dashboard.button>
+				</x-button.success>
 			</div>
 		@endcan
 
 		<div class="flex h-auto items-center justify-center">
 			<div
-				class="dark:bg-[#18181b] dark:ring-gray-700 grid w-full grid-cols-2 gap-4 rounded-xl bg-white p-6 shadow-sm ring-1 ring-gray-200">
+				class="grid w-full grid-cols-2 gap-4 rounded-xl bg-white p-6 shadow-sm ring-1 ring-gray-200 dark:bg-[#18181b] dark:ring-gray-700">
 
 				<div class="col-span-2">
 					<x-filter.filter-bar>
 						<div class="col-span-2 mx-auto flex w-full items-center lg:col-span-1">
 							<x-filter.filter-input-text id="kode-pegawai" name="kode-pegawai" :text="'kode pegawai'">
-								<x-icons.fingerprint class="dark:text-gray-400 h-4 w-4 text-gray-500" />
+								<x-icons.fingerprint class="h-4 w-4 text-gray-500 dark:text-gray-400" />
 							</x-filter.filter-input-text>
 						</div>
 
@@ -44,46 +44,46 @@
 				</div>
 
 				<div class="col-span-2">
-					<table class="dark:text-gray-300 mt-20 w-full text-left text-sm text-gray-500 sm:mt-4" id="table-dayoff">
+					<table class="mt-20 w-full text-left text-sm text-gray-500 dark:text-gray-300 sm:mt-4" id="table-dayoff">
 						<thead class="text-xs uppercase">
 							<tr>
 								<th>
-									<span class="dark:text-white flex items-center text-gray-800">
+									<span class="flex items-center text-gray-800 dark:text-white">
 										#
 									</span>
 								</th>
 								<th>
-									<span class="dark:text-white flex items-center text-gray-800">
+									<span class="flex items-center text-gray-800 dark:text-white">
 										Action
 									</span>
 								</th>
 								<th>
-									<span class="dark:text-white flex items-center text-gray-800">
+									<span class="flex items-center text-gray-800 dark:text-white">
 										ID User
 									</span>
 								</th>
 								<th>
-									<span class="dark:text-white flex items-center text-gray-800">
+									<span class="flex items-center text-gray-800 dark:text-white">
 										Dayoff For
 									</span>
 								</th>
 								<th>
-									<span class="dark:text-white flex items-center text-gray-800">
+									<span class="flex items-center text-gray-800 dark:text-white">
 										Tanggal Dari
 									</span>
 								</th>
 								<th>
-									<span class="dark:text-white flex items-center text-gray-800">
+									<span class="flex items-center text-gray-800 dark:text-white">
 										Tanggal Hingga
 									</span>
 								</th>
 								<th>
-									<span class="dark:text-white flex items-center text-gray-800">
+									<span class="flex items-center text-gray-800 dark:text-white">
 										Status
 									</span>
 								</th>
 								<th>
-									<span class="dark:text-white flex items-center text-gray-800">
+									<span class="flex items-center text-gray-800 dark:text-white">
 										Create / Update
 									</span>
 								</th>

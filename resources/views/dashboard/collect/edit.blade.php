@@ -8,12 +8,12 @@
 					<header class="flex flex-row">
 
 						<form id="index-collector" action="{{ route('collect.index') }}"></form>
-						<x-dashboard.button class="me-4 flex flex-row px-2.5 py-2" form="index-collector" type="submit" :color="'red'">
+						<x-button.danger class="me-4 flex" form="index-collector" type="submit">
 							<x-slot name="icon">
 								<x-icons.angle-left class="icon h-6 w-6 text-red-500 dark:text-white" />
 							</x-slot>
 							Kembali
-						</x-dashboard.button>
+						</x-button.danger>
 
 						<h2 class="font-base mt-2 text-lg text-gray-900 dark:text-gray-300">
 							Ubah: <span class="font-bold text-white">{{ $data->title ?? 'N/A' }}</span>
@@ -106,12 +106,12 @@
 					</div>
 
 					<div class="relative col-span-2 w-full">
-						<x-dashboard.button class="float-right flex flex-row px-2.5 py-2" id="store" type="button" :color="'blue'">
+						<x-button.primary class="float-right" id="store" type="button">
 							<x-slot name="icon">
 								<x-icons.angle-right class="icon h-5 w-5" />
 							</x-slot>
 							Update laporan
-						</x-dashboard.button>
+						</x-button.primary>
 					</div>
 
 				</div>

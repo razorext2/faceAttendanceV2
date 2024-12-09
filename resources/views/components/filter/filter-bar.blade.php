@@ -1,7 +1,7 @@
 <div id="filter-bar" x-data="{ open: false }">
 	<h2>
 		<button
-			class="dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 flex w-full items-center justify-between gap-3 rounded-xl border border-gray-200 p-2.5 font-medium text-gray-500 hover:bg-gray-100"
+			class="flex w-full items-center justify-between gap-3 rounded-xl border border-gray-200 p-2.5 font-medium text-gray-500 hover:bg-gray-100 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-800"
 			type="button" @click="open = ! open">
 			<span>Filter data...</span>
 			<svg class="h-3 w-3 shrink-0 transform transition-transform duration-300" aria-hidden="true"
@@ -21,14 +21,14 @@
 			{{ $slot }}
 
 			<div class="col-span-2 mx-auto w-full">
-				<div class="mx-auto w-fit">
-					<x-filter.filter-button :color="'blue'" :id="'cari'" :type="'button'" :text="'Search'">
+				<div class="mx-auto flex w-fit flex-row gap-2">
+					<x-button.primary :id="'cari'" :type="'button'" :text="'Search'">
 						<x-icons.search class="h-4 w-4"></x-icons.search>
-					</x-filter.filter-button>
+					</x-button.primary>
 
-					<x-filter.filter-button :color="'red'" :id="'clear'" :type="'button'" :text="'Clear'" :class="'rotate-45'">
+					<x-button.danger :id="'clear'" :type="'button'" :text="'Clear'">
 						<x-icons.plus class="h-4 w-4 rotate-45"></x-icons.plus>
-					</x-filter.filter-button>
+					</x-button.danger>
 
 				</div>
 			</div>

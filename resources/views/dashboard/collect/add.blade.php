@@ -8,12 +8,12 @@
 				<header class="flex flex-row">
 
 					<form id="index-collector" action="{{ route('collect.index') }}"></form>
-					<x-dashboard.button class="me-4 flex flex-row px-2.5 py-2" form="index-collector" type="submit" :color="'red'">
+					<x-button.danger class="me-4" form="index-collector" type="submit">
 						<x-slot name="icon">
 							<x-icons.angle-left class="icon h-6 w-6 text-red-500 dark:text-white" />
 						</x-slot>
 						Kembali
-					</x-dashboard.button>
+					</x-button.danger>
 
 					<h2 class="mt-2 text-lg font-medium text-gray-900 dark:text-white">
 						{{ __('Tambah Laporan') }}
@@ -50,12 +50,12 @@
 						</label>
 						<p class="mb-2 text-xs text-red-500"> *Dokumentasi tidak dapat diubah setelah laporan diinput. </p>
 
-						<x-dashboard.button class="px-2.5 py-2" id="capture-button" type="button" :color="'blue'">
+						<x-button.primary id="capture-button" type="button">
 							<x-slot name="icon">
 								<x-icons.plus class="icon h-5 w-5 text-blue-500 dark:text-white" />
 							</x-slot>
 							Ambil Foto
-						</x-dashboard.button>
+						</x-button.primary>
 					</div>
 
 					<div class="relative overflow-auto">
@@ -84,13 +84,12 @@
 					<div class="mb-4 text-sm text-red-500" id="alert-coordinate"></div>
 
 					<div class="relative w-full">
-						<x-dashboard.button class="px-2.5 py-2" id="store" data-url="{{ route('collectors.store') }}" type="button"
-							:color="'blue'">
+						<x-button.primary id="store" data-url="{{ route('collectors.store') }}" type="button">
 							<x-slot name="icon">
 								<x-icons.angle-right class="h-5 w-5 text-blue-500 dark:text-white" />
 							</x-slot>
 							Submit
-						</x-dashboard.button>
+						</x-button.primary>
 					</div>
 				</form>
 			</div>
@@ -118,7 +117,7 @@
 						{{-- close button --}}
 						<button class="absolute right-2 top-2 h-auto w-auto transform rounded-full focus:outline-none md:top-2"
 							id="close-button" data-modal-hide="camera-modal" type="button">
-							<x-icons.close class="h-8 w-8 stroke-red-600 hover:stroke-red-800" />
+							<x-icons.close class="h-8 w-8 text-red-600 hover:text-red-800" />
 						</button>
 
 					</div>

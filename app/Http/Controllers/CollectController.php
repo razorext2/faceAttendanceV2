@@ -26,25 +26,20 @@ class CollectController extends Controller
 
             return DataTables::eloquent($query)
                 ->addIndexColumn()
-                ->editColumn('kode_pegawai', function ($data) {
-                    return $data->pegawaiRelasi->full_name . ' [' . $data->kode_pegawai . ']';
+                ->addColumn('name_code', function ($data) {
+                    return view('components.dashboard.name-w-code', [
+                        'name' => $data->pegawaiRelasi->full_name,
+                        'code' => $data->kode_pegawai
+                    ]);
                 })
                 ->addColumn('created_updated_at', function ($data) {
                     return $data->created_at->locale('id')->isoFormat('D MMM YYYY HH:mm:ss');
                 })
                 ->addColumn('title_status', function ($data) {
-                    $el =  '<div class="inline-flex">
-                            <p>' . $data->short_title . '</p>';
-
-                    if ($data->status === 0) {
-                        $el .= '<span class="bg-yellow-100 ms-2 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Pending</span>';
-                    } elseif ($data->status === 1) {
-                        $el .= '<span class="bg-green-100 ms-2 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Approved</span>';
-                    } else {
-                        $el .= '<span class="bg-red-100 ms-2 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">Rejected</span>';
-                    }
-                    '</div>';
-                    return $el;
+                    return view('components.dashboard.title-w-status', [
+                        'title' => $data->short_title,
+                        'status' => $data->status
+                    ])->render();
                 })
                 ->addColumn('actions', function ($data) {
                     return view('components.dashboard.action-buttons', [

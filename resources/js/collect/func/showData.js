@@ -25,8 +25,8 @@ export function showDatatables() {
       data: 'actions',
       name: 'actions',
     }, {
-      data: "kode_pegawai",
-      name: "kode_pegawai"
+      data: "name_code",
+      name: "name_code"
     },
     {
       data: "title_status",
